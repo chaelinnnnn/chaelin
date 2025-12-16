@@ -309,7 +309,7 @@
     <header>
         <div class="header-content">
             <div class="logo">
-                <video autoplay loop muted playsinline>
+                <video autoplay loop muted playsinline preload="auto">
                     <source src="logo.mp4" type="video/mp4">
                 </video>
             </div>
@@ -606,6 +606,18 @@
     </main>
 
     <script>
+        // Video Loop Fix
+        const logoVideo = document.querySelector('.logo video');
+        if (logoVideo) {
+            logoVideo.addEventListener('ended', function() {
+                this.currentTime = 0;
+                this.play();
+            });
+            
+            // Preload video
+            logoVideo.load();
+        }
+
         // Falling Stars Effect
         let lastStarTime = 0;
         const starInterval = 50; // 별 생성 간격 (ms)
