@@ -648,8 +648,8 @@
             star.setAttribute('width', '12');
             star.setAttribute('height', '12');
             star.setAttribute('viewBox', '0 0 24 24');
-            star.style.left = e.pageX + 'px';
-            star.style.top = e.pageY + 'px';
+            star.style.left = e.clientX + 'px';
+            star.style.top = (e.clientY + window.scrollY) + 'px';
             
             const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
             path.setAttribute('fill', '#FF6FD6');
