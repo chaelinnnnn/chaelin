@@ -71,15 +71,26 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            height: 50px;
+            height: auto;
             max-width: 100%;
+            padding: 15px 0;
         }
 
         .logo {
-            font-style: italic;
-            font-size: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: flex-start;
+        }
+
+        .logo video {
+            height: 50px;
+            width: auto;
+        }
+
+        .logo-text {
+            font-size: 13px;
             font-weight: 600;
-            text-decoration: none;
             color: var(--text);
         }
 
@@ -108,7 +119,7 @@
 
         /* Main Content */
         main {
-            margin-top: 50px;
+            margin-top: 100px;
             padding: 40px 0;
         }
 
@@ -116,8 +127,8 @@
         .grid-container {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            column-gap: 20px;
-            row-gap: 10px;
+            column-gap: 0px;
+            row-gap: 7px;
         }
 
         .grid-item {
@@ -295,7 +306,12 @@
 <body>
     <header>
         <div class="header-content">
-            <a href="#" class="logo">Chaelin kim</a>
+            <div class="logo">
+                <video autoplay loop muted playsinline>
+                    <source src="logo.mp4" type="video/mp4">
+                </video>
+                <div class="logo-text">Chaelin kim</div>
+            </div>
             <nav>
                 <a href="#" data-page="work" class="nav-link active">Art directing<br>& Brand Identity</a>
                 <a href="#" data-page="work" class="nav-link">Interaction</a>
