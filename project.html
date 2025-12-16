@@ -76,21 +76,31 @@
             margin-left: -15px;
         }
 
-        .back-link {
+        nav {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        nav a {
             text-decoration: none;
             color: var(--text);
             font-size: 13px;
             font-weight: 600;
             transition: opacity 0.2s;
-            display: flex;
-            align-items: center;
-            gap: 8px;
         }
 
-        .back-link:hover { opacity: 0.6; }
+        nav a:hover {
+            opacity: 0.6;
+        }
+
+        .contact-email {
+            font-size: 13px;
+            font-weight: 600;
+        }
 
         .project-detail {
-            margin-top: 120px;
+            margin-top: 180px;
             padding: 0 20px 60px;
             max-width: 1200px;
             margin-left: auto;
@@ -131,7 +141,7 @@
         }
 
         .project-description {
-            font-size: 16px;
+            font-size: 13px;
             line-height: 1.8;
             max-width: 800px;
         }
@@ -177,7 +187,7 @@
         .nav-project:hover { opacity: 0.6; }
 
         .nav-label {
-            font-size: 11px;
+            font-size: 13px;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.5px;
@@ -187,7 +197,7 @@
         }
 
         .nav-title {
-            font-size: 16px;
+            font-size: 13px;
             font-weight: 500;
         }
 
@@ -198,7 +208,7 @@
         .loading {
             text-align: center;
             padding: 100px 20px;
-            font-size: 16px;
+            font-size: 13px;
             color: #666;
         }
 
@@ -227,10 +237,15 @@
                     <source src="logo.mp4" type="video/mp4">
                 </video>
             </div>
-            <a href="index.html" class="back-link">
-                <span>←</span>
-                Back to Work
-            </a>
+            <nav>
+                <a href="index.html" class="nav-link">Art directing<br>& Brand Identity</a>
+                <a href="index.html" class="nav-link">Interaction</a>
+                <a href="index.html" class="nav-link">Editorial</a>
+                <a href="index.html" class="nav-link">Film</a>
+                <a href="index.html" class="nav-link">Exhibition</a>
+                <a href="index.html" class="nav-link">About</a>
+                <span class="contact-email">present1513@gmail.com</span>
+            </nav>
         </div>
     </header>
 
