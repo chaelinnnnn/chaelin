@@ -70,6 +70,12 @@
             overflow: hidden;
         }
 
+        .logo a {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
         .logo video {
             width: 180px;
             height: auto;
@@ -234,17 +240,19 @@
     <header>
         <div class="header-content">
             <div class="logo">
-                <video autoplay loop muted playsinline preload="auto">
-                    <source src="logo.mp4" type="video/mp4">
-                </video>
+                <a href="index-new.html">
+                    <video autoplay loop muted playsinline preload="auto">
+                        <source src="logo.mp4" type="video/mp4">
+                    </video>
+                </a>
             </div>
             <nav>
-                <a href="index.html" class="nav-link">Art directing<br>& Brand Identity</a>
-                <a href="index.html" class="nav-link">Interaction</a>
-                <a href="index.html" class="nav-link">Editorial</a>
-                <a href="index.html" class="nav-link">Film</a>
-                <a href="index.html" class="nav-link">Exhibition</a>
-                <a href="index.html" class="nav-link">About</a>
+                <a href="index-new.html" class="nav-link">Art directing<br>& Brand Identity</a>
+                <a href="index-new.html?category=interaction" class="nav-link">Interaction</a>
+                <a href="index-new.html?category=editorial" class="nav-link">Editorial</a>
+                <a href="index-new.html?category=film" class="nav-link">Film</a>
+                <a href="index-new.html?category=exhibition" class="nav-link">Exhibition</a>
+                <a href="index-new.html?page=about" class="nav-link">About</a>
                 <span class="contact-email">present1513@gmail.com</span>
             </nav>
         </div>
