@@ -3,6 +3,7 @@
     {
       "id": "2025-season-menu-sarr",
       "title": "[2025 Season menu] Sarr",
+      "category": "art-directing",
       "meta": "Poster design, Graphic design",
       "date": "April 2025",
       "client": "client: Sarr",
@@ -16,6 +17,7 @@
     {
       "id": "sarr",
       "title": "Sarr",
+      "category": "art-directing",
       "meta": "Art directing, Brand identity, Photography",
       "date": "April 2025",
       "client": "client: Sarr",
@@ -32,6 +34,7 @@
     {
       "id": "tymora",
       "title": "TYMORA",
+      "category": "art-directing",
       "meta": "Speculative design, Brand identity",
       "date": "December 2024",
       "client": "class: Transformation Design",
@@ -45,6 +48,7 @@
     {
       "id": "digital-time-capsule",
       "title": "Digital Time Capsule",
+      "category": "interaction",
       "meta": "Web development, Three.js, Interactive",
       "date": "November 2024",
       "client": "Personal project",
@@ -58,6 +62,7 @@
     {
       "id": "unedited",
       "title": "Unedited",
+      "category": "interaction",
       "meta": "Interactive web, Hand tracking",
       "date": "October 2024",
       "client": "class: Cross-disciplinary Studio",
@@ -71,6 +76,7 @@
     {
       "id": "holiday-nagging-visualization",
       "title": "Holiday Nagging Visualization",
+      "category": "interaction",
       "meta": "Audio-visual art, Data visualization",
       "date": "September 2024",
       "client": "Personal project",
@@ -84,6 +90,7 @@
     {
       "id": "ufo-data-sculpture",
       "title": "UFO Data Sculpture",
+      "category": "interaction",
       "meta": "Three.js, Data visualization, 3D printing",
       "date": "August 2024",
       "client": "Personal project",
@@ -97,6 +104,7 @@
     {
       "id": "emotion-tea-blending",
       "title": "Emotion Tea Blending",
+      "category": "interaction",
       "meta": "Interactive system, Web design",
       "date": "June 2024",
       "client": "class: Interactive Media",
@@ -110,6 +118,7 @@
     {
       "id": "generative-typography",
       "title": "Generative Typography",
+      "category": "interaction",
       "meta": "p5.js, Particle system, Web art",
       "date": "May 2024",
       "client": "Personal project",
@@ -123,6 +132,7 @@
     {
       "id": "ar-time-experience",
       "title": "AR Time Experience",
+      "category": "interaction",
       "meta": "Augmented reality, Speculative design",
       "date": "April 2024",
       "client": "class: Transformation Design",
@@ -136,6 +146,7 @@
     {
       "id": "cyber-garden",
       "title": "Cyber Garden",
+      "category": "exhibition",
       "meta": "Installation, Interactive media",
       "date": "March 2024",
       "client": "Exhibition project",
@@ -149,6 +160,7 @@
     {
       "id": "sound-waves",
       "title": "Sound Waves",
+      "category": "interaction",
       "meta": "Audio visualization, Web GL",
       "date": "February 2024",
       "client": "Personal project",
@@ -162,6 +174,7 @@
     {
       "id": "memory-archive",
       "title": "Memory Archive",
+      "category": "interaction",
       "meta": "Database design, Web interface",
       "date": "January 2024",
       "client": "class: Data & Society",
@@ -175,6 +188,7 @@
     {
       "id": "kinetic-poetry",
       "title": "Kinetic Poetry",
+      "category": "interaction",
       "meta": "Motion design, Typography",
       "date": "December 2023",
       "client": "Personal project",
@@ -188,6 +202,7 @@
     {
       "id": "climate-futures",
       "title": "Climate Futures",
+      "category": "editorial",
       "meta": "Speculative design, Editorial",
       "date": "November 2023",
       "client": "class: Design Fiction",
@@ -201,6 +216,7 @@
     {
       "id": "neural-networks",
       "title": "Neural Networks",
+      "category": "interaction",
       "meta": "Machine learning, Visualization",
       "date": "October 2023",
       "client": "Research project",
@@ -214,6 +230,7 @@
     {
       "id": "digital-botanica",
       "title": "Digital Botanica",
+      "category": "interaction",
       "meta": "3D modeling, Blender, Animation",
       "date": "September 2023",
       "client": "Personal project",
@@ -227,6 +244,7 @@
     {
       "id": "lunar-calendar",
       "title": "Lunar Calendar",
+      "category": "editorial",
       "meta": "Editorial design, Print",
       "date": "August 2023",
       "client": "client: Moon Studio",
@@ -240,6 +258,7 @@
     {
       "id": "urban-flows",
       "title": "Urban Flows",
+      "category": "editorial",
       "meta": "Data visualization, City mapping",
       "date": "July 2023",
       "client": "class: Information Design",
