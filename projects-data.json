@@ -1,5 +1,19 @@
 {
   "projects": [
+        {
+      "id": "2025-season-menu-sarr",
+      "title": "[2025 Season menu] Sarr",
+      "category": "art-directing",
+      "meta": "Poster design, Graphic design",
+      "date": "April 2025",
+      "client": "client: Sarr",
+      "type": "Poster Design",
+      "description": "Seasonal menu poster design for Sarr, exploring typography and visual identity through graphic design.",
+      "thumbnail": "sarr.png",
+      "images": [
+        { "src": "sarr.png", "caption": "Sarr seasonal menu poster" }
+      ]
+    },
     {
       "id": "2025-season-menu-sarr",
       "title": "[2025 Season menu] Sarr",
