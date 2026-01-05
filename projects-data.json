@@ -2,21 +2,37 @@
   "projects": [
     {
       "id": "2025-season-menu-sarr",
-      "title": "[2025 Season Menu] Sarr",
+      "title": "[2025 Season menu] Sarr",
       "category": "art-directing",
       "meta": "Poster design, Graphic design",
       "date": "April 2025",
-      "client": "Sarr",
+      "client": "client: Sarr",
       "type": "Poster Design",
       "description": {
-        "en": "Seasonal menu poster design for Sarr, exploring typography and visual identity through graphic design.",
-        "ko": "Sarr의 시즌 메뉴 포스터 디자인으로, 그래픽 디자인을 통해 타이포그래피와 비주얼 아이덴티티를 탐구했습니다."
+        "ko": "Sarr의 계절 메뉴 포스터 디자인으로, 타이포그래피와 시각적 아이덴티티를 그래픽 디자인을 통해 탐구합니다.",
+        "en": "Seasonal menu poster design for Sarr, exploring typography and visual identity through graphic design."
       },
       "thumbnail": "sarr.png",
       "images": [
         { "src": "sarr.png", "caption": "Sarr seasonal menu poster" }
       ]
+    },
+    {
+      "id": "sarr",
+      "title": "Sarr",
+      "category": "art-directing",
+      "meta": "Art directing, Brand identity, Photography",
+      "date": "April 2025",
+      "client": "client: Sarr",
+      "type": "Brand Identity, Art Direction",
+      "description": {
+        "ko": "Sarr는 현대 디자인과 전통 공예의 교차점을 탐구하는 종합 브랜드 아이덴티티 프로젝트입니다.",
+        "en": "Sarr is a comprehensive brand identity project that explores the intersection of contemporary design and traditional craftsmanship."
+      },
+      "thumbnail": "sarr.png",
+      "images": [
+        { "src": "sarr.png", "caption": "Main brand identity visual" }
+      ]
     }
   ]
 }
-
