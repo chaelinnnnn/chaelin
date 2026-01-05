@@ -301,9 +301,6 @@
             setTimeout(() => star.remove(), 1000);
         });
 
-        // Current language setting (default: English)
-        let currentLang = 'en';  // 'ko' 또는 'en'
-
         // Get project ID from URL
         const urlParams = new URLSearchParams(window.location.search);
         const projectId = urlParams.get('id');
@@ -335,12 +332,18 @@
             const prevProject = allProjects[currentIndex - 1] || allProjects[allProjects.length - 1];
             const nextProject = allProjects[currentIndex + 1] || allProjects[0];
 
-            // Get description based on current language
-            // If description is an object with ko/en, use currentLang
-            // Otherwise, use description as-is (backward compatibility)
-            const description = typeof project.description === 'object' 
-                ? project.description[currentLang] 
-                : project.description;
+            // Get description - show both languages if available
+            let descriptionHTML = '';
+            if (typeof project.description === 'object') {
+                // Show both Korean and English
+                descriptionHTML = `
+                    <p>${project.description.ko}</p>
+                    <p>${project.description.en}</p>
+                `;
+            } else {
+                // Single language (backward compatibility)
+                descriptionHTML = `<p>${project.description}</p>`;
+            }
 
             // Generate images HTML
             const imagesHTML = project.images.map(img => `
@@ -354,7 +357,7 @@
             const content = `
                 <div class="project-header">
                     <div class="project-description">
-                        <p>${description}</p>
+                        ${descriptionHTML}
                     </div>
                 </div>
 
