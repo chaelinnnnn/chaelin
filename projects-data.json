@@ -1,37 +1,22 @@
-export const projects = [
-  {
-    id: "2025-season-menu-sarr",
-    title: "[2025 Season Menu] Sarr",
-    category: "art-directing",
-    meta: "Poster design, Graphic design",
-    date: "April 2025",
-    client: "Sarr",
-    type: "Poster Design",
-    description: {
-      en: "Seasonal menu poster design for Sarr, exploring typography and visual identity through graphic design.",
-      ko: "Sarr의 시즌 메뉴 포스터 디자인으로, 그래픽 디자인을 통해 타이포그래피와 비주얼 아이덴티티를 탐구했습니다."
-    },
-    thumbnail: "sarr.png",
-    images: [
-      { src: "sarr.png", caption: "Sarr seasonal menu poster" }
-    ]
-  },
+{
+  "projects": [
+    {
+      "id": "2025-season-menu-sarr",
+      "title": "[2025 Season Menu] Sarr",
+      "category": "art-directing",
+      "meta": "Poster design, Graphic design",
+      "date": "April 2025",
+      "client": "Sarr",
+      "type": "Poster Design",
+      "description": {
+        "en": "Seasonal menu poster design for Sarr, exploring typography and visual identity through graphic design.",
+        "ko": "Sarr의 시즌 메뉴 포스터 디자인으로, 그래픽 디자인을 통해 타이포그래피와 비주얼 아이덴티티를 탐구했습니다."
+      },
+      "thumbnail": "sarr.png",
+      "images": [
+        { "src": "sarr.png", "caption": "Sarr seasonal menu poster" }
+      ]
+    }
+  ]
+}
 
-  {
-    id: "ufo",
-    title: "UFO",
-    category: "interactive-media",
-    meta: "Interactive Media",
-    date: "October 2025",
-    client: "Academic Project",
-    type: "Interactive Media",
-    description: {
-      en: "An interactive web artwork visualizing UFO sighting data from 10 U.S. states using 3D sculptures built with Three.js.",
-      ko: "Three.js로 제작된 3D 조형물을 통해 미국 10개 주의 UFO 목격 데이터를 시각화한 인터랙티브 웹 아트워크입니다."
-    },
-    thumbnail: "sarr.png",
-    images: [
-      { src: "sarr.png", caption: "UFO data visualization" }
-    ]
-  }
-];
