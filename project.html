@@ -335,10 +335,10 @@
             // Get description - show both languages if available
             let descriptionHTML = '';
             if (typeof project.description === 'object') {
-                // Show both Korean and English
+                // Show both English and Korean (English first)
                 descriptionHTML = `
-                    <p>${project.description.ko}</p>
                     <p>${project.description.en}</p>
+                    <p>${project.description.ko}</p>
                 `;
             } else {
                 // Single language (backward compatibility)
