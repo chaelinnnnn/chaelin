@@ -29,13 +29,13 @@
       ]
     },
     {
-      "id": "sarr",
-      "title": "Sarr",
-      "category": "art-directing",
-      "meta": "Art directing, Brand identity, Photography",
-      "date": "April 2025",
-      "client": "client: Sarr",
-      "type": "Brand Identity, Art Direction",
+      "id": "UFO",
+      "title": "UFO",
+      "category": "Interactive Media",
+      "meta": "Interactive Media",
+      "date": "October 2025",
+      "client": "Academic Project",
+      "type": "Interactive Media",
       "description": "Sarr is a comprehensive brand identity project that explores the intersection of contemporary design and traditional craftsmanship. The project encompasses visual identity development, art direction, and photography to create a cohesive brand experience. The approach focused on creating a minimal yet distinctive visual language that reflects the brand's values of authenticity and quality.",
       "thumbnail": "sarr.png",
       "images": [
@@ -74,17 +74,17 @@
       ]
     },
     {
-      "id": "unedited",
-      "title": "Unedited",
+      "id": "Universe",
+      "title": "Universe",
       "category": "interaction",
-      "meta": "Interactive web, Hand tracking",
-      "date": "October 2024",
-      "client": "class: Cross-disciplinary Studio",
+      "meta": "Interactive Media",
+      "date": "November 2024",
+      "client": "Academic Project",
       "type": "Interactive Media",
       "description": "An interactive web experience utilizing hand tracking technology for gesture-based controls and receipt printing simulations. This project explores the intersection of physical gesture and digital interaction.",
-      "thumbnail": "sarr.png",
+      "thumbnail": "universe.png",
       "images": [
-        { "src": "sarr.png", "caption": "Hand tracking interface" }
+        { "src": "universe.png", "caption": "Hand tracking interface" }
       ]
     },
     {
