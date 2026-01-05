@@ -8,7 +8,8 @@
       "date": "April 2025",
       "client": "Client: Sarr",
       "type": "Poster Design",
-      "description": "Seasonal menu poster design for Sarr, exploring typography and visual identity through graphic design.",
+      "english description": "Seasonal menu poster design for Sarr, exploring typography and visual identity through graphic design.",
+      "korean description": "Seasonal menu poster design for Sarr, exploring typography and visual identity through graphic design.",
       "thumbnail": "sarr.png",
       "images": [
         { "src": "sarr.png", "caption": "Sarr seasonal menu poster" }
@@ -22,7 +23,8 @@
       "date": "April 2025",
       "client": "Client: Sarr",
       "type": "Poster Design",
-      "description": "Seasonal menu poster design for Sarr, exploring typography and visual identity through graphic design.",
+      "english description": "Seasonal menu poster design for Sarr, exploring typography and visual identity through graphic design.",
+      "korean descrtiption": "Seasonal menu poster design for Sarr, exploring typography and visual identity through graphic design.",
       "thumbnail": "sarr.png",
       "images": [
         { "src": "sarr.png", "caption": "Sarr seasonal menu poster" }
@@ -54,7 +56,8 @@
       "date": "December 2024",
       "client": "class: Transformation Design",
       "type": "Speculative Design",
-      "description": "A speculative design project exploring the concept of time as a purchasable commodity through AR glasses and brand identity development. TYMORA challenges conventional relationships with time through immersive augmented reality experiences.",
+      "english description": "This project is an interactive web artwork that visualizes UFO sighting data from 10 U.S. states using 3D sculptures inspired by crop circles and alien antennas. Built with Three.js, each antenna’s height and complexity reflect the number of sightings. Users can explore and compare states through intuitive mouse, zoom, and pan controls, while an interactive map reveals overall patterns and distributions across regions.",
+      "korean description": "이 프로젝트는 크롭 서클과 외계인 안테나에서 영감을 받은 3D 조형물을 활용해 10개 미국 주의 UFO 목격 데이터를 시각화한 인터랙티브 웹 아트워크입니다. Three.js로 구현된 각 안테나는 목격 횟수에 따라 높이와 복잡도가 달라집니다. 사용자는 직관적인 마우스, 줌, 팬 컨트롤로 주별 데이터를 탐색하고 비교할 수 있으며, 인터랙티브 지도를 통해 지역별 패턴과 분포를 한눈에 확인할 수 있습니다.",
       "thumbnail": "sarr.png",
       "images": [
         { "src": "sarr.png", "caption": "TYMORA brand identity" }
@@ -68,7 +71,8 @@
       "date": "November 2024",
       "client": "Personal project",
       "type": "Interactive Web",
-      "description": "An interactive 3D web experience allowing users to create and customize time capsules with objects that unlock at specified future dates. Built with Three.js, this project explores themes of memory, anticipation, and digital preservation.",
+      "english description": "This project is an interactive web artwork that visualizes UFO sighting data from 10 U.S. states using 3D sculptures inspired by crop circles and alien antennas. Built with Three.js, each antenna’s height and complexity reflect the number of sightings. Users can explore and compare states through intuitive mouse, zoom, and pan controls, while an interactive map reveals overall patterns and distributions across regions.",
+      "korean description": "이 프로젝트는 크롭 서클과 외계인 안테나에서 영감을 받은 3D 조형물을 활용해 10개 미국 주의 UFO 목격 데이터를 시각화한 인터랙티브 웹 아트워크입니다. Three.js로 구현된 각 안테나는 목격 횟수에 따라 높이와 복잡도가 달라집니다. 사용자는 직관적인 마우스, 줌, 팬 컨트롤로 주별 데이터를 탐색하고 비교할 수 있으며, 인터랙티브 지도를 통해 지역별 패턴과 분포를 한눈에 확인할 수 있습니다.",
       "thumbnail": "sarr.png",
       "images": [
         { "src": "sarr.png", "caption": "Digital time capsule interface" }
