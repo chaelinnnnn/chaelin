@@ -17,12 +17,13 @@
       font-family: -apple-system, "system-ui", Inter, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
       background: var(--bg);
       color: var(--text);
-      font-size: 14.5px;
+      font-size: 13px;              /* ✅ 전체 폰트 13px 통일 */
       line-height: 1.6;
       font-weight: 400;
       -webkit-font-smoothing: antialiased;
       cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="%23FF6FD6" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>') 12 12, auto;
     }
+
     a, button {
       cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="%23FF6FD6" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>') 12 12, pointer;
     }
@@ -42,11 +43,7 @@
       padding: 15px 0;
     }
 
-    .logo {
-      width: 150px;
-      height: 85px;
-      overflow: hidden;
-    }
+    .logo { width: 150px; height: 85px; overflow: hidden; }
     .logo a { display:block; width:100%; height:100%; }
     .logo video { width: 180px; height: auto; margin-left: -15px; }
 
@@ -56,37 +53,42 @@
       align-items:center;
       flex-wrap: wrap;
     }
+
     nav a {
       text-decoration:none;
       color: var(--text);
-      font-size: 13px;
+      font-size: 13px;              /* ✅ 13px */
       font-weight: 600;
       transition: opacity .2s;
       line-height: 1.1;
     }
     nav a:hover { opacity: .6; }
-    .contact-email { font-size: 13px; font-weight: 600; }
+
+    .contact-email {
+      font-size: 13px;              /* ✅ 13px */
+      font-weight: 600;
+    }
 
     main { padding-top: 180px; }
 
     .wrap {
-      padding: 0 20px 60px;
-      max-width: 1200px;
+      padding: 0 20px 60px;         /* ✅ 좌우 20px */
+      max-width: 1400px;
       margin: 0 auto;
     }
 
     .loading {
       text-align:center;
       padding: 80px 20px;
-      font-size: 13px;
+      font-size: 13px;              /* ✅ 13px */
       color:#666;
     }
 
-    /* Grid */
+    /* ✅ 3개 고정 + 카드 간격 20px */
     .grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
+      grid-template-columns: repeat(3, minmax(0, 1fr)); /* ✅ 데스크탑 3개 */
+      gap: 20px;                                        /* ✅ 양옆(카드 사이) 20px */
       margin-top: 10px;
     }
 
@@ -100,15 +102,13 @@
 
     .thumb {
       width: 100%;
-      aspect-ratio: 4 / 3;
       border: 1px solid var(--border);
       overflow: hidden;
       background: #f7f7f7;
     }
     .thumb img {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
+      height: auto;                /* ✅ 원본 비율 유지 */
       display:block;
     }
 
@@ -118,21 +118,23 @@
       justify-content: space-between;
       gap: 12px;
       align-items: baseline;
+      font-size: 13px;             /* ✅ 13px */
     }
+
     .title {
-      font-size: 13px;
+      font-size: 13px;             /* ✅ 13px */
       font-weight: 600;
       line-height: 1.3;
     }
-    .meta {
-      font-size: 12px;
+
+    .year {
+      font-size: 13px;             /* ✅ 13px */
       color:#666;
       white-space: nowrap;
+      font-weight: 500;
     }
 
-    @media (max-width: 1024px) {
-      .grid { grid-template-columns: repeat(2, 1fr); }
-    }
+    /* 모바일만 1열로 */
     @media (max-width: 768px) {
       main { padding-top: 160px; }
       .grid { grid-template-columns: 1fr; }
@@ -189,6 +191,13 @@
     const urlParams = new URLSearchParams(location.search);
     const category = urlParams.get('category'); // optional filter
 
+    // ✅ "April 2025" -> "2025" (연도만)
+    function extractYear(dateStr) {
+      if (!dateStr) return '';
+      const m = String(dateStr).match(/(19|20)\d{2}/);
+      return m ? m[0] : '';
+    }
+
     fetch('projects-data.json', { cache: 'no-store' })
       .then(r => {
         if (!r.ok) throw new Error(`HTTP ${r.status}`);
@@ -213,16 +222,17 @@
 
         gridEl.innerHTML = filtered.map(p => {
           const thumb = p.thumbnail || (Array.isArray(p.images) && p.images[0] && p.images[0].src) || '';
-          const safeTitle = p.title || '';
-          const safeMeta = p.date || p.meta || '';
+          const title = p.title || '';
+          const year = extractYear(p.date);
+
           return `
             <a class="card" href="project.html?id=${encodeURIComponent(p.id)}">
               <div class="thumb">
-                ${thumb ? `<img src="${thumb}" alt="${safeTitle}">` : ''}
+                ${thumb ? `<img src="${thumb}" alt="${title}">` : ''}
               </div>
               <div class="info">
-                <div class="title">${safeTitle}</div>
-                <div class="meta">${safeMeta}</div>
+                <div class="title">${title}</div>
+                <div class="year">${year}</div>
               </div>
             </a>
           `;
