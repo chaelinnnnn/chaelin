@@ -267,17 +267,18 @@
     </main>
 
     <script>
-        // Video Seamless Loop
+        // Video Seamless Loop (keep as-is, but safer than default loop in some edits)
         const logoVideo = document.querySelector('.logo video');
         if (logoVideo) {
             logoVideo.removeAttribute('loop');
             logoVideo.addEventListener('timeupdate', function() {
+                if (!isFinite(this.duration)) return;
                 if (this.currentTime >= this.duration - 0.1) this.currentTime = 0;
             });
-            logoVideo.play().catch(e => console.log('Video autoplay prevented'));
+            logoVideo.play().catch(() => {});
         }
 
-        // Falling Stars
+        // Falling Stars (fixed positioning => DO NOT add scrollY)
         let lastStarTime = 0;
         document.addEventListener('mousemove', (e) => {
             const now = Date.now();
@@ -290,12 +291,12 @@
             star.setAttribute('height', '12');
             star.setAttribute('viewBox', '0 0 24 24');
             star.style.left = e.clientX + 'px';
-            star.style.top = (e.clientY + window.scrollY) + 'px';
-            
+            star.style.top = e.clientY + 'px';
+
             const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
             path.setAttribute('fill', '#FF6FD6');
             path.setAttribute('d', 'M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z');
-            
+
             star.appendChild(path);
             document.body.appendChild(star);
             setTimeout(() => star.remove(), 1000);
@@ -309,18 +310,31 @@
         fetch('projects-data.json')
             .then(response => response.json())
             .then(data => {
-                const projects = data.projects;
-                const project = projects.find(p => p.id === projectId);
-                
+                const projects = Array.isArray(data.projects) ? data.projects : [];
+
+                if (projects.length === 0) {
+                    document.getElementById('loading').innerHTML =
+                        'No projects found. <a href="index.html">Go back</a>';
+                    return;
+                }
+
+                // If no id provided, show the first project by default
+                const resolvedId = projectId ?? String(projects[0].id);
+
+                // Safe compare: handle numeric/string IDs
+                const project = projects.find(p => String(p.id) === String(resolvedId));
+
                 if (project) {
                     displayProject(project, projects);
                 } else {
-                    document.getElementById('loading').innerHTML = 'Project not found. <a href="index.html">Go back</a>';
+                    document.getElementById('loading').innerHTML =
+                        'Project not found. <a href="index.html">Go back</a>';
                 }
             })
             .catch(error => {
                 console.error('Error loading project:', error);
-                document.getElementById('loading').innerHTML = 'Error loading project. <a href="index.html">Go back</a>';
+                document.getElementById('loading').innerHTML =
+                    'Error loading project. <a href="index.html">Go back</a>';
             });
 
         function displayProject(project, allProjects) {
@@ -328,34 +342,35 @@
             document.title = `${project.title} - Chaelin Kim`;
 
             // Find previous and next projects
-            const currentIndex = allProjects.findIndex(p => p.id === project.id);
+            const currentIndex = allProjects.findIndex(p => String(p.id) === String(project.id));
             const prevProject = allProjects[currentIndex - 1] || allProjects[allProjects.length - 1];
             const nextProject = allProjects[currentIndex + 1] || allProjects[0];
 
             // Get description - show both languages if available
             let descriptionHTML = '';
-            if (typeof project.description === 'object') {
-                // Show both Korean and English
+            if (typeof project.description === 'object' && project.description !== null) {
                 descriptionHTML = `
-                    <p>${project.description.ko}</p>
-                    <p>${project.description.en}</p>
+                    ${project.description.ko ? `<p>${project.description.ko}</p>` : ''}
+                    ${project.description.en ? `<p>${project.description.en}</p>` : ''}
                 `;
             } else {
-                // Single language (backward compatibility)
-                descriptionHTML = `<p>${project.description}</p>`;
+                descriptionHTML = project.description ? `<p>${project.description}</p>` : '';
             }
 
-            // Generate images HTML
-            const imagesHTML = project.images.map(img => `
+            // Null-safe images
+            const images = Array.isArray(project.images) ? project.images : [];
+            const imagesHTML = images.map(img => `
                 <div class="project-image">
                     <img src="${img.src}" alt="${project.title}">
                     ${img.caption ? `<div class="image-caption">${img.caption}</div>` : ''}
                 </div>
             `).join('');
 
-            // Create project content
+            // Create project content (title added)
             const content = `
                 <div class="project-header">
+                    <h1 class="project-title">${project.title}</h1>
+
                     <div class="project-description">
                         ${descriptionHTML}
                     </div>
