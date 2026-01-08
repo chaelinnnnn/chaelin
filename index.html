@@ -120,6 +120,19 @@
       color: #666;
     }
 
+    /* ===== Falling Star Cursor (추가된 부분) ===== */
+    .falling-star {
+      position: fixed;
+      pointer-events: none;
+      z-index: 9999;
+      animation: fall 1s ease-in forwards;
+    }
+
+    @keyframes fall {
+      from { transform: translateY(0) rotate(0) scale(1); opacity: 1; }
+      to { transform: translateY(100px) rotate(180deg) scale(0); opacity: 0; }
+    }
+
     @media (max-width: 768px) {
       main { padding-top: 160px; }
       .grid { grid-template-columns: 1fr; }
@@ -158,6 +171,34 @@
 </main>
 
 <script>
+  /* ===== Falling Star Cursor (추가된 부분) ===== */
+  let lastStar = 0;
+  document.addEventListener('mousemove', e => {
+    const now = Date.now();
+    if (now - lastStar < 50) return;
+    lastStar = now;
+
+    const star = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    star.setAttribute('class', 'falling-star');
+    star.setAttribute('width', '12');
+    star.setAttribute('height', '12');
+    star.setAttribute('viewBox', '0 0 24 24');
+    star.style.left = e.clientX + 'px';
+    star.style.top = e.clientY + 'px';
+
+    const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    path.setAttribute('fill', '#FF6FD6');
+    path.setAttribute(
+      'd',
+      'M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z'
+    );
+
+    star.appendChild(path);
+    document.body.appendChild(star);
+    setTimeout(() => star.remove(), 1000);
+  });
+
+  /* ===== Projects ===== */
   const loading = document.getElementById('loading');
   const grid = document.getElementById('grid');
   const params = new URLSearchParams(location.search);
@@ -165,11 +206,9 @@
 
   const yearOnly = d => (d || '').match(/(19|20)\d{2}/)?.[0] || '';
 
-  // 썸네일 분기 (img / video)
   const renderThumb = (p) => {
     const src = p.thumbnail || '';
     const ext = src.split('.').pop().toLowerCase();
-
     if (['mp4', 'webm', 'mov'].includes(ext)) {
       return `
         <video autoplay loop muted playsinline preload="metadata">
