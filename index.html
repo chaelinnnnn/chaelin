@@ -20,13 +20,63 @@
       font-size: 13px;
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
+      cursor: url('data:image/svg+xml;utf8,\
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">\
+<path fill="%23FF6FD6" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>\
+</svg>') 12 12, auto;
     }
 
-    a { text-decoration: none; color: inherit; }
+    a { text-decoration: none; color: inherit; cursor: inherit; }
 
+    /* ===== Header ===== */
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: #fff;
+      padding: 0 20px;
+      z-index: 1000;
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 0;
+    }
+
+    .logo {
+      width: 150px;
+      height: 85px;
+      overflow: hidden;
+    }
+
+    .logo video {
+      width: 180px;
+      margin-left: -15px;
+    }
+
+    nav {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+    }
+
+    nav a,
+    .contact-email {
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    nav a:hover { opacity: 0.6; }
+
+    /* ===== Layout ===== */
     main { padding-top: 180px; }
 
-    .wrap { padding: 0 20px 60px; }
+    .wrap {
+      padding: 0 20px 60px;
+      max-width: none;
+      margin: 0;
+    }
 
     .grid {
       display: grid;
@@ -34,6 +84,7 @@
       gap: 10px;
     }
 
+    /* ===== Cards ===== */
     .card { display: block; }
 
     .thumb {
@@ -59,9 +110,10 @@
     }
 
     .title { font-weight: 600; }
-    .category { color: #666; }   /* ✅ 카테고리 */
+    .category { color: #666; }
     .year { color: #666; }
 
+    /* ===== Loading ===== */
     .loading {
       text-align: center;
       padding: 80px 0;
@@ -76,6 +128,28 @@
 </head>
 
 <body>
+<header>
+  <div class="header-content">
+    <div class="logo">
+      <a href="index.html">
+        <video autoplay loop muted playsinline>
+          <source src="logo.mp4" type="video/mp4">
+        </video>
+      </a>
+    </div>
+    <nav>
+      <a href="index.html">Art directing<br>& Brand Identity</a>
+      <a href="index.html?category=interaction">Interaction</a>
+      <a href="index.html?category=uxui">UX/UI</a>
+      <a href="index.html?category=editorial">Editorial</a>
+      <a href="index.html?category=film">Film</a>
+      <a href="index.html?category=exhibition">Exhibition</a>
+      <a href="index.html?page=about">About</a>
+      <span class="contact-email">present1513@gmail.com</span>
+    </nav>
+  </div>
+</header>
+
 <main>
   <div class="wrap">
     <div class="loading" id="loading">Loading projects...</div>
