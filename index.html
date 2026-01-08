@@ -20,75 +20,20 @@
       font-size: 13px;
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
-      cursor: url('data:image/svg+xml;utf8,\
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">\
-<path fill="%23FF6FD6" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>\
-</svg>') 12 12, auto;
     }
 
-    a {
-      text-decoration: none;
-      color: inherit;
-      cursor: inherit;
-    }
+    a { text-decoration: none; color: inherit; }
 
-    /* ===== Header ===== */
-    header {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      background: #fff;
-      padding: 0 20px;
-      z-index: 1000;
-    }
-
-    .header-content {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 15px 0;
-    }
-
-    .logo {
-      width: 150px;
-      height: 85px;
-      overflow: hidden;
-    }
-
-    .logo video {
-      width: 180px;
-      margin-left: -15px;
-    }
-
-    nav {
-      display: flex;
-      gap: 30px;
-      align-items: center;
-    }
-
-    nav a,
-    .contact-email {
-      font-size: 13px;
-      font-weight: 600;
-    }
-
-    nav a:hover { opacity: 0.6; }
-
-    /* ===== Layout ===== */
     main { padding-top: 180px; }
 
-    .wrap {
-      padding: 0 20px 60px;
-      max-width: none;
-      margin: 0;
-    }
+    .wrap { padding: 0 20px 60px; }
 
     .grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 20px;
+      gap: 10px;
     }
 
-    /* ===== Cards ===== */
     .card { display: block; }
 
     .thumb {
@@ -98,14 +43,7 @@
       background: #f7f7f7;
     }
 
-    .thumb img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    /* ✅ 요청한 CSS 추가: video 썸네일도 동일하게 */
+    .thumb img,
     .thumb video {
       width: 100%;
       height: 100%;
@@ -121,26 +59,13 @@
     }
 
     .title { font-weight: 600; }
+    .category { color: #666; }   /* ✅ 카테고리 */
     .year { color: #666; }
 
-    /* ===== Loading ===== */
     .loading {
       text-align: center;
       padding: 80px 0;
       color: #666;
-    }
-
-    /* ===== Falling Star ===== */
-    .falling-star {
-      position: fixed;
-      pointer-events: none;
-      z-index: 9999;
-      animation: fall 1s ease-in forwards;
-    }
-
-    @keyframes fall {
-      from { transform: translateY(0) rotate(0) scale(1); opacity: 1; }
-      to { transform: translateY(100px) rotate(180deg) scale(0); opacity: 0; }
     }
 
     @media (max-width: 768px) {
@@ -151,28 +76,6 @@
 </head>
 
 <body>
-<header>
-  <div class="header-content">
-    <div class="logo">
-      <a href="index.html">
-        <video autoplay loop muted playsinline>
-          <source src="logo.mp4" type="video/mp4">
-        </video>
-      </a>
-    </div>
-    <nav>
-      <a href="index.html">Art directing<br>& Brand Identity</a>
-      <a href="index.html?category=interaction">Interaction</a>
-      <a href="index.html?category=uxui">UX/UI</a>
-      <a href="index.html?category=editorial">Editorial</a>
-      <a href="index.html?category=film">Film</a>
-      <a href="index.html?category=exhibition">Exhibition</a>
-      <a href="index.html?page=about">About</a>
-      <span class="contact-email">present1513@gmail.com</span>
-    </nav>
-  </div>
-</header>
-
 <main>
   <div class="wrap">
     <div class="loading" id="loading">Loading projects...</div>
@@ -181,33 +84,6 @@
 </main>
 
 <script>
-  /* ===== Falling Star Cursor ===== */
-  let lastStar = 0;
-  document.addEventListener('mousemove', e => {
-    const now = Date.now();
-    if (now - lastStar < 50) return;
-    lastStar = now;
-
-    const star = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-    star.setAttribute('class', 'falling-star');
-    star.setAttribute('width', '12');
-    star.setAttribute('height', '12');
-    star.setAttribute('viewBox', '0 0 24 24');
-    star.style.left = e.clientX + 'px';
-    star.style.top = e.clientY + 'px';
-
-    const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-    path.setAttribute('fill', '#FF6FD6');
-    path.setAttribute('d',
-      'M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z'
-    );
-
-    star.appendChild(path);
-    document.body.appendChild(star);
-    setTimeout(() => star.remove(), 1000);
-  });
-
-  /* ===== Projects ===== */
   const loading = document.getElementById('loading');
   const grid = document.getElementById('grid');
   const params = new URLSearchParams(location.search);
@@ -215,7 +91,7 @@
 
   const yearOnly = d => (d || '').match(/(19|20)\d{2}/)?.[0] || '';
 
-  /* ✅ 요청한 JS 수정: mp4면 video로 분기 */
+  // 썸네일 분기 (img / video)
   const renderThumb = (p) => {
     const src = p.thumbnail || '';
     const ext = src.split('.').pop().toLowerCase();
@@ -227,7 +103,6 @@
         </video>
       `;
     }
-
     return `<img src="${src}" alt="${p.title}">`;
   };
 
@@ -245,7 +120,10 @@
             ${renderThumb(p)}
           </div>
           <div class="info">
-            <div class="title">${p.title}</div>
+            <div>
+              <div class="title">${p.title}</div>
+              <div class="category">${p.category || ''}</div>
+            </div>
             <div class="year">${yearOnly(p.date)}</div>
           </div>
         </a>
