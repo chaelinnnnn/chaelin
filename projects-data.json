@@ -287,14 +287,17 @@
         "en": "Sarr is a comprehensive brand identity project that explores the intersection of contemporary design and traditional craftsmanship."
       },
       "thumbnail": {
-        "type": "image",
-        "src": "sarr.png"
+        "type": "video",
+        "src": "MZintern.mp4"
       },
-      "media": [
+     "media": [
+        {
+          "type": "video",
+          "src": "singles.mp4"
+        },
         {
           "type": "image",
-          "src": "sarr.png",
-          "caption": "Main brand identity visual"
+          "src": "singles1.png"
         }
       ]
     },
