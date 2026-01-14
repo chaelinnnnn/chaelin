@@ -1,350 +1,354 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project - Chaelin Kim</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Neue+Haas+Grotesk+Display+Pro:wght@400;500;600&display=swap" rel="stylesheet">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project - Chaelin Kim</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Neue+Haas+Grotesk+Display+Pro:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        :root {
-            --bg: #FFFFFF;
-            --text: #000;
-            --border: #d0d0d0;
-        }
+    :root { --bg:#fff; --text:#000; --border:#d0d0d0; }
 
-        body {
-            font-family: -apple-system, "system-ui", Inter, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            font-size: 14.5px;
-            line-height: 1.6;
-            font-weight: 400;
-            -webkit-font-smoothing: antialiased;
-            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="%23FF6FD6" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>') 12 12, auto;
-        }
+    body {
+      font-family: -apple-system, "system-ui", Inter, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 14.5px;
+      line-height: 1.6;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+      cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="%23FF6FD6" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>') 12 12, auto;
+    }
 
-        a, button {
-            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="%23FF6FD6" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>') 12 12, pointer;
-        }
+    a, button {
+      cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="%23FF6FD6" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>') 12 12, pointer;
+    }
 
-        .falling-star {
-            position: fixed;
-            pointer-events: none;
-            z-index: 9999;
-            animation: fall 1s ease-in forwards;
-        }
+    .falling-star {
+      position: fixed;
+      pointer-events: none;
+      z-index: 9999;
+      animation: fall 1s ease-in forwards;
+    }
 
-        @keyframes fall {
-            0% { transform: translateY(0) rotate(0deg) scale(1); opacity: 1; }
-            100% { transform: translateY(100px) rotate(180deg) scale(0); opacity: 0; }
-        }
+    @keyframes fall {
+      0% { transform: translateY(0) rotate(0deg) scale(1); opacity: 1; }
+      100% { transform: translateY(100px) rotate(180deg) scale(0); opacity: 0; }
+    }
 
-        header {
-            position: fixed;
-            top: 0; left: 0; right: 0;
-            background: var(--bg);
-            z-index: 1000;
-            padding: 0 20px;
-        }
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: var(--bg);
+      z-index: 1000;
+      padding: 0 20px;
+    }
 
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 0;
-        }
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 0;
+    }
 
-        .logo { width: 150px; height: 85px; overflow: hidden; }
-        .logo a { display: block; width: 100%; height: 100%; }
-        .logo video { width: 180px; height: auto; margin-left: -15px; }
+    .logo { width: 150px; height: 85px; overflow: hidden; }
+    .logo a { display: block; width: 100%; height: 100%; }
+    .logo video { width: 180px; height: auto; margin-left: -15px; }
 
-        nav { display: flex; gap: 30px; align-items: center; }
+    nav { display: flex; gap: 30px; align-items: center; }
 
-        nav a {
-            text-decoration: none;
-            color: var(--text);
-            font-size: 13px;
-            font-weight: 600;
-            transition: opacity 0.2s;
-            line-height: 1.1;
-        }
+    nav a {
+      text-decoration: none;
+      color: var(--text);
+      font-size: 13px;
+      font-weight: 600;
+      transition: opacity 0.2s;
+      line-height: 1.1;
+    }
 
-        nav a:hover { opacity: 0.6; }
+    nav a:hover { opacity: 0.6; }
+    .contact-email { font-size: 13px; font-weight: 600; }
 
-        .contact-email { font-size: 13px; font-weight: 600; }
+    .project-detail {
+      margin-top: 180px;
+      padding: 0 20px 60px;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+      animation: fadeIn 0.6s ease forwards;
+    }
 
-        .project-detail {
-            margin-top: 180px;
-            padding: 0 20px 60px;
-            max-width: 1200px;
-            margin-left: auto;
-            margin-right: auto;
-            animation: fadeIn 0.6s ease forwards;
-        }
+    .project-description {
+      font-size: 13px;
+      line-height: 1.8;
+      max-width: 800px;
+    }
 
-        .project-description {
-            font-size: 13px;
-            line-height: 1.8;
-            max-width: 800px;
-        }
+    .project-description p { margin-bottom: 20px; }
 
-        .project-description p { margin-bottom: 20px; }
+    .project-images {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      margin-top: 60px;
+    }
 
-        .project-images {
-            display: flex;
-            flex-direction: column;
-            gap: 40px;
-            margin-top: 60px;
-        }
+    .project-image img,
+    .project-image video {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
 
-        .project-image img,
-        .project-image video {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
+    .project-image video { background: #000; }
 
-        .project-image video {
-            background: #000;
-        }
+    .image-caption {
+      font-size: 13px;
+      color: #666;
+      margin-top: 15px;
+    }
 
-        .image-caption {
-            font-size: 13px;
-            color: #666;
-            margin-top: 15px;
-        }
+    .project-navigation {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 100px;
+      padding-top: 40px;
+      gap: 40px;
+    }
 
-        .project-navigation {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 100px;
-            padding-top: 40px;
-            gap: 40px;
-        }
+    .nav-project {
+      text-decoration: none;
+      color: var(--text);
+      transition: opacity 0.2s;
+      flex: 1;
+    }
 
-        .nav-project {
-            text-decoration: none;
-            color: var(--text);
-            transition: opacity 0.2s;
-            flex: 1;
-        }
+    .nav-project:hover { opacity: 0.6; }
 
-        .nav-project:hover { opacity: 0.6; }
+    .nav-label {
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #666;
+      margin-bottom: 10px;
+      display: none;
+    }
 
-        .nav-label {
-            font-size: 13px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            color: #666;
-            margin-bottom: 10px;
-            display: none;
-        }
+    .nav-title { font-size: 13px; font-weight: 500; }
+    .nav-project.next { text-align: right; }
 
-        .nav-title { font-size: 13px; font-weight: 500; }
+    .loading {
+      text-align: center;
+      padding: 100px 20px;
+      font-size: 13px;
+      color: #666;
+    }
 
-        .nav-project.next { text-align: right; }
+    @media (max-width: 768px) {
+      .project-navigation { flex-direction: column; }
+      .nav-project.next { text-align: left; }
+    }
 
-        .loading {
-            text-align: center;
-            padding: 100px 20px;
-            font-size: 13px;
-            color: #666;
-        }
-
-        @media (max-width: 768px) {
-            .project-navigation { flex-direction: column; }
-            .nav-project.next { text-align: left; }
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-    </style>
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
 </head>
 
 <body>
-    <header>
-        <div class="header-content">
-            <div class="logo">
-                <a href="index.html">
-                    <video autoplay muted playsinline preload="auto">
-                        <source src="logo.mp4" type="video/mp4">
-                    </video>
-                </a>
-            </div>
-            <nav>
-                <a href="index.html" class="nav-link">Art directing<br>& Brand Identity</a>
-                <a href="index.html?category=interaction" class="nav-link">Interaction</a>
-                <a href="index.html?category=uxui" class="nav-link">UX/UI</a>
-                <a href="index.html?category=editorial" class="nav-link">Editorial</a>
-                <a href="index.html?category=film" class="nav-link">Film</a>
-                <a href="index.html?category=exhibition" class="nav-link">Exhibition</a>
-                <a href="index.html?page=about" class="nav-link">About</a>
-                <span class="contact-email">present1513@gmail.com</span>
-            </nav>
+<header>
+  <div class="header-content">
+    <div class="logo">
+      <a href="index.html">
+        <video autoplay muted playsinline preload="auto">
+          <source src="logo.mp4" type="video/mp4" />
+        </video>
+      </a>
+    </div>
+    <nav>
+      <a href="index.html" class="nav-link">Art directing<br>& Brand Identity</a>
+      <a href="index.html?category=interaction" class="nav-link">Interaction</a>
+      <a href="index.html?category=uxui" class="nav-link">UX/UI</a>
+      <a href="index.html?category=editorial" class="nav-link">Editorial</a>
+      <a href="index.html?category=film" class="nav-link">Film</a>
+      <a href="index.html?category=exhibition" class="nav-link">Exhibition</a>
+      <a href="index.html?page=about" class="nav-link">About</a>
+      <span class="contact-email">present1513@gmail.com</span>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="loading" id="loading">Loading project...</div>
+  <div class="project-detail" id="projectContent" style="display:none;"></div>
+</main>
+
+<script>
+  // Logo seamless loop
+  const logoVideo = document.querySelector('.logo video');
+  if (logoVideo) {
+    logoVideo.removeAttribute('loop');
+    logoVideo.addEventListener('timeupdate', function () {
+      if (this.currentTime >= this.duration - 0.1) this.currentTime = 0;
+    });
+    logoVideo.play().catch(() => {});
+  }
+
+  // Falling Stars
+  let lastStarTime = 0;
+  document.addEventListener('mousemove', (e) => {
+    const now = Date.now();
+    if (now - lastStarTime < 50) return;
+    lastStarTime = now;
+
+    const star = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    star.setAttribute('class', 'falling-star');
+    star.setAttribute('width', '12');
+    star.setAttribute('height', '12');
+    star.setAttribute('viewBox', '0 0 24 24');
+    star.style.left = e.clientX + 'px';
+    star.style.top = (e.clientY + window.scrollY) + 'px';
+
+    const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    path.setAttribute('fill', '#FF6FD6');
+    path.setAttribute('d', 'M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z');
+
+    star.appendChild(path);
+    document.body.appendChild(star);
+    setTimeout(() => star.remove(), 1000);
+  });
+
+  // Language
+  let currentLang = 'en'; // 'ko' or 'en'
+
+  // Project id
+  const urlParams = new URLSearchParams(window.location.search);
+  const projectId = urlParams.get('id');
+
+  // ✅ 완전 방어형: 어떤 경우에도 배열 리턴 (map 에러 방지)
+  const normalizeMedia = (project) => {
+    if (!project) return [];
+
+    const raw = Array.isArray(project.media)
+      ? project.media
+      : (Array.isArray(project.images) ? project.images : []);
+
+    return raw
+      .map((item) => {
+        // item이 문자열로 들어오는 경우까지 방어
+        if (typeof item === 'string') {
+          const srcStr = item;
+          const ext = (srcStr.split('.').pop() || '').toLowerCase();
+          const type = (['mp4','webm','mov'].includes(ext)) ? 'video' : 'image';
+          return { type, src: srcStr };
+        }
+
+        const src = (item && item.src) ? item.src : '';
+        const caption = (item && item.caption) ? item.caption : '';
+
+        if (!src) return null;
+
+        // type이 있으면 그대로, 없으면 확장자로 추정
+        let type = (item && item.type) ? item.type : '';
+        if (!type) {
+          const ext = (src.split('.').pop() || '').toLowerCase();
+          type = (['mp4','webm','mov'].includes(ext)) ? 'video' : 'image';
+        }
+
+        return { type, src, caption };
+      })
+      .filter(Boolean);
+  };
+
+  const renderMediaItem = (item, projectTitle) => {
+    if (item.type === 'video') {
+      return `
+        <div class="project-image">
+          <video controls playsinline preload="metadata">
+            <source src="${item.src}" type="video/mp4">
+          </video>
+          ${item.caption ? `<div class="image-caption">${item.caption}</div>` : ''}
         </div>
-    </header>
+      `;
+    }
 
-    <main>
-        <div class="loading" id="loading">Loading project...</div>
-        <div class="project-detail" id="projectContent" style="display: none;"></div>
-    </main>
+    return `
+      <div class="project-image">
+        <img src="${item.src}" alt="${projectTitle}">
+        ${item.caption ? `<div class="image-caption">${item.caption}</div>` : ''}
+      </div>
+    `;
+  };
 
-    <script>
-        // Video Seamless Loop (logo)
-        const logoVideo = document.querySelector('.logo video');
-        if (logoVideo) {
-            logoVideo.removeAttribute('loop');
-            logoVideo.addEventListener('timeupdate', function() {
-                if (this.currentTime >= this.duration - 0.1) this.currentTime = 0;
-            });
-            logoVideo.play().catch(() => {});
-        }
+  fetch('projects-data.json', { cache: 'no-store' })
+    .then((response) => response.json())
+    .then((data) => {
+      const projects = Array.isArray(data.projects) ? data.projects : [];
+      const project = projects.find((p) => p && p.id === projectId);
 
-        // Falling Stars
-        let lastStarTime = 0;
-        document.addEventListener('mousemove', (e) => {
-            const now = Date.now();
-            if (now - lastStarTime < 50) return;
-            lastStarTime = now;
+      if (project) {
+        displayProject(project, projects);
+      } else {
+        document.getElementById('loading').innerHTML = 'Project not found. <a href="index.html">Go back</a>';
+      }
+    })
+    .catch((error) => {
+      console.error('Error loading project:', error);
+      document.getElementById('loading').innerHTML = 'Error loading project. <a href="index.html">Go back</a>';
+    });
 
-            const star = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-            star.setAttribute('class', 'falling-star');
-            star.setAttribute('width', '12');
-            star.setAttribute('height', '12');
-            star.setAttribute('viewBox', '0 0 24 24');
-            star.style.left = e.clientX + 'px';
-            star.style.top = (e.clientY + window.scrollY) + 'px';
+  function displayProject(project, allProjects) {
+    document.title = `${project.title || 'Project'} - Chaelin Kim`;
 
-            const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-            path.setAttribute('fill', '#FF6FD6');
-            path.setAttribute('d', 'M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z');
+    const safeAll = Array.isArray(allProjects) ? allProjects : [];
+    const currentIndex = safeAll.findIndex((p) => p && p.id === project.id);
+    const prevProject = safeAll[(currentIndex - 1 + safeAll.length) % safeAll.length] || {};
+    const nextProject = safeAll[(currentIndex + 1) % safeAll.length] || {};
 
-            star.appendChild(path);
-            document.body.appendChild(star);
-            setTimeout(() => star.remove(), 1000);
-        });
+    const description =
+      (project.description && typeof project.description === 'object')
+        ? (project.description[currentLang] || project.description.en || project.description.ko || '')
+        : (project.description || '');
 
-        // Current language (default: English)
-        let currentLang = 'en'; // 'ko' or 'en'
+    // ✅ 여기서도 한 번 더 방어: normalizeMedia가 뭘 반환하든 map 터지지 않게
+    const mediaItems = normalizeMedia(project);
+    const mediaHTML = (Array.isArray(mediaItems) ? mediaItems : [])
+      .map((item) => renderMediaItem(item, project.title || ''))
+      .join('');
 
-        // Get project ID from URL
-        const urlParams = new URLSearchParams(window.location.search);
-        const projectId = urlParams.get('id');
+    const content = `
+      <div class="project-header">
+        <div class="project-description">
+          <p>${description}</p>
+        </div>
+      </div>
 
-        // ✅ media/images 통합 + type 추정까지 (구 데이터 호환)
-        const normalizeMedia = (project) => {
-            const arr = Array.isArray(project.media)
-                ? project.media
-                : (Array.isArray(project.images) ? project.images : []);
+      <div class="project-images">
+        ${mediaHTML}
+      </div>
 
-            return arr.map(item => {
-                const src = item?.src || '';
-                const caption = item?.caption;
+      <div class="project-navigation">
+        <a href="project.html?id=${encodeURIComponent(prevProject.id || '')}" class="nav-project prev">
+          <div class="nav-label">Previous Project</div>
+          <div class="nav-title">${prevProject.title || ''}</div>
+        </a>
+        <a href="project.html?id=${encodeURIComponent(nextProject.id || '')}" class="nav-project next">
+          <div class="nav-label">Next Project</div>
+          <div class="nav-title">${nextProject.title || ''}</div>
+        </a>
+      </div>
+    `;
 
-                // 이미 type이 있으면 그대로 사용
-                if (item && typeof item === 'object' && item.type && src) {
-                    return { type: item.type, src, caption };
-                }
-
-                // type 없으면 확장자로 추정 (구 구조 호환)
-                const ext = (src.split('.').pop() || '').toLowerCase();
-                const type = (['mp4', 'webm', 'mov'].includes(ext)) ? 'video' : 'image';
-                return { type, src, caption };
-            }).filter(x => x.src);
-        };
-
-        const renderMediaItem = (item, projectTitle) => {
-            if (item.type === 'video') {
-                return `
-                    <div class="project-image">
-                        <video controls playsinline preload="metadata">
-                            <source src="${item.src}" type="video/mp4">
-                        </video>
-                        ${item.caption ? `<div class="image-caption">${item.caption}</div>` : ''}
-                    </div>
-                `;
-            }
-
-            return `
-                <div class="project-image">
-                    <img src="${item.src}" alt="${projectTitle}">
-                    ${item.caption ? `<div class="image-caption">${item.caption}</div>` : ''}
-                </div>
-            `;
-        };
-
-        // Load project data
-        fetch('projects-data.json', { cache: 'no-store' })
-            .then(response => response.json())
-            .then(data => {
-                const projects = data.projects || [];
-                const project = projects.find(p => p.id === projectId);
-
-                if (project) {
-                    displayProject(project, projects);
-                } else {
-                    document.getElementById('loading').innerHTML = 'Project not found. <a href="index.html">Go back</a>';
-                }
-            })
-            .catch(error => {
-                console.error('Error loading project:', error);
-                document.getElementById('loading').innerHTML = 'Error loading project. <a href="index.html">Go back</a>';
-            });
-
-        function displayProject(project, allProjects) {
-            // Update page title
-            document.title = `${project.title || 'Project'} - Chaelin Kim`;
-
-            // Previous/Next
-            const currentIndex = allProjects.findIndex(p => p.id === project.id);
-            const prevProject = allProjects[currentIndex - 1] || allProjects[allProjects.length - 1];
-            const nextProject = allProjects[currentIndex + 1] || allProjects[0];
-
-            // Description language
-            const description = (project.description && typeof project.description === 'object')
-                ? (project.description[currentLang] || project.description.en || project.description.ko || '')
-                : (project.description || '');
-
-            // ✅ images -> media 통일
-            const mediaItems = normalizeMedia(project);
-
-            const mediaHTML = mediaItems.map(item => renderMediaItem(item, project.title || '')).join('');
-
-            const content = `
-                <div class="project-header">
-                    <div class="project-description">
-                        <p>${description}</p>
-                    </div>
-                </div>
-
-                <div class="project-images">
-                    ${mediaHTML}
-                </div>
-
-                <div class="project-navigation">
-                    <a href="project.html?id=${encodeURIComponent(prevProject.id)}" class="nav-project prev">
-                        <div class="nav-label">Previous Project</div>
-                        <div class="nav-title">${prevProject.title || ''}</div>
-                    </a>
-                    <a href="project.html?id=${encodeURIComponent(nextProject.id)}" class="nav-project next">
-                        <div class="nav-label">Next Project</div>
-                        <div class="nav-title">${nextProject.title || ''}</div>
-                    </a>
-                </div>
-            `;
-
-            document.getElementById('loading').style.display = 'none';
-            const projectContent = document.getElementById('projectContent');
-            projectContent.innerHTML = content;
-            projectContent.style.display = 'block';
-        }
-    </script>
+    document.getElementById('loading').style.display = 'none';
+    const projectContent = document.getElementById('projectContent');
+    projectContent.innerHTML = content;
+    projectContent.style.display = 'block';
+  }
+</script>
 </body>
 </html>
