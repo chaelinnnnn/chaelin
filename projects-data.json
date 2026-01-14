@@ -347,27 +347,38 @@
       ]
     },
     {
-      "id": "sarr-14",
-      "title": "Sarr",
+      "id": "Foretderm",
+      "title": "Foretderm Derma Intense Vita Cream Package Design",
       "category": "art-directing",
-      "meta": "Art directing, Brand identity, Photography",
-      "date": "April 2025",
-      "client": "Client: Sarr",
+      "meta": "Art directing, Package Design",
+      "date": "September 2021",
+      "client": "Foretderm",
       "type": "Brand Identity, Art Direction",
       "description": {
-        "ko": "Sarr는 현대 디자인과 전통 공예의 교차점을 탐구하는 종합 브랜드 아이덴티티 프로젝트입니다.",
-        "en": "Sarr is a comprehensive brand identity project that explores the intersection of contemporary design and traditional craftsmanship."
+        "ko": "민감한 피부를 보호하는 베이직 안심라인에서 추가적인 기능을 더한 세컨드 기능성 라인으로 개념을 확장하였으며, 동일하게 “클린 더마뷰티" 라는 타이틀이 느껴지도록 하였습니다.",
+        "en": "I expanded the concept from a basic safe line designed to protect sensitive skin into a secondary functional line with added benefits, while maintaining a consistent “Clean Derma Beauty” identity."
       },
       "thumbnail": {
         "type": "image",
-        "src": "sarr.png"
+        "src": "foretderm.png"
       },
       "media": [
-        {
-          "type": "image",
-          "src": "sarr.png",
-          "caption": "Main brand identity visual"
-        }
+      {
+      "type": "image",
+      "src": "foretderm1.png"
+      },
+      {
+      "type": "image",
+      "src": "foretderm2.png"
+      },
+      {
+      "type": "image",
+      "src": "foretderm3.png"
+      },
+      {
+      "type": "image",
+      "src": "foretderm4.png"
+      }
       ]
     }
   ]
