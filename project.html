@@ -9,153 +9,139 @@
   <link href="https://fonts.googleapis.com/css2?family=Neue+Haas+Grotesk+Display+Pro:wght@400;500;600&display=swap" rel="stylesheet" />
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-
     :root { --bg:#fff; --text:#000; --border:#d0d0d0; }
 
-    body {
-      font-family: -apple-system, "system-ui", Inter, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      font-size: 14.5px;
-      line-height: 1.6;
-      font-weight: 400;
-      -webkit-font-smoothing: antialiased;
-      cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="%23FF6FD6" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>') 12 12, auto;
+    body{
+      font-family:-apple-system,"system-ui",Inter,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Open Sans","Helvetica Neue",sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      font-size:14.5px;
+      line-height:1.6;
+      font-weight:400;
+      -webkit-font-smoothing:antialiased;
+      cursor:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="%23FF6FD6" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>') 12 12, auto;
+    }
+    a,button{
+      cursor:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="%23FF6FD6" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>') 12 12, pointer;
     }
 
-    a, button {
-      cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="%23FF6FD6" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>') 12 12, pointer;
+    .falling-star{
+      position:fixed;
+      pointer-events:none;
+      z-index:9999;
+      animation:fall 1s ease-in forwards;
+    }
+    @keyframes fall{
+      0%{transform:translateY(0) rotate(0deg) scale(1);opacity:1;}
+      100%{transform:translateY(100px) rotate(180deg) scale(0);opacity:0;}
     }
 
-    .falling-star {
-      position: fixed;
-      pointer-events: none;
-      z-index: 9999;
-      animation: fall 1s ease-in forwards;
+    header{
+      position:fixed;
+      top:0;left:0;right:0;
+      background:var(--bg);
+      z-index:1000;
+      padding:0 20px;
     }
-
-    @keyframes fall {
-      0% { transform: translateY(0) rotate(0deg) scale(1); opacity: 1; }
-      100% { transform: translateY(100px) rotate(180deg) scale(0); opacity: 0; }
+    .header-content{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:15px 0;
     }
+    .logo{width:150px;height:85px;overflow:hidden;}
+    .logo a{display:block;width:100%;height:100%;}
+    .logo video{width:180px;height:auto;margin-left:-15px;}
 
-    header {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      background: var(--bg);
-      z-index: 1000;
-      padding: 0 20px;
+    nav{display:flex;gap:30px;align-items:center;}
+    nav a{
+      text-decoration:none;
+      color:var(--text);
+      font-size:13px;
+      font-weight:600;
+      transition:opacity .2s;
+      line-height:1.1;
     }
+    nav a:hover{opacity:.6;}
+    .contact-email{font-size:13px;font-weight:600;}
 
-    .header-content {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 15px 0;
+    .project-detail{
+      margin-top:180px;
+      padding:0 20px 60px;
+      max-width:1200px;
+      margin-left:auto;
+      margin-right:auto;
+      animation:fadeIn .6s ease forwards;
     }
-
-    .logo { width: 150px; height: 85px; overflow: hidden; }
-    .logo a { display: block; width: 100%; height: 100%; }
-    .logo video { width: 180px; height: auto; margin-left: -15px; }
-
-    nav { display: flex; gap: 30px; align-items: center; }
-
-    nav a {
-      text-decoration: none;
-      color: var(--text);
-      font-size: 13px;
-      font-weight: 600;
-      transition: opacity 0.2s;
-      line-height: 1.1;
+    .project-description{
+      font-size:13px;
+      line-height:1.8;
+      max-width:800px;
     }
+    .project-description p{margin-bottom:20px;}
 
-    nav a:hover { opacity: 0.6; }
-    .contact-email { font-size: 13px; font-weight: 600; }
-
-    .project-detail {
-      margin-top: 180px;
-      padding: 0 20px 60px;
-      max-width: 1200px;
-      margin-left: auto;
-      margin-right: auto;
-      animation: fadeIn 0.6s ease forwards;
-    }
-
-    .project-description {
-      font-size: 13px;
-      line-height: 1.8;
-      max-width: 800px;
-    }
-
-    .project-description p { margin-bottom: 20px; }
-
-    .project-images {
-      display: flex;
-      flex-direction: column;
-      gap: 40px;
-      margin-top: 60px;
+    .project-images{
+      display:flex;
+      flex-direction:column;
+      gap:40px;
+      margin-top:60px;
     }
 
     .project-image img,
-    .project-image video {
-      width: 100%;
-      height: auto;
-      display: block;
+    .project-image video{
+      width:100%;
+      height:auto;
+      display:block;
+    }
+    .project-image video{background:#000;}
+
+    .image-caption{
+      font-size:13px;
+      color:#666;
+      margin-top:15px;
     }
 
-    .project-image video { background: #000; }
+    .project-navigation{
+      display:flex;
+      justify-content:space-between;
+      margin-top:100px;
+      padding-top:40px;
+      gap:40px;
+    }
+    .nav-project{
+      text-decoration:none;
+      color:var(--text);
+      transition:opacity .2s;
+      flex:1;
+    }
+    .nav-project:hover{opacity:.6;}
+    .nav-label{
+      font-size:13px;
+      font-weight:600;
+      text-transform:uppercase;
+      letter-spacing:.5px;
+      color:#666;
+      margin-bottom:10px;
+      display:none;
+    }
+    .nav-title{font-size:13px;font-weight:500;}
+    .nav-project.next{text-align:right;}
 
-    .image-caption {
-      font-size: 13px;
-      color: #666;
-      margin-top: 15px;
+    .loading{
+      text-align:center;
+      padding:100px 20px;
+      font-size:13px;
+      color:#666;
     }
 
-    .project-navigation {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 100px;
-      padding-top: 40px;
-      gap: 40px;
+    @media (max-width:768px){
+      .project-navigation{flex-direction:column;}
+      .nav-project.next{text-align:left;}
     }
 
-    .nav-project {
-      text-decoration: none;
-      color: var(--text);
-      transition: opacity 0.2s;
-      flex: 1;
-    }
-
-    .nav-project:hover { opacity: 0.6; }
-
-    .nav-label {
-      font-size: 13px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      color: #666;
-      margin-bottom: 10px;
-      display: none;
-    }
-
-    .nav-title { font-size: 13px; font-weight: 500; }
-    .nav-project.next { text-align: right; }
-
-    .loading {
-      text-align: center;
-      padding: 100px 20px;
-      font-size: 13px;
-      color: #666;
-    }
-
-    @media (max-width: 768px) {
-      .project-navigation { flex-direction: column; }
-      .nav-project.next { text-align: left; }
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+    @keyframes fadeIn{
+      from{opacity:0;transform:translateY(20px);}
+      to{opacity:1;transform:translateY(0);}
     }
   </style>
 </head>
@@ -230,7 +216,7 @@
   const urlParams = new URLSearchParams(window.location.search);
   const projectId = urlParams.get('id');
 
-  // ✅ 완전 방어형: 어떤 경우에도 배열 리턴 (map 에러 방지)
+  // Always return array (prevents map errors)
   const normalizeMedia = (project) => {
     if (!project) return [];
 
@@ -240,7 +226,6 @@
 
     return raw
       .map((item) => {
-        // item이 문자열로 들어오는 경우까지 방어
         if (typeof item === 'string') {
           const srcStr = item;
           const ext = (srcStr.split('.').pop() || '').toLowerCase();
@@ -250,10 +235,8 @@
 
         const src = (item && item.src) ? item.src : '';
         const caption = (item && item.caption) ? item.caption : '';
-
         if (!src) return null;
 
-        // type이 있으면 그대로, 없으면 확장자로 추정
         let type = (item && item.type) ? item.type : '';
         if (!type) {
           const ext = (src.split('.').pop() || '').toLowerCase();
@@ -265,11 +248,12 @@
       .filter(Boolean);
   };
 
+  // ✅ HERE: project page videos autoplay + muted + loop
   const renderMediaItem = (item, projectTitle) => {
     if (item.type === 'video') {
       return `
         <div class="project-image">
-          <video controls playsinline preload="metadata">
+          <video autoplay muted loop playsinline preload="metadata">
             <source src="${item.src}" type="video/mp4">
           </video>
           ${item.caption ? `<div class="image-caption">${item.caption}</div>` : ''}
@@ -315,7 +299,6 @@
         ? (project.description[currentLang] || project.description.en || project.description.ko || '')
         : (project.description || '');
 
-    // ✅ 여기서도 한 번 더 방어: normalizeMedia가 뭘 반환하든 map 터지지 않게
     const mediaItems = normalizeMedia(project);
     const mediaHTML = (Array.isArray(mediaItems) ? mediaItems : [])
       .map((item) => renderMediaItem(item, project.title || ''))
@@ -348,6 +331,11 @@
     const projectContent = document.getElementById('projectContent');
     projectContent.innerHTML = content;
     projectContent.style.display = 'block';
+
+    // Extra safety: if autoplay is blocked, try play() after DOM insert
+    projectContent.querySelectorAll('video[autoplay]').forEach(v => {
+      v.play().catch(() => {});
+    });
   }
 </script>
 </body>
