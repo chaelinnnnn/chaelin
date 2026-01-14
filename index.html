@@ -13,11 +13,6 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
     :root { --bg:#fff; --text:#000; }
 
-    html, body {
-      height: 100%;
-      overflow-x: hidden;
-    }
-
     body {
       font-family: -apple-system, "system-ui", Inter, "Segoe UI", Roboto, sans-serif;
       background: var(--bg);
@@ -25,33 +20,38 @@
       font-size: 13px;
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
+
+      /* ✅ 헤더 높이만큼 밀어줌 (고정 핵심) */
+      padding-top: 115px;
+
       cursor: url('data:image/svg+xml;utf8,\
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">\
 <path fill="%23FF6FD6" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>\
 </svg>') 12 12, auto;
-
-      /* ✅ fixed 헤더가 덮지 않게: main 말고 body에 여백 주는 게 가장 안정적 */
-      padding-top: 115px;
     }
 
     a { text-decoration: none; color: inherit; cursor: inherit; }
 
-    /* ✅ 완전 고정(강제) */
+    /* ✅ 헤더 완전 고정 */
     header {
-      position: fixed !important;
+      position: fixed;
       top: 0;
       left: 0;
       right: 0;
+      height: 115px;
       background: #fff;
       padding: 0 20px;
-      z-index: 1000;
+      z-index: 9999;
+
+      /* transform 이슈 방어 */
+      transform: translateZ(0);
     }
 
     .header-content {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 15px 0;
+      height: 100%;
     }
 
     .logo {
@@ -75,18 +75,15 @@
     .contact-email {
       font-size: 13px;
       font-weight: 600;
-      line-height: 14.3px; /* ✅ 헤더 텍스트 행간 */
+      line-height: 14.3px; /* ✅ 요청한 행간 */
     }
 
     nav a:hover { opacity: 0.6; }
 
-    /* main은 여백 필요 없음 (body에서 처리) */
     main { padding-top: 0; }
 
     .wrap {
       padding: 0 20px 60px;
-      /* ✅ 혹시 상위에서 transform 걸려있으면 fixed가 깨질 수 있어서 방어(안전) */
-      transform: none;
     }
 
     .grid {
@@ -141,8 +138,7 @@
     }
 
     @media (max-width: 768px) {
-      /* 모바일에서 헤더 높이가 달라질 수 있으니 여백만 조정 */
-      body { padding-top: 110px; }
+      body { padding-top: 115px; }
       .grid { grid-template-columns: 1fr; }
     }
   </style>
@@ -195,7 +191,10 @@
 
     const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
     path.setAttribute('fill', '#FF6FD6');
-    path.setAttribute('d','M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z');
+    path.setAttribute(
+      'd',
+      'M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z'
+    );
 
     star.appendChild(path);
     document.body.appendChild(star);
@@ -208,14 +207,10 @@
   const category = params.get('category');
 
   const getThumb = (p) => {
-    if (p && p.thumbnail && typeof p.thumbnail === 'object' && p.thumbnail.src) {
-      return { type: p.thumbnail.type || '', src: p.thumbnail.src || '' };
-    }
-    if (p && typeof p.thumbnail === 'string') {
-      const src = p.thumbnail;
-      const ext = src.split('.').pop().toLowerCase();
-      const type = (['mp4','webm','mov'].includes(ext)) ? 'video' : 'image';
-      return { type, src };
+    if (p?.thumbnail?.src) return p.thumbnail;
+    if (typeof p.thumbnail === 'string') {
+      const ext = p.thumbnail.split('.').pop().toLowerCase();
+      return { type: ['mp4','mov','webm'].includes(ext) ? 'video' : 'image', src: p.thumbnail };
     }
     return { type: 'image', src: '' };
   };
@@ -223,14 +218,9 @@
   const renderThumb = (p) => {
     const { type, src } = getThumb(p);
     if (!src) return '';
-    if (type === 'video') {
-      return `
-        <video autoplay loop muted playsinline preload="metadata">
-          <source src="${src}" type="video/mp4">
-        </video>
-      `;
-    }
-    return `<img src="${src}" alt="${p.title || ''}">`;
+    return type === 'video'
+      ? `<video autoplay loop muted playsinline><source src="${src}" type="video/mp4"></video>`
+      : `<img src="${src}" alt="">`;
   };
 
   fetch('projects-data.json', { cache: 'no-store' })
@@ -255,13 +245,8 @@
 
       loading.style.display = 'none';
       grid.style.display = 'grid';
-    })
-    .catch(err => {
-      console.error(err);
-      loading.textContent = 'Failed to load projects.';
-      loading.style.display = 'block';
-      grid.style.display = 'none';
     });
 </script>
 </body>
 </html>
+
