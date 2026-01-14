@@ -205,33 +205,33 @@
         }
       ]
     },
-    {
-      "id": "Singles Magazine MZ INTERN Fashion Film",
-      "title": "Singles Magazine MZ INTERN Fashion Film",
-      "category": "art-directing",
-      "meta": "Graphic Design",
-      "date": "October 2024",
-      "client": "Client: Singles Magazine",
-      "type": "Brand Identity, Art Direction",
-      "description": {
+        {
+        "id": "Singles Magazine MZ INTERN Fashion Film",
+        "title": "Singles Magazine MZ INTERN Fashion Film",
+        "category": "art-directing",
+        "meta": "Graphic Design",
+        "date": "October 2024",
+        "client": "Client: Singles Magazine",
+        "type": "Brand Identity, Art Direction",
+        "description": {
         "ko": "Sarr는 현대 디자인과 전통 공예의 교차점을 탐구하는 종합 브랜드 아이덴티티 프로젝트입니다.",
         "en": "Sarr is a comprehensive brand identity project that explores the intersection of contemporary design and traditional craftsmanship."
-      },
-      "thumbnail": {
-        "type": "video",
-        "src": "MZintern.mp4"
-      },
-     "media": [
-        {
+        },
+        "thumbnail": {
           "type": "video",
-          "src": "MZintern1.mp4"
+          "src": "MZintern.mp4"
+        },
+        "media": [
+        {
+        "type": "vimeo",
+        "id": "1154320177"
         },
         {
-          "type": "image",
-          "src": "MZintern2.png"
-        }
-      ]
-    },
+        "type": "image",
+        "src": "MZintern2.png"
+    }
+  ]
+}
     {
       "id": "depromeet-promotion-video",
       "title": "Depromeet 14th Promotion Video",
