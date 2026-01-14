@@ -2,7 +2,7 @@
   "projects": [
     {
       "id": "display-design-graphic-sarr",
-      "title": "[Display design & Graphic] Sarr",
+      "title": "Sarr Display design & Graphic",
       "category": "Editorial",
       "meta": "Poster design, Graphic design",
       "date": "December 2025",
@@ -29,7 +29,7 @@
     },
     {
       "id": "2025-season-menu-sarr",
-      "title": "[2025 Season menu] Sarr",
+      "title": "Sarr 2025 Season menu",
       "category": "Editorial",
       "meta": "Poster design, Graphic design",
       "date": "April 2025",
@@ -55,8 +55,8 @@
       ]
     },
     {
-      "id": "sarr-02",
-      "title": "Sarr",
+      "id": "Sarr Brand Identity Design",
+      "title": "Sarr Brand Identity Design",
       "category": "art-directing",
       "meta": "Art directing, Brand identity, Photography",
       "date": "April 2025",
@@ -296,7 +296,7 @@
       "id": "depromeet-promotion-video",
       "title": "Depromeet promotion video",
       "category": "Film",
-      "meta": "Art directing, Film",
+      "meta": "Film",
       "date": "October 2023",
       "client": "Client: DEPROMEET",
       "type": "Film",
@@ -310,9 +310,12 @@
       },
       "media": [
         {
+          "type": "video",
+          "src": "depromeet.mp4"
+        },
+        {
           "type": "image",
-          "src": "sarr.png",
-          "caption": "Main brand identity visual"
+          "src": "depromeet1.png"
         }
       ]
     },
