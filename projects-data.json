@@ -1,7 +1,7 @@
 {
   "projects": [
     {
-      "id": "display-design-graphic-sarr",
+      "id": "Display-design-graphic-sarr",
       "title": "Sarr Display Design & Graphic",
       "category": "Editorial",
       "meta": "Poster Design, Graphic Design",
@@ -64,7 +64,7 @@
       "type": "Poster Design",
       "description": {
         "ko": "Sarr의 계절 메뉴 포스터 디자인으로, 타이포그래피와 시각적 아이덴티티를 그래픽 디자인을 통해 탐구합니다.",
-        "en": "Seasonal menu poster design for Sarr, exploring typography and visual identity through graphic design."
+        "en": "I designed a poster centered on Sarr’s signature menu item, the Avocato. The concept visually captures the freshness of the moment when coffee and avocado come together, reflecting the brand’s identity and mood."
       },
       "thumbnail": {
         "type": "image",
@@ -138,7 +138,8 @@
       "type": "Art directing, Brand Identity",
       "description": {
         "ko": "Sarr는 현대 디자인과 전통 공예의 교차점을 탐구하는 종합 브랜드 아이덴티티 프로젝트입니다.",
-        "en": "Sarr is a comprehensive brand identity project that explores the intersection of contemporary design and traditional craftsmanship."
+        "en": "‘Tymora’ is a concept store that curates time as an experience you can purchase. We introduce a new way of consuming time, allowing you to choose the quality and intensity of the moments you live. ‘Tymora’ treats time
+not as a product, but as a material for designing your life."
       },
       "thumbnail": {
         "type": "image",
