@@ -310,24 +310,25 @@
       "client": "Client: Depromeet",
       "type": "Film",
       "description": {
-        "ko": "DEPROMEET 14의 전반적인 필름 디렉팅, 그래픽 디자인, 사운드 디자인을 담당했습니다.",
-        "en": "I worked on the overall film directing, graphic design, and sound design for DEPROMEET 14."
+      "ko": "DEPROMEET 14의 전반적인 필름 디렉팅, 그래픽 디자인, 사운드 디자인을 담당했습니다.",
+      "en": "I worked on the overall film directing, graphic design, and sound design for DEPROMEET 14."
       },
       "thumbnail": {
-        "type": "image",
-        "src": "depromeet.png"
+      "type": "image",
+      "src": "depromeet.png"
       },
       "media": [
-        {
-          "type": "video",
-          "src": "<iframe src="https://player.vimeo.com/video/1103721206?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="1920" height="1080" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="you are next!"></iframe>"
-        },
-        {
-          "type": "image",
-          "src": "depromeet1.png"
-        }
-      ]
-    },
+      {
+      "type": "vimeo",
+      "id": "1103721206"
+      },
+      {
+      "type": "image",
+      "src": "depromeet1.png"
+      }
+  ]
+},
+
     {
       "id": "Ding-dong",
       "title": "Ding-dong",
