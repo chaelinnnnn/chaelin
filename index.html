@@ -234,19 +234,19 @@
         ? projects.filter(p => (p.category || '').toLowerCase() === category.toLowerCase())
         : projects;
 
-      grid.innerHTML = filtered.map(p => `
+        grid.innerHTML = filtered.map(p => `
         <a class="card" href="project.html?id=${encodeURIComponent(p.id)}">
-          <div class="thumb">
-            ${renderThumb(p)}
-          </div>
-          <div class="info">
-            <div>
-              <div class="title">${p.title || ''}</div>
-              <div class="category">${p.category || ''}</div>
-            </div>
-          </div>
+        <div class="thumb">
+        ${renderThumb(p)}
+        </div>
+        <div class="info">
+        <div>
+        <div class="title">${p.title || ''}</div>
+        <div class="category">${p.type || ''}</div>
+        </div>
+        </div>
         </a>
-      `).join('');
+        `).join('');
 
       loading.style.display = 'none';
       grid.style.display = 'grid';
