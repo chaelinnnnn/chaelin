@@ -151,7 +151,11 @@
       "media": [
         {
           "type": "video",
-          "src": "ufo.mp4"
+          "src": "map.mp4"
+        },
+        {
+          "type": "image",
+          "src": "map1.png"
         }
       ]
     },
