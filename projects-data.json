@@ -218,7 +218,11 @@
         {
           "type": "image",
           "src": "universe4.png"
-        }
+        },
+        {
+          "type": "video",
+          "src": "universe2.mp4"
+        },
       ]
     },
     {
