@@ -54,7 +54,7 @@
         }
       ]
     },
-     {
+    {
       "id": "2025-season-menu-sarr",
       "title": "Sarr 2025 Season menu",
       "category": "Editorial",
@@ -81,23 +81,23 @@
         }
       ]
     },
-        {
-        "id": "Sarr Brand Identity Design",
-        "title": "Sarr Brand Identity Design",
-        "category": "art-directing",
-        "meta": "Art directing, Brand Identity, Photography",
-        "date": "April 2025",
-        "client": "Client: Sarr",
-        "type": "Art directing, Brand Identity",
-        "description": {
+    {
+      "id": "Sarr Brand Identity Design",
+      "title": "Sarr Brand Identity Design",
+      "category": "art-directing",
+      "meta": "Art directing, Brand Identity, Photography",
+      "date": "April 2025",
+      "client": "Client: Sarr",
+      "type": "Art directing, Brand Identity",
+      "description": {
         "ko": "Sarr는 현대 디자인과 전통 공예의 교차점을 탐구하는 종합 브랜드 아이덴티티 프로젝트입니다.",
         "en": "Sarr is a comprehensive brand identity project that explores the intersection of contemporary design and traditional craftsmanship."
-        },
-        "thumbnail": {
+      },
+      "thumbnail": {
         "type": "image",
         "src": "sarr.png"
-        },
-        "media": [
+      },
+      "media": [
         { "type": "image", "src": "sarr1.png" },
         { "type": "image", "src": "sarr2.png" },
         { "type": "image", "src": "sarr3.png" },
@@ -108,7 +108,7 @@
         { "type": "image", "src": "sarr8.png" },
         { "type": "image", "src": "sarr9.png" }
       ]
-      }
+    },
     {
       "id": "Ufo",
       "title": "UFO Interaction Web",
@@ -148,7 +148,7 @@
         "type": "image",
         "src": "tymora.png"
       },
-       "media": [
+      "media": [
         {
           "type": "video",
           "src": "singles.mp4"
@@ -225,33 +225,33 @@
         }
       ]
     },
-        {
-        "id": "Singles Magazine MZ INTERN Fashion Film",
-        "title": "Singles Magazine MZ INTERN Fashion Film",
-        "category": "art-directing",
-        "meta": "Graphic Design",
-        "date": "October 2024",
-        "client": "Client: Singles Magazine",
-        "type": "Brand Identity, Art Direction",
-        "description": {
+    {
+      "id": "Singles Magazine MZ INTERN Fashion Film",
+      "title": "Singles Magazine MZ INTERN Fashion Film",
+      "category": "art-directing",
+      "meta": "Graphic Design",
+      "date": "October 2024",
+      "client": "Client: Singles Magazine",
+      "type": "Brand Identity, Art Direction",
+      "description": {
         "ko": "Sarr는 현대 디자인과 전통 공예의 교차점을 탐구하는 종합 브랜드 아이덴티티 프로젝트입니다.",
         "en": "Sarr is a comprehensive brand identity project that explores the intersection of contemporary design and traditional craftsmanship."
-        },
-        "thumbnail": {
-          "type": "video",
-          "src": "MZintern.mp4"
-        },
-        "media": [
+      },
+      "thumbnail": {
+        "type": "video",
+        "src": "MZintern.mp4"
+      },
+      "media": [
         {
-        "type": "vimeo",
-        "id": "1154320177"
+          "type": "vimeo",
+          "id": "1154320177"
         },
         {
-        "type": "image",
-        "src": "MZintern2.png"
-    }
-  ]
-},
+          "type": "image",
+          "src": "MZintern2.png"
+        }
+      ]
+    },
     {
       "id": "depromeet-promotion-video",
       "title": "Depromeet 14th Promotion Video",
@@ -261,25 +261,24 @@
       "client": "Client: Depromeet",
       "type": "Film",
       "description": {
-      "ko": "DEPROMEET 14의 전반적인 필름 디렉팅, 그래픽 디자인, 사운드 디자인을 담당했습니다.",
-      "en": "I worked on the overall film directing, graphic design, and sound design for DEPROMEET 14."
+        "ko": "DEPROMEET 14의 전반적인 필름 디렉팅, 그래픽 디자인, 사운드 디자인을 담당했습니다.",
+        "en": "I worked on the overall film directing, graphic design, and sound design for DEPROMEET 14."
       },
       "thumbnail": {
-      "type": "image",
-      "src": "depromeet.png"
+        "type": "image",
+        "src": "depromeet.png"
       },
       "media": [
-      {
-      "type": "vimeo",
-      "id": "1103721206"
-      },
-      {
-      "type": "image",
-      "src": "depromeet1.png"
-      }
-  ]
-},
-
+        {
+          "type": "vimeo",
+          "id": "1103721206"
+        },
+        {
+          "type": "image",
+          "src": "depromeet1.png"
+        }
+      ]
+    },
     {
       "id": "Ding-dong",
       "title": "Ding-dong",
@@ -321,22 +320,22 @@
         "src": "foretderm.png"
       },
       "media": [
-      {
-      "type": "image",
-      "src": "foretderm1.png"
-      },
-      {
-      "type": "image",
-      "src": "foretderm2.png"
-      },
-      {
-      "type": "image",
-      "src": "foretderm3.png"
-      },
-      {
-      "type": "image",
-      "src": "foretderm4.png"
-      }
+        {
+          "type": "image",
+          "src": "foretderm1.png"
+        },
+        {
+          "type": "image",
+          "src": "foretderm2.png"
+        },
+        {
+          "type": "image",
+          "src": "foretderm3.png"
+        },
+        {
+          "type": "image",
+          "src": "foretderm4.png"
+        }
       ]
     }
   ]
