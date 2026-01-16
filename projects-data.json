@@ -45,12 +45,8 @@
       },
       "media": [
         {
-          "type": "image",
-          "src": "avocato1.png"
-        },
-        {
-          "type": "image",
-          "src": "avocato2.png"
+          "type": "video",
+          "src": "oasis.mp4"
         }
       ]
     },
