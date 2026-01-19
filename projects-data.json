@@ -185,12 +185,8 @@
       },
       "media": [
         {
-          "type": "video",
-          "src": "singles.mp4"
-        },
-        {
           "type": "image",
-          "src": "singles1.png"
+          "src": "in.png"
         }
       ]
     },
