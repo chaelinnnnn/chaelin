@@ -13,13 +13,9 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
     :root { --bg:#fff; --text:#000; }
 
-    /* ✅ "고정이 안 되는" 모든 케이스를 막기 위해:
-       - window 스크롤 제거
-       - 콘텐츠만 내부 스크롤
-       - 헤더는 viewport에 fixed */
     html, body {
       height: 100%;
-      overflow: hidden; /* ✅ window 스크롤 막음 */
+      overflow: hidden;
     }
 
     body {
@@ -37,7 +33,6 @@
 
     a { text-decoration: none; color: inherit; cursor: inherit; }
 
-    /* ✅ 헤더: 무조건 화면 상단 고정 */
     header {
       position: fixed;
       top: 0;
@@ -47,7 +42,6 @@
       background: #fff;
       padding: 0 20px;
       z-index: 9999;
-      transform: translateZ(0); /* ✅ 레이어 고정(방어) */
     }
 
     .header-content {
@@ -79,17 +73,16 @@
     .contact-email {
       font-size: 13px;
       font-weight: 600;
-      line-height: 14.3px; /* ✅ 요청한 행간 */
+      line-height: 14.3px;
     }
 
     nav a:hover { opacity: 0.6; }
 
-    /* ✅ 실제 스크롤은 이 컨테이너에서만 일어남 */
     #page-scroll {
       height: 100vh;
       overflow-y: auto;
       -webkit-overflow-scrolling: touch;
-      padding-top: 115px; /* ✅ 헤더 높이만큼 아래로 */
+      padding-top: 115px;
     }
 
     .wrap {
@@ -101,8 +94,6 @@
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 10px;
     }
-
-    .card { display: block; }
 
     .thumb {
       width: 100%;
@@ -155,6 +146,7 @@
 </head>
 
 <body>
+
 <header>
   <div class="header-content">
     <div class="logo">
@@ -164,8 +156,11 @@
         </video>
       </a>
     </div>
+
     <nav>
-      <a href="index.html">Art directing<br>& Brand Identity</a>
+      <a href="index.html?category=artdirecting">
+        Art directing<br>& Brand Identity
+      </a>
       <a href="index.html?category=interaction">Interaction</a>
       <a href="index.html?category=uxui">UX/UI</a>
       <a href="index.html?category=editorial">Editorial</a>
@@ -177,7 +172,6 @@
   </div>
 </header>
 
-<!-- ✅ 콘텐츠는 이 안에서만 스크롤 -->
 <div id="page-scroll">
   <main>
     <div class="wrap">
@@ -219,43 +213,28 @@
   const params = new URLSearchParams(location.search);
   const category = params.get('category');
 
-  const getThumb = (p) => {
-    if (p && p.thumbnail && typeof p.thumbnail === 'object' && p.thumbnail.src) {
-      return { type: p.thumbnail.type || '', src: p.thumbnail.src || '' };
-    }
-    if (p && typeof p.thumbnail === 'string') {
-      const src = p.thumbnail;
-      const ext = src.split('.').pop().toLowerCase();
-      const type = (['mp4','webm','mov'].includes(ext)) ? 'video' : 'image';
-      return { type, src };
-    }
-    return { type: 'image', src: '' };
-  };
-
-  const renderThumb = (p) => {
-    const { type, src } = getThumb(p);
-    if (!src) return '';
-    if (type === 'video') {
-      return `
-        <video autoplay loop muted playsinline preload="metadata">
-          <source src="${src}" type="video/mp4">
-        </video>
-      `;
-    }
-    return `<img src="${src}" alt="${p.title || ''}">`;
-  };
-
   fetch('projects-data.json', { cache: 'no-store' })
     .then(r => r.json())
     .then(data => {
       const projects = data.projects || [];
+
       const filtered = category
-        ? projects.filter(p => (p.category || '').toLowerCase() === category.toLowerCase())
+        ? projects.filter(p =>
+            (p.category || '').toLowerCase() === category.toLowerCase()
+          )
         : projects;
 
       grid.innerHTML = filtered.map(p => `
         <a class="card" href="project.html?id=${encodeURIComponent(p.id)}">
-          <div class="thumb">${renderThumb(p)}</div>
+          <div class="thumb">
+            ${
+              p.thumbnail
+                ? p.thumbnail.endsWith('.mp4')
+                  ? `<video autoplay loop muted playsinline><source src="${p.thumbnail}"></video>`
+                  : `<img src="${p.thumbnail}" alt="">`
+                : ''
+            }
+          </div>
           <div class="info">
             <div>
               <div class="title">${p.title || ''}</div>
@@ -268,12 +247,10 @@
       loading.style.display = 'none';
       grid.style.display = 'grid';
     })
-    .catch(err => {
-      console.error(err);
+    .catch(() => {
       loading.textContent = 'Failed to load projects.';
-      loading.style.display = 'block';
-      grid.style.display = 'none';
     });
 </script>
+
 </body>
 </html>
