@@ -213,28 +213,44 @@
   const params = new URLSearchParams(location.search);
   const category = params.get('category');
 
+  const getThumb = (p) => {
+    if (p && p.thumbnail && typeof p.thumbnail === 'object' && p.thumbnail.src) {
+      return { type: p.thumbnail.type || '', src: p.thumbnail.src || '' };
+    }
+    if (p && typeof p.thumbnail === 'string') {
+      const src = p.thumbnail;
+      const ext = src.split('.').pop().toLowerCase();
+      const type = (['mp4','webm','mov'].includes(ext)) ? 'video' : 'image';
+      return { type, src };
+    }
+    return { type: 'image', src: '' };
+  };
+
+  const renderThumb = (p) => {
+    const { type, src } = getThumb(p);
+    if (!src) return '';
+    if (type === 'video') {
+      return `
+        <video autoplay loop muted playsinline preload="metadata">
+          <source src="${src}" type="video/mp4">
+        </video>
+      `;
+    }
+    return `<img src="${src}" alt="${p.title || ''}">`;
+  };
+
   fetch('projects-data.json', { cache: 'no-store' })
     .then(r => r.json())
     .then(data => {
       const projects = data.projects || [];
 
       const filtered = category
-        ? projects.filter(p =>
-            (p.category || '').toLowerCase() === category.toLowerCase()
-          )
+        ? projects.filter(p => (p.category || '').toLowerCase() === category.toLowerCase())
         : projects;
 
       grid.innerHTML = filtered.map(p => `
         <a class="card" href="project.html?id=${encodeURIComponent(p.id)}">
-          <div class="thumb">
-            ${
-              p.thumbnail
-                ? p.thumbnail.endsWith('.mp4')
-                  ? `<video autoplay loop muted playsinline><source src="${p.thumbnail}"></video>`
-                  : `<img src="${p.thumbnail}" alt="">`
-                : ''
-            }
-          </div>
+          <div class="thumb">${renderThumb(p)}</div>
           <div class="info">
             <div>
               <div class="title">${p.title || ''}</div>
@@ -247,8 +263,11 @@
       loading.style.display = 'none';
       grid.style.display = 'grid';
     })
-    .catch(() => {
+    .catch(err => {
+      console.error(err);
       loading.textContent = 'Failed to load projects.';
+      loading.style.display = 'block';
+      grid.style.display = 'none';
     });
 </script>
 
