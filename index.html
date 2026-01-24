@@ -182,6 +182,7 @@
 </div>
 
 <script>
+  // ⭐ 마우스 별
   let lastStar = 0;
   document.addEventListener('mousemove', e => {
     const now = Date.now();
@@ -210,65 +211,73 @@
 
   const loading = document.getElementById('loading');
   const grid = document.getElementById('grid');
+
   const params = new URLSearchParams(location.search);
   const category = params.get('category');
+  const page = params.get('page');
 
-  const getThumb = (p) => {
-    if (p && p.thumbnail && typeof p.thumbnail === 'object' && p.thumbnail.src) {
-      return { type: p.thumbnail.type || '', src: p.thumbnail.src || '' };
-    }
-    if (p && typeof p.thumbnail === 'string') {
-      const src = p.thumbnail;
-      const ext = src.split('.').pop().toLowerCase();
-      const type = (['mp4','webm','mov'].includes(ext)) ? 'video' : 'image';
-      return { type, src };
-    }
-    return { type: 'image', src: '' };
-  };
+  // ✅ ABOUT 페이지면: 목록(프로젝트) 렌더 안 함
+  if (page && page.toLowerCase() === 'about') {
+    loading.style.display = 'none';
+    grid.style.display = 'none';
+  } else {
+    const getThumb = (p) => {
+      if (p && p.thumbnail && typeof p.thumbnail === 'object' && p.thumbnail.src) {
+        return { type: p.thumbnail.type || '', src: p.thumbnail.src || '' };
+      }
+      if (p && typeof p.thumbnail === 'string') {
+        const src = p.thumbnail;
+        const ext = src.split('.').pop().toLowerCase();
+        const type = (['mp4','webm','mov'].includes(ext)) ? 'video' : 'image';
+        return { type, src };
+      }
+      return { type: 'image', src: '' };
+    };
 
-  const renderThumb = (p) => {
-    const { type, src } = getThumb(p);
-    if (!src) return '';
-    if (type === 'video') {
-      return `
-        <video autoplay loop muted playsinline preload="metadata">
-          <source src="${src}" type="video/mp4">
-        </video>
-      `;
-    }
-    return `<img src="${src}" alt="${p.title || ''}">`;
-  };
+    const renderThumb = (p) => {
+      const { type, src } = getThumb(p);
+      if (!src) return '';
+      if (type === 'video') {
+        return `
+          <video autoplay loop muted playsinline preload="metadata">
+            <source src="${src}" type="video/mp4">
+          </video>
+        `;
+      }
+      return `<img src="${src}" alt="${p.title || ''}">`;
+    };
 
-  fetch('projects-data.json', { cache: 'no-store' })
-    .then(r => r.json())
-    .then(data => {
-      const projects = data.projects || [];
+    fetch('projects-data.json', { cache: 'no-store' })
+      .then(r => r.json())
+      .then(data => {
+        const projects = data.projects || [];
 
-      const filtered = category
-        ? projects.filter(p => (p.category || '').toLowerCase() === category.toLowerCase())
-        : projects;
+        const filtered = category
+          ? projects.filter(p => (p.category || '').toLowerCase() === category.toLowerCase())
+          : projects;
 
-      grid.innerHTML = filtered.map(p => `
-        <a class="card" href="project.html?id=${encodeURIComponent(p.id)}">
-          <div class="thumb">${renderThumb(p)}</div>
-          <div class="info">
-            <div>
-              <div class="title">${p.title || ''}</div>
-              <div class="category">${p.type || ''}</div>
+        grid.innerHTML = filtered.map(p => `
+          <a class="card" href="project.html?id=${encodeURIComponent(p.id)}">
+            <div class="thumb">${renderThumb(p)}</div>
+            <div class="info">
+              <div>
+                <div class="title">${p.title || ''}</div>
+                <div class="category">${p.type || ''}</div>
+              </div>
             </div>
-          </div>
-        </a>
-      `).join('');
+          </a>
+        `).join('');
 
-      loading.style.display = 'none';
-      grid.style.display = 'grid';
-    })
-    .catch(err => {
-      console.error(err);
-      loading.textContent = 'Failed to load projects.';
-      loading.style.display = 'block';
-      grid.style.display = 'none';
-    });
+        loading.style.display = 'none';
+        grid.style.display = 'grid';
+      })
+      .catch(err => {
+        console.error(err);
+        loading.textContent = 'Failed to load projects.';
+        loading.style.display = 'block';
+        grid.style.display = 'none';
+      });
+  }
 </script>
 
 </body>
