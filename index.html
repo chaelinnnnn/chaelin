@@ -126,6 +126,47 @@
       color: #666;
     }
 
+    /* ✅ ABOUT */
+    .about {
+      display: none;
+      max-width: 980px;
+      padding: 10px 0 0;
+    }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 40px;
+      align-items: start;
+    }
+    .about h1 {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 14.3px;
+      margin-bottom: 16px;
+    }
+    .about p {
+      margin-bottom: 14px;
+      color: #111;
+    }
+    .about .meta {
+      display: grid;
+      gap: 10px;
+      color: #111;
+    }
+    .about .meta .row {
+      display: grid;
+      grid-template-columns: 90px 1fr;
+      gap: 12px;
+      align-items: baseline;
+    }
+    .about .label {
+      color: #666;
+    }
+    .about a {
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
     .falling-star {
       position: fixed;
       pointer-events: none;
@@ -141,6 +182,8 @@
     @media (max-width: 768px) {
       .grid { grid-template-columns: 1fr; }
       nav { gap: 18px; }
+      .about-grid { grid-template-columns: 1fr; gap: 22px; }
+      .about .meta .row { grid-template-columns: 78px 1fr; }
     }
   </style>
 </head>
@@ -177,6 +220,50 @@
     <div class="wrap">
       <div class="loading" id="loading">Loading projects...</div>
       <div class="grid" id="grid" style="display:none;"></div>
+
+      <!-- ✅ ABOUT CONTENT (page=about 일 때만 보임) -->
+      <section class="about" id="about">
+        <div class="about-grid">
+          <div>
+            <h1>About</h1>
+
+            <p>
+              based on newyork &amp; seoul<br>
+              <a href="mailto:present1513@gmail.com">present1513@gmail.com</a>
+            </p>
+
+            <p>
+              Hello, my name is Chaelin Kim. I have a strong interest in a wide range of fields,
+              including branding, UX/UI, and video.
+            </p>
+
+            <p>
+              I strive to expand my world with a bold, challenge-driven mindset,
+              without setting limits on what I can explore.
+            </p>
+          </div>
+
+          <div class="meta">
+            <div class="row">
+              <div class="label">Email</div>
+              <div><a href="mailto:present1513@gmail.com">present1513@gmail.com</a></div>
+            </div>
+            <div class="row">
+              <div class="label">Instagram</div>
+              <div><a href="https://instagram.com/" target="_blank" rel="noopener noreferrer">@yourhandle</a></div>
+            </div>
+            <div class="row">
+              <div class="label">CV</div>
+              <div><a href="cv.pdf" target="_blank" rel="noopener noreferrer">Download</a></div>
+            </div>
+            <div class="row">
+              <div class="label">Location</div>
+              <div>Seoul, KR</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
     </div>
   </main>
 </div>
@@ -211,16 +298,20 @@
 
   const loading = document.getElementById('loading');
   const grid = document.getElementById('grid');
+  const about = document.getElementById('about');
 
   const params = new URLSearchParams(location.search);
   const category = params.get('category');
-  const page = params.get('page');
+  const page = (params.get('page') || '').toLowerCase();
 
-  // ✅ ABOUT 페이지면: 목록(프로젝트) 렌더 안 함
-  if (page && page.toLowerCase() === 'about') {
+  // ✅ ABOUT 페이지: 목록 숨기고 About 표시
+  if (page === 'about') {
     loading.style.display = 'none';
     grid.style.display = 'none';
+    about.style.display = 'block';
   } else {
+    about.style.display = 'none';
+
     const getThumb = (p) => {
       if (p && p.thumbnail && typeof p.thumbnail === 'object' && p.thumbnail.src) {
         return { type: p.thumbnail.type || '', src: p.thumbnail.src || '' };
