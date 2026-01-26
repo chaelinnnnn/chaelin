@@ -126,7 +126,7 @@
       color: #666;
     }
 
-    /* ✅ ABOUT */
+    /* ABOUT */
     .about {
       display: none;
       max-width: 980px;
@@ -221,7 +221,6 @@
       <div class="loading" id="loading">Loading projects...</div>
       <div class="grid" id="grid" style="display:none;"></div>
 
-      <!-- ✅ ABOUT CONTENT (page=about 일 때만 보임) -->
       <section class="about" id="about">
         <div class="about-grid">
           <div>
@@ -248,18 +247,6 @@
               <div class="label">Email</div>
               <div><a href="mailto:present1513@gmail.com">present1513@gmail.com</a></div>
             </div>
-            <div class="row">
-              <div class="label">Instagram</div>
-              <div><a href="https://instagram.com/" target="_blank" rel="noopener noreferrer">@yourhandle</a></div>
-            </div>
-            <div class="row">
-              <div class="label">CV</div>
-              <div><a href="cv.pdf" target="_blank" rel="noopener noreferrer">Download</a></div>
-            </div>
-            <div class="row">
-              <div class="label">Location</div>
-              <div>Seoul, KR</div>
-            </div>
           </div>
         </div>
       </section>
@@ -269,7 +256,6 @@
 </div>
 
 <script>
-  // ⭐ 마우스 별
   let lastStar = 0;
   document.addEventListener('mousemove', e => {
     const now = Date.now();
@@ -304,7 +290,6 @@
   const category = params.get('category');
   const page = (params.get('page') || '').toLowerCase();
 
-  // ✅ ABOUT 페이지: 목록 숨기고 About 표시
   if (page === 'about') {
     loading.style.display = 'none';
     grid.style.display = 'none';
