@@ -13,6 +13,12 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
     :root { --bg:#fff; --text:#000; --border:#d0d0d0; }
 
+    /* ✅ 전체는 세로 스크롤 막고(가로 트랙에서만 스크롤) */
+    html, body{
+      height: 100%;
+      overflow: hidden;
+    }
+
     body{
       font-family:-apple-system,"system-ui",Inter,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Open Sans","Helvetica Neue",sans-serif;
       background:var(--bg);
@@ -45,12 +51,14 @@
       background:var(--bg);
       z-index:1000;
       padding:0 20px;
+      height:115px;
     }
     .header-content{
       display:flex;
       justify-content:space-between;
       align-items:center;
       padding:15px 0;
+      height:100%;
     }
     .logo{width:150px;height:85px;overflow:hidden;}
     .logo a{display:block;width:100%;height:100%;}
@@ -68,13 +76,64 @@
     nav a:hover{opacity:.6;}
     .contact-email{font-size:13px;font-weight:600;}
 
+    /* ✅ main은 고정 높이로(세로 스크롤 없음) */
+    main{
+      height:100vh;
+      overflow:hidden;
+    }
+
+    /* ✅ 상세 영역: header 높이만큼 내려서 가로 트랙이 꽉 차게 */
     .project-detail{
-      margin-top:180px;
-      padding:0 20px 60px;
-      max-width:1200px;
+      margin-top:115px;               /* 기존 180px -> header 높이 */
+      height: calc(100vh - 115px);
+      padding:0;
+      max-width:none;
       margin-left:auto;
       margin-right:auto;
       animation:fadeIn .6s ease forwards;
+    }
+
+    /* ✅ 가로 넘김 트랙 */
+    .project-track{
+      height:100%;
+      display:flex;
+      overflow-x:auto;
+      overflow-y:hidden;
+      scroll-snap-type:x mandatory;
+      -webkit-overflow-scrolling:touch;
+
+      /* 스크롤바 숨김(선택) */
+      scrollbar-width:none;
+    }
+    .project-track::-webkit-scrollbar{display:none;}
+
+    /* ✅ 커서: 기본은 별 유지, 트랙 위에서만 방향 커서로 */
+    .project-track{ cursor: inherit; }
+    .project-track.cursor-left{ cursor: w-resize; }
+    .project-track.cursor-right{ cursor: e-resize; }
+    @media (max-width:768px){
+      .project-track.cursor-left,
+      .project-track.cursor-right{ cursor: inherit; }
+    }
+
+    /* ✅ 한 화면 = 한 패널 */
+    .panel{
+      flex:0 0 100%;
+      height:100%;
+      scroll-snap-align:start;
+      overflow:hidden;
+      padding:40px 20px 60px;
+    }
+    /* 텍스트 패널은 내용 길면 내부 세로 스크롤 허용 */
+    .panel--text{ overflow-y:auto; }
+
+    /* 미디어 패널: 중앙 정렬 */
+    .panel--media{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      position:relative;
+      overflow:hidden;
     }
 
     /* ✅ 상세 상단: title/type/client/date 노출 */
@@ -102,28 +161,25 @@
     }
     .project-description p{margin-bottom:20px;}
 
-    .project-images{
-      display:flex;
-      flex-direction:column;
-      gap:40px;
-      margin-top:60px;
-    }
-
     .project-image img,
     .project-image video{
-      width:100%;
+      max-width:100%;
+      max-height:100%;
+      width:auto;
       height:auto;
+      object-fit:contain;
       display:block;
     }
     .project-image video{background:#000;}
 
-    /* ✅ Vimeo responsive wrapper */
+    /* ✅ Vimeo responsive wrapper (패널 꽉 차게) */
     .vimeo-wrap{
-      position:relative;
       width:100%;
-      padding-top:56.25%;
+      height:100%;
       background:#000;
       overflow:hidden;
+      position:relative;
+      padding-top:0;
     }
     .vimeo-wrap iframe{
       position:absolute;
@@ -143,9 +199,8 @@
     .project-navigation{
       display:flex;
       justify-content:space-between;
-      margin-top:100px;
-      padding-top:40px;
       gap:40px;
+      padding-top:40px;
     }
     .nav-project{
       text-decoration:none;
@@ -237,7 +292,7 @@
     star.setAttribute('height', '12');
     star.setAttribute('viewBox', '0 0 24 24');
     star.style.left = e.clientX + 'px';
-    star.style.top = (e.clientY + window.scrollY) + 'px';
+    star.style.top = e.clientY + 'px';
 
     const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
     path.setAttribute('fill', '#FF6FD6');
@@ -368,37 +423,50 @@
         : (project.description || '');
 
     const mediaItems = normalizeMedia(project);
-    const mediaHTML = mediaItems.map((item) => renderMediaItem(item, project.title || '')).join('');
+
+    // ✅ 가로 패널(한 화면 = 한 장) 생성
+    const mediaPanelsHTML = mediaItems
+      .map((item) => `<section class="panel panel--media">${renderMediaItem(item, project.title || '')}</section>`)
+      .join('');
 
     const content = `
-      <div class="project-header">
-        <div class="project-meta">
-          <div class="project-title">${project.title || ''}</div>
-          <div class="project-info">
-            ${project.type ? `<span>${project.type}</span>` : ''}
-            ${project.client ? `<span>${project.client}</span>` : ''}
-            ${project.date ? `<span>${project.date}</span>` : ''}
+      <div class="project-track" id="projectTrack">
+
+        <!-- 1) 텍스트 패널 -->
+        <section class="panel panel--text">
+          <div class="project-header">
+            <div class="project-meta">
+              <div class="project-title">${project.title || ''}</div>
+              <div class="project-info">
+                ${project.type ? `<span>${project.type}</span>` : ''}
+                ${project.client ? `<span>${project.client}</span>` : ''}
+                ${project.date ? `<span>${project.date}</span>` : ''}
+              </div>
+            </div>
+
+            <div class="project-description">
+              <p>${description}</p>
+            </div>
           </div>
-        </div>
+        </section>
 
-        <div class="project-description">
-          <p>${description}</p>
-        </div>
-      </div>
+        <!-- 2) 미디어 패널들 -->
+        ${mediaPanelsHTML}
 
-      <div class="project-images">
-        ${mediaHTML}
-      </div>
+        <!-- 3) 네비게이션 패널 -->
+        <section class="panel panel--text">
+          <div class="project-navigation">
+            <a href="project.html?id=${encodeURIComponent(prevProject.id || '')}" class="nav-project prev">
+              <div class="nav-label">Previous Project</div>
+              <div class="nav-title">${prevProject.title || ''}</div>
+            </a>
+            <a href="project.html?id=${encodeURIComponent(nextProject.id || '')}" class="nav-project next">
+              <div class="nav-label">Next Project</div>
+              <div class="nav-title">${nextProject.title || ''}</div>
+            </a>
+          </div>
+        </section>
 
-      <div class="project-navigation">
-        <a href="project.html?id=${encodeURIComponent(prevProject.id || '')}" class="nav-project prev">
-          <div class="nav-label">Previous Project</div>
-          <div class="nav-title">${prevProject.title || ''}</div>
-        </a>
-        <a href="project.html?id=${encodeURIComponent(nextProject.id || '')}" class="nav-project next">
-          <div class="nav-label">Next Project</div>
-          <div class="nav-title">${nextProject.title || ''}</div>
-        </a>
       </div>
     `;
 
@@ -411,6 +479,95 @@
     projectContent.querySelectorAll('video[autoplay]').forEach(v => {
       v.play().catch(() => {});
     });
+
+    // ✅ 커서 방향(좌/우) + 클릭/탭으로 이전/다음 패널 이동 + 휠 가로 이동
+    const track = document.getElementById('projectTrack');
+    if (track) {
+      const panels = Array.from(track.querySelectorAll('.panel'));
+
+      const getCurrentIndex = () => {
+        const w = track.clientWidth || 1;
+        return Math.round(track.scrollLeft / w);
+      };
+
+      const goToIndex = (idx) => {
+        const w = track.clientWidth || 1;
+        const clamped = Math.max(0, Math.min(idx, panels.length - 1));
+        track.scrollTo({ left: clamped * w, behavior: 'smooth' });
+      };
+
+      const goNext = () => goToIndex(getCurrentIndex() + 1);
+      const goPrev = () => goToIndex(getCurrentIndex() - 1);
+
+      const updateCursor = (clientX) => {
+        const rect = track.getBoundingClientRect();
+        const x = clientX - rect.left;
+        const isRight = x > rect.width / 2;
+
+        track.classList.toggle('cursor-right', isRight);
+        track.classList.toggle('cursor-left', !isRight);
+      };
+
+      track.addEventListener('mousemove', (e) => updateCursor(e.clientX));
+      track.addEventListener('mouseenter', (e) => updateCursor(e.clientX));
+      track.addEventListener('mouseleave', () => {
+        track.classList.remove('cursor-left', 'cursor-right');
+      });
+
+      // 클릭하면 좌/우에 따라 이전/다음
+      track.addEventListener('click', (e) => {
+        // 링크/버튼 클릭은 유지
+        if (e.target.closest('a, button')) return;
+
+        // 텍스트 선택 상태면 이동 금지
+        const sel = window.getSelection();
+        if (sel && String(sel).length > 0) return;
+
+        const rect = track.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const isRight = x > rect.width / 2;
+
+        if (isRight) goNext();
+        else goPrev();
+      });
+
+      // 모바일 탭으로도 이동(스와이프는 기본 가로스크롤로)
+      let touchStartX = 0;
+      let touchStartY = 0;
+
+      track.addEventListener('touchstart', (e) => {
+        const t = e.touches[0];
+        touchStartX = t.clientX;
+        touchStartY = t.clientY;
+      }, { passive: true });
+
+      track.addEventListener('touchend', (e) => {
+        const t = e.changedTouches[0];
+        const dx = Math.abs(t.clientX - touchStartX);
+        const dy = Math.abs(t.clientY - touchStartY);
+
+        // 스와이프면 패스(자연 스크롤)
+        if (dx > 12 || dy > 12) return;
+
+        // 링크 탭은 유지
+        if (e.target && e.target.closest && e.target.closest('a, button')) return;
+
+        const rect = track.getBoundingClientRect();
+        const x = t.clientX - rect.left;
+        const isRight = x > rect.width / 2;
+
+        if (isRight) goNext();
+        else goPrev();
+      }, { passive: true });
+
+      // 세로 휠 -> 가로 이동
+      track.addEventListener('wheel', (e) => {
+        if (track.scrollWidth > track.clientWidth) {
+          e.preventDefault();
+          track.scrollLeft += e.deltaY;
+        }
+      }, { passive: false });
+    }
   }
 </script>
 </body>
