@@ -15,7 +15,7 @@
 
     html, body {
       height: 100%;
-      overflow: hidden;
+      overflow: hidden; /* 전체 페이지 스크롤 막고 */
     }
 
     body {
@@ -33,8 +33,16 @@
 
     a { text-decoration: none; color: inherit; cursor: inherit; }
 
+    /* ✅ 스크롤 컨테이너 */
+    #page-scroll {
+      height: 100vh;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    /* ✅ 헤더: fixed 대신 sticky */
     header {
-      position: fixed;
+      position: sticky;
       top: 0;
       left: 0;
       right: 0;
@@ -77,13 +85,6 @@
     }
 
     nav a:hover { opacity: 0.6; }
-
-    #page-scroll {
-      height: 100vh;
-      overflow-y: auto;
-      -webkit-overflow-scrolling: touch;
-      padding-top: 115px;
-    }
 
     .wrap {
       padding: 0 20px 60px;
@@ -190,32 +191,33 @@
 
 <body>
 
-<header>
-  <div class="header-content">
-    <div class="logo">
-      <a href="index.html">
-        <video autoplay loop muted playsinline>
-          <source src="logo.mp4" type="video/mp4">
-        </video>
-      </a>
-    </div>
-
-    <nav>
-      <a href="index.html?category=artdirecting">
-        Art directing<br>& Brand Identity
-      </a>
-      <a href="index.html?category=interaction">Interaction</a>
-      <a href="index.html?category=uxui">UX/UI</a>
-      <a href="index.html?category=editorial">Editorial</a>
-      <a href="index.html?category=film">Film</a>
-      <a href="index.html?category=exhibition">Exhibition</a>
-      <a href="index.html?page=about">About</a>
-      <span class="contact-email">present1513@gmail.com</span>
-    </nav>
-  </div>
-</header>
-
+<!-- ✅ 헤더를 page-scroll 안으로 이동 -->
 <div id="page-scroll">
+  <header>
+    <div class="header-content">
+      <div class="logo">
+        <a href="index.html">
+          <video autoplay loop muted playsinline>
+            <source src="logo.mp4" type="video/mp4">
+          </video>
+        </a>
+      </div>
+
+      <nav>
+        <a href="index.html?category=artdirecting">
+          Art directing<br>& Brand Identity
+        </a>
+        <a href="index.html?category=interaction">Interaction</a>
+        <a href="index.html?category=uxui">UX/UI</a>
+        <a href="index.html?category=editorial">Editorial</a>
+        <a href="index.html?category=film">Film</a>
+        <a href="index.html?category=exhibition">Exhibition</a>
+        <a href="index.html?page=about">About</a>
+        <span class="contact-email">present1513@gmail.com</span>
+      </nav>
+    </div>
+  </header>
+
   <main>
     <div class="wrap">
       <div class="loading" id="loading">Loading projects...</div>
@@ -250,7 +252,6 @@
           </div>
         </div>
       </section>
-
     </div>
   </main>
 </div>
