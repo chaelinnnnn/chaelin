@@ -323,7 +323,7 @@
   "client": "Client: Depromeet",
   "type": "UX/UI",
   "externalUrl": "https://www.behance.net/gallery/175602565/DingDong-TMI-",
-  "description": { ... },
+  "description": {},
   "thumbnail": { "type": "image", "src": "Dingdong.png" },
   "media": [{ "type": "image", "src": "in.png" }]
 },
