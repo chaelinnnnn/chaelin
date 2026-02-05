@@ -315,28 +315,18 @@
       ]
     },
     {
-      "id": "Ding-dong",
-      "title": "Ding-dong",
-      "category": "UX/UI",
-      "meta": "UX/UI",
-      "date": "April 2025",
-      "client": "Client: Depromeet",
-      "type": "UX/UI",
-      "description": {
-        "ko": "Sarr는 현대 디자인과 전통 공예의 교차점을 탐구하는 종합 브랜드 아이덴티티 프로젝트입니다.",
-        "en": "Sarr is a comprehensive brand identity project that explores the intersection of contemporary design and traditional craftsmanship."
-      },
-      "thumbnail": {
-        "type": "image",
-        "src": "Dingdong.png"
-      },
-      "media": [
-        {
-          "type": "image",
-          "src": "in.png"
-        }
-      ]
-    },
+  "id": "Ding-dong",
+  "title": "Ding-dong",
+  "category": "UX/UI",
+  "meta": "UX/UI",
+  "date": "April 2025",
+  "client": "Client: Depromeet",
+  "type": "UX/UI",
+  "externalUrl": "https://www.behance.net/gallery/175602565/DingDong-TMI-",
+  "description": { ... },
+  "thumbnail": { "type": "image", "src": "Dingdong.png" },
+  "media": [{ "type": "image", "src": "in.png" }]
+},
     {
       "id": "Foretderm",
       "title": "Foretderm Derma Intense Vita Cream Package Design",
