@@ -15,7 +15,7 @@
 
     html, body {
       height: 100%;
-      overflow: hidden;
+      overflow: hidden; /* 전체 페이지 스크롤 막고 */
     }
 
     body {
@@ -33,15 +33,19 @@
 
     a { text-decoration: none; color: inherit; cursor: inherit; }
 
+    /* ✅ 스크롤 컨테이너 */
     #page-scroll {
       height: 100vh;
       overflow-y: auto;
       -webkit-overflow-scrolling: touch;
     }
 
+    /* ✅ 헤더: fixed 대신 sticky */
     header {
       position: sticky;
       top: 0;
+      left: 0;
+      right: 0;
       height: 115px;
       background: #fff;
       padding: 0 20px;
@@ -123,10 +127,45 @@
       color: #666;
     }
 
+    /* ABOUT */
     .about {
       display: none;
       max-width: 980px;
       padding: 10px 0 0;
+    }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 40px;
+      align-items: start;
+    }
+    .about h1 {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 14.3px;
+      margin-bottom: 16px;
+    }
+    .about p {
+      margin-bottom: 14px;
+      color: #111;
+    }
+    .about .meta {
+      display: grid;
+      gap: 10px;
+      color: #111;
+    }
+    .about .meta .row {
+      display: grid;
+      grid-template-columns: 90px 1fr;
+      gap: 12px;
+      align-items: baseline;
+    }
+    .about .label {
+      color: #666;
+    }
+    .about a {
+      text-decoration: underline;
+      text-underline-offset: 2px;
     }
 
     .falling-star {
@@ -144,12 +183,15 @@
     @media (max-width: 768px) {
       .grid { grid-template-columns: 1fr; }
       nav { gap: 18px; }
+      .about-grid { grid-template-columns: 1fr; gap: 22px; }
+      .about .meta .row { grid-template-columns: 78px 1fr; }
     }
   </style>
 </head>
 
 <body>
 
+<!-- ✅ 헤더를 page-scroll 안으로 이동 -->
 <div id="page-scroll">
   <header>
     <div class="header-content">
@@ -162,7 +204,9 @@
       </div>
 
       <nav>
-        <a href="index.html?category=artdirecting">Art directing<br>& Brand Identity</a>
+        <a href="index.html?category=artdirecting">
+          Art directing<br>& Brand Identity
+        </a>
         <a href="index.html?category=interaction">Interaction</a>
         <a href="index.html?category=uxui">UX/UI</a>
         <a href="index.html?category=editorial">Editorial</a>
@@ -178,76 +222,158 @@
     <div class="wrap">
       <div class="loading" id="loading">Loading projects...</div>
       <div class="grid" id="grid" style="display:none;"></div>
+
+      <section class="about" id="about">
+        <div class="about-grid">
+          <div>
+            <h1>About</h1>
+
+            <p>
+              based on newyork &amp; seoul<br>
+              <a href="mailto:present1513@gmail.com">present1513@gmail.com</a>
+            </p>
+
+            <p>
+              Hello, my name is Chaelin Kim. I have a strong interest in a wide range of fields,
+              including branding, UX/UI, and video.
+            </p>
+
+            <p>
+              I strive to expand my world with a bold, challenge-driven mindset,
+              without setting limits on what I can explore.
+            </p>
+          </div>
+
+          <div class="meta">
+            <div class="row">
+              <div class="label">Email</div>
+              <div><a href="mailto:present1513@gmail.com">present1513@gmail.com</a></div>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   </main>
 </div>
 
 <script>
+  let lastStar = 0;
+  document.addEventListener('mousemove', e => {
+    const now = Date.now();
+    if (now - lastStar < 50) return;
+    lastStar = now;
+
+    const star = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    star.setAttribute('class', 'falling-star');
+    star.setAttribute('width', '12');
+    star.setAttribute('height', '12');
+    star.setAttribute('viewBox', '0 0 24 24');
+    star.style.left = e.clientX + 'px';
+    star.style.top = e.clientY + 'px';
+
+    const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    path.setAttribute('fill', '#FF6FD6');
+    path.setAttribute(
+      'd',
+      'M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z'
+    );
+
+    star.appendChild(path);
+    document.body.appendChild(star);
+    setTimeout(() => star.remove(), 1000);
+  });
+
   const loading = document.getElementById('loading');
   const grid = document.getElementById('grid');
+  const about = document.getElementById('about');
 
   const params = new URLSearchParams(location.search);
   const category = params.get('category');
+  const page = (params.get('page') || '').toLowerCase();
 
-  const getThumb = (p) => {
-    if (p?.thumbnail?.src) {
-      return { type: p.thumbnail.type || 'image', src: p.thumbnail.src };
-    }
-    return { type: 'image', src: '' };
-  };
+  if (page === 'about') {
+    loading.style.display = 'none';
+    grid.style.display = 'none';
+    about.style.display = 'block';
+  } else {
+    about.style.display = 'none';
 
-  const renderThumb = (p) => {
-    const { type, src } = getThumb(p);
-    if (!src) return '';
-    if (type === 'video') {
-      return `
-        <video autoplay loop muted playsinline>
-          <source src="${src}" type="video/mp4">
-        </video>
-      `;
-    }
-    return `<img src="${src}" alt="${p.title || ''}">`;
-  };
+    const getThumb = (p) => {
+      if (p && p.thumbnail && typeof p.thumbnail === 'object' && p.thumbnail.src) {
+        return { type: p.thumbnail.type || '', src: p.thumbnail.src || '' };
+      }
+      if (p && typeof p.thumbnail === 'string') {
+        const src = p.thumbnail;
+        const ext = src.split('.').pop().toLowerCase();
+        const type = (['mp4','webm','mov'].includes(ext)) ? 'video' : 'image';
+        return { type, src };
+      }
+      return { type: 'image', src: '' };
+    };
 
-  fetch('projects-data.json', { cache: 'no-store' })
-    .then(r => r.json())
-    .then(data => {
-      const projects = data.projects || [];
-
-      const filtered = category
-        ? projects.filter(p => (p.category || '').toLowerCase() === category.toLowerCase())
-        : projects;
-
-      grid.innerHTML = filtered.map(p => {
-        const isExternal = !!p.externalUrl;
-
-        const href = isExternal
-          ? p.externalUrl
-          : `project.html?id=${encodeURIComponent(p.id)}`;
-
-        const extraAttrs = isExternal
-          ? `target="_blank" rel="noopener noreferrer"`
-          : ``;
-
+    const renderThumb = (p) => {
+      const t = getThumb(p);
+      const type = t.type;
+      const src = t.src;
+      if (!src) return '';
+      if (type === 'video') {
         return `
-          <a class="card" href="${href}" ${extraAttrs}>
-            <div class="thumb">${renderThumb(p)}</div>
-            <div class="info">
-              <div>
-                <div class="title">${p.title || ''}</div>
-                <div class="category">${p.type || ''}</div>
-              </div>
-            </div>
-          </a>
+          <video autoplay loop muted playsinline preload="metadata">
+            <source src="${src}" type="video/mp4">
+          </video>
         `;
-      }).join('');
+      }
+      return `<img src="${src}" alt="${p.title || ''}">`;
+    };
 
-      loading.style.display = 'none';
-      grid.style.display = 'grid';
-    })
-    .catch(() => {
-      loading.textContent = 'Failed to load projects.';
-    });
+    // ⚠️ 여기 파일명 확인!
+    // 네가 실제 파일명이 project-data.json이면 아래를 'project-data.json'으로 바꿔야 함.
+    fetch('projects-data.json', { cache: 'no-store' })
+      .then(r => {
+        if (!r.ok) throw new Error('Failed to fetch JSON: ' + r.status);
+        return r.json();
+      })
+      .then(data => {
+        const projects = data.projects || [];
+
+        const filtered = category
+          ? projects.filter(p => (p.category || '').toLowerCase() === category.toLowerCase())
+          : projects;
+
+        grid.innerHTML = filtered.map(p => {
+          // ✅ externalUrl 있으면 그쪽으로 바로 이동
+          const isExternal = !!p.externalUrl;
+          const href = isExternal
+            ? p.externalUrl
+            : `project.html?id=${encodeURIComponent(p.id)}`;
+
+          const extraAttrs = isExternal
+            ? `target="_blank" rel="noopener noreferrer"`
+            : ``;
+
+          return `
+            <a class="card" href="${href}" ${extraAttrs}>
+              <div class="thumb">${renderThumb(p)}</div>
+              <div class="info">
+                <div>
+                  <div class="title">${p.title || ''}</div>
+                  <div class="category">${p.type || ''}</div>
+                </div>
+              </div>
+            </a>
+          `;
+        }).join('');
+
+        loading.style.display = 'none';
+        grid.style.display = 'grid';
+      })
+      .catch(err => {
+        console.error(err);
+        loading.textContent = 'Failed to load projects.';
+        loading.style.display = 'block';
+        grid.style.display = 'none';
+      });
+  }
 </script>
 
 </body>
