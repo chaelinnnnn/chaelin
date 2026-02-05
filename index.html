@@ -15,7 +15,7 @@
 
     html, body {
       height: 100%;
-      overflow: hidden; /* 전체 페이지 스크롤 막고 */
+      overflow: hidden;
     }
 
     body {
@@ -33,19 +33,23 @@
 
     a { text-decoration: none; color: inherit; cursor: inherit; }
 
-    /* ✅ 스크롤 컨테이너 */
+    /* 헤더 로고에만 손가락 커서 */
+    .logo a {
+      cursor: url("cursor-hand.png") 16 16, pointer !important;
+    }
+    .logo a * {
+      cursor: inherit !important;
+    }
+
     #page-scroll {
       height: 100vh;
       overflow-y: auto;
       -webkit-overflow-scrolling: touch;
     }
 
-    /* ✅ 헤더: fixed 대신 sticky */
     header {
       position: sticky;
       top: 0;
-      left: 0;
-      right: 0;
       height: 115px;
       background: #fff;
       padding: 0 20px;
@@ -77,8 +81,7 @@
       align-items: center;
     }
 
-    nav a,
-    .contact-email {
+    nav a {
       font-size: 13px;
       font-weight: 600;
       line-height: 14.3px;
@@ -127,45 +130,10 @@
       color: #666;
     }
 
-    /* ABOUT */
     .about {
       display: none;
       max-width: 980px;
       padding: 10px 0 0;
-    }
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 40px;
-      align-items: start;
-    }
-    .about h1 {
-      font-size: 13px;
-      font-weight: 600;
-      line-height: 14.3px;
-      margin-bottom: 16px;
-    }
-    .about p {
-      margin-bottom: 14px;
-      color: #111;
-    }
-    .about .meta {
-      display: grid;
-      gap: 10px;
-      color: #111;
-    }
-    .about .meta .row {
-      display: grid;
-      grid-template-columns: 90px 1fr;
-      gap: 12px;
-      align-items: baseline;
-    }
-    .about .label {
-      color: #666;
-    }
-    .about a {
-      text-decoration: underline;
-      text-underline-offset: 2px;
     }
 
     .falling-star {
@@ -183,15 +151,12 @@
     @media (max-width: 768px) {
       .grid { grid-template-columns: 1fr; }
       nav { gap: 18px; }
-      .about-grid { grid-template-columns: 1fr; gap: 22px; }
-      .about .meta .row { grid-template-columns: 78px 1fr; }
     }
   </style>
 </head>
 
 <body>
 
-<!-- ✅ 헤더를 page-scroll 안으로 이동 -->
 <div id="page-scroll">
   <header>
     <div class="header-content">
@@ -213,7 +178,6 @@
         <a href="index.html?category=film">Film</a>
         <a href="index.html?category=exhibition">Exhibition</a>
         <a href="index.html?page=about">About</a>
-        <span class="contact-email">present1513@gmail.com</span>
       </nav>
     </div>
   </header>
@@ -222,36 +186,6 @@
     <div class="wrap">
       <div class="loading" id="loading">Loading projects...</div>
       <div class="grid" id="grid" style="display:none;"></div>
-
-      <section class="about" id="about">
-        <div class="about-grid">
-          <div>
-            <h1>About</h1>
-
-            <p>
-              based on newyork &amp; seoul<br>
-              <a href="mailto:present1513@gmail.com">present1513@gmail.com</a>
-            </p>
-
-            <p>
-              Hello, my name is Chaelin Kim. I have a strong interest in a wide range of fields,
-              including branding, UX/UI, and video.
-            </p>
-
-            <p>
-              I strive to expand my world with a bold, challenge-driven mindset,
-              without setting limits on what I can explore.
-            </p>
-          </div>
-
-          <div class="meta">
-            <div class="row">
-              <div class="label">Email</div>
-              <div><a href="mailto:present1513@gmail.com">present1513@gmail.com</a></div>
-            </div>
-          </div>
-        </div>
-      </section>
     </div>
   </main>
 </div>
@@ -282,98 +216,6 @@
     document.body.appendChild(star);
     setTimeout(() => star.remove(), 1000);
   });
-
-  const loading = document.getElementById('loading');
-  const grid = document.getElementById('grid');
-  const about = document.getElementById('about');
-
-  const params = new URLSearchParams(location.search);
-  const category = params.get('category');
-  const page = (params.get('page') || '').toLowerCase();
-
-  if (page === 'about') {
-    loading.style.display = 'none';
-    grid.style.display = 'none';
-    about.style.display = 'block';
-  } else {
-    about.style.display = 'none';
-
-    const getThumb = (p) => {
-      if (p && p.thumbnail && typeof p.thumbnail === 'object' && p.thumbnail.src) {
-        return { type: p.thumbnail.type || '', src: p.thumbnail.src || '' };
-      }
-      if (p && typeof p.thumbnail === 'string') {
-        const src = p.thumbnail;
-        const ext = src.split('.').pop().toLowerCase();
-        const type = (['mp4','webm','mov'].includes(ext)) ? 'video' : 'image';
-        return { type, src };
-      }
-      return { type: 'image', src: '' };
-    };
-
-    const renderThumb = (p) => {
-      const t = getThumb(p);
-      const type = t.type;
-      const src = t.src;
-      if (!src) return '';
-      if (type === 'video') {
-        return `
-          <video autoplay loop muted playsinline preload="metadata">
-            <source src="${src}" type="video/mp4">
-          </video>
-        `;
-      }
-      return `<img src="${src}" alt="${p.title || ''}">`;
-    };
-
-    // ⚠️ 여기 파일명 확인!
-    // 네가 실제 파일명이 project-data.json이면 아래를 'project-data.json'으로 바꿔야 함.
-    fetch('projects-data.json', { cache: 'no-store' })
-      .then(r => {
-        if (!r.ok) throw new Error('Failed to fetch JSON: ' + r.status);
-        return r.json();
-      })
-      .then(data => {
-        const projects = data.projects || [];
-
-        const filtered = category
-          ? projects.filter(p => (p.category || '').toLowerCase() === category.toLowerCase())
-          : projects;
-
-        grid.innerHTML = filtered.map(p => {
-          // ✅ externalUrl 있으면 그쪽으로 바로 이동
-          const isExternal = !!p.externalUrl;
-          const href = isExternal
-            ? p.externalUrl
-            : `project.html?id=${encodeURIComponent(p.id)}`;
-
-          const extraAttrs = isExternal
-            ? `target="_blank" rel="noopener noreferrer"`
-            : ``;
-
-          return `
-            <a class="card" href="${href}" ${extraAttrs}>
-              <div class="thumb">${renderThumb(p)}</div>
-              <div class="info">
-                <div>
-                  <div class="title">${p.title || ''}</div>
-                  <div class="category">${p.type || ''}</div>
-                </div>
-              </div>
-            </a>
-          `;
-        }).join('');
-
-        loading.style.display = 'none';
-        grid.style.display = 'grid';
-      })
-      .catch(err => {
-        console.error(err);
-        loading.textContent = 'Failed to load projects.';
-        loading.style.display = 'block';
-        grid.style.display = 'none';
-      });
-  }
 </script>
 
 </body>
