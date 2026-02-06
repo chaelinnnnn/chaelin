@@ -100,9 +100,7 @@
         { "type": "image", "src": "sarr4.png" },
         { "type": "image", "src": "sarr5.png" },
         { "type": "image", "src": "sarr6.png" },
-        { "type": "image", "src": "sarr7.png" },
-        { "type": "image", "src": "sarr8.png" },
-        { "type": "image", "src": "sarr9.png" }
+        { "type": "image", "src": "sarr7.png" }
       ]
     },
     {
