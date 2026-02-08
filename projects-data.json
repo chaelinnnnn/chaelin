@@ -232,6 +232,19 @@
       ]
     },
     {
+  "id": "Junction ASIA 2024",
+  "title": "Junction ASIA 2024",
+  "category": "artdirecting",
+  "meta": "Art directing, Brand identity",
+  "date": "April 2024",
+  "client": "Client: Junction ASIA",
+  "type": "Art directing, Brand Identity",
+  "externalUrl": "https://youtu.be/YyeM4ykfjoQ?si=JdQrfZXw0ors8Z77",
+  "description": {},
+  "thumbnail": { "type": "image", "src": "junction.png" },
+  "media": [{ "type": "image", "src": "in.png" }]
+    },
+    {
       "id": "every-singles-time",
       "title": "Every Singles Time Title Design",
       "category": "artdirecting",
