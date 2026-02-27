@@ -15,7 +15,7 @@
 
     html, body {
       height: 100%;
-      overflow: hidden; /* 전체 페이지 스크롤 막고 */
+      overflow: hidden;
     }
 
     body {
@@ -33,7 +33,6 @@
 
     a { text-decoration: none; color: inherit; cursor: inherit; }
 
-    /* ✅ 추가: 헤더 로고(눈 비디오) 위에 올리면 손가락 커서 */
     .logo a {
       cursor: url("cursor-hand.png") 16 16, pointer !important;
     }
@@ -41,14 +40,12 @@
       cursor: inherit !important;
     }
 
-    /* ✅ 스크롤 컨테이너 */
     #page-scroll {
       height: 100vh;
       overflow-y: auto;
       -webkit-overflow-scrolling: touch;
     }
 
-    /* ✅ 헤더: fixed 대신 sticky */
     header {
       position: sticky;
       top: 0;
@@ -128,6 +125,7 @@
 
     .title { font-weight: 600; }
     .category { color: #666; }
+    .collaboration { color: #aaa; font-size: 11px; }
 
     .loading {
       text-align: center;
@@ -199,7 +197,6 @@
 
 <body>
 
-<!-- ✅ 헤더를 page-scroll 안으로 이동 -->
 <div id="page-scroll">
   <header>
     <div class="header-content">
@@ -221,8 +218,6 @@
         <a href="index.html?category=film">Film</a>
         <a href="index.html?category=exhibition">Exhibition</a>
         <a href="index.html?page=about">About</a>
-        <!-- ✅ 제거: 헤더 이메일 표시 -->
-        <!-- <span class="contact-email">present1513@gmail.com</span> -->
       </nav>
     </div>
   </header>
@@ -364,6 +359,7 @@
                 <div>
                   <div class="title">${p.title || ''}</div>
                   <div class="category">${p.type || ''}</div>
+                  <div class="collaboration">${p.collaboration || ''}</div>
                 </div>
               </div>
             </a>
