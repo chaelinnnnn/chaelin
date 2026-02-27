@@ -237,34 +237,6 @@
       ]
     },
     {
-      "id": "Pressto Magazine",
-      "title": "Pressto Magazine",
-      "category": "artdirecting",
-      "meta": "Art directing, Brand Identity",
-      "date": "September 2024",
-      "client": "Client: Pressto Magazine",
-      "type": "Art directing, Brand Identity",
-      "collaboration": "Individual",
-      "description": {
-        "ko": "Pressto Magazine은 인스타그램 기반의 디지털 매거진으로, K-pop, 패션, 라이프스타일 등 한국 문화의 다양한 면을 글로벌 시각으로 큐레이션합니다.",
-        "en": "Pressto Magazine is a digital magazine built on Instagram, curating various aspects of Korean culture—including K-pop, fashion, and lifestyle—from a global perspective. I led the overall direction and brand identity design, shaping a cohesive brand experience from content strategy and visual system development to the definition of tone and manner."
-      },
-      "thumbnail": {
-        "type": "video",
-        "src": "sarrposter.mp4"
-      },
-      "media": [
-        {
-          "type": "video",
-          "src": "sarrposter.mp4"
-        },
-        {
-          "type": "image",
-          "src": "sarrposter1.png"
-        }
-      ]
-    },
-    {
       "id": "Junction ASIA 2024",
       "title": "Junction ASIA 2024",
       "category": "artdirecting",
