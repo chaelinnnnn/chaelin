@@ -51,21 +51,21 @@
     /* name + about row */
     .left-header-row {
       display: flex;
-      justify-content: space-between;
-      align-items: baseline;
+      flex-direction: column;
+      gap: 6px;
       margin-bottom: 22px;
     }
     .site-name {
-      font-size: 13px;
+      font-size: 18px;
       font-weight: 600;
     }
     .about-top-btn {
       background: none;
       border: none;
       font-size: 13px;
-      font-weight: 600;
+      font-weight: 400;
       font-family: inherit;
-      color: #000;
+      color: var(--gray);
       cursor: url("cursor-hand.png") 16 16, pointer !important;
       padding: 0;
       transition: color 0.15s;
@@ -89,8 +89,10 @@
     /* category nav — vertical */
     .cat-nav {
       display: flex;
-      flex-direction: column;
-      padding-top: 4px;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 4px 10px;
+      padding-top: 10px;
       border-top: 1px solid var(--line);
     }
     .cat-nav button {
@@ -100,7 +102,7 @@
       font-weight: 400;
       color: var(--gray);
       cursor: url("cursor-hand.png") 16 16, pointer !important;
-      padding: 9px 0;
+      padding: 2px 0;
       text-align: left;
       transition: color 0.15s;
       font-family: inherit;
@@ -282,7 +284,7 @@
       <!-- 이름 + About -->
       <div class="left-header-row">
         <span class="site-name">Chaelin Kim</span>
-        <button class="about-top-btn" id="about-btn">About</button>
+        <a class="about-top-btn" id="about-btn" href="Resume_Chaelin_Kim.pdf" target="_blank" rel="noopener noreferrer">Information</a>
       </div>
 
       <!-- 카테고리 필터 (세로) -->
@@ -310,7 +312,7 @@
     <div id="r-about">
       <h1>About</h1>
       <p>based on New York &amp; Seoul<br>
-        <a href="mailto:present1513&#64;gmail&#46;com">present1513&#64;gmail&#46;com</a></p>
+        <a href="/cdn-cgi/l/email-protection#8cfcfee9ffe9e2f8bdb9bdbfaaafbab8b7ebe1ede5e0aaafb8bab7efe3e1">present1513&#64;gmail&#46;com</a></p>
       <p>Hello, my name is Chaelin Kim. I have a strong interest in a wide range of fields, including branding, UX/UI, and video.</p>
       <p>I strive to expand my world with a bold, challenge-driven mindset, without setting limits on what I can explore.</p>
     </div>
@@ -318,7 +320,7 @@
 
 </div>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 /* star cursor */
 let lastStar = 0;
 document.addEventListener('mousemove', function(e) {
@@ -458,13 +460,7 @@ function openDetail(p) {
   rightEl.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-/* about */
-aboutBtn.addEventListener('click', function() {
-  hideAll();
-  rAbout.classList.add('on');
-  listEl.querySelectorAll('.proj-row').forEach(function(r) { r.classList.remove('on'); });
-  catNav.querySelectorAll('button').forEach(function(b) { b.classList.remove('on'); });
-});
+/* about — opens PDF in new tab via href */
 
 /* category filter */
 catNav.querySelectorAll('button').forEach(function(btn) {
@@ -505,9 +501,4 @@ fetch('./projects-data.json', { cache: 'no-store' })
     showGrid(projects);
   })
   .catch(function(err) {
-    console.error(err);
-    listEl.innerHTML = '<div style="padding:20px;color:red;">Failed to load: ' + err.message + '</div>';
-  });
-</script>
-</body>
-</html>
+ 
