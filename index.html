@@ -27,6 +27,7 @@
 
     a { text-decoration: none; color: inherit; cursor: inherit; }
 
+    /* ── LAYOUT ── */
     .layout {
       display: grid;
       grid-template-columns: 290px 1fr;
@@ -98,7 +99,6 @@
     .proj-row * { cursor: inherit !important; }
     .proj-row:hover,
     .proj-row.on { background: #fafafa; }
-
     .proj-row:hover .proj-title,
     .proj-row.on .proj-title { color: var(--pink); }
 
@@ -133,23 +133,58 @@
     .right {
       height: 100vh;
       overflow-y: auto;
-      background: #f9f9f9;
+      background: #fff;
       position: relative;
     }
     .right::-webkit-scrollbar { width: 0; }
 
-    #r-empty {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #ddd;
-      font-size: 12px;
-      letter-spacing: 0.05em;
-      pointer-events: none;
+    /* ── GRID VIEW (All / category) ── */
+    #r-grid {
+      display: none;
+      padding: 20px;
+    }
+    #r-grid.on { display: block; }
+
+    .thumb-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
     }
 
+    .thumb-card {
+      display: block;
+      cursor: url("cursor-hand.png") 16 16, pointer !important;
+    }
+    .thumb-card * { cursor: inherit !important; }
+
+    .thumb-media {
+      width: 100%;
+      aspect-ratio: 3 / 2;
+      overflow: hidden;
+      background: #f7f7f7;
+    }
+    .thumb-media img,
+    .thumb-media video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .thumb-info {
+      margin-top: 8px;
+    }
+    .thumb-title {
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 2px;
+      transition: color 0.15s;
+    }
+    .thumb-card:hover .thumb-title { color: var(--pink); }
+    .thumb-type { font-size: 11px; color: var(--gray); }
+    .thumb-collab { font-size: 10px; color: #ccc; margin-top: 1px; }
+
+    /* ── DETAIL VIEW ── */
     #r-detail {
       display: none;
       padding: 44px 48px 100px;
@@ -190,6 +225,7 @@
       border: 0;
     }
 
+    /* ── ABOUT ── */
     #r-about {
       display: none;
       padding: 44px 48px 100px;
@@ -199,6 +235,7 @@
     #r-about p { margin-bottom: 14px; color: #333; line-height: 1.8; }
     #r-about a { text-decoration: underline; text-underline-offset: 2px; }
 
+    /* ── STAR ── */
     .star {
       position: fixed;
       pointer-events: none;
@@ -220,10 +257,11 @@
 
 <div class="layout">
 
+  <!-- LEFT -->
   <div class="left">
     <div class="left-top">
       <div class="logo-wrap">
-        <a href="index.html">
+        <a href="#" id="logo-link">
           <video autoplay loop muted playsinline>
             <source src="logo.mp4" type="video/mp4">
           </video>
@@ -250,13 +288,14 @@
     </div>
   </div>
 
+  <!-- RIGHT -->
   <div class="right" id="right">
-    <div id="r-empty">&#8212;</div>
+    <div id="r-grid"></div>
     <div id="r-detail"></div>
     <div id="r-about">
       <h1>About</h1>
       <p>based on New York &amp; Seoul<br>
-         <a href="mailto:present1513&#64;gmail&#46;com">present1513&#64;gmail&#46;com</a></p>
+        <a href="mailto:present1513&#64;gmail&#46;com">present1513&#64;gmail&#46;com</a></p>
       <p>Hello, my name is Chaelin Kim. I have a strong interest in a wide range of fields, including branding, UX/UI, and video.</p>
       <p>I strive to expand my world with a bold, challenge-driven mindset, without setting limits on what I can explore.</p>
     </div>
@@ -265,9 +304,9 @@
 </div>
 
 <script>
-/* star cursor trail */
+/* star cursor */
 let lastStar = 0;
-document.addEventListener('mousemove', e => {
+document.addEventListener('mousemove', function(e) {
   const now = Date.now();
   if (now - lastStar < 50) return;
   lastStar = now;
@@ -283,7 +322,7 @@ document.addEventListener('mousemove', e => {
   p.setAttribute('d', 'M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z');
   s.appendChild(p);
   document.body.appendChild(s);
-  setTimeout(() => s.remove(), 1000);
+  setTimeout(function() { s.remove(); }, 1000);
 });
 
 /* state */
@@ -293,56 +332,98 @@ let activeCat = '';
 const listEl   = document.getElementById('project-list');
 const catNav   = document.getElementById('cat-nav');
 const rightEl  = document.getElementById('right');
-const rEmpty   = document.getElementById('r-empty');
+const rGrid    = document.getElementById('r-grid');
 const rDetail  = document.getElementById('r-detail');
 const rAbout   = document.getElementById('r-about');
 const aboutBtn = document.getElementById('about-btn');
+const logoLink = document.getElementById('logo-link');
 
-function renderList() {
-  const list = activeCat
-    ? projects.filter(p => (p.category || '').toLowerCase() === activeCat)
-    : projects;
+function hideAll() {
+  rGrid.classList.remove('on');
+  rDetail.classList.remove('on');
+  rAbout.classList.remove('on');
+}
 
+function renderThumb(p) {
+  if (!p.thumbnail || !p.thumbnail.src) return '';
+  if (p.thumbnail.type === 'video') {
+    return '<video autoplay loop muted playsinline preload="metadata"><source src="' + p.thumbnail.src + '" type="video/mp4"></video>';
+  }
+  return '<img src="' + p.thumbnail.src + '" alt="' + (p.title || '') + '">';
+}
+
+function renderGrid(list) {
+  if (!list.length) {
+    rGrid.innerHTML = '<div style="padding:20px;color:#ccc;">No projects</div>';
+    return;
+  }
+  rGrid.innerHTML = '<div class="thumb-grid">' + list.map(function(p) {
+    const href = p.externalUrl ? p.externalUrl : '#';
+    const attrs = p.externalUrl ? 'target="_blank" rel="noopener noreferrer"' : 'data-id="' + p.id + '"';
+    return '<a class="thumb-card" href="' + href + '" ' + attrs + '>' +
+      '<div class="thumb-media">' + renderThumb(p) + '</div>' +
+      '<div class="thumb-info">' +
+        '<div class="thumb-title">' + (p.title || '') + '</div>' +
+        '<div class="thumb-type">' + (p.type || '') + '</div>' +
+        '<div class="thumb-collab">' + (p.collaboration || '') + '</div>' +
+      '</div>' +
+    '</a>';
+  }).join('') + '</div>';
+
+  rGrid.querySelectorAll('.thumb-card[data-id]').forEach(function(card) {
+    card.addEventListener('click', function(e) {
+      e.preventDefault();
+      const proj = projects.find(function(p) { return p.id === card.dataset.id; });
+      if (proj) openDetail(proj);
+    });
+  });
+}
+
+function renderList(list) {
   if (!list.length) {
     listEl.innerHTML = '<div style="padding:20px;color:#ccc;">No projects</div>';
     return;
   }
+  listEl.innerHTML = list.map(function(p) {
+    return '<a class="proj-row" data-id="' + p.id + '" href="#">' +
+      '<div class="proj-title">' + (p.title || '') + '</div>' +
+      '<div class="proj-type">' + (p.type || '') + '</div>' +
+      '<div class="proj-collab">' + (p.collaboration || '') + '</div>' +
+    '</a>';
+  }).join('');
 
-  listEl.innerHTML = list.map(p => `
-    <a class="proj-row" data-id="${p.id}" href="#">
-      <div class="proj-title">${p.title || ''}</div>
-      <div class="proj-type">${p.type || ''}</div>
-      <div class="proj-collab">${p.collaboration || ''}</div>
-    </a>
-  `).join('');
-
-  listEl.querySelectorAll('.proj-row').forEach(row => {
-    row.addEventListener('click', e => {
+  listEl.querySelectorAll('.proj-row').forEach(function(row) {
+    row.addEventListener('click', function(e) {
       e.preventDefault();
-      const proj = projects.find(p => p.id === row.dataset.id);
+      const proj = projects.find(function(p) { return p.id === row.dataset.id; });
       if (!proj) return;
-
       if (proj.externalUrl) {
         window.open(proj.externalUrl, '_blank', 'noopener,noreferrer');
         return;
       }
-
-      listEl.querySelectorAll('.proj-row').forEach(r => r.classList.remove('on'));
+      listEl.querySelectorAll('.proj-row').forEach(function(r) { r.classList.remove('on'); });
       row.classList.add('on');
       openDetail(proj);
     });
   });
 }
 
+function showGrid(list) {
+  hideAll();
+  renderGrid(list);
+  rGrid.classList.add('on');
+  rightEl.scrollTo({ top: 0, behavior: 'smooth' });
+  listEl.querySelectorAll('.proj-row').forEach(function(r) { r.classList.remove('on'); });
+}
+
 function openDetail(p) {
-  rEmpty.style.display = 'none';
-  rAbout.classList.remove('on');
+  hideAll();
   rDetail.classList.add('on');
 
   const desc = p.description && p.description.en ? p.description.en : '';
   const metaParts = [p.type, p.date, p.client].filter(Boolean);
 
-  const mediaHTML = (p.media || []).map(m => {
+  const mediaHTML = (p.media || []).map(function(m) {
     if (m.type === 'video')
       return '<video autoplay loop muted playsinline><source src="' + m.src + '" type="video/mp4"></video>';
     if (m.type === 'vimeo')
@@ -362,25 +443,38 @@ function openDetail(p) {
   rightEl.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-aboutBtn.addEventListener('click', () => {
-  rEmpty.style.display = 'none';
-  rDetail.classList.remove('on');
-  rAbout.classList.add('on');
-  listEl.querySelectorAll('.proj-row').forEach(r => r.classList.remove('on'));
+/* logo → show all grid */
+logoLink.addEventListener('click', function(e) {
+  e.preventDefault();
+  catNav.querySelectorAll('button').forEach(function(b) { b.classList.remove('on'); });
+  catNav.querySelector('[data-cat=""]').classList.add('on');
+  activeCat = '';
+  renderList(projects);
+  showGrid(projects);
 });
 
-catNav.querySelectorAll('button').forEach(btn => {
-  btn.addEventListener('click', () => {
-    catNav.querySelectorAll('button').forEach(b => b.classList.remove('on'));
+/* about */
+aboutBtn.addEventListener('click', function() {
+  hideAll();
+  rAbout.classList.add('on');
+  listEl.querySelectorAll('.proj-row').forEach(function(r) { r.classList.remove('on'); });
+});
+
+/* category filter */
+catNav.querySelectorAll('button').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    catNav.querySelectorAll('button').forEach(function(b) { b.classList.remove('on'); });
     btn.classList.add('on');
     activeCat = btn.dataset.cat;
-    renderList();
-    rEmpty.style.display = '';
-    rDetail.classList.remove('on');
-    rAbout.classList.remove('on');
+    const filtered = activeCat
+      ? projects.filter(function(p) { return (p.category || '').toLowerCase() === activeCat; })
+      : projects;
+    renderList(filtered);
+    showGrid(filtered);
   });
 });
 
+/* fetch */
 fetch('./projects-data.json', { cache: 'no-store' })
   .then(function(r) {
     if (!r.ok) throw new Error(r.status);
@@ -388,7 +482,8 @@ fetch('./projects-data.json', { cache: 'no-store' })
   })
   .then(function(data) {
     projects = data.projects || [];
-    renderList();
+    renderList(projects);
+    showGrid(projects);
   })
   .catch(function(err) {
     console.error(err);
