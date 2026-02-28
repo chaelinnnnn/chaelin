@@ -4,203 +4,239 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Chaelin Kim</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Neue+Haas+Grotesk+Display+Pro:wght@400;500;600&display=swap" rel="stylesheet" />
-
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    :root { --bg:#fff; --text:#000; }
-
-    html, body {
-      height: 100%;
-      overflow: hidden;
+    :root {
+      --pink: #FF6FD6;
+      --gray: #999;
+      --line: #e8e8e8;
     }
 
+    html, body { height: 100%; overflow: hidden; }
+
     body {
-      font-family: -apple-system, "system-ui", Inter, "Segoe UI", Roboto, sans-serif;
-      background: var(--bg);
-      color: var(--text);
+      font-family: -apple-system, "system-ui", "Segoe UI", Roboto, sans-serif;
       font-size: 13px;
-      line-height: 1.6;
+      line-height: 1.5;
+      background: #fff;
+      color: #000;
       -webkit-font-smoothing: antialiased;
-      cursor: url('data:image/svg+xml;utf8,\
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">\
-<path fill="%23FF6FD6" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>\
-</svg>') 12 12, auto;
+      cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="%23FF6FD6" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>') 12 12, auto;
     }
 
     a { text-decoration: none; color: inherit; cursor: inherit; }
 
-    .logo a {
-      cursor: url("cursor-hand.png") 16 16, pointer !important;
-    }
-    .logo a * {
-      cursor: inherit !important;
-    }
-
-    #page-scroll {
+    /* ── LAYOUT ── */
+    .layout {
+      display: grid;
+      grid-template-columns: 290px 1fr;
       height: 100vh;
-      overflow-y: auto;
-      -webkit-overflow-scrolling: touch;
     }
 
-    header {
-      position: sticky;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 115px;
-      background: #fff;
-      padding: 0 20px;
-      z-index: 9999;
-    }
-
-    .header-content {
-      height: 100%;
+    /* ── LEFT ── */
+    .left {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 15px 0;
-    }
-
-    .logo {
-      width: 150px;
-      height: 85px;
+      flex-direction: column;
+      height: 100vh;
+      border-right: 1px solid var(--line);
       overflow: hidden;
     }
 
-    .logo video {
-      width: 180px;
-      margin-left: -15px;
+    /* logo area */
+    .left-top {
+      flex-shrink: 0;
+      padding: 18px 20px 0;
     }
 
-    nav {
-      display: flex;
-      gap: 30px;
-      align-items: center;
-    }
-
-    nav a,
-    .contact-email {
-      font-size: 13px;
-      font-weight: 600;
-      line-height: 14.3px;
-    }
-
-    nav a:hover { opacity: 0.6; }
-
-    .wrap {
-      padding: 0 20px 60px;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 10px;
-    }
-
-    .thumb {
-      width: 100%;
-      aspect-ratio: 3 / 2;
+    .logo-wrap {
+      width: 120px;
+      height: 68px;
       overflow: hidden;
-      background: #f7f7f7;
-    }
-
-    .thumb img,
-    .thumb video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .info {
-      margin-top: 10px;
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-    }
-
-    .title { font-weight: 600; }
-    .category { color: #666; }
-    .collaboration { color: #aaa; font-size: 11px; }
-
-    .loading {
-      text-align: center;
-      padding: 80px 0;
-      color: #666;
-    }
-
-    /* ABOUT */
-    .about {
-      display: none;
-      max-width: 980px;
-      padding: 10px 0 0;
-    }
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 40px;
-      align-items: start;
-    }
-    .about h1 {
-      font-size: 13px;
-      font-weight: 600;
-      line-height: 14.3px;
       margin-bottom: 16px;
     }
-    .about p {
-      margin-bottom: 14px;
-      color: #111;
+    .logo-wrap a {
+      display: block;
+      cursor: url("cursor-hand.png") 16 16, pointer !important;
     }
-    .about .meta {
-      display: grid;
-      gap: 10px;
-      color: #111;
+    .logo-wrap a * { cursor: inherit !important; }
+    .logo-wrap video { width: 148px; margin-left: -14px; }
+
+    /* category nav */
+    .cat-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px 8px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--line);
     }
-    .about .meta .row {
-      display: grid;
-      grid-template-columns: 90px 1fr;
-      gap: 12px;
-      align-items: baseline;
+    .cat-nav button {
+      background: none;
+      border: none;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--gray);
+      cursor: url("cursor-hand.png") 16 16, pointer !important;
+      padding: 0;
+      transition: color 0.15s;
+      font-family: inherit;
     }
-    .about .label {
-      color: #666;
+    .cat-nav button * { cursor: inherit !important; }
+    .cat-nav button:hover,
+    .cat-nav button.on { color: #000; }
+
+    /* project list */
+    .project-list {
+      flex: 1;
+      overflow-y: auto;
+      overflow-x: hidden;
     }
-    .about a {
-      text-decoration: underline;
-      text-underline-offset: 2px;
+    .project-list::-webkit-scrollbar { width: 0; }
+
+    .proj-row {
+      display: block;
+      padding: 12px 20px;
+      border-bottom: 1px solid var(--line);
+      cursor: url("cursor-hand.png") 16 16, pointer !important;
+      transition: background 0.1s;
+    }
+    .proj-row * { cursor: inherit !important; }
+    .proj-row:hover,
+    .proj-row.on { background: #fafafa; }
+
+    .proj-row:hover .proj-title,
+    .proj-row.on .proj-title { color: var(--pink); }
+
+    .proj-title {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.4;
+      transition: color 0.15s;
+      margin-bottom: 2px;
+    }
+    .proj-type { font-size: 11px; color: var(--gray); }
+    .proj-collab { font-size: 10px; color: #ccc; margin-top: 1px; }
+
+    /* left footer */
+    .left-bottom {
+      flex-shrink: 0;
+      padding: 13px 20px;
+      border-top: 1px solid var(--line);
+    }
+    .left-bottom button {
+      background: none;
+      border: none;
+      font-size: 13px;
+      font-weight: 600;
+      font-family: inherit;
+      cursor: url("cursor-hand.png") 16 16, pointer !important;
+      transition: color 0.15s;
+      padding: 0;
+    }
+    .left-bottom button * { cursor: inherit !important; }
+    .left-bottom button:hover { color: var(--pink); }
+
+    /* ── RIGHT ── */
+    .right {
+      height: 100vh;
+      overflow-y: auto;
+      background: #f9f9f9;
+      position: relative;
+    }
+    .right::-webkit-scrollbar { width: 0; }
+
+    /* placeholder */
+    #r-empty {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ddd;
+      font-size: 12px;
+      letter-spacing: 0.05em;
+      pointer-events: none;
     }
 
-    .falling-star {
+    /* detail */
+    #r-detail {
+      display: none;
+      padding: 44px 48px 100px;
+    }
+    #r-detail.on { display: block; }
+
+    .d-title {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.3;
+      margin-bottom: 6px;
+    }
+    .d-meta { font-size: 12px; color: var(--gray); margin-bottom: 3px; }
+    .d-collab { font-size: 10px; color: #bbb; margin-bottom: 28px; }
+    .d-desc {
+      font-size: 13px;
+      line-height: 1.8;
+      color: #333;
+      margin-bottom: 32px;
+      max-width: 520px;
+    }
+
+    .gallery { display: flex; flex-direction: column; gap: 10px; }
+    .gallery img,
+    .gallery video { width: 100%; display: block; }
+    .gallery video { background: #000; }
+
+    .vimeo-box {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+    }
+    .vimeo-box iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%; height: 100%;
+      border: 0;
+    }
+
+    /* about */
+    #r-about {
+      display: none;
+      padding: 44px 48px 100px;
+    }
+    #r-about.on { display: block; }
+    #r-about h1 { font-size: 13px; font-weight: 600; margin-bottom: 20px; }
+    #r-about p { margin-bottom: 14px; color: #333; line-height: 1.8; }
+    #r-about a { text-decoration: underline; text-underline-offset: 2px; }
+
+    /* ── star cursor trail ── */
+    .star {
       position: fixed;
       pointer-events: none;
-      z-index: 9999;
-      animation: fall 1s ease-in forwards;
+      z-index: 99999;
+      animation: starfall 1s ease-in forwards;
+    }
+    @keyframes starfall {
+      from { transform: translateY(0) rotate(0deg) scale(1); opacity: 1; }
+      to   { transform: translateY(100px) rotate(180deg) scale(0); opacity: 0; }
     }
 
-    @keyframes fall {
-      from { transform: translateY(0) rotate(0) scale(1); opacity: 1; }
-      to { transform: translateY(100px) rotate(180deg) scale(0); opacity: 0; }
-    }
-
-    @media (max-width: 768px) {
-      .grid { grid-template-columns: 1fr; }
-      nav { gap: 18px; }
-      .about-grid { grid-template-columns: 1fr; gap: 22px; }
-      .about .meta .row { grid-template-columns: 78px 1fr; }
+    /* mobile */
+    @media (max-width: 700px) {
+      .layout { grid-template-columns: 1fr; }
+      .right { display: none; }
     }
   </style>
 </head>
-
 <body>
 
-<div id="page-scroll">
-  <header>
-    <div class="header-content">
-      <div class="logo">
+<div class="layout">
+
+  <!-- ── LEFT PANEL ── -->
+  <div class="left">
+
+    <div class="left-top">
+      <!-- 눈 깜빡이는 로고 -->
+      <div class="logo-wrap">
         <a href="index.html">
           <video autoplay loop muted playsinline>
             <source src="logo.mp4" type="video/mp4">
@@ -208,175 +244,174 @@
         </a>
       </div>
 
-      <nav>
-        <a href="index.html?category=artdirecting">
-          Art directing<br>& Brand Identity
-        </a>
-        <a href="index.html?category=interaction">Interaction</a>
-        <a href="index.html?category=uxui">UX/UI</a>
-        <a href="index.html?category=editorial">Editorial</a>
-        <a href="index.html?category=film">Film</a>
-        <a href="index.html?category=exhibition">Exhibition</a>
-        <a href="index.html?page=about">About</a>
+      <!-- category filter -->
+      <nav class="cat-nav" id="cat-nav">
+        <button data-cat="" class="on">All</button>
+        <button data-cat="artdirecting">Art directing</button>
+        <button data-cat="interaction">Interaction</button>
+        <button data-cat="uxui">UX/UI</button>
+        <button data-cat="editorial">Editorial</button>
+        <button data-cat="film">Film</button>
+        <button data-cat="exhibition">Exhibition</button>
       </nav>
     </div>
-  </header>
 
-  <main>
-    <div class="wrap">
-      <div class="loading" id="loading">Loading projects...</div>
-      <div class="grid" id="grid" style="display:none;"></div>
-
-      <section class="about" id="about">
-        <div class="about-grid">
-          <div>
-            <h1>About</h1>
-
-            <p>
-              based on newyork &amp; seoul<br>
-              <a href="mailto:present1513@gmail.com">present1513@gmail.com</a>
-            </p>
-
-            <p>
-              Hello, my name is Chaelin Kim. I have a strong interest in a wide range of fields,
-              including branding, UX/UI, and video.
-            </p>
-
-            <p>
-              I strive to expand my world with a bold, challenge-driven mindset,
-              without setting limits on what I can explore.
-            </p>
-          </div>
-
-          <div class="meta">
-            <div class="row">
-              <div class="label">Email</div>
-              <div><a href="mailto:present1513@gmail.com">present1513@gmail.com</a></div>
-            </div>
-          </div>
-        </div>
-      </section>
+    <!-- list -->
+    <div class="project-list" id="project-list">
+      <div style="padding:20px;color:#ccc;">Loading…</div>
     </div>
-  </main>
+
+    <div class="left-bottom">
+      <button id="about-btn">About</button>
+    </div>
+  </div>
+
+  <!-- ── RIGHT PANEL ── -->
+  <div class="right" id="right">
+    <div id="r-empty">—</div>
+    <div id="r-detail"></div>
+    <div id="r-about">
+      <h1>About</h1>
+      <p>based on New York &amp; Seoul<br>
+         <a href="mailto:present1513@gmail.com">present1513@gmail.com</a></p>
+      <p>Hello, my name is Chaelin Kim. I have a strong interest in a wide range of fields, including branding, UX/UI, and video.</p>
+      <p>I strive to expand my world with a bold, challenge-driven mindset, without setting limits on what I can explore.</p>
+    </div>
+  </div>
+
 </div>
 
 <script>
-  let lastStar = 0;
-  document.addEventListener('mousemove', e => {
-    const now = Date.now();
-    if (now - lastStar < 50) return;
-    lastStar = now;
+/* ── star cursor trail ── */
+let lastStar = 0;
+document.addEventListener('mousemove', e => {
+  const now = Date.now();
+  if (now - lastStar < 50) return;
+  lastStar = now;
+  const s = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+  s.setAttribute('class', 'star');
+  s.setAttribute('width', '12'); s.setAttribute('height', '12');
+  s.setAttribute('viewBox', '0 0 24 24');
+  s.style.left = e.clientX + 'px'; s.style.top = e.clientY + 'px';
+  const p = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+  p.setAttribute('fill', '#FF6FD6');
+  p.setAttribute('d', 'M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z');
+  s.appendChild(p);
+  document.body.appendChild(s);
+  setTimeout(() => s.remove(), 1000);
+});
 
-    const star = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-    star.setAttribute('class', 'falling-star');
-    star.setAttribute('width', '12');
-    star.setAttribute('height', '12');
-    star.setAttribute('viewBox', '0 0 24 24');
-    star.style.left = e.clientX + 'px';
-    star.style.top = e.clientY + 'px';
+/* ── state ── */
+let projects = [];
+let activeCat = '';
 
-    const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-    path.setAttribute('fill', '#FF6FD6');
-    path.setAttribute(
-      'd',
-      'M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z'
-    );
+const listEl    = document.getElementById('project-list');
+const catNav    = document.getElementById('cat-nav');
+const rightEl   = document.getElementById('right');
+const rEmpty    = document.getElementById('r-empty');
+const rDetail   = document.getElementById('r-detail');
+const rAbout    = document.getElementById('r-about');
+const aboutBtn  = document.getElementById('about-btn');
 
-    star.appendChild(path);
-    document.body.appendChild(star);
-    setTimeout(() => star.remove(), 1000);
-  });
+/* ── render list ── */
+function renderList() {
+  const list = activeCat
+    ? projects.filter(p => (p.category || '').toLowerCase() === activeCat)
+    : projects;
 
-  const loading = document.getElementById('loading');
-  const grid = document.getElementById('grid');
-  const about = document.getElementById('about');
-
-  const params = new URLSearchParams(location.search);
-  const category = params.get('category');
-  const page = (params.get('page') || '').toLowerCase();
-
-  if (page === 'about') {
-    loading.style.display = 'none';
-    grid.style.display = 'none';
-    about.style.display = 'block';
-  } else {
-    about.style.display = 'none';
-
-    const getThumb = (p) => {
-      if (p && p.thumbnail && typeof p.thumbnail === 'object' && p.thumbnail.src) {
-        return { type: p.thumbnail.type || '', src: p.thumbnail.src || '' };
-      }
-      if (p && typeof p.thumbnail === 'string') {
-        const src = p.thumbnail;
-        const ext = src.split('.').pop().toLowerCase();
-        const type = (['mp4','webm','mov'].includes(ext)) ? 'video' : 'image';
-        return { type, src };
-      }
-      return { type: 'image', src: '' };
-    };
-
-    const renderThumb = (p) => {
-      const t = getThumb(p);
-      const type = t.type;
-      const src = t.src;
-      if (!src) return '';
-      if (type === 'video') {
-        return `
-          <video autoplay loop muted playsinline preload="metadata">
-            <source src="${src}" type="video/mp4">
-          </video>
-        `;
-      }
-      return `<img src="${src}" alt="${p.title || ''}">`;
-    };
-
-    fetch('projects-data.json', { cache: 'no-store' })
-      .then(r => {
-        if (!r.ok) throw new Error('Failed to fetch JSON: ' + r.status);
-        return r.json();
-      })
-      .then(data => {
-        const projects = data.projects || [];
-
-        const filtered = category
-          ? projects.filter(p => (p.category || '').toLowerCase() === category.toLowerCase())
-          : projects;
-
-        grid.innerHTML = filtered.map(p => {
-          const isExternal = !!p.externalUrl;
-          const href = isExternal
-            ? p.externalUrl
-            : `project.html?id=${encodeURIComponent(p.id)}`;
-
-          const extraAttrs = isExternal
-            ? `target="_blank" rel="noopener noreferrer"`
-            : ``;
-
-          return `
-            <a class="card" href="${href}" ${extraAttrs}>
-              <div class="thumb">${renderThumb(p)}</div>
-              <div class="info">
-                <div>
-                  <div class="title">${p.title || ''}</div>
-                  <div class="category">${p.type || ''}</div>
-                  <div class="collaboration">${p.collaboration || ''}</div>
-                </div>
-              </div>
-            </a>
-          `;
-        }).join('');
-
-        loading.style.display = 'none';
-        grid.style.display = 'grid';
-      })
-      .catch(err => {
-        console.error(err);
-        loading.textContent = 'Failed to load projects.';
-        loading.style.display = 'block';
-        grid.style.display = 'none';
-      });
+  if (!list.length) {
+    listEl.innerHTML = '<div style="padding:20px;color:#ccc;">No projects</div>';
+    return;
   }
-</script>
 
+  listEl.innerHTML = list.map(p => `
+    <a class="proj-row" data-id="${p.id}" href="#">
+      <div class="proj-title">${p.title || ''}</div>
+      <div class="proj-type">${p.type || ''}</div>
+      <div class="proj-collab">${p.collaboration || ''}</div>
+    </a>
+  `).join('');
+
+  listEl.querySelectorAll('.proj-row').forEach(row => {
+    row.addEventListener('click', e => {
+      e.preventDefault();
+      const proj = projects.find(p => p.id === row.dataset.id);
+      if (!proj) return;
+
+      /* external → open tab */
+      if (proj.externalUrl) {
+        window.open(proj.externalUrl, '_blank', 'noopener,noreferrer');
+        return;
+      }
+
+      /* highlight */
+      listEl.querySelectorAll('.proj-row').forEach(r => r.classList.remove('on'));
+      row.classList.add('on');
+      openDetail(proj);
+    });
+  });
+}
+
+/* ── open detail ── */
+function openDetail(p) {
+  rEmpty.style.display = 'none';
+  rAbout.classList.remove('on');
+  rDetail.classList.add('on');
+
+  const desc = p.description?.en || '';
+  const metaParts = [p.type, p.date, p.client].filter(Boolean);
+
+  const mediaHTML = (p.media || []).map(m => {
+    if (m.type === 'video')
+      return `<video autoplay loop muted playsinline><source src="${m.src}" type="video/mp4"></video>`;
+    if (m.type === 'vimeo')
+      return `<div class="vimeo-box"><iframe src="https://player.vimeo.com/video/${m.id}?autoplay=0&title=0&byline=0&portrait=0" allow="autoplay; fullscreen" allowfullscreen></iframe></div>`;
+    if (m.type === 'image')
+      return `<img src="${m.src}" alt="${p.title || ''}">`;
+    return '';
+  }).join('');
+
+  rDetail.innerHTML = `
+    <div class="d-title">${p.title || ''}</div>
+    <div class="d-meta">${metaParts.join(' · ')}</div>
+    <div class="d-collab">${p.collaboration || ''}</div>
+    ${desc ? `<div class="d-desc">${desc}</div>` : ''}
+    <div class="gallery">${mediaHTML}</div>
+  `;
+
+  rightEl.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+/* ── about ── */
+aboutBtn.addEventListener('click', () => {
+  rEmpty.style.display = 'none';
+  rDetail.classList.remove('on');
+  rAbout.classList.add('on');
+  listEl.querySelectorAll('.proj-row').forEach(r => r.classList.remove('on'));
+});
+
+/* ── category filter ── */
+catNav.querySelectorAll('button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    catNav.querySelectorAll('button').forEach(b => b.classList.remove('on'));
+    btn.classList.add('on');
+    activeCat = btn.dataset.cat;
+    renderList();
+    // reset right
+    rEmpty.style.display = '';
+    rDetail.classList.remove('on');
+    rAbout.classList.remove('on');
+  });
+});
+
+/* ── fetch ── */
+fetch('projects-data.json', { cache: 'no-store' })
+  .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+  .then(data => { projects = data.projects || []; renderList(); })
+  .catch(err => {
+    console.error(err);
+    listEl.innerHTML = '<div style="padding:20px;color:red;">Failed to load</div>';
+  });
+</script>
 </body>
 </html>
