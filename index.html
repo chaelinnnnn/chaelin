@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Chaelin Kim</title>
+  <link rel="icon" href="data:,">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     :root {
@@ -26,7 +27,6 @@
 
     a { text-decoration: none; color: inherit; cursor: inherit; }
 
-    /* ── LAYOUT ── */
     .layout {
       display: grid;
       grid-template-columns: 290px 1fr;
@@ -42,7 +42,6 @@
       overflow: hidden;
     }
 
-    /* logo area */
     .left-top {
       flex-shrink: 0;
       padding: 18px 20px 0;
@@ -61,7 +60,6 @@
     .logo-wrap a * { cursor: inherit !important; }
     .logo-wrap video { width: 148px; margin-left: -14px; }
 
-    /* category nav */
     .cat-nav {
       display: flex;
       flex-wrap: wrap;
@@ -80,11 +78,9 @@
       transition: color 0.15s;
       font-family: inherit;
     }
-    .cat-nav button * { cursor: inherit !important; }
     .cat-nav button:hover,
     .cat-nav button.on { color: #000; }
 
-    /* project list */
     .project-list {
       flex: 1;
       overflow-y: auto;
@@ -116,7 +112,6 @@
     .proj-type { font-size: 11px; color: var(--gray); }
     .proj-collab { font-size: 10px; color: #ccc; margin-top: 1px; }
 
-    /* left footer */
     .left-bottom {
       flex-shrink: 0;
       padding: 13px 20px;
@@ -132,7 +127,6 @@
       transition: color 0.15s;
       padding: 0;
     }
-    .left-bottom button * { cursor: inherit !important; }
     .left-bottom button:hover { color: var(--pink); }
 
     /* ── RIGHT ── */
@@ -144,7 +138,6 @@
     }
     .right::-webkit-scrollbar { width: 0; }
 
-    /* placeholder */
     #r-empty {
       position: absolute;
       inset: 0;
@@ -157,7 +150,6 @@
       pointer-events: none;
     }
 
-    /* detail */
     #r-detail {
       display: none;
       padding: 44px 48px 100px;
@@ -198,7 +190,6 @@
       border: 0;
     }
 
-    /* about */
     #r-about {
       display: none;
       padding: 44px 48px 100px;
@@ -208,7 +199,6 @@
     #r-about p { margin-bottom: 14px; color: #333; line-height: 1.8; }
     #r-about a { text-decoration: underline; text-underline-offset: 2px; }
 
-    /* ── star cursor trail ── */
     .star {
       position: fixed;
       pointer-events: none;
@@ -220,7 +210,6 @@
       to   { transform: translateY(100px) rotate(180deg) scale(0); opacity: 0; }
     }
 
-    /* mobile */
     @media (max-width: 700px) {
       .layout { grid-template-columns: 1fr; }
       .right { display: none; }
@@ -231,11 +220,8 @@
 
 <div class="layout">
 
-  <!-- ── LEFT PANEL ── -->
   <div class="left">
-
     <div class="left-top">
-      <!-- 눈 깜빡이는 로고 -->
       <div class="logo-wrap">
         <a href="index.html">
           <video autoplay loop muted playsinline>
@@ -244,10 +230,9 @@
         </a>
       </div>
 
-      <!-- category filter -->
       <nav class="cat-nav" id="cat-nav">
         <button data-cat="" class="on">All</button>
-        <button data-cat="artdirecting">Art direction & Brand identity</button>
+        <button data-cat="artdirecting">Art direction &amp; Brand identity</button>
         <button data-cat="interaction">Interaction</button>
         <button data-cat="uxui">UX/UI</button>
         <button data-cat="editorial">Editorial</button>
@@ -256,9 +241,8 @@
       </nav>
     </div>
 
-    <!-- list -->
     <div class="project-list" id="project-list">
-      <div style="padding:20px;color:#ccc;">Loading…</div>
+      <div style="padding:20px;color:#ccc;">Loading&#8230;</div>
     </div>
 
     <div class="left-bottom">
@@ -266,14 +250,13 @@
     </div>
   </div>
 
-  <!-- ── RIGHT PANEL ── -->
   <div class="right" id="right">
-    <div id="r-empty">—</div>
+    <div id="r-empty">&#8212;</div>
     <div id="r-detail"></div>
     <div id="r-about">
       <h1>About</h1>
       <p>based on New York &amp; Seoul<br>
-         <a href="/cdn-cgi/l/email-protection#2e5e5c4b5d4b405a1f1b1f1d6e49434f4742004d4143"><span class="__cf_email__" data-cfemail="3444465147515a4005010507745359555d581a575b59">[email&#160;protected]</span></a></p>
+         <a href="mailto:present1513&#64;gmail&#46;com">present1513&#64;gmail&#46;com</a></p>
       <p>Hello, my name is Chaelin Kim. I have a strong interest in a wide range of fields, including branding, UX/UI, and video.</p>
       <p>I strive to expand my world with a bold, challenge-driven mindset, without setting limits on what I can explore.</p>
     </div>
@@ -281,8 +264,8 @@
 
 </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-/* ── star cursor trail ── */
+<script>
+/* star cursor trail */
 let lastStar = 0;
 document.addEventListener('mousemove', e => {
   const now = Date.now();
@@ -290,9 +273,11 @@ document.addEventListener('mousemove', e => {
   lastStar = now;
   const s = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
   s.setAttribute('class', 'star');
-  s.setAttribute('width', '12'); s.setAttribute('height', '12');
+  s.setAttribute('width', '12');
+  s.setAttribute('height', '12');
   s.setAttribute('viewBox', '0 0 24 24');
-  s.style.left = e.clientX + 'px'; s.style.top = e.clientY + 'px';
+  s.style.left = e.clientX + 'px';
+  s.style.top = e.clientY + 'px';
   const p = document.createElementNS('http://www.w3.org/2000/svg', 'path');
   p.setAttribute('fill', '#FF6FD6');
   p.setAttribute('d', 'M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z');
@@ -301,19 +286,18 @@ document.addEventListener('mousemove', e => {
   setTimeout(() => s.remove(), 1000);
 });
 
-/* ── state ── */
+/* state */
 let projects = [];
 let activeCat = '';
 
-const listEl    = document.getElementById('project-list');
-const catNav    = document.getElementById('cat-nav');
-const rightEl   = document.getElementById('right');
-const rEmpty    = document.getElementById('r-empty');
-const rDetail   = document.getElementById('r-detail');
-const rAbout    = document.getElementById('r-about');
-const aboutBtn  = document.getElementById('about-btn');
+const listEl   = document.getElementById('project-list');
+const catNav   = document.getElementById('cat-nav');
+const rightEl  = document.getElementById('right');
+const rEmpty   = document.getElementById('r-empty');
+const rDetail  = document.getElementById('r-detail');
+const rAbout   = document.getElementById('r-about');
+const aboutBtn = document.getElementById('about-btn');
 
-/* ── render list ── */
 function renderList() {
   const list = activeCat
     ? projects.filter(p => (p.category || '').toLowerCase() === activeCat)
@@ -338,13 +322,11 @@ function renderList() {
       const proj = projects.find(p => p.id === row.dataset.id);
       if (!proj) return;
 
-      /* external → open tab */
       if (proj.externalUrl) {
         window.open(proj.externalUrl, '_blank', 'noopener,noreferrer');
         return;
       }
 
-      /* highlight */
       listEl.querySelectorAll('.proj-row').forEach(r => r.classList.remove('on'));
       row.classList.add('on');
       openDetail(proj);
@@ -352,37 +334,34 @@ function renderList() {
   });
 }
 
-/* ── open detail ── */
 function openDetail(p) {
   rEmpty.style.display = 'none';
   rAbout.classList.remove('on');
   rDetail.classList.add('on');
 
-  const desc = p.description?.en || '';
+  const desc = p.description && p.description.en ? p.description.en : '';
   const metaParts = [p.type, p.date, p.client].filter(Boolean);
 
   const mediaHTML = (p.media || []).map(m => {
     if (m.type === 'video')
-      return `<video autoplay loop muted playsinline><source src="${m.src}" type="video/mp4"></video>`;
+      return '<video autoplay loop muted playsinline><source src="' + m.src + '" type="video/mp4"></video>';
     if (m.type === 'vimeo')
-      return `<div class="vimeo-box"><iframe src="https://player.vimeo.com/video/${m.id}?autoplay=0&title=0&byline=0&portrait=0" allow="autoplay; fullscreen" allowfullscreen></iframe></div>`;
+      return '<div class="vimeo-box"><iframe src="https://player.vimeo.com/video/' + m.id + '?autoplay=0&title=0&byline=0&portrait=0" allow="autoplay; fullscreen" allowfullscreen></iframe></div>';
     if (m.type === 'image')
-      return `<img src="${m.src}" alt="${p.title || ''}">`;
+      return '<img src="' + m.src + '" alt="' + (p.title || '') + '">';
     return '';
   }).join('');
 
-  rDetail.innerHTML = `
-    <div class="d-title">${p.title || ''}</div>
-    <div class="d-meta">${metaParts.join(' · ')}</div>
-    <div class="d-collab">${p.collaboration || ''}</div>
-    ${desc ? `<div class="d-desc">${desc}</div>` : ''}
-    <div class="gallery">${mediaHTML}</div>
-  `;
+  rDetail.innerHTML =
+    '<div class="d-title">' + (p.title || '') + '</div>' +
+    '<div class="d-meta">' + metaParts.join(' · ') + '</div>' +
+    '<div class="d-collab">' + (p.collaboration || '') + '</div>' +
+    (desc ? '<div class="d-desc">' + desc + '</div>' : '') +
+    '<div class="gallery">' + mediaHTML + '</div>';
 
   rightEl.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-/* ── about ── */
 aboutBtn.addEventListener('click', () => {
   rEmpty.style.display = 'none';
   rDetail.classList.remove('on');
@@ -390,20 +369,31 @@ aboutBtn.addEventListener('click', () => {
   listEl.querySelectorAll('.proj-row').forEach(r => r.classList.remove('on'));
 });
 
-/* ── category filter ── */
 catNav.querySelectorAll('button').forEach(btn => {
   btn.addEventListener('click', () => {
     catNav.querySelectorAll('button').forEach(b => b.classList.remove('on'));
     btn.classList.add('on');
     activeCat = btn.dataset.cat;
     renderList();
-    // reset right
     rEmpty.style.display = '';
     rDetail.classList.remove('on');
     rAbout.classList.remove('on');
   });
 });
 
-/* ── fetch ── */
 fetch('projects-data.json', { cache: 'no-store' })
-  .then(r => { if (!r.ok) throw new Error(r.status)
+  .then(function(r) {
+    if (!r.ok) throw new Error(r.status);
+    return r.json();
+  })
+  .then(function(data) {
+    projects = data.projects || [];
+    renderList();
+  })
+  .catch(function(err) {
+    console.error(err);
+    listEl.innerHTML = '<div style="padding:20px;color:red;">Failed to load: ' + err.message + '</div>';
+  });
+</script>
+</body>
+</html>
