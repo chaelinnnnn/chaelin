@@ -27,7 +27,6 @@
 
     a { text-decoration: none; color: inherit; cursor: inherit; }
 
-    /* ── LAYOUT ── */
     .layout {
       display: grid;
       grid-template-columns: 290px 1fr;
@@ -48,36 +47,12 @@
       padding: 24px 20px 0;
     }
 
-    /* name + about row */
-    .left-header-row {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      margin-bottom: 12px;
-    }
-    .site-name {
-      font-size: 18px;
-      font-weight: 600;
-    }
-    .about-top-btn {
-      background: none;
-      border: none;
-      font-size: 13px;
-      font-weight: 400;
-      font-family: inherit;
-      color: var(--gray);
-      cursor: url("cursor-hand.png") 16 16, pointer !important;
-      padding: 0;
-      transition: color 0.15s;
-    }
-    .about-top-btn * { cursor: inherit !important; }
-    .about-top-btn:hover { color: var(--pink); }
-
+    /* 로고 */
     .logo-wrap {
       width: 120px;
       height: 68px;
       overflow: hidden;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
     }
     .logo-wrap a {
       display: block;
@@ -86,13 +61,32 @@
     .logo-wrap a * { cursor: inherit !important; }
     .logo-wrap video { width: 148px; margin-left: -14px; }
 
-    /* category nav — vertical */
+    /* 이름 + Information 한 줄 */
+    .left-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 18px;
+    }
+    .site-name {
+      font-size: 13px;
+      font-weight: 600;
+    }
+    .info-btn {
+      font-size: 13px;
+      font-weight: 400;
+      color: #000;
+      cursor: url("cursor-hand.png") 16 16, pointer !important;
+      transition: color 0.15s;
+    }
+    .info-btn:hover { color: var(--pink); }
+
+    /* 카테고리 메뉴 */
     .cat-nav {
       display: flex;
-      flex-direction: row;
       flex-wrap: wrap;
       gap: 4px 10px;
-      padding-top: 8px;
+      padding-top: 10px;
       border-top: 1px solid var(--line);
     }
     .cat-nav button {
@@ -107,16 +101,15 @@
       transition: color 0.15s;
       font-family: inherit;
     }
-    .cat-nav button * { cursor: inherit !important; }
     .cat-nav button:hover,
     .cat-nav button.on { color: var(--pink); }
 
-    /* project list */
+    /* 프로젝트 리스트 */
     .project-list {
       flex: 1;
       overflow-y: auto;
       overflow-x: hidden;
-      margin-top: 40px;
+      margin-top: 36px;
       border-top: 1px solid var(--line);
     }
     .project-list::-webkit-scrollbar { width: 0; }
@@ -142,22 +135,16 @@
       margin-bottom: 2px;
     }
     .proj-type { font-size: 11px; color: var(--gray); }
-    .proj-collab { font-size: 10px; color: #ccc; margin-top: 1px; }
 
     /* ── RIGHT ── */
     .right {
       height: 100vh;
       overflow-y: auto;
       background: #fff;
-      position: relative;
     }
     .right::-webkit-scrollbar { width: 0; }
 
-    /* grid */
-    #r-grid {
-      display: none;
-      padding: 20px;
-    }
+    #r-grid { display: none; padding: 20px; }
     #r-grid.on { display: block; }
 
     .thumb-grid {
@@ -165,13 +152,11 @@
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 10px;
     }
-
     .thumb-card {
       display: block;
       cursor: url("cursor-hand.png") 16 16, pointer !important;
     }
     .thumb-card * { cursor: inherit !important; }
-
     .thumb-media {
       width: 100%;
       aspect-ratio: 3 / 2;
@@ -180,77 +165,35 @@
     }
     .thumb-media img,
     .thumb-media video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
+      width: 100%; height: 100%;
+      object-fit: cover; display: block;
     }
-    .thumb-info { margin-top: 8px; }
+    .thumb-info { margin-top: 8px; margin-bottom: 4px; }
     .thumb-title {
-      font-size: 13px;
-      font-weight: 600;
-      margin-bottom: 2px;
-      transition: color 0.15s;
+      font-size: 13px; font-weight: 600;
+      margin-bottom: 2px; transition: color 0.15s;
     }
     .thumb-card:hover .thumb-title { color: var(--pink); }
     .thumb-type { font-size: 11px; color: var(--gray); }
-    .thumb-collab { font-size: 10px; color: #ccc; margin-top: 1px; }
 
-    /* detail */
-    #r-detail {
-      display: none;
-      padding: 44px 48px 100px;
-    }
+    #r-detail { display: none; padding: 44px 48px 100px; }
     #r-detail.on { display: block; }
 
-    .d-title {
-      font-size: 20px;
-      font-weight: 600;
-      line-height: 1.3;
-      margin-bottom: 6px;
-    }
+    .d-title { font-size: 20px; font-weight: 600; line-height: 1.3; margin-bottom: 6px; }
     .d-meta { font-size: 12px; color: var(--gray); margin-bottom: 3px; }
     .d-collab { font-size: 10px; color: #bbb; margin-bottom: 28px; }
-    .d-desc {
-      font-size: 13px;
-      line-height: 1.8;
-      color: #333;
-      margin-bottom: 32px;
-      max-width: 520px;
-    }
+    .d-desc { font-size: 13px; line-height: 1.8; color: #333; margin-bottom: 32px; max-width: 520px; }
+
     .gallery { display: flex; flex-direction: column; gap: 10px; }
-    .gallery img,
-    .gallery video { width: 100%; display: block; }
+    .gallery img, .gallery video { width: 100%; display: block; }
     .gallery video { background: #000; }
 
-    .vimeo-box {
-      position: relative;
-      padding-bottom: 56.25%;
-      height: 0;
-      overflow: hidden;
-    }
-    .vimeo-box iframe {
-      position: absolute;
-      inset: 0;
-      width: 100%; height: 100%;
-      border: 0;
-    }
+    .vimeo-box { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; }
+    .vimeo-box iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 
-    /* about */
-    #r-about {
-      display: none;
-      padding: 44px 48px 100px;
-    }
-    #r-about.on { display: block; }
-    #r-about h1 { font-size: 13px; font-weight: 600; margin-bottom: 20px; }
-    #r-about p { margin-bottom: 14px; color: #333; line-height: 1.8; }
-    #r-about a { text-decoration: underline; text-underline-offset: 2px; }
-
-    /* star */
+    /* 별 */
     .star {
-      position: fixed;
-      pointer-events: none;
-      z-index: 99999;
+      position: fixed; pointer-events: none; z-index: 99999;
       animation: starfall 1s ease-in forwards;
     }
     @keyframes starfall {
@@ -272,7 +215,7 @@
   <div class="left">
     <div class="left-top">
 
-      <!-- 눈 깜빡이는 로고 -->
+      <!-- 로고 -->
       <div class="logo-wrap">
         <a href="#" id="logo-link">
           <video autoplay loop muted playsinline>
@@ -281,13 +224,13 @@
         </a>
       </div>
 
-      <!-- 이름 + About -->
+      <!-- 이름 + Information -->
       <div class="left-header-row">
         <span class="site-name">Chaelin Kim</span>
-        <a class="about-top-btn" id="about-btn" href="Resume_Chaelin_Kim.pdf" target="_blank" rel="noopener noreferrer">Information</a>
+        <a class="info-btn" href="Resume_Chaelin_Kim.pdf" target="_blank" rel="noopener noreferrer">Information</a>
       </div>
 
-      <!-- 카테고리 필터 (세로) -->
+      <!-- 카테고리 메뉴 -->
       <nav class="cat-nav" id="cat-nav">
         <button data-cat="" class="on">All</button>
         <button data-cat="artdirecting">Art direction &amp; Brand identity</button>
@@ -299,7 +242,7 @@
       </nav>
     </div>
 
-    <!-- 프로젝트 리스트 -->
+    <!-- 리스트 -->
     <div class="project-list" id="project-list">
       <div style="padding:20px;color:#ccc;">Loading&#8230;</div>
     </div>
@@ -309,19 +252,12 @@
   <div class="right" id="right">
     <div id="r-grid"></div>
     <div id="r-detail"></div>
-    <div id="r-about">
-      <h1>About</h1>
-      <p>based on New York &amp; Seoul<br>
-        <a href="/cdn-cgi/l/email-protection#8cfcfee9ffe9e2f8bdb9bdbfaaafbab8b7ebe1ede5e0aaafb8bab7efe3e1">present1513&#64;gmail&#46;com</a></p>
-      <p>Hello, my name is Chaelin Kim. I have a strong interest in a wide range of fields, including branding, UX/UI, and video.</p>
-      <p>I strive to expand my world with a bold, challenge-driven mindset, without setting limits on what I can explore.</p>
-    </div>
   </div>
 
 </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-/* star cursor */
+<script>
+/* 별 커서 */
 let lastStar = 0;
 document.addEventListener('mousemove', function(e) {
   const now = Date.now();
@@ -340,51 +276,39 @@ document.addEventListener('mousemove', function(e) {
   setTimeout(function() { s.remove(); }, 1000);
 });
 
-/* state */
 let projects = [];
 let activeCat = '';
 
-const listEl   = document.getElementById('project-list');
-const catNav   = document.getElementById('cat-nav');
-const rightEl  = document.getElementById('right');
-const rGrid    = document.getElementById('r-grid');
-const rDetail  = document.getElementById('r-detail');
-const rAbout   = document.getElementById('r-about');
-const aboutBtn = document.getElementById('about-btn');
+const listEl  = document.getElementById('project-list');
+const catNav  = document.getElementById('cat-nav');
+const rightEl = document.getElementById('right');
+const rGrid   = document.getElementById('r-grid');
+const rDetail = document.getElementById('r-detail');
 
 function hideAll() {
   rGrid.classList.remove('on');
   rDetail.classList.remove('on');
-  rAbout.classList.remove('on');
 }
 
 function renderThumb(p) {
   if (!p.thumbnail || !p.thumbnail.src) return '';
-  if (p.thumbnail.type === 'video') {
+  if (p.thumbnail.type === 'video')
     return '<video autoplay loop muted playsinline preload="metadata"><source src="' + p.thumbnail.src + '" type="video/mp4"></video>';
-  }
   return '<img src="' + p.thumbnail.src + '" alt="' + (p.title || '') + '">';
 }
 
 function renderGrid(list) {
-  if (!list.length) {
-    rGrid.innerHTML = '<div style="padding:20px;color:#ccc;">No projects</div>';
-    return;
-  }
+  if (!list.length) { rGrid.innerHTML = '<div style="padding:20px;color:#ccc;">No projects</div>'; return; }
   rGrid.innerHTML = '<div class="thumb-grid">' + list.map(function(p) {
     const isExt = !!p.externalUrl;
     const href = isExt ? p.externalUrl : '#';
-    const attrs = isExt
-      ? 'target="_blank" rel="noopener noreferrer"'
-      : 'data-id="' + p.id + '"';
+    const attrs = isExt ? 'target="_blank" rel="noopener noreferrer"' : 'data-id="' + p.id + '"';
     return '<a class="thumb-card" href="' + href + '" ' + attrs + '>' +
       '<div class="thumb-media">' + renderThumb(p) + '</div>' +
       '<div class="thumb-info">' +
         '<div class="thumb-title">' + (p.title || '') + '</div>' +
         '<div class="thumb-type">' + (p.type || '') + '</div>' +
-        '<div class="thumb-collab">' + (p.collaboration || '') + '</div>' +
-      '</div>' +
-    '</a>';
+      '</div></a>';
   }).join('') + '</div>';
 
   rGrid.querySelectorAll('.thumb-card[data-id]').forEach(function(card) {
@@ -397,15 +321,11 @@ function renderGrid(list) {
 }
 
 function renderList(list) {
-  if (!list.length) {
-    listEl.innerHTML = '<div style="padding:20px;color:#ccc;">No projects</div>';
-    return;
-  }
+  if (!list.length) { listEl.innerHTML = '<div style="padding:20px;color:#ccc;">No projects</div>'; return; }
   listEl.innerHTML = list.map(function(p) {
     return '<a class="proj-row" data-id="' + p.id + '" href="#">' +
       '<div class="proj-title">' + (p.title || '') + '</div>' +
       '<div class="proj-type">' + (p.type || '') + '</div>' +
-      '<div class="proj-collab">' + (p.collaboration || '') + '</div>' +
     '</a>';
   }).join('');
 
@@ -414,10 +334,7 @@ function renderList(list) {
       e.preventDefault();
       const proj = projects.find(function(p) { return p.id === row.dataset.id; });
       if (!proj) return;
-      if (proj.externalUrl) {
-        window.open(proj.externalUrl, '_blank', 'noopener,noreferrer');
-        return;
-      }
+      if (proj.externalUrl) { window.open(proj.externalUrl, '_blank', 'noopener,noreferrer'); return; }
       listEl.querySelectorAll('.proj-row').forEach(function(r) { r.classList.remove('on'); });
       row.classList.add('on');
       openDetail(proj);
@@ -436,17 +353,12 @@ function showGrid(list) {
 function openDetail(p) {
   hideAll();
   rDetail.classList.add('on');
-
   const desc = p.description && p.description.en ? p.description.en : '';
   const metaParts = [p.type, p.date, p.client].filter(Boolean);
-
   const mediaHTML = (p.media || []).map(function(m) {
-    if (m.type === 'video')
-      return '<video autoplay loop muted playsinline><source src="' + m.src + '" type="video/mp4"></video>';
-    if (m.type === 'vimeo')
-      return '<div class="vimeo-box"><iframe src="https://player.vimeo.com/video/' + m.id + '?autoplay=0&title=0&byline=0&portrait=0" allow="autoplay; fullscreen" allowfullscreen></iframe></div>';
-    if (m.type === 'image')
-      return '<img src="' + m.src + '" alt="' + (p.title || '') + '">';
+    if (m.type === 'video') return '<video autoplay loop muted playsinline><source src="' + m.src + '" type="video/mp4"></video>';
+    if (m.type === 'vimeo') return '<div class="vimeo-box"><iframe src="https://player.vimeo.com/video/' + m.id + '?autoplay=0&title=0&byline=0&portrait=0" allow="autoplay; fullscreen" allowfullscreen></iframe></div>';
+    if (m.type === 'image') return '<img src="' + m.src + '" alt="' + (p.title || '') + '">';
     return '';
   }).join('');
 
@@ -460,9 +372,17 @@ function openDetail(p) {
   rightEl.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-/* about — opens PDF in new tab via href */
+/* 로고 → All */
+document.getElementById('logo-link').addEventListener('click', function(e) {
+  e.preventDefault();
+  catNav.querySelectorAll('button').forEach(function(b) { b.classList.remove('on'); });
+  catNav.querySelector('[data-cat=""]').classList.add('on');
+  activeCat = '';
+  renderList(projects);
+  showGrid(projects);
+});
 
-/* category filter */
+/* 카테고리 */
 catNav.querySelectorAll('button').forEach(function(btn) {
   btn.addEventListener('click', function() {
     catNav.querySelectorAll('button').forEach(function(b) { b.classList.remove('on'); });
@@ -476,31 +396,16 @@ catNav.querySelectorAll('button').forEach(function(btn) {
   });
 });
 
-/* logo → show all grid */
-const logoLink = document.getElementById('logo-link');
-if (logoLink) {
-  logoLink.addEventListener('click', function(e) {
-    e.preventDefault();
-    catNav.querySelectorAll('button').forEach(function(b) { b.classList.remove('on'); });
-    catNav.querySelector('[data-cat=""]').classList.add('on');
-    activeCat = '';
-    renderList(projects);
-    showGrid(projects);
-  });
-}
-
 /* fetch */
 fetch('./projects-data.json', { cache: 'no-store' })
-  .then(function(r) {
-    if (!r.ok) throw new Error(r.status);
-    return r.json();
-  })
+  .then(function(r) { if (!r.ok) throw new Error(r.status); return r.json(); })
   .then(function(data) {
     projects = data.projects || [];
     renderList(projects);
     showGrid(projects);
   })
-  .catch(function(err) {    console.error(err);
+  .catch(function(err) {
+    console.error(err);
     listEl.innerHTML = '<div style="padding:20px;color:red;">Failed to load: ' + err.message + '</div>';
   });
 </script>
