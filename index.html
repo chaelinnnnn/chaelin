@@ -247,7 +247,7 @@
       <!-- category filter -->
       <nav class="cat-nav" id="cat-nav">
         <button data-cat="" class="on">All</button>
-        <button data-cat="artdirecting">Art directing</button>
+        <button data-cat="artdirecting">Art direction & Brand identity</button>
         <button data-cat="interaction">Interaction</button>
         <button data-cat="uxui">UX/UI</button>
         <button data-cat="editorial">Editorial</button>
@@ -273,7 +273,7 @@
     <div id="r-about">
       <h1>About</h1>
       <p>based on New York &amp; Seoul<br>
-         <a href="mailto:present1513@gmail.com">present1513@gmail.com</a></p>
+         <a href="/cdn-cgi/l/email-protection#2e5e5c4b5d4b405a1f1b1f1d6e49434f4742004d4143"><span class="__cf_email__" data-cfemail="3444465147515a4005010507745359555d581a575b59">[email&#160;protected]</span></a></p>
       <p>Hello, my name is Chaelin Kim. I have a strong interest in a wide range of fields, including branding, UX/UI, and video.</p>
       <p>I strive to expand my world with a bold, challenge-driven mindset, without setting limits on what I can explore.</p>
     </div>
@@ -281,7 +281,7 @@
 
 </div>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 /* ── star cursor trail ── */
 let lastStar = 0;
 document.addEventListener('mousemove', e => {
@@ -406,12 +406,4 @@ catNav.querySelectorAll('button').forEach(btn => {
 
 /* ── fetch ── */
 fetch('projects-data.json', { cache: 'no-store' })
-  .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
-  .then(data => { projects = data.projects || []; renderList(); })
-  .catch(err => {
-    console.error(err);
-    listEl.innerHTML = '<div style="padding:20px;color:red;">Failed to load</div>';
-  });
-</script>
-</body>
-</html>
+  .then(r => { if (!r.ok) throw new Error(r.status)
