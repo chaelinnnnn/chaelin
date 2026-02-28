@@ -73,8 +73,18 @@
     .about-top-btn * { cursor: inherit !important; }
     .about-top-btn:hover { color: var(--pink); }
 
-    /* logo (hidden, kept for reference) */
-    .logo-wrap { display: none; }
+    .logo-wrap {
+      width: 120px;
+      height: 68px;
+      overflow: hidden;
+      margin-bottom: 20px;
+    }
+    .logo-wrap a {
+      display: block;
+      cursor: url("cursor-hand.png") 16 16, pointer !important;
+    }
+    .logo-wrap a * { cursor: inherit !important; }
+    .logo-wrap video { width: 148px; margin-left: -14px; }
 
     /* category nav — vertical */
     .cat-nav {
@@ -259,6 +269,15 @@
   <!-- LEFT -->
   <div class="left">
     <div class="left-top">
+
+      <!-- 눈 깜빡이는 로고 -->
+      <div class="logo-wrap">
+        <a href="#" id="logo-link">
+          <video autoplay loop muted playsinline>
+            <source src="logo.mp4" type="video/mp4">
+          </video>
+        </a>
+      </div>
 
       <!-- 이름 + About -->
       <div class="left-header-row">
@@ -460,6 +479,19 @@ catNav.querySelectorAll('button').forEach(function(btn) {
     showGrid(filtered);
   });
 });
+
+/* logo → show all grid */
+const logoLink = document.getElementById('logo-link');
+if (logoLink) {
+  logoLink.addEventListener('click', function(e) {
+    e.preventDefault();
+    catNav.querySelectorAll('button').forEach(function(b) { b.classList.remove('on'); });
+    catNav.querySelector('[data-cat=""]').classList.add('on');
+    activeCat = '';
+    renderList(projects);
+    showGrid(projects);
+  });
+}
 
 /* fetch */
 fetch('./projects-data.json', { cache: 'no-store' })
