@@ -500,5 +500,9 @@ fetch('./projects-data.json', { cache: 'no-store' })
     renderList(projects);
     showGrid(projects);
   })
-  .catch(function(err) {
- 
+  .catch(function(err) {    console.error(err);
+    listEl.innerHTML = '<div style="padding:20px;color:red;">Failed to load: ' + err.message + '</div>';
+  });
+</script>
+</body>
+</html>
