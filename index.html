@@ -381,7 +381,7 @@ catNav.querySelectorAll('button').forEach(btn => {
   });
 });
 
-fetch('projects-data.json', { cache: 'no-store' })
+fetch('./projects-data.json', { cache: 'no-store' })
   .then(function(r) {
     if (!r.ok) throw new Error(r.status);
     return r.json();
