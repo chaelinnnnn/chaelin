@@ -340,17 +340,20 @@ function renderList(list) {
   });
 }
 
-function showGrid(list) {
+function showGrid(list, fromPop) {
   hideAll();
   renderGrid(list);
   rGrid.classList.add('on');
   rightEl.scrollTo({ top: 0, behavior: 'smooth' });
   listEl.querySelectorAll('.proj-row').forEach(function(r) { r.classList.remove('on'); });
+  if (!fromPop) history.pushState({ view: 'grid', cat: activeCat }, '');
 }
 
-function openDetail(p) {
+function openDetail(p, fromPop) {
   hideAll();
   rDetail.classList.add('on');
+  if (!fromPop) history.pushState({ view: 'detail', id: p.id, cat: activeCat }, '');
+
   const desc = p.description && p.description.en ? p.description.en : '';
   const metaParts = [p.type, p.date, p.client].filter(Boolean);
   const mediaHTML = (p.media || []).map(function(m) {
@@ -369,6 +372,29 @@ function openDetail(p) {
 
   rightEl.scrollTo({ top: 0, behavior: 'smooth' });
 }
+
+/* ── 뒤로 가기 / 앞으로 가기 ── */
+window.addEventListener('popstate', function(e) {
+  const state = e.state;
+  if (!state || state.view === 'grid') {
+    const cat = state ? (state.cat || '') : '';
+    activeCat = cat;
+    const filtered = cat
+      ? projects.filter(function(p) { return (p.category || '').toLowerCase() === cat; })
+      : projects;
+    catNav.querySelectorAll('button').forEach(function(b) { b.classList.remove('on'); });
+    catNav.querySelector('[data-cat="' + cat + '"]').classList.add('on');
+    renderList(filtered);
+    showGrid(filtered, true);
+  } else if (state.view === 'detail') {
+    const proj = projects.find(function(p) { return p.id === state.id; });
+    // 리스트 active 상태도 복원
+    listEl.querySelectorAll('.proj-row').forEach(function(r) { r.classList.remove('on'); });
+    const activeRow = listEl.querySelector('.proj-row[data-id="' + state.id + '"]');
+    if (activeRow) activeRow.classList.add('on');
+    if (proj) openDetail(proj, true);
+  }
+});
 
 /* 로고 → All */
 document.getElementById('logo-link').addEventListener('click', function(e) {
@@ -400,7 +426,9 @@ fetch('./projects-data.json', { cache: 'no-store' })
   .then(function(data) {
     projects = data.projects || [];
     renderList(projects);
-    showGrid(projects);
+    // 초기 상태를 history에 등록 (replaceState로 현재 엔트리 교체)
+    history.replaceState({ view: 'grid', cat: '' }, '');
+    showGrid(projects, true);
   })
   .catch(function(err) {
     console.error(err);
