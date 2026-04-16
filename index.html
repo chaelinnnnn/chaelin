@@ -294,7 +294,7 @@ function openDetail(p, fromPop) {
         '<div class="d-meta">' + metaParts.join(' · ') + '</div>' +
         '<div class="d-collab">' + (p.collaboration||'') + '</div>' +
       '</div>' +
-      (p.sections && p.sections.length ? '' : (desc ? '<div class="d-desc">' + desc + '</div>' : '<div></div>')) +
+      (desc ? '<div class="d-desc">' + desc + '</div>' : '<div></div>') +
     '</div>' +
     (p.sections && p.sections.length ? '<div class="d-sections">' + p.sections.map(function(s) {
       var sMediaHTML = (s.media || []).map(function(m) { return renderMediaItem(m, s.title); }).join('');
