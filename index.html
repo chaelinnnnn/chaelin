@@ -63,24 +63,45 @@
     .embed-box { width: 100%; height: 80vh; border: none; display: block; }
 
     /* 슬라이드쇼 */
-    .slideshow { position: relative; width: 100%; background: #000; }
-    .slideshow-track { width: 100%; overflow: hidden; }
-    .slideshow-track img { width: 100%; display: none; object-fit: contain; }
+    .slideshow {
+      position: relative;
+      width: 100%;
+      background: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 80px;
+    }
+    .slideshow-track {
+      width: 100%;
+      overflow: hidden;
+    }
+    .slideshow-track img {
+      width: 100%;
+      display: none;
+      object-fit: contain;
+      max-height: 75vh;
+    }
     .slideshow-track img.active { display: block; }
     .slide-btn {
-      position: absolute; top: 50%; transform: translateY(-50%);
-      background: none; border: none;
-      font-size: 18px; line-height: 1;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      font-size: 20px;
+      line-height: 1;
       cursor: url("cursor-hand.png") 16 16, pointer !important;
       color: #fff;
-      padding: 8px 12px;
+      padding: 8px 16px;
       z-index: 2;
-      opacity: 0.7;
+      opacity: 0.6;
       transition: opacity 0.15s;
+      letter-spacing: 2px;
     }
     .slide-btn:hover { opacity: 1; }
-    .slide-btn.prev { left: 12px; }
-    .slide-btn.next { right: 12px; }
+    .slide-btn.prev { left: 16px; }
+    .slide-btn.next { right: 16px; }
 
     .star { position: fixed; pointer-events: none; z-index: 99999; animation: starfall 1s ease-in forwards; }
     @keyframes starfall {
@@ -202,8 +223,8 @@ function renderSlideshow(slides) {
     return '<img src="' + s.src + '" alt="slide ' + (i+1) + '" class="' + (i === 0 ? 'active' : '') + '">';
   }).join('');
   return '<div class="slideshow" id="slideshow">' +
-    '<div class="slideshow-track" id="slide-track">' + imgs + '</div>' +
     '<button class="slide-btn prev" id="slide-prev">&#8592;</button>' +
+    '<div class="slideshow-track" id="slide-track">' + imgs + '</div>' +
     '<button class="slide-btn next" id="slide-next">&#8594;</button>' +
   '</div>';
 }
