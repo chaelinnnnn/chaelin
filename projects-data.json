@@ -79,6 +79,7 @@
         { "src": "sarrguide8.jpg" },
         { "src": "sarrguide9.jpg" }
       ],
+      "slideshowPosition": 1,
       "media": [
         { "type": "image", "src": "sarr1.jpg" },
         { "type": "image", "src": "sarr2.jpg" },
