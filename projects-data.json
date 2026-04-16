@@ -33,9 +33,7 @@
         "en": "Office Oasis is a web-based healing space designed to help you pause and breathe in the midst of a busy office environment. Using Mediapipe and Unity WebGL, it detects subtle gestures and nods, allowing a small planet to respond gently to your movements. Even at your desk, you can shape your own living, breathing world—helping you clear your mind, ease stress, and enjoy a personalized digital oasis."
       },
       "thumbnail": { "type": "video", "src": "office.mp4" },
-      "media": [
-        { "type": "vimeo", "id": "1155072969" }
-      ]
+      "media": [{ "type": "vimeo", "id": "1155072969" }]
     },
     {
       "id": "2025-season-menu-sarr",
@@ -125,8 +123,7 @@
         "en": "The interactive map visualizes sighting reports across 10 U.S. states, allowing users to quickly grasp patterns and distributions at a glance. Through this project, users can explore the map using intuitive zoom and pan controls and access detailed information for each region."
       },
       "thumbnail": { "type": "image", "src": "map.jpg" },
-      "media": [
-      ]
+      "media": []
     },
     {
       "id": "Universe",
