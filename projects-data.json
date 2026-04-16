@@ -148,14 +148,6 @@
       },
       "media": [
         {
-          "type": "video",
-          "src": "ufo1.mp4"
-        },
-        {
-          "type": "video",
-          "src": "ufo2.mp4"
-        },
-        {
           "type": "image",
           "src": "ufo1.png"
         },
@@ -184,10 +176,6 @@
         "src": "map.png"
       },
       "media": [
-        {
-          "type": "video",
-          "src": "map.mp4"
-        },
         {
           "type": "image",
           "src": "map1.png"
