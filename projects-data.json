@@ -69,7 +69,7 @@
         "ko": "'따뜻함이 스며드는 순간'이라는 의미를 바탕으로 레스토랑 sarr를 브랜딩했습니다.",
         "en": "Based on the meaning 'the moment warmth gently seeps in', I branded the restaurant sarr."
       },
-      "thumbnail": { "type": "image", "src": "sarr.png" },
+      "thumbnail": { "type": "image", "src": "sarr.jpg" },
       "slides": [
         { "src": "sarrguide1.jpg" },
         { "src": "sarrguide2.jpg" },
@@ -199,7 +199,7 @@
       "thumbnail": { "type": "image", "src": "singles.png" },
       "media": [
         { "type": "video", "src": "singles.mp4" },
-        { "type": "image", "src": "singles1.png" }
+        { "type": "image", "src": "singles1.jpg" }
       ]
     },
     {
@@ -237,7 +237,7 @@
       "thumbnail": { "type": "image", "src": "depromeet.png" },
       "media": [
         { "type": "vimeo", "id": "1103721206" },
-        { "type": "image", "src": "depromeet1.png" }
+        { "type": "image", "src": "depromeet1.jpg" }
       ]
     },
     {
