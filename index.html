@@ -296,7 +296,11 @@ function openDetail(p, fromPop) {
       '</div>' +
       (p.sections && p.sections.length ? '' : (desc ? '<div class="d-desc">' + desc + '</div>' : '<div></div>')) +
     '</div>' +
-    (p.sections && p.sections.length ? '<div class="d-sections">' + p.sections.map(function(s) { return '<div class="d-section"><div class="d-section-title">' + (s.title||'') + '</div><div class="d-section-desc">' + (s.desc||'') + '</div></div>'; }).join('') + '</div>' : '') +
+    (p.sections && p.sections.length ? '<div class="d-sections">' + p.sections.map(function(s) {
+      var sMediaHTML = (s.media || []).map(function(m) { return renderMediaItem(m, s.title); }).join('');
+      return '<div class="d-section"><div class="d-section-title">' + (s.title||'') + '</div><div class="d-section-desc">' + (s.desc||'') + '</div></div>' +
+        (sMediaHTML ? '<div class="gallery" style="margin-bottom:10px;">' + sMediaHTML + '</div>' : '');
+    }).join('') + '</div>' : '') +
     '<div class="gallery">' + galleryHTML + '</div>';
 
   if (p.slides && p.slides.length) initSlideshow(p.slides.length);
