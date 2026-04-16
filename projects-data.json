@@ -229,32 +229,14 @@
           "type": "video",
           "src": "universe0.mp4"
         },
-        {
-          "type": "image",
-          "src": "universe1.png"
-        },
-        {
-          "type": "image",
-          "src": "universe2.png"
-        },
-        {
-          "type": "image",
-          "src": "universe3.png"
-        },
-        {
-          "type": "image",
-          "src": "universe4.png"
-        },
-        {
-          "type": "video",
-          "src": "universe2.mp4"
-        }
+       
       ],
       "sections": [
         {
           "title": "Generator",
           "desc": "An interactive particle generator that responds to mouse movement, allowing users to shape and scatter typographic forms in real time.",
-          "media": []
+          "media": [
+                    ]
         },
         {
           "title": "Posters",
@@ -278,8 +260,13 @@
         },
         {
           "title": "Physical Puzzle",
-          "desc": "A tangible puzzle translating the digital particle system into a hands-on physical experience.",
-          "media": []
+          "desc": "The physical puzzle is designed to let users freely customize and assemble letter pieces of various sizes into a composition of their own. Through the process of building, users come to recognize and appreciate their own existence in a more meaningful way.",
+          "media": [
+                    { "type": "image", "src": "universe2.jpg },
+                    { "type": "image", "src": "universe3.jpg },
+                    { "type": "image", "src": "universe4.jpg"},
+                    { "type": "video", "src": "universe2.mp4"}
+                    ]
         }
       ]
     },
