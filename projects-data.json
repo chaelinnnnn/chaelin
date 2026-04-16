@@ -253,27 +253,33 @@
       "sections": [
         {
           "title": "Generator",
-          "desc": "An interactive particle generator that responds to mouse movement, allowing users to shape and scatter typographic forms in real time."
+          "desc": "An interactive particle generator that responds to mouse movement, allowing users to shape and scatter typographic forms in real time.",
+          "media": []
         },
         {
           "title": "Posters",
-          "desc": "A series of posters exploring the visual language of the universe through particle-based typography and cosmic color palettes."
+          "desc": "A series of posters exploring the visual language of the universe through particle-based typography and cosmic color palettes.",
+          "media": []
         },
         {
           "title": "Website",
-          "desc": "A web-based experience where particles arranged along text forms respond dynamically to user interaction."
+          "desc": "A web-based experience where particles arranged along text forms respond dynamically to user interaction.",
+          "media": []
         },
         {
           "title": "Social Media",
-          "desc": "Adapted visual assets for social platforms, maintaining the cosmic aesthetic across various formats and aspect ratios."
+          "desc": "Adapted visual assets for social platforms, maintaining the cosmic aesthetic across various formats and aspect ratios.",
+          "media": []
         },
         {
           "title": "Stationery",
-          "desc": "Branded stationery set applying the particle universe concept to physical print materials."
+          "desc": "Branded stationery set applying the particle universe concept to physical print materials.",
+          "media": []
         },
         {
           "title": "Physical Puzzle",
-          "desc": "A tangible puzzle translating the digital particle system into a hands-on physical experience."
+          "desc": "A tangible puzzle translating the digital particle system into a hands-on physical experience.",
+          "media": []
         }
       ]
     },
