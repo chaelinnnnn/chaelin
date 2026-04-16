@@ -192,6 +192,16 @@
     .vimeo-box { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; }
     .vimeo-box iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 
+    /* iframe embed */
+    .embed-box {
+      width: 100%;
+      height: 80vh;
+      border: none;
+      display: block;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
     /* 별 */
     .star {
       position: fixed; pointer-events: none; z-index: 99999;
@@ -356,6 +366,12 @@ function openDetail(p, fromPop) {
 
   const desc = p.description && p.description.en ? p.description.en : '';
   const metaParts = [p.type, p.date, p.client].filter(Boolean);
+
+  // embedUrl 있으면 갤러리 맨 위에 iframe 추가
+  const embedHTML = p.embedUrl
+    ? '<iframe class="embed-box" src="' + p.embedUrl + '" allow="fullscreen"></iframe>'
+    : '';
+
   const mediaHTML = (p.media || []).map(function(m) {
     if (m.type === 'video') return '<video autoplay loop muted playsinline><source src="' + m.src + '" type="video/mp4"></video>';
     if (m.type === 'vimeo') return '<div class="vimeo-box"><iframe src="https://player.vimeo.com/video/' + m.id + '?autoplay=0&title=0&byline=0&portrait=0" allow="autoplay; fullscreen" allowfullscreen></iframe></div>';
@@ -368,7 +384,7 @@ function openDetail(p, fromPop) {
     '<div class="d-meta">' + metaParts.join(' · ') + '</div>' +
     '<div class="d-collab">' + (p.collaboration || '') + '</div>' +
     (desc ? '<div class="d-desc">' + desc + '</div>' : '') +
-    '<div class="gallery">' + mediaHTML + '</div>';
+    '<div class="gallery">' + embedHTML + mediaHTML + '</div>';
 
   rightEl.scrollTo({ top: 0, behavior: 'smooth' });
 }
@@ -388,7 +404,6 @@ window.addEventListener('popstate', function(e) {
     showGrid(filtered, true);
   } else if (state.view === 'detail') {
     const proj = projects.find(function(p) { return p.id === state.id; });
-    // 리스트 active 상태도 복원
     listEl.querySelectorAll('.proj-row').forEach(function(r) { r.classList.remove('on'); });
     const activeRow = listEl.querySelector('.proj-row[data-id="' + state.id + '"]');
     if (activeRow) activeRow.classList.add('on');
@@ -426,7 +441,6 @@ fetch('./projects-data.json', { cache: 'no-store' })
   .then(function(data) {
     projects = data.projects || [];
     renderList(projects);
-    // 초기 상태를 history에 등록 (replaceState로 현재 엔트리 교체)
     history.replaceState({ view: 'grid', cat: '' }, '');
     showGrid(projects, true);
   })
