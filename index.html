@@ -47,7 +47,6 @@
       padding: 8px 20px 0;
     }
 
-    /* 로고 */
     .logo-wrap {
       width: 120px;
       height: 68px;
@@ -62,17 +61,13 @@
     .logo-wrap a * { cursor: inherit !important; }
     .logo-wrap video { width: 148px; margin-left: -14px; }
 
-    /* 이름 + Information 한 줄 */
     .left-header-row {
       display: flex;
       justify-content: space-between;
       align-items: baseline;
       margin-bottom: 18px;
     }
-    .site-name {
-      font-size: 13px;
-      font-weight: 600;
-    }
+    .site-name { font-size: 13px; font-weight: 600; }
     .info-btn {
       font-size: 13px;
       font-weight: 400;
@@ -82,7 +77,6 @@
     }
     .info-btn:hover { color: var(--pink); }
 
-    /* 카테고리 메뉴 */
     .cat-nav {
       display: flex;
       flex-wrap: wrap;
@@ -105,7 +99,6 @@
     .cat-nav button:hover,
     .cat-nav button.on { color: var(--pink); }
 
-    /* 프로젝트 리스트 */
     .project-list {
       flex: 1;
       overflow-y: auto;
@@ -198,8 +191,66 @@
       height: 80vh;
       border: none;
       display: block;
-      border-radius: 4px;
+    }
+
+    /* ── 슬라이드쇼 ── */
+    .slideshow {
+      position: relative;
+      width: 100%;
+      background: #f7f7f7;
+      margin-bottom: 32px;
+      user-select: none;
+    }
+    .slideshow-track {
+      width: 100%;
       overflow: hidden;
+    }
+    .slideshow-track img {
+      width: 100%;
+      display: block;
+      object-fit: contain;
+    }
+    .slide-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255,255,255,0.85);
+      border: none;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      font-size: 16px;
+      cursor: url("cursor-hand.png") 16 16, pointer !important;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.15s;
+      z-index: 2;
+      color: #000;
+    }
+    .slide-btn:hover { background: #fff; }
+    .slide-btn.prev { left: 12px; }
+    .slide-btn.next { right: 12px; }
+    .slide-dots {
+      display: flex;
+      justify-content: center;
+      gap: 6px;
+      padding: 12px 0 8px;
+    }
+    .slide-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #ddd;
+      border: none;
+      cursor: url("cursor-hand.png") 16 16, pointer !important;
+      transition: background 0.2s, width 0.2s;
+      padding: 0;
+    }
+    .slide-dot.on {
+      background: #000;
+      width: 18px;
+      border-radius: 3px;
     }
 
     /* 별 */
@@ -225,8 +276,6 @@
   <!-- LEFT -->
   <div class="left">
     <div class="left-top">
-
-      <!-- 로고 + Information 한 줄 -->
       <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:16px;">
         <div class="logo-wrap" style="margin-bottom:0;">
           <a href="#" id="logo-link">
@@ -238,7 +287,6 @@
         <a class="info-btn" href="Resume_Chaelin_Kim.pdf" target="_blank" rel="noopener noreferrer">Information</a>
       </div>
 
-      <!-- 카테고리 메뉴 -->
       <nav class="cat-nav" id="cat-nav">
         <button data-cat="" class="on">All</button>
         <button data-cat="artdirecting">Art direction &amp; Brand identity</button>
@@ -250,7 +298,6 @@
       </nav>
     </div>
 
-    <!-- 리스트 -->
     <div class="project-list" id="project-list">
       <div style="padding:20px;color:#ccc;">Loading&#8230;</div>
     </div>
@@ -359,6 +406,47 @@ function showGrid(list, fromPop) {
   if (!fromPop) history.pushState({ view: 'grid', cat: activeCat }, '');
 }
 
+/* ── 슬라이드쇼 렌더 ── */
+function renderSlideshow(slides) {
+  if (!slides || !slides.length) return '';
+  const imgs = slides.map(function(s, i) {
+    return '<img src="' + s.src + '" alt="slide ' + (i+1) + '" style="display:' + (i === 0 ? 'block' : 'none') + '">';
+  }).join('');
+  const dots = slides.map(function(_, i) {
+    return '<button class="slide-dot' + (i === 0 ? ' on' : '') + '" data-i="' + i + '"></button>';
+  }).join('');
+  return '<div class="slideshow" id="slideshow">' +
+    '<div class="slideshow-track" id="slide-track">' + imgs + '</div>' +
+    '<button class="slide-btn prev" id="slide-prev">&#8592;</button>' +
+    '<button class="slide-btn next" id="slide-next">&#8594;</button>' +
+    '<div class="slide-dots" id="slide-dots">' + dots + '</div>' +
+  '</div>';
+}
+
+function initSlideshow(total) {
+  if (!total) return;
+  let cur = 0;
+  const track = document.getElementById('slide-track');
+  const dotsEl = document.getElementById('slide-dots');
+  if (!track || !dotsEl) return;
+  const imgs = track.querySelectorAll('img');
+  const dots = dotsEl.querySelectorAll('.slide-dot');
+
+  function goTo(n) {
+    imgs[cur].style.display = 'none';
+    dots[cur].classList.remove('on');
+    cur = (n + total) % total;
+    imgs[cur].style.display = 'block';
+    dots[cur].classList.add('on');
+  }
+
+  document.getElementById('slide-prev').addEventListener('click', function() { goTo(cur - 1); });
+  document.getElementById('slide-next').addEventListener('click', function() { goTo(cur + 1); });
+  dots.forEach(function(dot) {
+    dot.addEventListener('click', function() { goTo(parseInt(dot.dataset.i)); });
+  });
+}
+
 function openDetail(p, fromPop) {
   hideAll();
   rDetail.classList.add('on');
@@ -367,7 +455,6 @@ function openDetail(p, fromPop) {
   const desc = p.description && p.description.en ? p.description.en : '';
   const metaParts = [p.type, p.date, p.client].filter(Boolean);
 
-  // embedUrl 있으면 갤러리 맨 위에 iframe 추가
   const embedHTML = p.embedUrl
     ? '<iframe class="embed-box" src="' + p.embedUrl + '" allow="fullscreen"></iframe>'
     : '';
@@ -379,13 +466,17 @@ function openDetail(p, fromPop) {
     return '';
   }).join('');
 
+  const slideshowHTML = renderSlideshow(p.slides);
+
   rDetail.innerHTML =
     '<div class="d-title">' + (p.title || '') + '</div>' +
     '<div class="d-meta">' + metaParts.join(' · ') + '</div>' +
     '<div class="d-collab">' + (p.collaboration || '') + '</div>' +
     (desc ? '<div class="d-desc">' + desc + '</div>' : '') +
+    slideshowHTML +
     '<div class="gallery">' + embedHTML + mediaHTML + '</div>';
 
+  if (p.slides && p.slides.length) initSlideshow(p.slides.length);
   rightEl.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
