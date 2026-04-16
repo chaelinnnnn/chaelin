@@ -128,8 +128,6 @@
       },
       "thumbnail": { "type": "image", "src": "map.jpg" },
       "media": [
-        { "type": "video", "src": "map.mp4" },
-        { "type": "image", "src": "map1.jpg" }
       ]
     },
     {
