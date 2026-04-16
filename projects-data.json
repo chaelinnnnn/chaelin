@@ -214,7 +214,7 @@
       "thumbnail": { "type": "video", "src": "MZintern.mp4" },
       "media": [
         { "type": "vimeo", "id": "1154320177" },
-        { "type": "image", "src": "MZintern2.png" }
+        { "type": "image", "src": "MZintern2.jpg" }
       ]
     },
     {
@@ -230,7 +230,7 @@
         "ko": "DEPROMEET 14의 전반적인 필름 디렉팅, 그래픽 디자인, 사운드 디자인을 담당했습니다.",
         "en": "I worked on the overall film directing, graphic design, and sound design for DEPROMEET 14."
       },
-      "thumbnail": { "type": "image", "src": "depromeet.png" },
+      "thumbnail": { "type": "image", "src": "depromeet.jpg" },
       "media": [
         { "type": "vimeo", "id": "1103721206" },
         { "type": "image", "src": "depromeet1.jpg" }
@@ -247,7 +247,7 @@
       "collaboration": "Team",
       "externalUrl": "https://www.behance.net/gallery/175602565/DingDong-TMI-",
       "description": {},
-      "thumbnail": { "type": "image", "src": "Dingdong.png" },
+      "thumbnail": { "type": "image", "src": "Dingdong.jpg" },
       "media": [{ "type": "image", "src": "in.png" }]
     },
     {
