@@ -218,22 +218,16 @@
       "collaboration": "Individual",
       "description": {
         "ko": "Somewhere, something incredible is waiting to be known 이라는 문구를 통해 우주의 광활함과 미지의 가능성을 표현하고자 했습니다. 이를 바탕으로 텍스트 형태를 따라 배치된 파티클은 마우스 움직임에 반응해 흩어졌다가 다시 돌아오며 우주적인 시각 효과를 만들어냅니다. 파티클의 크기, 색상, 상호작용 속성은 GUI 슬라이더로 실시간 조절할 수 있어, 일관된 디자인 속에서 다양한 시각적 변화를 커스터마이징할 수 있습니다.",
-        "en": "By quoting the phrase 'Somewhere, something incredible is waiting to be known,' this work expresses the vastness of the universe and the potential of the unknown. Based on this concept, particles arranged along the form of text respond to mouse movement by scattering and returning to their original positions, creating a cosmic visual effect. Particle attributes such as size, color, and interaction behavior can be adjusted in real time through GUI sliders, allowing users to customize dynamic visual variations while maintaining overall design consistency."
+        "en": "Centered around the phrase "Somewhere, something incredible is waiting to be known," the design seeks to express the vastness of the universe and the possibility of the yet undiscovered. Through this, we hope users find the confidence to believe in their own potential."
       },
       "thumbnail": {
         "type": "video",
         "src": "universe.mp4"
       },
-      "media": [
-        {
-          "type": "video",
-          "src": "universe0.mp4"
-        }
-      ],
       "sections": [
         {
           "title": "Generator",
-          "desc": "An interactive particle generator that responds to mouse movement, allowing users to shape and scatter typographic forms in real time.",
+          "desc": "Particles arranged along the form of text respond to mouse movement by scattering and returning to their original positions, creating a cosmic visual effect. Particle attributes such as size, color, and interaction behavior can be adjusted in real time through GUI sliders, allowing users to customize dynamic visual variations while maintaining overall design consistency.",
           "media": [],
           "embedUrl": "https://chaelinnnnn.github.io/universe/"
         },
