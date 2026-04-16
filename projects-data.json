@@ -126,10 +126,10 @@
         "ko": "인터랙티브 지도는 10개 미국 주 전반에 걸친 목격 보고를 시각화하여, 사용자가 한눈에 패턴과 분포를 파악할 수 있도록 합니다. 이 프로젝트를 통해 사용자는 직관적인 줌 및 팬 컨트롤로 지도를 탐색하고, 각 지역의 상세 정보에 접근할 수 있습니다.",
         "en": "The interactive map visualizes sighting reports across 10 U.S. states, allowing users to quickly grasp patterns and distributions at a glance. Through this project, users can explore the map using intuitive zoom and pan controls and access detailed information for each region."
       },
-      "thumbnail": { "type": "image", "src": "map.png" },
+      "thumbnail": { "type": "image", "src": "map.jpg" },
       "media": [
         { "type": "video", "src": "map.mp4" },
-        { "type": "image", "src": "map1.png" }
+        { "type": "image", "src": "map1.jpg" }
       ]
     },
     {
