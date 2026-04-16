@@ -62,6 +62,11 @@
     .d-meta { font-size: 12px; color: var(--gray); margin-bottom: 3px; }
     .d-collab { font-size: 12px; color: var(--gray); margin-top: 16px; }
     .d-desc { font-size: 13px; line-height: 1.8; color: #333; }
+    .d-sections { display: flex; flex-direction: column; margin-bottom: 40px; }
+    .d-section { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; padding: 16px 0; border-top: 1px solid var(--line); }
+    .d-section:last-child { border-bottom: 1px solid var(--line); }
+    .d-section-title { font-size: 13px; font-weight: 400; color: #000; }
+    .d-section-desc { font-size: 13px; line-height: 1.8; color: #333; }
     .gallery { display: flex; flex-direction: column; gap: 10px; }
     .gallery img, .gallery video { width: 100%; display: block; }
     .gallery video { background: #000; }
@@ -289,8 +294,9 @@ function openDetail(p, fromPop) {
         '<div class="d-meta">' + metaParts.join(' · ') + '</div>' +
         '<div class="d-collab">' + (p.collaboration||'') + '</div>' +
       '</div>' +
-      (desc ? '<div class="d-desc">' + desc + '</div>' : '<div></div>') +
+      (p.sections && p.sections.length ? '' : (desc ? '<div class="d-desc">' + desc + '</div>' : '<div></div>')) +
     '</div>' +
+    (p.sections && p.sections.length ? '<div class="d-sections">' + p.sections.map(function(s) { return '<div class="d-section"><div class="d-section-title">' + (s.title||'') + '</div><div class="d-section-desc">' + (s.desc||'') + '</div></div>'; }).join('') + '</div>' : '') +
     '<div class="gallery">' + galleryHTML + '</div>';
 
   if (p.slides && p.slides.length) initSlideshow(p.slides.length);
