@@ -63,19 +63,22 @@
     .embed-box { width: 100%; height: 80vh; border: none; display: block; }
 
     /* 슬라이드쇼 */
-    .slideshow { position: relative; width: 100%; background: #f7f7f7; }
+    .slideshow { position: relative; width: 100%; background: #000; }
     .slideshow-track { width: 100%; overflow: hidden; }
     .slideshow-track img { width: 100%; display: none; object-fit: contain; }
     .slideshow-track img.active { display: block; }
     .slide-btn {
       position: absolute; top: 50%; transform: translateY(-50%);
-      background: rgba(255,255,255,0.85); border: none;
-      width: 36px; height: 36px; border-radius: 50%; font-size: 16px;
+      background: none; border: none;
+      font-size: 18px; line-height: 1;
       cursor: url("cursor-hand.png") 16 16, pointer !important;
-      display: flex; align-items: center; justify-content: center;
-      transition: background 0.15s; z-index: 2; color: #000;
+      color: #fff;
+      padding: 8px 12px;
+      z-index: 2;
+      opacity: 0.7;
+      transition: opacity 0.15s;
     }
-    .slide-btn:hover { background: #fff; }
+    .slide-btn:hover { opacity: 1; }
     .slide-btn.prev { left: 12px; }
     .slide-btn.next { right: 12px; }
 
@@ -235,14 +238,12 @@ function renderMediaItem(m, title) {
 function openDetail(p, fromPop) {
   hideAll(); rDetail.classList.add('on');
   if (!fromPop) history.pushState({ view: 'detail', id: p.id, cat: activeCat }, '');
-
   const desc = p.description && p.description.en ? p.description.en : '';
   const metaParts = [p.type, p.date, p.client].filter(Boolean);
   const embedHTML = p.embedUrl ? '<iframe class="embed-box" src="' + p.embedUrl + '" allow="fullscreen"></iframe>' : '';
   const media = p.media || [];
-  const insertAt = (p.slides && p.slides.length) ? (p.slideshowPosition != null ? p.slideshowPosition : -1) : -1;
+  const insertAt = (p.slides && p.slides.length && p.slideshowPosition != null) ? p.slideshowPosition : -1;
 
-  // media를 insertAt 기준으로 앞/뒤 나누고 사이에 슬라이드쇼 삽입
   var galleryHTML = '';
   if (insertAt >= 0) {
     var before = media.slice(0, insertAt).map(function(m) { return renderMediaItem(m, p.title); }).join('');
