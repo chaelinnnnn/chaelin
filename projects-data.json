@@ -13,10 +13,19 @@
         "ko": "Sarr의 계절 메뉴 포스터 디자인으로, 타이포그래피와 시각적 아이덴티티를 그래픽 디자인을 통해 탐구합니다.",
         "en": "Various types of posters were created in alignment with the Sarr brand identity concept. While maintaining the brand's soft and emotional tone, the focus was on harmonizing diverse messages and content into a cohesive and consistent visual language."
       },
-      "thumbnail": { "type": "video", "src": "sarrposter.mp4" },
+      "thumbnail": {
+        "type": "video",
+        "src": "sarrposter.mp4"
+      },
       "media": [
-        { "type": "video", "src": "sarrposter.mp4" },
-        { "type": "image", "src": "sarrposter1.png" }
+        {
+          "type": "video",
+          "src": "sarrposter.mp4"
+        },
+        {
+          "type": "image",
+          "src": "sarrposter1.png"
+        }
       ]
     },
     {
@@ -32,8 +41,16 @@
         "ko": "Office Oasis는 바쁜 사무 환경 속에서도 잠시 멈춰 숨을 고를 수 있도록 설계된 웹 기반 힐링 공간입니다. Mediapipe와 Unity WebGL을 활용해 사용자의 미세한 제스처와 고개 움직임을 인식하고, 작은 행성이 이에 부드럽게 반응합니다. 책상 앞에 앉아 있는 순간에도 사용자는 살아 숨 쉬는 자신만의 세계를 만들어가며, 마음을 정리하고 스트레스를 완화하며 개인화된 디지털 오아시스를 경험할 수 있습니다.",
         "en": "Office Oasis is a web-based healing space designed to help you pause and breathe in the midst of a busy office environment. Using Mediapipe and Unity WebGL, it detects subtle gestures and nods, allowing a small planet to respond gently to your movements. Even at your desk, you can shape your own living, breathing world—helping you clear your mind, ease stress, and enjoy a personalized digital oasis."
       },
-      "thumbnail": { "type": "video", "src": "office.mp4" },
-      "media": [{ "type": "vimeo", "id": "1155072969" }]
+      "thumbnail": {
+        "type": "video",
+        "src": "office.mp4"
+      },
+      "media": [
+        {
+          "type": "vimeo",
+          "id": "1155072969"
+        }
+      ]
     },
     {
       "id": "2025-season-menu-sarr",
@@ -48,10 +65,19 @@
         "ko": "Sarr의 계절 메뉴 포스터 디자인으로, 타이포그래피와 시각적 아이덴티티를 그래픽 디자인을 통해 탐구합니다.",
         "en": "I designed a poster centered on Sarr's signature menu item, the Avocato. The concept visually captures the freshness of the moment when coffee and avocado come together, reflecting the brand's identity and mood."
       },
-      "thumbnail": { "type": "image", "src": "avocato.jpg" },
+      "thumbnail": {
+        "type": "image",
+        "src": "avocato.jpg"
+      },
       "media": [
-        { "type": "image", "src": "avocato1.jpg" },
-        { "type": "image", "src": "avocato2.jpg" }
+        {
+          "type": "image",
+          "src": "avocato1.jpg"
+        },
+        {
+          "type": "image",
+          "src": "avocato2.jpg"
+        }
       ]
     },
     {
@@ -67,27 +93,69 @@
         "ko": "'따뜻함이 스며드는 순간'이라는 의미를 바탕으로 레스토랑 sarr를 브랜딩했습니다.",
         "en": "Based on the meaning 'the moment warmth gently seeps in', I branded the restaurant sarr."
       },
-      "thumbnail": { "type": "image", "src": "sarr.jpg" },
+      "thumbnail": {
+        "type": "image",
+        "src": "sarr.jpg"
+      },
       "slides": [
-        { "src": "sarrguide1.jpg" },
-        { "src": "sarrguide2.jpg" },
-        { "src": "sarrguide3.jpg" },
-        { "src": "sarrguide4.jpg" },
-        { "src": "sarrguide5.jpg" },
-        { "src": "sarrguide6.jpg" },
-        { "src": "sarrguide7.jpg" },
-        { "src": "sarrguide8.jpg" },
-        { "src": "sarrguide9.jpg" }
+        {
+          "src": "sarrguide1.jpg"
+        },
+        {
+          "src": "sarrguide2.jpg"
+        },
+        {
+          "src": "sarrguide3.jpg"
+        },
+        {
+          "src": "sarrguide4.jpg"
+        },
+        {
+          "src": "sarrguide5.jpg"
+        },
+        {
+          "src": "sarrguide6.jpg"
+        },
+        {
+          "src": "sarrguide7.jpg"
+        },
+        {
+          "src": "sarrguide8.jpg"
+        },
+        {
+          "src": "sarrguide9.jpg"
+        }
       ],
       "slideshowPosition": 1,
       "media": [
-        { "type": "image", "src": "sarr1.jpg" },
-        { "type": "image", "src": "sarr2.jpg" },
-        { "type": "image", "src": "sarr3.jpg" },
-        { "type": "image", "src": "sarr4.jpg" },
-        { "type": "image", "src": "sarr5.jpg" },
-        { "type": "image", "src": "sarr6.jpg" },
-        { "type": "image", "src": "sarr7.jpg" }
+        {
+          "type": "image",
+          "src": "sarr1.jpg"
+        },
+        {
+          "type": "image",
+          "src": "sarr2.jpg"
+        },
+        {
+          "type": "image",
+          "src": "sarr3.jpg"
+        },
+        {
+          "type": "image",
+          "src": "sarr4.jpg"
+        },
+        {
+          "type": "image",
+          "src": "sarr5.jpg"
+        },
+        {
+          "type": "image",
+          "src": "sarr6.jpg"
+        },
+        {
+          "type": "image",
+          "src": "sarr7.jpg"
+        }
       ]
     },
     {
@@ -104,10 +172,19 @@
         "ko": "이 프로젝트는 10개 미국 주의 UFO 목격 데이터를 인터랙티브 웹 아트워크로 시각화한 작품입니다. 크롭 서클과 외계인 통신 안테나에서 영감을 받은 3D 조형물로 데이터를 표현합니다. Three.js를 사용해 각 주의 목격 횟수에 비례하여 안테나 구조의 높이와 복잡도를 설계했습니다. 사용자는 마우스 컨트롤을 통해 각 안테나를 자유롭게 탐색하거나, 모든 주를 나란히 비교하면서 UFO 데이터와 현상을 예술적 관점에서 경험할 수 있습니다.",
         "en": "This project is an interactive web artwork that visualizes UFO sighting data from 10 U.S. states using 3D sculptures inspired by crop circles and alien antennas. Built with Three.js, each antenna's height and complexity reflect the number of sightings."
       },
-      "thumbnail": { "type": "video", "src": "ufo.mp4" },
+      "thumbnail": {
+        "type": "video",
+        "src": "ufo.mp4"
+      },
       "media": [
-        { "type": "image", "src": "ufo1.png" },
-        { "type": "image", "src": "ufo2.jpg" }
+        {
+          "type": "image",
+          "src": "ufo1.png"
+        },
+        {
+          "type": "image",
+          "src": "ufo2.jpg"
+        }
       ]
     },
     {
@@ -124,7 +201,10 @@
         "ko": "인터랙티브 지도는 10개 미국 주 전반에 걸친 목격 보고를 시각화하여, 사용자가 한눈에 패턴과 분포를 파악할 수 있도록 합니다. 이 프로젝트를 통해 사용자는 직관적인 줌 및 팬 컨트롤로 지도를 탐색하고, 각 지역의 상세 정보에 접근할 수 있습니다.",
         "en": "The interactive map visualizes sighting reports across 10 U.S. states, allowing users to quickly grasp patterns and distributions at a glance. Through this project, users can explore the map using intuitive zoom and pan controls and access detailed information for each region."
       },
-      "thumbnail": { "type": "image", "src": "map.jpg" },
+      "thumbnail": {
+        "type": "image",
+        "src": "map.jpg"
+      },
       "media": []
     },
     {
@@ -140,15 +220,22 @@
         "ko": "Somewhere, something incredible is waiting to be known 이라는 문구를 통해 우주의 광활함과 미지의 가능성을 표현하고자 했습니다. 이를 바탕으로 텍스트 형태를 따라 배치된 파티클은 마우스 움직임에 반응해 흩어졌다가 다시 돌아오며 우주적인 시각 효과를 만들어냅니다. 파티클의 크기, 색상, 상호작용 속성은 GUI 슬라이더로 실시간 조절할 수 있어, 일관된 디자인 속에서 다양한 시각적 변화를 커스터마이징할 수 있습니다.",
         "en": "By quoting the phrase 'Somewhere, something incredible is waiting to be known,' this work expresses the vastness of the universe and the potential of the unknown. Based on this concept, particles arranged along the form of text respond to mouse movement by scattering and returning to their original positions, creating a cosmic visual effect. Particle attributes such as size, color, and interaction behavior can be adjusted in real time through GUI sliders, allowing users to customize dynamic visual variations while maintaining overall design consistency."
       },
-      "thumbnail": { "type": "video", "src": "universe.mp4" },
+      "thumbnail": {
+        "type": "video",
+        "src": "universe.mp4"
+      },
       "media": [
-        { "type": "video", "src": "universe0.mp4" }
+        {
+          "type": "video",
+          "src": "universe0.mp4"
+        }
       ],
       "sections": [
         {
           "title": "Generator",
           "desc": "An interactive particle generator that responds to mouse movement, allowing users to shape and scatter typographic forms in real time.",
-          "media": []
+          "media": [],
+          "embedUrl": "https://chaelinnnnn.github.io/universe/"
         },
         {
           "title": "Posters",
@@ -174,10 +261,22 @@
           "title": "Physical Puzzle",
           "desc": "The physical puzzle is designed to let users freely customize and assemble letter pieces of various sizes into a composition of their own. Through the process of building, users come to recognize and appreciate their own existence in a more meaningful way.",
           "media": [
-            { "type": "image", "src": "universe2.jpg" },
-            { "type": "image", "src": "universe3.jpg" },
-            { "type": "image", "src": "universe4.jpg" },
-            { "type": "video", "src": "universe2.mp4" }
+            {
+              "type": "image",
+              "src": "universe2.jpg"
+            },
+            {
+              "type": "image",
+              "src": "universe3.jpg"
+            },
+            {
+              "type": "image",
+              "src": "universe4.jpg"
+            },
+            {
+              "type": "video",
+              "src": "universe2.mp4"
+            }
           ]
         }
       ]
@@ -193,8 +292,16 @@
       "collaboration": "Team",
       "externalUrl": "https://youtu.be/YyeM4ykfjoQ?si=JdQrfZXw0ors8Z77",
       "description": {},
-      "thumbnail": { "type": "image", "src": "junction.png" },
-      "media": [{ "type": "image", "src": "in.png" }]
+      "thumbnail": {
+        "type": "image",
+        "src": "junction.png"
+      },
+      "media": [
+        {
+          "type": "image",
+          "src": "in.png"
+        }
+      ]
     },
     {
       "id": "Plating Design system",
@@ -207,8 +314,16 @@
       "collaboration": "Team",
       "externalUrl": "https://www.figma.com/design/6CU8TJskx03wQ3Z0ddrBaE/Plating-Design-System--ver.3----open?node-id=266-412&t=pI88udhT4KKJcVoR-1",
       "description": {},
-      "thumbnail": { "type": "image", "src": "Plating.png" },
-      "media": [{ "type": "image", "src": "in.png" }]
+      "thumbnail": {
+        "type": "image",
+        "src": "Plating.png"
+      },
+      "media": [
+        {
+          "type": "image",
+          "src": "in.png"
+        }
+      ]
     },
     {
       "id": "every-singles-time",
@@ -223,10 +338,19 @@
         "ko": "Singles Magazine의 'EVERY SINGLES TIME' 타이틀 아이덴티티 디자인을 진행하였습니다.",
         "en": "I worked on the title identity design for 'EVERY SINGLES TIME,' a feature by Singles Magazine. ⓈSingles Magazine Co., Ltd. All RIGHTS RESERVED."
       },
-      "thumbnail": { "type": "image", "src": "singles.png" },
+      "thumbnail": {
+        "type": "image",
+        "src": "singles.png"
+      },
       "media": [
-        { "type": "video", "src": "singles.mp4" },
-        { "type": "image", "src": "singles1.jpg" }
+        {
+          "type": "video",
+          "src": "singles.mp4"
+        },
+        {
+          "type": "image",
+          "src": "singles1.jpg"
+        }
       ]
     },
     {
@@ -242,10 +366,19 @@
         "ko": "싱글즈 매거진 MZ Intern 패션 필름의 그래픽 디자인에 참여하였습니다.",
         "en": "I worked on the graphic design for the Singles Magazine MZ Intern fashion film. ⓈSingles Magazine Co., Ltd. All RIGHTS RESERVED."
       },
-      "thumbnail": { "type": "video", "src": "MZintern.mp4" },
+      "thumbnail": {
+        "type": "video",
+        "src": "MZintern.mp4"
+      },
       "media": [
-        { "type": "vimeo", "id": "1154320177" },
-        { "type": "image", "src": "MZintern2.jpg" }
+        {
+          "type": "vimeo",
+          "id": "1154320177"
+        },
+        {
+          "type": "image",
+          "src": "MZintern2.jpg"
+        }
       ]
     },
     {
@@ -261,10 +394,19 @@
         "ko": "DEPROMEET 14의 전반적인 필름 디렉팅, 그래픽 디자인, 사운드 디자인을 담당했습니다.",
         "en": "I worked on the overall film directing, graphic design, and sound design for DEPROMEET 14."
       },
-      "thumbnail": { "type": "image", "src": "depromeet.jpg" },
+      "thumbnail": {
+        "type": "image",
+        "src": "depromeet.jpg"
+      },
       "media": [
-        { "type": "vimeo", "id": "1103721206" },
-        { "type": "image", "src": "depromeet1.jpg" }
+        {
+          "type": "vimeo",
+          "id": "1103721206"
+        },
+        {
+          "type": "image",
+          "src": "depromeet1.jpg"
+        }
       ]
     },
     {
@@ -278,8 +420,16 @@
       "collaboration": "Team",
       "externalUrl": "https://www.behance.net/gallery/175602565/DingDong-TMI-",
       "description": {},
-      "thumbnail": { "type": "image", "src": "dingdong.jpg" },
-      "media": [{ "type": "image", "src": "in.png" }]
+      "thumbnail": {
+        "type": "image",
+        "src": "dingdong.jpg"
+      },
+      "media": [
+        {
+          "type": "image",
+          "src": "in.png"
+        }
+      ]
     },
     {
       "id": "Foretderm",
@@ -294,12 +444,27 @@
         "ko": "민감한 피부를 보호하기 위해 설계된 기본 세이프 라인에서 출발해, Clean Derma Beauty의 일관된 아이덴티티를 유지하면서 추가적인 효능을 갖춘 세컨더리 기능성 라인으로 콘셉트를 확장했습니다. 또한 VIP 기프트 페이퍼 백 디자인을 함께 진행했습니다.",
         "en": "Starting from a basic safe line designed to protect sensitive skin, the concept was expanded into a secondary functional line with added benefits while maintaining a consistent Clean Derma Beauty identity. In addition, a VIP gift paper bag was designed as part of the project. ⓈForetderm Co., Ltd. All RIGHTS RESERVED."
       },
-      "thumbnail": { "type": "image", "src": "foretderm.png" },
+      "thumbnail": {
+        "type": "image",
+        "src": "foretderm.png"
+      },
       "media": [
-        { "type": "image", "src": "foretderm1.png" },
-        { "type": "image", "src": "foretderm2.png" },
-        { "type": "image", "src": "foretderm3.png" },
-        { "type": "image", "src": "foretderm4.png" }
+        {
+          "type": "image",
+          "src": "foretderm1.png"
+        },
+        {
+          "type": "image",
+          "src": "foretderm2.png"
+        },
+        {
+          "type": "image",
+          "src": "foretderm3.png"
+        },
+        {
+          "type": "image",
+          "src": "foretderm4.png"
+        }
       ]
     }
   ]
