@@ -67,16 +67,16 @@
       },
       "thumbnail": {
         "type": "image",
-        "src": "avocato.png"
+        "src": "avocato.jpg"
       },
       "media": [
         {
           "type": "image",
-          "src": "avocato1.png"
+          "src": "avocato1.jpg"
         },
         {
           "type": "image",
-          "src": "avocato2.png"
+          "src": "avocato2.jpg"
         }
       ]
     },
