@@ -70,11 +70,6 @@
       "thumbnail": { "type": "image", "src": "sarr.jpg" },
       "media": [
         { "type": "image", "src": "sarr1.jpg" },
-        { "type": "image", "src": "sarr2.jpg" },
-        { "type": "image", "src": "sarr3.jpg" },
-        { "type": "image", "src": "sarr4.jpg" },
-        { "type": "image", "src": "sarr5.jpg" },
-        { "type": "image", "src": "sarr6.jpg" }
       ],
       "sections": [
         {
@@ -85,7 +80,11 @@
         {
           "title": "Application",
           "desc": "",
-          "media": []
+          "media": [        
+            { "type": "image", "src": "sarr3.jpg" },
+            { "type": "image", "src": "sarr4.jpg" },
+            { "type": "image", "src": "sarr5.jpg" },
+            { "type": "image", "src": "sarr6.jpg" }]
         },
         {
           "title": "Brandbook",
