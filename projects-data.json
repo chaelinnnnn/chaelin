@@ -68,18 +68,6 @@
         "en": "Based on the meaning 'the moment warmth gently seeps in', I branded the restaurant sarr."
       },
       "thumbnail": { "type": "image", "src": "sarr.jpg" },
-      "slides": [
-        { "src": "sarrguide1.jpg" },
-        { "src": "sarrguide2.jpg" },
-        { "src": "sarrguide3.jpg" },
-        { "src": "sarrguide4.jpg" },
-        { "src": "sarrguide5.jpg" },
-        { "src": "sarrguide6.jpg" },
-        { "src": "sarrguide7.jpg" },
-        { "src": "sarrguide8.jpg" },
-        { "src": "sarrguide9.jpg" }
-      ],
-      "slideshowPosition": 1,
       "media": [
         { "type": "image", "src": "sarr1.jpg" },
         { "type": "image", "src": "sarr2.jpg" },
@@ -87,6 +75,34 @@
         { "type": "image", "src": "sarr4.jpg" },
         { "type": "image", "src": "sarr5.jpg" },
         { "type": "image", "src": "sarr6.jpg" }
+      ],
+      "sections": [
+        {
+          "title": "About brand",
+          "desc": "",
+          "media": []
+        },
+        {
+          "title": "Application",
+          "desc": "",
+          "media": []
+        },
+        {
+          "title": "Brandbook",
+          "desc": "",
+          "slides": [
+            { "src": "sarrguide1.jpg" },
+            { "src": "sarrguide2.jpg" },
+            { "src": "sarrguide3.jpg" },
+            { "src": "sarrguide4.jpg" },
+            { "src": "sarrguide5.jpg" },
+            { "src": "sarrguide6.jpg" },
+            { "src": "sarrguide7.jpg" },
+            { "src": "sarrguide8.jpg" },
+            { "src": "sarrguide9.jpg" }
+          ],
+          "media": []
+        }
       ]
     },
     {
@@ -107,6 +123,28 @@
       "media": [
         { "type": "image", "src": "ufo1.png" },
         { "type": "image", "src": "ufo2.jpg" }
+      ],
+      "sections": [
+        {
+          "title": "Type 1: Antenna",
+          "desc": "",
+          "media": []
+        },
+        {
+          "title": "Type 2: Crop circle",
+          "desc": "",
+          "media": []
+        },
+        {
+          "title": "Process",
+          "desc": "",
+          "media": []
+        },
+        {
+          "title": "Application",
+          "desc": "",
+          "media": []
+        }
       ]
     },
     {
@@ -141,7 +179,7 @@
       },
       "thumbnail": { "type": "video", "src": "universe.mp4" },
       "media": [
-        {"type": "image", "src": "universe4.jpg"}
+        { "type": "image", "src": "universe4.jpg" }
       ],
       "sections": [
         {
