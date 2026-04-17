@@ -140,7 +140,9 @@
         "en": "Centered around the phrase 'Somewhere, something incredible is waiting to be known,' the design seeks to express the vastness of the universe and the possibility of the yet undiscovered. Through this, we hope users find the confidence to believe in their own potential."
       },
       "thumbnail": { "type": "video", "src": "universe.mp4" },
-      "media": [],
+      "media": [
+        {"type": "image", "src": "universe4.jpg"}
+      ],
       "sections": [
         {
           "title": "Generator",
@@ -154,11 +156,6 @@
           "media": [
             { "type": "image", "src": "universeposter.jpg" }
           ]
-        },
-        {
-          "title": "Website",
-          "desc": "A web-based experience where particles arranged along text forms respond dynamically to user interaction.",
-          "media": []
         },
         {
           "title": "Social Media",
@@ -176,7 +173,6 @@
           "media": [
             { "type": "image", "src": "universe2.jpg" },
             { "type": "image", "src": "universe3.jpg" },
-            { "type": "image", "src": "universe4.jpg" },
             { "type": "video", "src": "universe2.mp4" }
           ]
         }
