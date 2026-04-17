@@ -121,24 +121,29 @@
       },
       "thumbnail": { "type": "video", "src": "ufo.mp4" },
       "media": [
-        { "type": "image", "src": "ufo1.png" },
-        { "type": "image", "src": "ufo2.jpg" }
+        { "type": "image", "src": "ufo1.png" }
       ],
       "sections": [
         {
           "title": "Type 1: Antenna",
-          "desc": "",
-          "media": []
+          "desc": "An antenna is a device that sends signals into space. The height and complexity of each antenna are designed to reflect the number of sightings and the most frequently reported UFO shape in each state.",
+          "media": [
+                  { "type": "image", "src": "antenna.jpg" }
+          ]
         },
         {
           "title": "Type 2: Crop circle",
-          "desc": "",
-          "media": []
+          "desc": "Crop circles are believed to be traces left by extraterrestrial beings on Earth. The base of each sculpture draws from their geometric patterns, designed to reflect the number of sightings and the most frequently reported UFO shape in each state.",
+          "media": [
+                    { "type": "image", "src": "cropcircle.jpg" }
+          ]
         },
         {
           "title": "Process",
           "desc": "",
-          "media": []
+          "media": [
+            { "type": "image", "src": "ufo2.jpg" }
+          ]
         },
         {
           "title": "Application",
