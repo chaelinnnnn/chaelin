@@ -151,7 +151,9 @@
         {
           "title": "Posters",
           "desc": "A series of posters exploring the visual language of the universe through particle-based typography and cosmic color palettes.",
-          "media": []
+          "media": [
+            { "type": "image", "src": "universeposter.jpg" }
+          ]
         },
         {
           "title": "Website",
