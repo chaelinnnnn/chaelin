@@ -121,7 +121,6 @@
       },
       "thumbnail": { "type": "video", "src": "ufo.mp4" },
       "media": [
-        { "type": "image", "src": "ufo1.png" }
       ],
       "sections": [
         {
@@ -142,14 +141,23 @@
           "title": "Process",
           "desc": "",
           "media": [
-            { "type": "image", "src": "ufo2.jpg" }
           ]
         },
         {
           "title": "Application",
           "desc": "",
-          "media": []
-        }
+          "media": [
+                    { "type": "image", "src": "ufo2.jpg" }
+                  ]
+        },
+        {
+          "title": "Data Artifacts",
+          "desc": "Starting as a 3D data visualization, the data felt incomplete confined to a screen. Just as crop circles are physical traces pressed into the earth, this work needed to exist in real space. Metal was chosen intentionally — to capture the cold, alien materiality of UFOs. Making it physical was an extension of the digital work, and an attempt to turn data into something you can actually touch.",
+          "media": [
+                    { "type": "image", "src": "ufo2.jpg" }
+                    { "type": "image", "src": "ufo1.jpg" }
+                  ]
+        },
       ]
     },
     {
