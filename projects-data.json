@@ -119,45 +119,43 @@
         "ko": "이 프로젝트는 10개 미국 주의 UFO 목격 데이터를 인터랙티브 웹 아트워크로 시각화한 작품입니다. 크롭 서클과 외계인 통신 안테나에서 영감을 받은 3D 조형물로 데이터를 표현합니다. Three.js를 사용해 각 주의 목격 횟수에 비례하여 안테나 구조의 높이와 복잡도를 설계했습니다. 사용자는 마우스 컨트롤을 통해 각 안테나를 자유롭게 탐색하거나, 모든 주를 나란히 비교하면서 UFO 데이터와 현상을 예술적 관점에서 경험할 수 있습니다.",
         "en": "This project is an interactive web artwork that visualizes UFO sighting data from 10 U.S. states using 3D sculptures inspired by crop circles and alien antennas. Built with Three.js, each antenna's height and complexity reflect the number of sightings."
       },
-      "thumbnail": { "type": "video", "src": "ufo.mp4" }
-      "media": [
-      ],
+      "thumbnail": { "type": "video", "src": "ufo.mp4" },
+      "media": [],
       "sections": [
         {
           "title": "Type 1: Antenna",
           "desc": "An antenna is a device that sends signals into space. The height and complexity of each antenna are designed to reflect the number of sightings and the most frequently reported UFO shape in each state.",
           "media": [
-                  { "type": "image", "src": "antenna.jpg" }
+            { "type": "image", "src": "antenna.jpg" }
           ]
         },
         {
           "title": "Type 2: Crop circle",
           "desc": "Crop circles are believed to be traces left by extraterrestrial beings on Earth. The base of each sculpture draws from their geometric patterns, designed to reflect the number of sightings and the most frequently reported UFO shape in each state.",
           "media": [
-                    { "type": "image", "src": "cropcircle.jpg" }
+            { "type": "image", "src": "cropcircle.jpg" }
           ]
         },
         {
           "title": "Process",
           "desc": "",
-          "media": [
-          ]
+          "media": []
         },
         {
           "title": "Application",
           "desc": "",
           "media": [
-                    { "type": "image", "src": "ufo2.jpg" }
-                  ]
+            { "type": "image", "src": "ufo2.jpg" }
+          ]
         },
         {
           "title": "Data Artifacts",
           "desc": "Starting as a 3D data visualization, the data felt incomplete confined to a screen. Just as crop circles are physical traces pressed into the earth, this work needed to exist in real space. Metal was chosen intentionally — to capture the cold, alien materiality of UFOs. Making it physical was an extension of the digital work, and an attempt to turn data into something you can actually touch.",
           "media": [
-                    { "type": "image", "src": "ufo2.jpg" }
-                    { "type": "image", "src": "ufo1.jpg" }
-                  ]
-        },
+            { "type": "image", "src": "ufo2.jpg" },
+            { "type": "image", "src": "ufo1.jpg" }
+          ]
+        }
       ]
     },
     {
