@@ -16,7 +16,7 @@
       "thumbnail": { "type": "video", "src": "sarrposter.mp4" },
       "media": [
         { "type": "video", "src": "sarrposter.mp4" },
-        { "type": "image", "src": "sarrposter1.png" }
+        { "type": "image", "src": "sarrposter1.jpg" }
       ]
     },
     {
@@ -251,7 +251,7 @@
       "collaboration": "Team",
       "externalUrl": "https://www.figma.com/design/6CU8TJskx03wQ3Z0ddrBaE/Plating-Design-System--ver.3----open?node-id=266-412&t=pI88udhT4KKJcVoR-1",
       "description": {},
-      "thumbnail": { "type": "image", "src": "Plating.png" },
+      "thumbnail": { "type": "image", "src": "Plating.jpg" },
       "media": [{ "type": "image", "src": "in.png" }]
     },
     {
@@ -267,7 +267,7 @@
         "ko": "Singles Magazine의 'EVERY SINGLES TIME' 타이틀 아이덴티티 디자인을 진행하였습니다.",
         "en": "I worked on the title identity design for 'EVERY SINGLES TIME,' a feature by Singles Magazine. ⓈSingles Magazine Co., Ltd. All RIGHTS RESERVED."
       },
-      "thumbnail": { "type": "image", "src": "singles.png" },
+      "thumbnail": { "type": "image", "src": "singles.jpg" },
       "media": [
         { "type": "video", "src": "singles.mp4" },
         { "type": "image", "src": "singles1.jpg" }
@@ -338,7 +338,7 @@
         "ko": "민감한 피부를 보호하기 위해 설계된 기본 세이프 라인에서 출발해, Clean Derma Beauty의 일관된 아이덴티티를 유지하면서 추가적인 효능을 갖춘 세컨더리 기능성 라인으로 콘셉트를 확장했습니다. 또한 VIP 기프트 페이퍼 백 디자인을 함께 진행했습니다.",
         "en": "Starting from a basic safe line designed to protect sensitive skin, the concept was expanded into a secondary functional line with added benefits while maintaining a consistent Clean Derma Beauty identity. In addition, a VIP gift paper bag was designed as part of the project. ⓈForetderm Co., Ltd. All RIGHTS RESERVED."
       },
-      "thumbnail": { "type": "image", "src": "foretderm.png" },
+      "thumbnail": { "type": "image", "src": "foretderm.jpg" },
       "media": [
         { "type": "image", "src": "foretderm1.jpg" },
         { "type": "image", "src": "foretderm2.jpg" },
