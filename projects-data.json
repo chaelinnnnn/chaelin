@@ -340,10 +340,10 @@
       },
       "thumbnail": { "type": "image", "src": "foretderm.png" },
       "media": [
-        { "type": "image", "src": "foretderm1.png" },
-        { "type": "image", "src": "foretderm2.png" },
-        { "type": "image", "src": "foretderm3.png" },
-        { "type": "image", "src": "foretderm4.png" }
+        { "type": "image", "src": "foretderm1.jpg" },
+        { "type": "image", "src": "foretderm2.jpg" },
+        { "type": "image", "src": "foretderm3.jpg" },
+        { "type": "image", "src": "foretderm4.jpg" }
       ]
     }
   ]
