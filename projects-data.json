@@ -145,8 +145,8 @@
           "title": "Application",
           "desc": "",
           "media": [
-            { "type": "image", "src": "ufo3.jpg" }.
-            { "type": "image", "src": "ufo4.jpg" }
+            { "type": "image", "src": "ufo3.jpg" },
+            { "type": "image", "src": "ufo4.jpg" },
             { "type": "image", "src": "ufo5.jpg" }
           ]
         },
