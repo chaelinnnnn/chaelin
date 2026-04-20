@@ -72,6 +72,13 @@
         { "type": "image", "src": "sarr1.jpg" }
       ],
       "sections": [
+         {
+          "title": "Motif",
+          "desc": "",
+          "media": [
+            { "type": "image", "src": "sarrmotif.jpg" }
+          ]
+        },
         {
           "title": "Application",
           "desc": "",
