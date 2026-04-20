@@ -202,14 +202,14 @@
         },
         {
           "title": "Posters",
-          "desc": "A series of posters exploring the visual language of the universe through particle-based typography and cosmic color palettes.",
+          "desc": "A poster series exploring the visual language of the cosmos through particle-based typography and color palettes.",
           "media": [
             { "type": "image", "src": "universeposter.jpg" }
           ]
         },
         {
           "title": "Social Media",
-          "desc": "Adapted visual assets for social platforms, maintaining the cosmic aesthetic across various formats and aspect ratios.",
+          "desc": "",
           "media": [
             { "type": "video", "src": "universe3.mp4" }
           ]
