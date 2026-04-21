@@ -35,7 +35,7 @@
       "thumbnail": { "type": "video", "src": "office.mp4" },
       "media": [{ "type": "vimeo", "id": "1155072969" }]
     },
-        {
+    {
       "id": "Tymora",
       "title": "Tymora",
       "category": "artdirecting",
@@ -74,11 +74,11 @@
         },
         {
           "title": "Tymora Glasses",
-          "desc": "Tymora Glasses analyze the user’s voice in real time and use an integrated camera to perceive the surrounding environment, helping enhance and enrich the user’s daily life.",
+          "desc": "Tymora Glasses analyze the user's voice in real time and use an integrated camera to perceive the surrounding environment, helping enhance and enrich the user's daily life.",
           "media": [
             { "type": "image", "src": "tymorabrand.jpg" }
           ]
-        },
+        }
       ]
     },
     {
@@ -118,7 +118,7 @@
         { "type": "image", "src": "sarr1.jpg" }
       ],
       "sections": [
-         {
+        {
           "title": "Motif",
           "desc": "Sarr draws inspiration from the moment butter slowly melts. When something solid softens in the warmth and gently gives way, we pause. Sarr creates those quiet, unhurried moments in the middle of a busy day, where everything slowly melts into warmth.",
           "media": [
