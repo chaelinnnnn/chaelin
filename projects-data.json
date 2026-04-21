@@ -74,7 +74,7 @@
         },
         {
           "title": "Typeface & Color system",
-          "desc": "Tymora Glasses analyze the user's voice in real time and use an integrated camera to perceive the surrounding environment, helping enhance and enrich the user's daily life.",
+          "desc": "",
           "media": [
             { "type": "image", "src": "tymorabrand.jpg" }
           ]
@@ -87,9 +87,9 @@
         },
         {
           "title": "Tymora Glasses",
-          "desc": "Tymora Glasses analyze the user's voice in real time and use an integrated camera to perceive the surrounding environment, helping enhance and enrich the user's daily life.",
+          "desc": "Tymora Glasses analyze the user’s voice in real time and use an integrated camera to perceive the surrounding environment, helping enhance and enrich the user’s daily life.",
           "media": [
-            { "type": "image", "src": "tymorabrand.jpg" }
+            { "type": "image", "src": "tymoraglass.jpg" }
           ]
         }
       ]
