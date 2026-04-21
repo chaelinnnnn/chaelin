@@ -80,12 +80,18 @@
           ]
         },
         {
+          "title": "Typeface Generator",
+          "desc": "Try the Tymora typeface generator and create your own typographic expression.",
+          "embedUrl": "https://chaelinnnnn.github.io/tymorafont/",
+          "media": []
+        },
+        {
           "title": "Tymora Glasses",
           "desc": "Tymora Glasses analyze the user's voice in real time and use an integrated camera to perceive the surrounding environment, helping enhance and enrich the user's daily life.",
           "media": [
             { "type": "image", "src": "tymorabrand.jpg" }
           ]
-        },
+        }
       ]
     },
     {
