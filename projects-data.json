@@ -205,7 +205,7 @@
       },
       "thumbnail": { "type": "video", "src": "ufo.mp4" },
       "media": [
-        { "type": "image", "src": "ufomain.jpg" },
+        { "type": "image", "src": "ufomain.jpg" }
       ],
       "sections": [
         {
