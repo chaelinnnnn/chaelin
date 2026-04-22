@@ -89,7 +89,29 @@
           "title": "Tymora Glasses",
           "desc": "Tymora Glasses analyze the user’s voice in real time and use an integrated camera to perceive the surrounding environment, helping enhance and enrich the user’s daily life.",
           "media": [
-            { "type": "image", "src": "tymoraglass.jpg" }
+            { "type": "image", "src": "tymoraglass.jpg" },
+            { "type": "video", "src": "tymoraglass.mp4" }
+          ]
+        },
+        {
+          "title": "Time tool kit",
+          "desc": "Time Toolkit is not a time-measurement tool, but a service designed to optimize experience. This toolkit customizes features to match the realistic purpose and meaning of each time unit selected by the user. Its purpose is to 'servicify' time, explicitly helping users achieve goals in their daily lives and convert time into the most valuable experience.",
+          "media": [
+            { "type": "video", "src": "timekit.mp4" }
+          ]
+        },
+        {
+          "title": "How to use Tymora?",
+          "desc": "Using Tymora is simple. Start by wearing your glasses to clearly understand your context and needs. Then, select and purchase the time you need to reduce friction and focus on what truly matters. The time you gain is not just extra availability, but an experience tailored to your purpose and situation. Tymora helps you use your time more meaningfully in your everyday life.",
+          "media": [
+            { "type": "image", "src": "tymorahow.jpg" }
+          ]
+        },
+        {
+          "title": "User Scenario",
+          "desc": "Tymora’s Timekit guides users through four stages selecting activating experiencing and reflecting on time allowing them to intentionally expand and deepen their moments. By using the time kit users can visually observe the impact of added time gaining a new awareness of how they shape and live their time.",
+          "media": [
+            { "type": "image", "src": "tymorauser.jpg" }
           ]
         }
       ]
