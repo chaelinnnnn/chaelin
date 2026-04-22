@@ -49,7 +49,9 @@
         "en": "This project is an interactive web artwork that visualizes UFO sighting data from 10 U.S. states using 3D sculptures inspired by crop circles and alien antennas. Built with Three.js, each antenna's height and complexity reflect the number of sightings."
       },
       "thumbnail": { "type": "image", "src": "tymora.jpg" },
-      "media": [],
+      "media": [
+        { "type": "video", "src": "tymoraglass.mp4" }
+                ],
       "sections": [
         {
           "title": "The era of personalization",
@@ -89,8 +91,7 @@
           "title": "Tymora Glasses",
           "desc": "Tymora Glasses analyze the user’s voice in real time and use an integrated camera to perceive the surrounding environment, helping enhance and enrich the user’s daily life.",
           "media": [
-            { "type": "image", "src": "tymoraglass.jpg" },
-            { "type": "video", "src": "tymoraglass.mp4" }
+            { "type": "image", "src": "tymoraglass.jpg" }
           ]
         },
         {
