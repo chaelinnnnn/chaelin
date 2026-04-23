@@ -1,7 +1,7 @@
 {
   "projects": [
     {
-      "id": "Display-design-graphic-sarr",
+      "id": "sarr-display-design-graphic",
       "title": "Sarr Display Design & Graphic",
       "category": "Editorial",
       "meta": "Poster Design, Graphic Design",
@@ -20,7 +20,7 @@
       ]
     },
     {
-      "id": "Office Oasis",
+      "id": "office-oasis",
       "title": "Office Oasis",
       "category": "Interaction",
       "meta": "Interaction Design",
@@ -36,7 +36,7 @@
       "media": [{ "type": "vimeo", "id": "1155072969" }]
     },
     {
-      "id": "Tymora",
+      "id": "tymora",
       "title": "Tymora",
       "category": "artdirecting",
       "meta": "Interaction & Brand identity",
@@ -45,7 +45,7 @@
       "type": "Art directing, Brand Identity",
       "collaboration": "Individual",
       "description": {
-        "ko": "",
+        "ko": "Tymora는 시간을 구매 가능한 경험으로 큐레이팅하는 컨셉 스토어입니다. 삶의 순간의 품질과 강도를 선택할 수 있는 새로운 시간 소비 방식을 제안합니다.",
         "en": "Tymora is a concept store that curates time as an experience you can purchase. We introduce a new way of consuming time, allowing you to choose the quality and intensity of the moments you live. Tymora treats time not as a product, but as a material for designing your life. This project was selected for Pratt Institute's triennial exhibition, which honors outstanding work across departments."
       },
       "thumbnail": { "type": "image", "src": "tymora.jpg" },
@@ -125,7 +125,7 @@
         },
         {
           "title": "1-Day Time Toolkit",
-          "desc": "The day before an exam, she can’t help wishing for just one more day. There’s too much to memorize and never enough time. What she needs now isn’t anxiety, but a single day of focus to grasp what matters most.",
+          "desc": "The day before an exam, she can't help wishing for just one more day. There's too much to memorize and never enough time. What she needs now isn't anxiety, but a single day of focus to grasp what matters most.",
           "media": [
             { "type": "image", "src": "timetool3.jpg" },
             { "type": "image", "src": "timetool4.jpg" }
@@ -148,7 +148,7 @@
       ]
     },
     {
-      "id": "2025-season-menu-sarr",
+      "id": "sarr-season-menu-2025",
       "title": "Sarr 2025 Season menu",
       "category": "Editorial",
       "meta": "Poster Design, Graphic Design",
@@ -167,7 +167,7 @@
       ]
     },
     {
-      "id": "Sarr Brand Identity Design",
+      "id": "sarr-brand-identity",
       "title": "Sarr Brand Identity Design",
       "category": "artdirecting",
       "meta": "Art directing, Brand Identity, Photography",
@@ -220,7 +220,7 @@
       ]
     },
     {
-      "id": "Undefined",
+      "id": "undefined",
       "title": "Undefined",
       "category": "Interaction",
       "meta": "Interaction & Brand identity",
@@ -230,7 +230,7 @@
       "collaboration": "Individual",
       "embedUrl": "https://chaelinnnnn.github.io/ufo-sightings/",
       "description": {
-        "ko": "",
+        "ko": "이 프로젝트는 미국 10개 주의 UFO 목격 데이터를 인터랙티브 웹 아트워크로 시각화하고, 이를 제시하기 위해 제작된 브랜딩 작업입니다.",
         "en": "This project visualizes UFO sighting data across 10 U.S. states as an interactive web artwork, alongside the branding work created to present it. Using mouse controls, you can freely explore each antenna or compare all states side by side, experiencing the UFO phenomenon through an artistic lens."
       },
       "thumbnail": { "type": "video", "src": "ufo.mp4" },
@@ -271,7 +271,7 @@
       ]
     },
     {
-      "id": "UFO Data Map",
+      "id": "ufo-data-map",
       "title": "UFO Data Map",
       "category": "Interaction",
       "meta": "Interaction web",
@@ -288,7 +288,7 @@
       "media": []
     },
     {
-      "id": "Universe",
+      "id": "universe",
       "title": "Universe",
       "category": "Interaction",
       "meta": "Interaction & Brand identity",
@@ -337,7 +337,7 @@
       ]
     },
     {
-      "id": "Junction ASIA 2024",
+      "id": "junction-asia-2024",
       "title": "Junction ASIA 2024",
       "category": "artdirecting",
       "meta": "Art directing, Brand identity",
@@ -346,6 +346,7 @@
       "type": "Art directing, Brand Identity",
       "collaboration": "Team",
       "description": {
+        "ko": "Junction ASIA 2024는 아시아 최대 규모의 해커톤으로, 대륙 전역의 개발자, 디자이너, 크리에이터가 모이는 행사입니다. 이벤트의 전반적인 아트 디렉션과 브랜드 아이덴티티를 담당했습니다.",
         "en": "Junction ASIA 2024 is Asia's largest hackathon, bringing together developers, designers, and creators from across the continent. I worked on the overall art direction and brand identity for the event, crafting a visual language that captures the energy of innovation and collaboration."
       },
       "thumbnail": { "type": "image", "src": "junction.jpg" },
@@ -402,7 +403,7 @@
       ]
     },
     {
-      "id": "Plating Design system",
+      "id": "plating-design-system",
       "title": "Plating Design system",
       "category": "uxui",
       "meta": "uxui",
@@ -411,7 +412,10 @@
       "type": "UX/UI",
       "collaboration": "Team",
       "externalUrl": "https://www.figma.com/design/6CU8TJskx03wQ3Z0ddrBaE/Plating-Design-System--ver.3----open?node-id=266-412&t=pI88udhT4KKJcVoR-1",
-      "description": {},
+      "description": {
+        "ko": "Plating 서비스의 일관된 디자인 경험을 위한 디자인 시스템을 구축했습니다.",
+        "en": "Built a comprehensive design system for Plating service to ensure consistent design experience across all touchpoints."
+      },
       "thumbnail": { "type": "image", "src": "plating.jpg" },
       "media": [{ "type": "image", "src": "in.png" }]
     },
@@ -435,7 +439,7 @@
       ]
     },
     {
-      "id": "Singles Magazine MZ INTERN Fashion Film",
+      "id": "singles-mz-intern-film",
       "title": "Singles Magazine MZ INTERN Fashion Film",
       "category": "artdirecting",
       "meta": "Graphic Design",
@@ -473,7 +477,7 @@
       ]
     },
     {
-      "id": "Ding-dong",
+      "id": "ding-dong",
       "title": "Ding-dong",
       "category": "uxui",
       "meta": "uxui",
@@ -482,12 +486,15 @@
       "type": "UX/UI",
       "collaboration": "Team",
       "externalUrl": "https://www.behance.net/gallery/175602565/DingDong-TMI-",
-      "description": {},
+      "description": {
+        "ko": "커뮤니티 온보딩을 위한 UX/UI 디자인 프로젝트입니다.",
+        "en": "A UX/UI design project focused on community onboarding experience."
+      },
       "thumbnail": { "type": "image", "src": "dingdong.jpg" },
       "media": [{ "type": "image", "src": "in.png" }]
     },
     {
-      "id": "Foretderm",
+      "id": "foretderm",
       "title": "Foretderm Derma Intense Vita Cream Package Design",
       "category": "artdirecting",
       "meta": "Art directing, Package Design",
