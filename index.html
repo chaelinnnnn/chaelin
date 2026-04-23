@@ -266,6 +266,7 @@ function initSlideshow(total) {
 function renderMediaItem(m, title) {
   if (m.type === 'video') return '<video autoplay loop muted playsinline><source src="' + m.src + '" type="video/mp4"></video>';
   if (m.type === 'vimeo') return '<div class="vimeo-box"><iframe src="https://player.vimeo.com/video/' + m.id + '?autoplay=0&title=0&byline=0&portrait=0" allow="autoplay; fullscreen" allowfullscreen></iframe></div>';
+  if (m.type === 'youtube') return '<div class="vimeo-box"><iframe src="https://www.youtube.com/embed/' + m.id + '?rel=0" allow="autoplay; fullscreen" allowfullscreen></iframe></div>';
   if (m.type === 'image') return '<img src="' + m.src + '" alt="' + (title||'') + '">';
   return '';
 }
@@ -371,7 +372,7 @@ fetch('./projects-data.json', { cache: 'no-store' })
   })
   .catch(function(err) {
     console.error(err);
-    listEl.innerHTML = '<div style="padding:20px;color:red;">Failed to load: ' + err.message + '</div>';
+    listEl.innerHTML = '<div style="padding:20px;color:#ccc;">Failed to load: ' + err.message + '</div>';
   });
 </script>
 </body>
