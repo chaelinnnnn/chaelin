@@ -13,10 +13,19 @@
         "ko": "Sarr의 계절 메뉴 포스터 디자인으로, 타이포그래피와 시각적 아이덴티티를 그래픽 디자인을 통해 탐구합니다.",
         "en": "Various types of posters were created in alignment with the Sarr brand identity concept. While maintaining the brand's soft and emotional tone, the focus was on harmonizing diverse messages and content into a cohesive and consistent visual language."
       },
-      "thumbnail": { "type": "video", "src": "sarrposter.mp4" },
+      "thumbnail": {
+        "type": "video",
+        "src": "sarrposter.mp4"
+      },
       "media": [
-        { "type": "video", "src": "sarrposter.mp4" },
-        { "type": "image", "src": "sarrposter1.jpg" }
+        {
+          "type": "video",
+          "src": "sarrposter.mp4"
+        },
+        {
+          "type": "image",
+          "src": "sarrposter1.jpg"
+        }
       ]
     },
     {
@@ -29,11 +38,19 @@
       "type": "Interaction Design",
       "collaboration": "Individual",
       "description": {
-        "ko": "Office Oasis는 바쁜 사무 환경 속에서도 잠시 멈춰 숨을 고를 수 있도록 설계된 웹 기반 힐링 공간입니다. Mediapipe와 Unity WebGL을 활용해 사용자의 미세한 제스처와 고개 움직임을 인식하고, 작은 행성이 이에 부드럽게 반응합니다. 책상 앞에 앉아 있는 순간에도 사용자는 살아 숨 쉬는 자신만의 세계를 만들어가며, 마음을 정리하고 스트레스를 완화하며 개인화된 디지털 오아시스를 경험할 수 있습니다.",
-        "en": "Office Oasis is a web-based healing space designed to help you pause and breathe in the midst of a busy office environment. Using Mediapipe and Unity WebGL, it detects subtle gestures and nods, allowing a small planet to respond gently to your movements. Even at your desk, you can shape your own living, breathing world—helping you clear your mind, ease stress, and enjoy a personalized digital oasis."
+        "ko": "Office Oasis는 바쁜 사무 환경 속에서도 잠시 멈춰 숨을 고를 수 있도록 설계된 웹 기반 힐링 공간입니다. Mediapipe와 Unity WebGL을 활용해 사용자의 미세한 제스처와 고개 움직임을 인식하고, 작은 행성이 이에 부드럽게 반응합니다.",
+        "en": "Office Oasis is a web-based healing space designed to help you pause and breathe in the midst of a busy office environment. Using Mediapipe and Unity WebGL, it detects subtle gestures and nods, allowing a small planet to respond gently to your movements."
       },
-      "thumbnail": { "type": "video", "src": "office.mp4" },
-      "media": [{ "type": "vimeo", "id": "1155072969" }]
+      "thumbnail": {
+        "type": "video",
+        "src": "office.mp4"
+      },
+      "media": [
+        {
+          "type": "vimeo",
+          "id": "1155072969"
+        }
+      ]
     },
     {
       "id": "tymora",
@@ -45,104 +62,152 @@
       "type": "Art directing, Brand Identity",
       "collaboration": "Individual",
       "description": {
-        "ko": "Tymora는 시간을 구매 가능한 경험으로 큐레이팅하는 컨셉 스토어입니다. 삶의 순간의 품질과 강도를 선택할 수 있는 새로운 시간 소비 방식을 제안합니다.",
-        "en": "Tymora is a concept store that curates time as an experience you can purchase. We introduce a new way of consuming time, allowing you to choose the quality and intensity of the moments you live. Tymora treats time not as a product, but as a material for designing your life. This project was selected for Pratt Institute's triennial exhibition, which honors outstanding work across departments."
+        "ko": "Tymora는 시간을 구매 가능한 경험으로 큐레이팅하는 컨셉 스토어입니다.",
+        "en": "Tymora is a concept store that curates time as an experience you can purchase. This project was selected for Pratt Institute's triennial exhibition."
       },
-      "thumbnail": { "type": "image", "src": "tymora.jpg" },
+      "thumbnail": {
+        "type": "image",
+        "src": "tymora.jpg"
+      },
       "media": [
-        { "type": "video", "src": "tymoraglass.mp4" }
+        {
+          "type": "video",
+          "src": "tymoraglass.mp4"
+        }
       ],
       "sections": [
         {
           "title": "The era of personalization",
-          "desc": "In an age of personalization, we all have the same amount of time, yet create vastly different value from it. While technology optimizes our choices, time still requires intentional design. To buy time is not just convenience, but a way to focus on what truly matters, because true personalization is not about more choices, but about a richer use of time.",
+          "desc": "In an age of personalization, we all have the same amount of time, yet create vastly different value from it.",
           "media": [
-            { "type": "image", "src": "tymorabg.jpg" }
+            {
+              "type": "image",
+              "src": "tymorabg.jpg"
+            }
           ]
         },
         {
           "title": "Brand Core value & Feature",
-          "desc": "Tymora structures time through three core values, guiding users from presence to experience, and ultimately to meaningful value. It transforms how time is lived, experienced, and remembered.",
+          "desc": "Tymora structures time through three core values, guiding users from presence to experience.",
           "media": [
-            { "type": "image", "src": "tymoravalue.jpg" }
+            {
+              "type": "image",
+              "src": "tymoravalue.jpg"
+            }
           ]
         },
         {
           "title": "Visual motif",
-          "desc": "Each individual moment resonates with others to create a flow, and that flow expands into a continuous orbit of time. Within this cycle, we exist as points, yet at the same time, we shape the flow and continuity of time itself.",
+          "desc": "Each individual moment resonates with others to create a flow.",
           "media": [
-            { "type": "image", "src": "tymoramotif.jpg" }
+            {
+              "type": "image",
+              "src": "tymoramotif.jpg"
+            }
           ]
         },
         {
           "title": "Typeface & Color system",
           "desc": "",
           "media": [
-            { "type": "image", "src": "tymorabrand.jpg" }
+            {
+              "type": "image",
+              "src": "tymorabrand.jpg"
+            }
           ]
         },
         {
           "title": "Typeface Generator",
-          "desc": "Try the Tymora typeface generator and create your own typographic expression.",
+          "desc": "Try the Tymora typeface generator.",
           "embedUrl": "https://chaelinnnnn.github.io/tymorafont/",
           "media": []
         },
         {
           "title": "Tymora Glasses",
-          "desc": "Tymora Glasses analyze the user's voice in real time and use an integrated camera to perceive the surrounding environment, helping enhance and enrich the user's daily life.",
+          "desc": "Tymora Glasses analyze the user's voice in real time.",
           "media": [
-            { "type": "image", "src": "tymoraglass.jpg" }
+            {
+              "type": "image",
+              "src": "tymoraglass.jpg"
+            }
           ]
         },
         {
           "title": "Time tool kit",
-          "desc": "Time Toolkit is not a time-measurement tool, but a service designed to optimize experience. This toolkit customizes features to match the realistic purpose and meaning of each time unit selected by the user. Its purpose is to 'servicify' time, explicitly helping users achieve goals in their daily lives and convert time into the most valuable experience.",
+          "desc": "Time Toolkit is designed to optimize experience.",
           "media": [
-            { "type": "video", "src": "timekit.mp4" }
+            {
+              "type": "video",
+              "src": "timekit.mp4"
+            }
           ]
         },
         {
           "title": "How to use Tymora?",
-          "desc": "Using Tymora is simple. Start by wearing your glasses to clearly understand your context and needs. Then, select and purchase the time you need to reduce friction and focus on what truly matters. The time you gain is not just extra availability, but an experience tailored to your purpose and situation. Tymora helps you use your time more meaningfully in your everyday life.",
+          "desc": "Using Tymora is simple.",
           "media": [
-            { "type": "image", "src": "tymorahow.jpg" }
+            {
+              "type": "image",
+              "src": "tymorahow.jpg"
+            }
           ]
         },
         {
           "title": "User Scenario",
-          "desc": "Tymora's Timekit guides users through four stages — selecting, activating, experiencing, and reflecting on time — allowing them to intentionally expand and deepen their moments. By using the time kit, users can visually observe the impact of added time, gaining a new awareness of how they shape and live their time.",
+          "desc": "Tymora's Timekit guides users through four stages.",
           "media": [
-            { "type": "image", "src": "tymorauser.jpg" }
+            {
+              "type": "image",
+              "src": "tymorauser.jpg"
+            }
           ]
         },
         {
           "title": "20-Min Time Toolkit",
-          "desc": "It's a Monday morning, and he has overslept. He has an important meeting ahead, so every minute, every second, matters. Right now, what he needs to know most is whether the next bus is coming soon or if he should order a coffee from the nearest cafe before he heads out.",
+          "desc": "It's a Monday morning, and he has overslept.",
           "media": [
-            { "type": "image", "src": "timetool1.jpg" },
-            { "type": "image", "src": "timetool2.jpg" }
+            {
+              "type": "image",
+              "src": "timetool1.jpg"
+            },
+            {
+              "type": "image",
+              "src": "timetool2.jpg"
+            }
           ]
         },
         {
           "title": "1-Day Time Toolkit",
-          "desc": "The day before an exam, she can't help wishing for just one more day. There's too much to memorize and never enough time. What she needs now isn't anxiety, but a single day of focus to grasp what matters most.",
+          "desc": "The day before an exam.",
           "media": [
-            { "type": "image", "src": "timetool3.jpg" },
-            { "type": "image", "src": "timetool4.jpg" }
+            {
+              "type": "image",
+              "src": "timetool3.jpg"
+            },
+            {
+              "type": "image",
+              "src": "timetool4.jpg"
+            }
           ]
         },
         {
           "title": "Effortless Charging",
-          "desc": "Charging system simplifies and sanitizes eyeglass maintenance, allowing users to easily charge their glasses by placing them on a wireless charging pad or by storing them in a stand-type storage case.",
+          "desc": "Charging system simplifies maintenance.",
           "media": [
-            { "type": "image", "src": "tymoracharging.jpg" }
+            {
+              "type": "image",
+              "src": "tymoracharging.jpg"
+            }
           ]
         },
         {
           "title": "Application",
           "desc": "",
           "media": [
-            { "type": "image", "src": "tymorafinal.jpg" }
+            {
+              "type": "image",
+              "src": "tymorafinal.jpg"
+            }
           ]
         }
       ]
@@ -151,54 +216,84 @@
       "id": "sarr-season-menu-2025",
       "title": "Sarr 2025 Season menu",
       "category": "Editorial",
-      "meta": "Poster Design, Graphic Design",
+      "meta": "Poster Design",
       "date": "August 2025",
       "client": "Client: Sarr",
       "type": "Poster Design",
       "collaboration": "Individual",
       "description": {
-        "ko": "Sarr의 계절 메뉴 포스터 디자인으로, 타이포그래피와 시각적 아이덴티티를 그래픽 디자인을 통해 탐구합니다.",
-        "en": "I designed a poster centered on Sarr's signature menu item, the Avocato. The concept visually captures the freshness of the moment when coffee and avocado come together, reflecting the brand's identity and mood."
+        "ko": "Sarr의 계절 메뉴 포스터 디자인입니다.",
+        "en": "I designed a poster centered on Sarr's signature menu item, the Avocato."
       },
-      "thumbnail": { "type": "image", "src": "avocato.jpg" },
+      "thumbnail": {
+        "type": "image",
+        "src": "avocato.jpg"
+      },
       "media": [
-        { "type": "image", "src": "avocato1.jpg" },
-        { "type": "image", "src": "avocato2.jpg" }
+        {
+          "type": "image",
+          "src": "avocato1.jpg"
+        },
+        {
+          "type": "image",
+          "src": "avocato2.jpg"
+        }
       ]
     },
     {
       "id": "sarr-brand-identity",
       "title": "Sarr Brand Identity Design",
       "category": "artdirecting",
-      "meta": "Art directing, Brand Identity, Photography",
+      "meta": "Art directing, Brand Identity",
       "date": "April 2025",
       "client": "Client: Sarr",
       "type": "Art directing, Brand Identity",
       "collaboration": "Individual",
       "description": {
-        "ko": "'따뜻함이 스며드는 순간'이라는 의미를 바탕으로 레스토랑 sarr를 브랜딩했습니다.",
-        "en": "The restaurant brand name Sarr is derived from the Korean word, an expression describing something that gently and slowly melts away. The name embodies the brand's core essence, a quiet warmth that softly dissolves into everyday life."
+        "ko": "따뜻함이 스며드는 순간을 브랜딩했습니다.",
+        "en": "The restaurant brand name Sarr is derived from the Korean word describing something that gently melts away."
       },
-      "thumbnail": { "type": "image", "src": "sarr.jpg" },
+      "thumbnail": {
+        "type": "image",
+        "src": "sarr.jpg"
+      },
       "media": [
-        { "type": "image", "src": "sarr1.jpg" }
+        {
+          "type": "image",
+          "src": "sarr1.jpg"
+        }
       ],
       "sections": [
         {
           "title": "Motif",
-          "desc": "Sarr draws inspiration from the moment butter slowly melts. When something solid softens in the warmth and gently gives way, we pause. Sarr creates those quiet, unhurried moments in the middle of a busy day, where everything slowly melts into warmth.",
+          "desc": "Sarr draws inspiration from the moment butter slowly melts.",
           "media": [
-            { "type": "image", "src": "sarrmotif.jpg" }
+            {
+              "type": "image",
+              "src": "sarrmotif.jpg"
+            }
           ]
         },
         {
           "title": "Application",
           "desc": "",
           "media": [
-            { "type": "image", "src": "sarr3.jpg" },
-            { "type": "image", "src": "sarr4.jpg" },
-            { "type": "image", "src": "sarr5.jpg" },
-            { "type": "image", "src": "sarr6.jpg" }
+            {
+              "type": "image",
+              "src": "sarr3.jpg"
+            },
+            {
+              "type": "image",
+              "src": "sarr4.jpg"
+            },
+            {
+              "type": "image",
+              "src": "sarr5.jpg"
+            },
+            {
+              "type": "image",
+              "src": "sarr6.jpg"
+            }
           ]
         },
         {
@@ -230,42 +325,66 @@
       "collaboration": "Individual",
       "embedUrl": "https://chaelinnnnn.github.io/ufo-sightings/",
       "description": {
-        "ko": "이 프로젝트는 미국 10개 주의 UFO 목격 데이터를 인터랙티브 웹 아트워크로 시각화하고, 이를 제시하기 위해 제작된 브랜딩 작업입니다.",
-        "en": "This project visualizes UFO sighting data across 10 U.S. states as an interactive web artwork, alongside the branding work created to present it. Using mouse controls, you can freely explore each antenna or compare all states side by side, experiencing the UFO phenomenon through an artistic lens."
+        "ko": "UFO 목격 데이터를 인터랙티브 웹 아트워크로 시각화했습니다.",
+        "en": "This project visualizes UFO sighting data across 10 U.S. states as an interactive web artwork."
       },
-      "thumbnail": { "type": "video", "src": "ufo.mp4" },
+      "thumbnail": {
+        "type": "video",
+        "src": "ufo.mp4"
+      },
       "media": [
-        { "type": "image", "src": "ufomain.jpg" }
+        {
+          "type": "image",
+          "src": "ufomain.jpg"
+        }
       ],
       "sections": [
         {
           "title": "Type 1: Antenna",
-          "desc": "An antenna is a device that sends signals into space. The height and complexity of each antenna are designed to reflect the number of sightings and the most frequently reported UFO shape in each state.",
+          "desc": "An antenna is a device that sends signals into space.",
           "media": [
-            { "type": "image", "src": "antenna.jpg" }
+            {
+              "type": "image",
+              "src": "antenna.jpg"
+            }
           ]
         },
         {
           "title": "Type 2: Crop circle",
-          "desc": "Crop circles are believed to be traces left by extraterrestrial beings on Earth. The base of each sculpture draws from their geometric patterns, designed to reflect the number of sightings and the most frequently reported UFO shape in each state.",
+          "desc": "Crop circles are believed to be traces left by extraterrestrial beings.",
           "media": [
-            { "type": "image", "src": "cropcircle.jpg" }
+            {
+              "type": "image",
+              "src": "cropcircle.jpg"
+            }
           ]
         },
         {
           "title": "Wordmark & Logo",
-          "desc": "The "undefined" wordmark uses a custom geometric typeface where letterforms are dissected and rebuilt with circular voids and intersecting arcs that directly echo the overlapping crop circle patterns. Florida, Texas, and Arizona lead in UFO sighting frequency while producing the most visually compelling formations, balancing data integrity with aesthetic impact.",
+          "desc": "The undefined wordmark uses a custom geometric typeface.",
           "media": [
-            { "type": "video", "src": "ufo2.mp4" },
-            { "type": "image", "src": "ufologo.jpg" }
+            {
+              "type": "video",
+              "src": "ufo2.mp4"
+            },
+            {
+              "type": "image",
+              "src": "ufologo.jpg"
+            }
           ]
         },
         {
           "title": "Application",
           "desc": "",
           "media": [
-            { "type": "image", "src": "ufo1.jpg" },
-            { "type": "image", "src": "ufo3.jpg" }
+            {
+              "type": "image",
+              "src": "ufo1.jpg"
+            },
+            {
+              "type": "image",
+              "src": "ufo3.jpg"
+            }
           ]
         }
       ]
@@ -281,10 +400,13 @@
       "collaboration": "Individual",
       "embedUrl": "https://chaelinnnnn.github.io/ufo-map/",
       "description": {
-        "ko": "인터랙티브 지도는 10개 미국 주 전반에 걸친 목격 보고를 시각화하여, 사용자가 한눈에 패턴과 분포를 파악할 수 있도록 합니다. 이 프로젝트를 통해 사용자는 직관적인 줌 및 팬 컨트롤로 지도를 탐색하고, 각 지역의 상세 정보에 접근할 수 있습니다.",
-        "en": "The interactive map visualizes sighting reports across 10 U.S. states, allowing users to quickly grasp patterns and distributions at a glance. Through this project, users can explore the map using intuitive zoom and pan controls and access detailed information for each region."
+        "ko": "인터랙티브 지도로 UFO 목격 보고를 시각화합니다.",
+        "en": "The interactive map visualizes sighting reports across 10 U.S. states."
       },
-      "thumbnail": { "type": "image", "src": "map.jpg" },
+      "thumbnail": {
+        "type": "image",
+        "src": "map.jpg"
+      },
       "media": []
     },
     {
@@ -297,41 +419,62 @@
       "type": "Interaction & Brand identity",
       "collaboration": "Individual",
       "description": {
-        "ko": "Somewhere, something incredible is waiting to be known 이라는 문구를 통해 우주의 광활함과 미지의 가능성을 표현하고자 했습니다. 이를 바탕으로 텍스트 형태를 따라 배치된 파티클은 마우스 움직임에 반응해 흩어졌다가 다시 돌아오며 우주적인 시각 효과를 만들어냅니다. 파티클의 크기, 색상, 상호작용 속성은 GUI 슬라이더로 실시간 조절할 수 있어, 일관된 디자인 속에서 다양한 시각적 변화를 커스터마이징할 수 있습니다.",
-        "en": "Centered around the phrase 'Somewhere, something incredible is waiting to be known,' the design seeks to express the vastness of the universe and the possibility of the yet undiscovered. Through this, we hope users find the confidence to believe in their own potential."
+        "ko": "우주의 광활함과 미지의 가능성을 표현했습니다.",
+        "en": "Centered around the phrase 'Somewhere, something incredible is waiting to be known.'"
       },
-      "thumbnail": { "type": "video", "src": "universe.mp4" },
+      "thumbnail": {
+        "type": "video",
+        "src": "universe.mp4"
+      },
       "media": [
-        { "type": "image", "src": "universe4.jpg" }
+        {
+          "type": "image",
+          "src": "universe4.jpg"
+        }
       ],
       "sections": [
         {
           "title": "Generator",
-          "desc": "Particles arranged along the form of text respond to mouse movement by scattering and returning to their original positions, creating a cosmic visual effect. Particle attributes such as size, color, and interaction behavior can be adjusted in real time through GUI sliders, allowing users to customize dynamic visual variations while maintaining overall design consistency.",
+          "desc": "Particles arranged along the form of text respond to mouse movement.",
           "embedUrl": "https://chaelinnnnn.github.io/universe/",
           "media": []
         },
         {
           "title": "Posters",
-          "desc": "A poster series exploring the visual language of the cosmos through particle-based typography and color palettes.",
+          "desc": "A poster series exploring the visual language of the cosmos.",
           "media": [
-            { "type": "image", "src": "universeposter.jpg" }
+            {
+              "type": "image",
+              "src": "universeposter.jpg"
+            }
           ]
         },
         {
           "title": "Social Media",
           "desc": "",
           "media": [
-            { "type": "video", "src": "universe3.mp4" }
+            {
+              "type": "video",
+              "src": "universe3.mp4"
+            }
           ]
         },
         {
           "title": "Physical Puzzle",
-          "desc": "The physical puzzle is designed to let users freely customize and assemble letter pieces of various sizes into a composition of their own. Through the process of building, users come to recognize and appreciate their own existence in a more meaningful way.",
+          "desc": "The physical puzzle is designed to let users freely customize.",
           "media": [
-            { "type": "image", "src": "universe2.jpg" },
-            { "type": "image", "src": "universe3.jpg" },
-            { "type": "video", "src": "universe2.mp4" }
+            {
+              "type": "image",
+              "src": "universe2.jpg"
+            },
+            {
+              "type": "image",
+              "src": "universe3.jpg"
+            },
+            {
+              "type": "video",
+              "src": "universe2.mp4"
+            }
           ]
         }
       ]
@@ -347,45 +490,78 @@
       "collaboration": "Team",
       "password": "1234",
       "description": {
-        "ko": "Junction ASIA 2024는 아시아 최대 규모의 해커톤으로, 대륙 전역의 개발자, 디자이너, 크리에이터가 모이는 행사입니다. 이벤트의 전반적인 아트 디렉션과 브랜드 아이덴티티를 담당했습니다.",
-        "en": "Junction ASIA 2024 is Asia's largest hackathon, bringing together developers, designers, and creators from across the continent. I worked on the overall art direction and brand identity for the event, crafting a visual language that captures the energy of innovation and collaboration."
+        "ko": "아시아 최대 규모의 해커톤 브랜딩 작업입니다.",
+        "en": "Junction ASIA 2024 is Asia's largest hackathon. I worked on the overall art direction and brand identity."
       },
-      "thumbnail": { "type": "image", "src": "junction.jpg" },
+      "thumbnail": {
+        "type": "image",
+        "src": "junction.jpg"
+      },
       "media": [
-        { "type": "youtube", "id": "YyeM4ykfjoQ" }
+        {
+          "type": "youtube",
+          "id": "YyeM4ykfjoQ"
+        }
       ],
       "sections": [
         {
           "title": "Brand Concept",
-          "desc": "Junction ASIA 2024 is built around the idea of collision — where disciplines, cultures, and ideas collide to create something entirely new. The brand identity reflects this energy through bold geometry and dynamic tension between elements.",
+          "desc": "Junction ASIA 2024 is built around the idea of collision.",
           "media": [
-            { "type": "image", "src": "junction_concept1.jpg" },
-            { "type": "image", "src": "junction_concept2.jpg" }
+            {
+              "type": "image",
+              "src": "junction_concept1.jpg"
+            },
+            {
+              "type": "image",
+              "src": "junction_concept2.jpg"
+            }
           ]
         },
         {
           "title": "Visual Identity",
-          "desc": "The visual system draws from the structure of a circuit — interconnected nodes forming a larger network. Typography and color are used to create a sense of momentum and scale across all touchpoints.",
+          "desc": "The visual system draws from the structure of a circuit.",
           "media": [
-            { "type": "image", "src": "junction_identity1.jpg" },
-            { "type": "image", "src": "junction_identity2.jpg" }
+            {
+              "type": "image",
+              "src": "junction_identity1.jpg"
+            },
+            {
+              "type": "image",
+              "src": "junction_identity2.jpg"
+            }
           ]
         },
         {
           "title": "Application",
           "desc": "",
           "media": [
-            { "type": "image", "src": "junction_mockup1.jpg" },
-            { "type": "image", "src": "junction_mockup2.jpg" },
-            { "type": "image", "src": "junction_mockup3.jpg" },
-            { "type": "image", "src": "junction_mockup4.jpg" }
+            {
+              "type": "image",
+              "src": "junction_mockup1.jpg"
+            },
+            {
+              "type": "image",
+              "src": "junction_mockup2.jpg"
+            },
+            {
+              "type": "image",
+              "src": "junction_mockup3.jpg"
+            },
+            {
+              "type": "image",
+              "src": "junction_mockup4.jpg"
+            }
           ]
         },
         {
           "title": "Motion",
           "desc": "",
           "media": [
-            { "type": "video", "src": "junction_motion.mp4" }
+            {
+              "type": "video",
+              "src": "junction_motion.mp4"
+            }
           ]
         },
         {
@@ -414,11 +590,19 @@
       "collaboration": "Team",
       "externalUrl": "https://www.figma.com/design/6CU8TJskx03wQ3Z0ddrBaE/Plating-Design-System--ver.3----open?node-id=266-412&t=pI88udhT4KKJcVoR-1",
       "description": {
-        "ko": "Plating 서비스의 일관된 디자인 경험을 위한 디자인 시스템을 구축했습니다.",
-        "en": "Built a comprehensive design system for Plating service to ensure consistent design experience across all touchpoints."
+        "ko": "Plating 디자인 시스템을 구축했습니다.",
+        "en": "Built a comprehensive design system for Plating service."
       },
-      "thumbnail": { "type": "image", "src": "plating.jpg" },
-      "media": [{ "type": "image", "src": "in.png" }]
+      "thumbnail": {
+        "type": "image",
+        "src": "plating.jpg"
+      },
+      "media": [
+        {
+          "type": "image",
+          "src": "in.png"
+        }
+      ]
     },
     {
       "id": "every-singles-time",
@@ -430,13 +614,22 @@
       "type": "Title Design",
       "collaboration": "Individual",
       "description": {
-        "ko": "Singles Magazine의 'EVERY SINGLES TIME' 타이틀 아이덴티티 디자인을 진행하였습니다.",
-        "en": "I worked on the title identity design for 'EVERY SINGLES TIME,' a feature by Singles Magazine. ⓈSingles Magazine Co., Ltd. All RIGHTS RESERVED."
+        "ko": "Singles Magazine의 타이틀 아이덴티티 디자인입니다.",
+        "en": "I worked on the title identity design for 'EVERY SINGLES TIME.'"
       },
-      "thumbnail": { "type": "image", "src": "singles.jpg" },
+      "thumbnail": {
+        "type": "image",
+        "src": "singles.jpg"
+      },
       "media": [
-        { "type": "video", "src": "singles.mp4" },
-        { "type": "image", "src": "singles1.jpg" }
+        {
+          "type": "video",
+          "src": "singles.mp4"
+        },
+        {
+          "type": "image",
+          "src": "singles1.jpg"
+        }
       ]
     },
     {
@@ -449,13 +642,22 @@
       "type": "Brand Identity, Art Direction",
       "collaboration": "Individual",
       "description": {
-        "ko": "싱글즈 매거진 MZ Intern 패션 필름의 그래픽 디자인에 참여하였습니다.",
-        "en": "I worked on the graphic design for the Singles Magazine MZ Intern fashion film. ⓈSingles Magazine Co., Ltd. All RIGHTS RESERVED."
+        "ko": "싱글즈 매거진 MZ Intern 패션 필름 그래픽 디자인입니다.",
+        "en": "I worked on the graphic design for the Singles Magazine MZ Intern fashion film."
       },
-      "thumbnail": { "type": "video", "src": "MZintern.mp4" },
+      "thumbnail": {
+        "type": "video",
+        "src": "MZintern.mp4"
+      },
       "media": [
-        { "type": "vimeo", "id": "1154320177" },
-        { "type": "image", "src": "MZintern2.jpg" }
+        {
+          "type": "vimeo",
+          "id": "1154320177"
+        },
+        {
+          "type": "image",
+          "src": "MZintern2.jpg"
+        }
       ]
     },
     {
@@ -468,13 +670,22 @@
       "type": "Film",
       "collaboration": "Team",
       "description": {
-        "ko": "DEPROMEET 14의 전반적인 필름 디렉팅, 그래픽 디자인, 사운드 디자인을 담당했습니다.",
+        "ko": "DEPROMEET 14의 필름 디렉팅을 담당했습니다.",
         "en": "I worked on the overall film directing, graphic design, and sound design for DEPROMEET 14."
       },
-      "thumbnail": { "type": "image", "src": "depromeet.jpg" },
+      "thumbnail": {
+        "type": "image",
+        "src": "depromeet.jpg"
+      },
       "media": [
-        { "type": "vimeo", "id": "1103721206" },
-        { "type": "image", "src": "depromeet1.jpg" }
+        {
+          "type": "vimeo",
+          "id": "1103721206"
+        },
+        {
+          "type": "image",
+          "src": "depromeet1.jpg"
+        }
       ]
     },
     {
@@ -488,11 +699,19 @@
       "collaboration": "Team",
       "externalUrl": "https://www.behance.net/gallery/175602565/DingDong-TMI-",
       "description": {
-        "ko": "커뮤니티 온보딩을 위한 UX/UI 디자인 프로젝트입니다.",
+        "ko": "커뮤니티 온보딩 UX/UI 디자인입니다.",
         "en": "A UX/UI design project focused on community onboarding experience."
       },
-      "thumbnail": { "type": "image", "src": "dingdong.jpg" },
-      "media": [{ "type": "image", "src": "in.png" }]
+      "thumbnail": {
+        "type": "image",
+        "src": "dingdong.jpg"
+      },
+      "media": [
+        {
+          "type": "image",
+          "src": "in.png"
+        }
+      ]
     },
     {
       "id": "foretderm",
@@ -504,15 +723,30 @@
       "type": "Package Design",
       "collaboration": "Team",
       "description": {
-        "ko": "민감한 피부를 보호하기 위해 설계된 기본 세이프 라인에서 출발해, Clean Derma Beauty의 일관된 아이덴티티를 유지하면서 추가적인 효능을 갖춘 세컨더리 기능성 라인으로 콘셉트를 확장했습니다. 또한 VIP 기프트 페이퍼 백 디자인을 함께 진행했습니다.",
-        "en": "Starting from a basic safe line designed to protect sensitive skin, the concept was expanded into a secondary functional line with added benefits while maintaining a consistent Clean Derma Beauty identity. In addition, a VIP gift paper bag was designed as part of the project. ⓈForetderm Co., Ltd. All RIGHTS RESERVED."
+        "ko": "Clean Derma Beauty의 패키지 디자인입니다.",
+        "en": "Package design for Foretderm's Clean Derma Beauty line."
       },
-      "thumbnail": { "type": "image", "src": "foretderm.jpg" },
+      "thumbnail": {
+        "type": "image",
+        "src": "foretderm.jpg"
+      },
       "media": [
-        { "type": "image", "src": "foretderm1.jpg" },
-        { "type": "image", "src": "foretderm2.jpg" },
-        { "type": "image", "src": "foretderm3.jpg" },
-        { "type": "image", "src": "foretderm4.jpg" }
+        {
+          "type": "image",
+          "src": "foretderm1.jpg"
+        },
+        {
+          "type": "image",
+          "src": "foretderm2.jpg"
+        },
+        {
+          "type": "image",
+          "src": "foretderm3.jpg"
+        },
+        {
+          "type": "image",
+          "src": "foretderm4.jpg"
+        }
       ]
     }
   ]
