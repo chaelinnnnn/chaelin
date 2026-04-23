@@ -315,7 +315,7 @@
       ]
     },
     {
-      "id": "undefined",
+      "id": "Undefined",
       "title": "Undefined",
       "category": "Interaction",
       "meta": "Interaction & Brand identity",
@@ -333,10 +333,6 @@
         "src": "ufo.mp4"
       },
       "media": [
-        {
-          "type": "image",
-          "src": "ufomain.jpg"
-        }
       ],
       "sections": [
         {
@@ -380,6 +376,10 @@
             {
               "type": "image",
               "src": "ufo1.jpg"
+            },
+            {
+              "type": "image",
+              "src": "ufo4.jpg"
             },
             {
               "type": "image",
