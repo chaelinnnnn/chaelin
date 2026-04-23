@@ -224,7 +224,9 @@
         },
         {
           "title": "Logo",
-          "desc": "",
+          "desc": "The "undefined" wordmark features a custom geometric typeface where each letterform is dissected and reconstructed with embedded circular voids and intersecting arcs. These circular apertures—visible in letters like 'd', 'e', and 'f'—directly reference the overlapping crop circle patterns, transforming the typography itself into a visual echo of the UFO data visualization.
+
+Florida, Texas, and Arizona were chosen for their dual significance: they rank highest in UFO sighting frequency while producing the most visually striking and structurally elegant crop circle patterns, embodying both data integrity and aesthetic impact.",
           "media": [
             { "type": "video", "src": "ufo2.mp4" },
             { "type": "image", "src": "ufologo.jpg" }
