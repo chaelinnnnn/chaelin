@@ -30,18 +30,19 @@
     .cat-nav button:hover, .cat-nav button.on { color: var(--pink); }
     .project-list { flex: 1; overflow-y: auto; overflow-x: hidden; margin-top: 36px; border-top: 1px solid var(--line); }
     .project-list::-webkit-scrollbar { width: 0; }
-    .proj-row { display: block; padding: 12px 20px; border-bottom: 1px solid var(--line); cursor: url("cursor-hand.png") 16 16, pointer !important; transition: background 0.1s; }
+    .proj-row { display: block; padding: 12px 20px; border-bottom: 1px solid var(--line); cursor: url("cursor-hand.png") 16 16, pointer !important; transition: background 0.1s; position: relative; }
     .proj-row * { cursor: inherit !important; }
     .proj-row:hover, .proj-row.on { background: #fafafa; }
     .proj-row:hover .proj-title, .proj-row.on .proj-title { color: var(--pink); }
     .proj-title { font-size: 17px; font-weight: 600; line-height: 1.4; transition: color 0.15s; margin-bottom: 2px; }
     .proj-type { font-size: 11px; color: var(--gray); }
+    .lock-badge { position: absolute; top: 12px; right: 20px; font-size: 14px; opacity: 0.5; }
     .right { height: 100vh; overflow-y: auto; background: #fff; }
     .right::-webkit-scrollbar { width: 0; }
     #r-grid { display: none; padding: 20px; }
     #r-grid.on { display: block; }
     .thumb-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
-    .thumb-card { display: block; cursor: url("cursor-hand.png") 16 16, pointer !important; }
+    .thumb-card { display: block; cursor: url("cursor-hand.png") 16 16, pointer !important; position: relative; }
     .thumb-card * { cursor: inherit !important; }
     .thumb-media { width: 100%; aspect-ratio: 3 / 2; overflow: hidden; background: #f7f7f7; }
     .thumb-media img, .thumb-media video { width: 100%; height: 100%; object-fit: cover; display: block; }
@@ -49,6 +50,7 @@
     .thumb-title { font-size: 13px; font-weight: 600; margin-bottom: 2px; transition: color 0.15s; }
     .thumb-card:hover .thumb-title { color: var(--pink); }
     .thumb-type { font-size: 11px; color: var(--gray); }
+    .thumb-lock-badge { position: absolute; top: 8px; right: 8px; background: rgba(0,0,0,0.6); color: #fff; padding: 4px 8px; border-radius: 12px; font-size: 11px; }
     #r-detail { display: none; padding: 44px 48px 100px; }
     #r-detail.on { display: block; }
     .d-header {
@@ -74,6 +76,86 @@
     .vimeo-box { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; }
     .vimeo-box iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
     .embed-box { width: 100%; height: 80vh; border: none; display: block; }
+
+    /* Password Modal */
+    .password-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.6);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 10000;
+    }
+    .password-overlay.on { display: flex; }
+    .password-modal {
+      background: #fff;
+      padding: 40px;
+      border-radius: 16px;
+      max-width: 380px;
+      width: 90%;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+    }
+    .password-modal h3 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #000;
+    }
+    .password-modal p {
+      font-size: 13px;
+      color: var(--gray);
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+    .password-modal input {
+      width: 100%;
+      padding: 12px 16px;
+      font-size: 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      margin-bottom: 8px;
+      font-family: inherit;
+    }
+    .password-modal input:focus {
+      outline: none;
+      border-color: var(--pink);
+    }
+    .password-modal input.error {
+      border-color: #ff4444;
+    }
+    .password-error {
+      font-size: 12px;
+      color: #ff4444;
+      margin-bottom: 16px;
+      display: none;
+    }
+    .password-error.on { display: block; }
+    .password-buttons {
+      display: flex;
+      gap: 8px;
+      margin-top: 20px;
+    }
+    .password-buttons button {
+      flex: 1;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: url("cursor-hand.png") 16 16, pointer !important;
+      font-family: inherit;
+      transition: opacity 0.15s;
+    }
+    .password-buttons button:hover { opacity: 0.8; }
+    .password-buttons .btn-cancel {
+      background: #f5f5f5;
+      color: #666;
+    }
+    .password-buttons .btn-submit {
+      background: #000;
+      color: #fff;
+    }
 
     /* 슬라이드쇼 */
     .slideshow {
@@ -157,6 +239,20 @@
   </div>
 </div>
 
+<!-- Password Modal -->
+<div class="password-overlay" id="password-overlay">
+  <div class="password-modal">
+    <h3>🔒 Password Protected</h3>
+    <p>This project is password protected. Please enter the password to view.</p>
+    <input type="password" id="password-input" placeholder="Enter password" />
+    <div class="password-error" id="password-error">Incorrect password. Please try again.</div>
+    <div class="password-buttons">
+      <button class="btn-cancel" id="password-cancel">Cancel</button>
+      <button class="btn-submit" id="password-submit">Submit</button>
+    </div>
+  </div>
+</div>
+
 <script>
 let lastStar = 0;
 document.addEventListener('mousemove', function(e) {
@@ -174,14 +270,68 @@ document.addEventListener('mousemove', function(e) {
 });
 
 let projects = [], activeCat = '', slideshowTimer = null;
+let pendingProject = null;
 const listEl = document.getElementById('project-list');
 const catNav = document.getElementById('cat-nav');
 const rightEl = document.getElementById('right');
 const rGrid = document.getElementById('r-grid');
 const rDetail = document.getElementById('r-detail');
+const passwordOverlay = document.getElementById('password-overlay');
+const passwordInput = document.getElementById('password-input');
+const passwordError = document.getElementById('password-error');
+const passwordSubmit = document.getElementById('password-submit');
+const passwordCancel = document.getElementById('password-cancel');
 
 function clearSlideshowTimer() { if (slideshowTimer) { clearInterval(slideshowTimer); slideshowTimer = null; } }
 function hideAll() { rGrid.classList.remove('on'); rDetail.classList.remove('on'); clearSlideshowTimer(); }
+
+function isProjectUnlocked(projectId) {
+  return localStorage.getItem('project_' + projectId + '_unlocked') === 'true';
+}
+
+function unlockProject(projectId) {
+  localStorage.setItem('project_' + projectId + '_unlocked', 'true');
+}
+
+function showPasswordModal(project) {
+  pendingProject = project;
+  passwordInput.value = '';
+  passwordError.classList.remove('on');
+  passwordInput.classList.remove('error');
+  passwordOverlay.classList.add('on');
+  setTimeout(function() { passwordInput.focus(); }, 100);
+}
+
+function hidePasswordModal() {
+  passwordOverlay.classList.remove('on');
+  pendingProject = null;
+}
+
+passwordCancel.addEventListener('click', hidePasswordModal);
+
+passwordOverlay.addEventListener('click', function(e) {
+  if (e.target === passwordOverlay) hidePasswordModal();
+});
+
+passwordSubmit.addEventListener('click', function() {
+  if (!pendingProject) return;
+  const inputVal = passwordInput.value;
+  if (inputVal === pendingProject.password) {
+    unlockProject(pendingProject.id);
+    hidePasswordModal();
+    openDetailDirectly(pendingProject);
+  } else {
+    passwordError.classList.add('on');
+    passwordInput.classList.add('error');
+    passwordInput.value = '';
+    passwordInput.focus();
+  }
+});
+
+passwordInput.addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') passwordSubmit.click();
+  if (e.key === 'Escape') hidePasswordModal();
+});
 
 function renderThumb(p) {
   if (!p.thumbnail || !p.thumbnail.src) return '';
@@ -195,7 +345,8 @@ function renderGrid(list) {
     const isExt = !!p.externalUrl;
     const href = isExt ? p.externalUrl : '#';
     const attrs = isExt ? 'target="_blank" rel="noopener noreferrer"' : 'data-id="' + p.id + '"';
-    return '<a class="thumb-card" href="' + href + '" ' + attrs + '><div class="thumb-media">' + renderThumb(p) + '</div><div class="thumb-info"><div class="thumb-title">' + (p.title||'') + '</div><div class="thumb-type">' + (p.type||'') + '</div></div></a>';
+    const lockBadge = (p.password && !isProjectUnlocked(p.id)) ? '<div class="thumb-lock-badge">🔒</div>' : '';
+    return '<a class="thumb-card" href="' + href + '" ' + attrs + '>' + lockBadge + '<div class="thumb-media">' + renderThumb(p) + '</div><div class="thumb-info"><div class="thumb-title">' + (p.title||'') + '</div><div class="thumb-type">' + (p.type||'') + '</div></div></a>';
   }).join('') + '</div>';
   rGrid.querySelectorAll('.thumb-card[data-id]').forEach(function(card) {
     card.addEventListener('click', function(e) {
@@ -209,7 +360,8 @@ function renderGrid(list) {
 function renderList(list) {
   if (!list.length) { listEl.innerHTML = '<div style="padding:20px;color:#ccc;">No projects</div>'; return; }
   listEl.innerHTML = list.map(function(p) {
-    return '<a class="proj-row" data-id="' + p.id + '" href="#"><div class="proj-title">' + (p.title||'') + '</div><div class="proj-type">' + (p.type||'') + '</div></a>';
+    const lockBadge = (p.password && !isProjectUnlocked(p.id)) ? '<span class="lock-badge">🔒</span>' : '';
+    return '<a class="proj-row" data-id="' + p.id + '" href="#">' + lockBadge + '<div class="proj-title">' + (p.title||'') + '</div><div class="proj-type">' + (p.type||'') + '</div></a>';
   }).join('');
   listEl.querySelectorAll('.proj-row').forEach(function(row) {
     row.addEventListener('click', function(e) {
@@ -272,6 +424,15 @@ function renderMediaItem(m, title) {
 }
 
 function openDetail(p, fromPop) {
+  // Check password
+  if (p.password && !isProjectUnlocked(p.id)) {
+    showPasswordModal(p);
+    return;
+  }
+  openDetailDirectly(p, fromPop);
+}
+
+function openDetailDirectly(p, fromPop) {
   hideAll(); rDetail.classList.add('on');
   if (!fromPop) history.pushState({ view: 'detail', id: p.id, cat: activeCat }, '');
   const desc = p.description && p.description.en ? p.description.en : '';
