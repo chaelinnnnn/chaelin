@@ -379,11 +379,15 @@
             },
             {
               "type": "image",
-              "src": "ufo4.jpg"
+              "src": "ufo2.jpg"
             },
             {
               "type": "image",
               "src": "ufo3.jpg"
+            },
+            {
+              "type": "image",
+              "src": "ufo4.jpg"
             }
           ]
         }
