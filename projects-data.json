@@ -114,6 +114,36 @@
           "media": [
             { "type": "image", "src": "tymorauser.jpg" }
           ]
+        },
+        {
+          "title": "20-Min Time Toolkit",
+          "desc": "It's a Monday morning, and he has overslept. He has an important meeting ahead, so every minute, every second, matters. Right now, what he needs to know most is whether the next bus is coming soon or if he should order a coffee from the nearest cafe before he heads out.",
+          "media": [
+            { "type": "image", "src": "timetool1.jpg" },
+            { "type": "image", "src": "timetool2.jpg" }
+          ]
+        },
+        {
+          "title": "1-Day Time Toolkit",
+          "desc": "The day before an exam, she can’t help wishing for just one more day. There’s too much to memorize and never enough time. What she needs now isn’t anxiety, but a single day of focus to grasp what matters most.",
+          "media": [
+            { "type": "image", "src": "timetool3.jpg" },
+            { "type": "image", "src": "timetool4.jpg" }
+          ]
+        },
+        {
+          "title": "Effortless Charging",
+          "desc": "Charging system simplifies and sanitizes eyeglass maintenance, allowing users to easily charge their glasses by placing them on a wireless charging pad or by storing them in a stand-type storage case.",
+          "media": [
+            { "type": "image", "src": "tymoracharging.jpg" }
+          ]
+        },
+        {
+          "title": "Application",
+          "desc": "",
+          "media": [
+            { "type": "image", "src": "tymorafinal.jpg" }
+          ]
         }
       ]
     },
