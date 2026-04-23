@@ -220,7 +220,7 @@
       ]
     },
     {
-      "id": "undefined",
+      "id": "unde",
       "title": "Undefined",
       "category": "Interaction",
       "meta": "Interaction & Brand identity",
@@ -254,7 +254,7 @@
         },
         {
           "title": "Wordmark & Logo",
-          "desc": "The "undefined" wordmark uses a custom geometric typeface where letterforms are dissected and rebuilt with circular voids and intersecting arcs that directly echo the overlapping crop circle patterns. Florida, Texas, and Arizona lead in UFO sighting frequency while producing the most visually compelling formations, balancing data integrity with aesthetic impact.",
+          "desc": "The \"undefined\" wordmark uses a custom geometric typeface where letterforms are dissected and rebuilt with circular voids and intersecting arcs that directly echo the overlapping crop circle patterns. Florida, Texas, and Arizona lead in UFO sighting frequency while producing the most visually compelling formations, balancing data integrity with aesthetic impact.",
           "media": [
             { "type": "video", "src": "ufo2.mp4" },
             { "type": "image", "src": "ufologo.jpg" }
@@ -417,7 +417,7 @@
         "en": "Built a comprehensive design system for Plating service to ensure consistent design experience across all touchpoints."
       },
       "thumbnail": { "type": "image", "src": "plating.jpg" },
-      "media": [{ "type": "image", "src": "in.png" }]
+      "media": []
     },
     {
       "id": "every-singles-time",
@@ -491,7 +491,7 @@
         "en": "A UX/UI design project focused on community onboarding experience."
       },
       "thumbnail": { "type": "image", "src": "dingdong.jpg" },
-      "media": [{ "type": "image", "src": "in.png" }]
+      "media": []
     },
     {
       "id": "foretderm",
