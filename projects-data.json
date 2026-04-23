@@ -51,7 +51,7 @@
       "thumbnail": { "type": "image", "src": "tymora.jpg" },
       "media": [
         { "type": "video", "src": "tymoraglass.mp4" }
-                ],
+      ],
       "sections": [
         {
           "title": "The era of personalization",
@@ -89,7 +89,7 @@
         },
         {
           "title": "Tymora Glasses",
-          "desc": "Tymora Glasses analyze the user’s voice in real time and use an integrated camera to perceive the surrounding environment, helping enhance and enrich the user’s daily life.",
+          "desc": "Tymora Glasses analyze the user's voice in real time and use an integrated camera to perceive the surrounding environment, helping enhance and enrich the user's daily life.",
           "media": [
             { "type": "image", "src": "tymoraglass.jpg" }
           ]
@@ -110,7 +110,7 @@
         },
         {
           "title": "User Scenario",
-          "desc": "Tymora’s Timekit guides users through four stages selecting activating experiencing and reflecting on time allowing them to intentionally expand and deepen their moments. By using the time kit users can visually observe the impact of added time gaining a new awareness of how they shape and live their time.",
+          "desc": "Tymora's Timekit guides users through four stages selecting activating experiencing and reflecting on time allowing them to intentionally expand and deepen their moments. By using the time kit users can visually observe the impact of added time gaining a new awareness of how they shape and live their time.",
           "media": [
             { "type": "image", "src": "tymorauser.jpg" }
           ]
@@ -315,10 +315,17 @@
       "client": "Client: Junction ASIA",
       "type": "Art directing, Brand Identity",
       "collaboration": "Team",
-      "externalUrl": "https://youtu.be/YyeM4ykfjoQ?si=JdQrfZXw0ors8Z77",
-      "description": {},
+      "description": {
+        "en": "Junction ASIA 2024 is Asia's largest hackathon, bringing together developers, designers, and creators from across the continent. I worked on the overall art direction and brand identity for the event, crafting a visual language that captures the energy of innovation and collaboration."
+      },
       "thumbnail": { "type": "image", "src": "junction.jpg" },
-      "media": [{ "type": "image", "src": "in.png" }]
+      "media": [
+        { "type": "youtube", "id": "YyeM4ykfjoQ" },
+        { "type": "image", "src": "junction_mockup1.jpg" },
+        { "type": "image", "src": "junction_mockup2.jpg" },
+        { "type": "image", "src": "junction_mockup3.jpg" },
+        { "type": "image", "src": "junction_mockup4.jpg" }
+      ]
     },
     {
       "id": "Plating Design system",
