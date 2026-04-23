@@ -320,11 +320,42 @@
       },
       "thumbnail": { "type": "image", "src": "junction.jpg" },
       "media": [
-        { "type": "youtube", "id": "YyeM4ykfjoQ" },
-        { "type": "image", "src": "junction_mockup1.jpg" },
-        { "type": "image", "src": "junction_mockup2.jpg" },
-        { "type": "image", "src": "junction_mockup3.jpg" },
-        { "type": "image", "src": "junction_mockup4.jpg" }
+        { "type": "youtube", "id": "YyeM4ykfjoQ" }
+      ],
+      "sections": [
+        {
+          "title": "Brand Concept",
+          "desc": "Junction ASIA 2024 is built around the idea of collision — where disciplines, cultures, and ideas collide to create something entirely new. The brand identity reflects this energy through bold geometry and dynamic tension between elements.",
+          "media": [
+            { "type": "image", "src": "junction_concept1.jpg" },
+            { "type": "image", "src": "junction_concept2.jpg" }
+          ]
+        },
+        {
+          "title": "Visual Identity",
+          "desc": "The visual system draws from the structure of a circuit — interconnected nodes forming a larger network. Typography and color are used to create a sense of momentum and scale across all touchpoints.",
+          "media": [
+            { "type": "image", "src": "junction_identity1.jpg" },
+            { "type": "image", "src": "junction_identity2.jpg" }
+          ]
+        },
+        {
+          "title": "Application",
+          "desc": "",
+          "media": [
+            { "type": "image", "src": "junction_mockup1.jpg" },
+            { "type": "image", "src": "junction_mockup2.jpg" },
+            { "type": "image", "src": "junction_mockup3.jpg" },
+            { "type": "image", "src": "junction_mockup4.jpg" }
+          ]
+        },
+        {
+          "title": "Motion",
+          "desc": "",
+          "media": [
+            { "type": "video", "src": "junction_motion.mp4" }
+          ]
+        }
       ]
     },
     {
