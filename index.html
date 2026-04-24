@@ -394,7 +394,6 @@ passwordOverlay.addEventListener('click', function(e) { if (e.target === passwor
 passwordSubmit.addEventListener('click', function() {
   if (!pendingProject) return;
   if (passwordInput.value === pendingProject.password) {
-    unlockProject(pendingProject.id);
     hidePasswordModal();
     openDetailDirectly(pendingProject);
   } else {
