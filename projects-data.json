@@ -429,11 +429,15 @@
       },
       "thumbnail": {
         "type": "image",
-        "src": "pressto.jpg"
+        "src": "presstologo.jpg"
       },
       "media": [
         {
           "type": "video",
+          "id": "pressto.jpg"
+        },
+        {
+          "type": "image",
           "id": "pressto.mp4"
         }
       ],
