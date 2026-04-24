@@ -16,6 +16,8 @@
       cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="%23FF6FD6" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>') 12 12, auto;
     }
     a { text-decoration: none; color: inherit; cursor: inherit; }
+
+    /* ── DESKTOP LAYOUT ── */
     .layout { display: grid; grid-template-columns: 290px 1fr; height: 100vh; }
     .left { display: flex; flex-direction: column; height: 100vh; border-right: 1px solid var(--line); overflow: hidden; }
     .left-top { flex-shrink: 0; padding: 8px 20px 0; }
@@ -53,12 +55,7 @@
     .thumb-lock-badge { position: absolute; top: 8px; right: 8px; background: rgba(0,0,0,0.6); color: #fff; padding: 4px 8px; border-radius: 12px; font-size: 11px; }
     #r-detail { display: none; padding: 44px 48px 100px; }
     #r-detail.on { display: block; }
-    .d-header {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-      margin-bottom: 40px;
-    }
+    .d-header { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 40px; }
     .d-left {}
     .d-title { font-size: 20px; font-weight: 600; line-height: 1.3; margin-bottom: 8px; }
     .d-meta { font-size: 12px; color: var(--gray); margin-bottom: 3px; }
@@ -77,134 +74,159 @@
     .vimeo-box iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
     .embed-box { width: 100%; height: 80vh; border: none; display: block; }
 
-    /* Password Modal */
-    .password-overlay {
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0, 0, 0, 0.6);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      z-index: 10000;
-    }
-    .password-overlay.on { display: flex; }
-    .password-modal {
-      background: #fff;
-      padding: 40px;
-      border-radius: 16px;
-      max-width: 380px;
-      width: 90%;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.2);
-    }
-    .password-modal h3 {
-      font-size: 16px;
-      font-weight: 600;
-      margin-bottom: 8px;
-      color: #000;
-    }
-    .password-modal p {
-      font-size: 13px;
-      color: var(--gray);
-      margin-bottom: 20px;
-      line-height: 1.6;
-    }
-    .password-modal input {
-      width: 100%;
-      padding: 12px 16px;
-      font-size: 14px;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      margin-bottom: 8px;
-      font-family: inherit;
-    }
-    .password-modal input:focus {
-      outline: none;
-      border-color: var(--pink);
-    }
-    .password-modal input.error {
-      border-color: #ff4444;
-    }
-    .password-error {
-      font-size: 12px;
-      color: #ff4444;
-      margin-bottom: 16px;
-      display: none;
-    }
-    .password-error.on { display: block; }
-    .password-buttons {
-      display: flex;
-      gap: 8px;
-      margin-top: 20px;
-    }
-    .password-buttons button {
-      flex: 1;
-      padding: 12px;
-      border: none;
-      border-radius: 8px;
-      font-size: 13px;
-      font-weight: 500;
-      cursor: url("cursor-hand.png") 16 16, pointer !important;
-      font-family: inherit;
-      transition: opacity 0.15s;
-    }
-    .password-buttons button:hover { opacity: 0.8; }
-    .password-buttons .btn-cancel {
-      background: #f5f5f5;
-      color: #666;
-    }
-    .password-buttons .btn-submit {
-      background: #000;
-      color: #fff;
-    }
-
-    /* 슬라이드쇼 */
-    .slideshow {
-      margin: 10px 0;
-      position: relative;
-      width: 100%;
-      background: #000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 40px 80px;
-    }
-    .slideshow-track {
-      width: 100%;
-      overflow: hidden;
-    }
-    .slideshow-track img {
-      width: 100%;
-      display: none;
-      object-fit: contain;
-      max-height: 75vh;
-    }
+    /* ── SLIDESHOW ── */
+    .slideshow { margin: 10px 0; position: relative; width: 100%; background: #000; display: flex; align-items: center; justify-content: center; padding: 40px 80px; }
+    .slideshow-track { width: 100%; overflow: hidden; }
+    .slideshow-track img { width: 100%; display: none; object-fit: contain; max-height: 75vh; }
     .slideshow-track img.active { display: block; }
-    .slide-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: none;
-      border: none;
-      font-size: 20px;
-      line-height: 1;
-      cursor: url("cursor-hand.png") 16 16, pointer !important;
-      color: #fff;
-      padding: 8px 16px;
-      z-index: 2;
-      opacity: 0.6;
-      transition: opacity 0.15s;
-      letter-spacing: 2px;
-    }
+    .slide-btn { position: absolute; top: 50%; transform: translateY(-50%); background: none; border: none; font-size: 20px; line-height: 1; cursor: url("cursor-hand.png") 16 16, pointer !important; color: #fff; padding: 8px 16px; z-index: 2; opacity: 0.6; transition: opacity 0.15s; letter-spacing: 2px; }
     .slide-btn:hover { opacity: 1; }
     .slide-btn.prev { left: 16px; }
     .slide-btn.next { right: 16px; }
 
+    /* ── PASSWORD MODAL ── */
+    .password-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.6); display: none; align-items: center; justify-content: center; z-index: 10000; }
+    .password-overlay.on { display: flex; }
+    .password-modal { background: #fff; padding: 40px; border-radius: 16px; max-width: 380px; width: 90%; box-shadow: 0 8px 32px rgba(0,0,0,0.2); }
+    .password-modal h3 { font-size: 16px; font-weight: 600; margin-bottom: 8px; color: #000; }
+    .password-modal p { font-size: 13px; color: var(--gray); margin-bottom: 20px; line-height: 1.6; }
+    .password-modal input { width: 100%; padding: 12px 16px; font-size: 14px; border: 1px solid var(--line); border-radius: 8px; margin-bottom: 8px; font-family: inherit; }
+    .password-modal input:focus { outline: none; border-color: var(--pink); }
+    .password-modal input.error { border-color: #ff4444; }
+    .password-error { font-size: 12px; color: #ff4444; margin-bottom: 16px; display: none; }
+    .password-error.on { display: block; }
+    .password-buttons { display: flex; gap: 8px; margin-top: 20px; }
+    .password-buttons button { flex: 1; padding: 12px; border: none; border-radius: 8px; font-size: 13px; font-weight: 500; cursor: url("cursor-hand.png") 16 16, pointer !important; font-family: inherit; transition: opacity 0.15s; }
+    .password-buttons button:hover { opacity: 0.8; }
+    .password-buttons .btn-cancel { background: #f5f5f5; color: #666; }
+    .password-buttons .btn-submit { background: #000; color: #fff; }
+
+    /* ── STAR TRAIL ── */
     .star { position: fixed; pointer-events: none; z-index: 99999; animation: starfall 1s ease-in forwards; }
-    @keyframes starfall {
-      from { transform: translateY(0) rotate(0deg) scale(1); opacity: 1; }
-      to   { transform: translateY(100px) rotate(180deg) scale(0); opacity: 0; }
+    @keyframes starfall { from { transform: translateY(0) rotate(0deg) scale(1); opacity: 1; } to { transform: translateY(100px) rotate(180deg) scale(0); opacity: 0; } }
+
+    /* ════════════════════════════════
+       MOBILE STYLES  (≤ 700px)
+       ════════════════════════════════ */
+    @media (max-width: 700px) {
+
+      /* 전체 레이아웃: 리스트 full width */
+      .layout { grid-template-columns: 1fr; height: 100vh; }
+
+      /* 데스크탑 right 패널 숨김 */
+      .right { display: none; }
+
+      /* 왼쪽 패널 높이 조정 (safe area 대응) */
+      .left { height: 100dvh; }
+
+      /* 로고/헤더 영역 */
+      .left-top { padding: 12px 16px 0; }
+      .logo-wrap { margin-bottom: 12px; }
+
+      /* 카테고리 네비 가로 스크롤 */
+      .cat-nav {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        gap: 0 16px;
+        padding-bottom: 10px;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+      }
+      .cat-nav::-webkit-scrollbar { display: none; }
+      .cat-nav button { white-space: nowrap; font-size: 12px; padding: 4px 0; flex-shrink: 0; }
+
+      /* 프로젝트 리스트 */
+      .project-list { margin-top: 20px; }
+      .proj-row { padding: 14px 16px; }
+      .proj-title { font-size: 15px; }
+
+      /* ── MOBILE BOTTOM SHEET ── */
+      .mobile-sheet-backdrop {
+        display: block;
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0);
+        z-index: 200;
+        pointer-events: none;
+        transition: background 0.35s ease;
+      }
+      .mobile-sheet-backdrop.on {
+        background: rgba(0,0,0,0.4);
+        pointer-events: auto;
+      }
+
+      .mobile-sheet {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        left: 0; right: 0; bottom: 0;
+        height: 92dvh;
+        background: #fff;
+        border-radius: 20px 20px 0 0;
+        z-index: 300;
+        transform: translateY(100%);
+        transition: transform 0.4s cubic-bezier(0.32, 0.72, 0, 1);
+        overflow: hidden;
+        /* touch drag */
+        will-change: transform;
+      }
+      .mobile-sheet.open {
+        transform: translateY(0);
+      }
+
+      /* 드래그 핸들 */
+      .sheet-handle-bar {
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 14px 16px 10px;
+        border-bottom: 1px solid var(--line);
+        position: sticky;
+        top: 0;
+        background: #fff;
+        z-index: 1;
+      }
+      .sheet-handle {
+        width: 36px; height: 4px;
+        background: #ddd; border-radius: 2px;
+        position: absolute;
+        left: 50%; top: 8px;
+        transform: translateX(-50%);
+      }
+      .sheet-close-btn {
+        background: none; border: none;
+        font-size: 20px; line-height: 1;
+        color: #999; padding: 4px;
+        cursor: pointer;
+        margin-left: auto;
+      }
+
+      /* sheet 내부 스크롤 영역 */
+      .sheet-body {
+        flex: 1;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+      .sheet-body::-webkit-scrollbar { width: 0; }
+
+      /* detail 안에서 쓰는 레이아웃 재정의 */
+      .sheet-body #mb-detail { padding: 20px 16px 80px; }
+      .sheet-body .d-header { grid-template-columns: 1fr; gap: 16px; margin-bottom: 24px; }
+      .sheet-body .d-title { font-size: 18px; }
+      .sheet-body .d-section { grid-template-columns: 1fr; gap: 8px; }
+      .sheet-body #mb-detail .gallery { gap: 8px; }
+      .sheet-body .slideshow { padding: 24px 52px; }
+      .sheet-body .vimeo-box { margin: 0; }
+      .sheet-body .thumb-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+      .sheet-body .embed-box { height: 60vh; }
     }
-    @media (max-width: 700px) { .layout { grid-template-columns: 1fr; } .right { display: none; } }
+
+    /* 데스크탑에서는 sheet 관련 요소 숨김 */
+    @media (min-width: 701px) {
+      .mobile-sheet-backdrop,
+      .mobile-sheet { display: none !important; }
+    }
   </style>
 </head>
 <body>
@@ -233,9 +255,23 @@
       <div style="padding:20px;color:#ccc;">Loading&#8230;</div>
     </div>
   </div>
+
+  <!-- 데스크탑 right panel -->
   <div class="right" id="right">
     <div id="r-grid"></div>
     <div id="r-detail"></div>
+  </div>
+</div>
+
+<!-- ── MOBILE BOTTOM SHEET ── -->
+<div class="mobile-sheet-backdrop" id="sheet-backdrop"></div>
+<div class="mobile-sheet" id="mobile-sheet" aria-modal="true" role="dialog">
+  <div class="sheet-handle-bar" id="sheet-handle-bar">
+    <div class="sheet-handle"></div>
+    <button class="sheet-close-btn" id="sheet-close" aria-label="닫기">✕</button>
+  </div>
+  <div class="sheet-body">
+    <div id="mb-detail"></div>
   </div>
 </div>
 
@@ -254,6 +290,7 @@
 </div>
 
 <script>
+/* ── 스타 트레일 ── */
 let lastStar = 0;
 document.addEventListener('mousemove', function(e) {
   const now = Date.now();
@@ -269,54 +306,106 @@ document.addEventListener('mousemove', function(e) {
   setTimeout(function() { s.remove(); }, 1000);
 });
 
+/* ── 상태 ── */
 let projects = [], activeCat = '', slideshowTimer = null;
 let pendingProject = null;
-const listEl = document.getElementById('project-list');
-const catNav = document.getElementById('cat-nav');
-const rightEl = document.getElementById('right');
-const rGrid = document.getElementById('r-grid');
-const rDetail = document.getElementById('r-detail');
+
+const listEl       = document.getElementById('project-list');
+const catNav       = document.getElementById('cat-nav');
+const rightEl      = document.getElementById('right');
+const rGrid        = document.getElementById('r-grid');
+const rDetail      = document.getElementById('r-detail');
+
+/* 모바일 시트 */
+const sheetEl      = document.getElementById('mobile-sheet');
+const sheetBackdrop= document.getElementById('sheet-backdrop');
+const sheetClose   = document.getElementById('sheet-close');
+const mbDetail     = document.getElementById('mb-detail');
+const sheetHandleBar = document.getElementById('sheet-handle-bar');
+
+/* 패스워드 */
 const passwordOverlay = document.getElementById('password-overlay');
-const passwordInput = document.getElementById('password-input');
-const passwordError = document.getElementById('password-error');
-const passwordSubmit = document.getElementById('password-submit');
-const passwordCancel = document.getElementById('password-cancel');
+const passwordInput   = document.getElementById('password-input');
+const passwordError   = document.getElementById('password-error');
+const passwordSubmit  = document.getElementById('password-submit');
+const passwordCancel  = document.getElementById('password-cancel');
+
+/* ── 유틸 ── */
+function isMobile() { return window.innerWidth <= 700; }
 
 function clearSlideshowTimer() { if (slideshowTimer) { clearInterval(slideshowTimer); slideshowTimer = null; } }
+
 function hideAll() { rGrid.classList.remove('on'); rDetail.classList.remove('on'); clearSlideshowTimer(); }
 
-function isProjectUnlocked(projectId) {
-  return localStorage.getItem('project_' + projectId + '_unlocked') === 'true';
+function isProjectUnlocked(id) { return localStorage.getItem('project_' + id + '_unlocked') === 'true'; }
+function unlockProject(id)     { localStorage.setItem('project_' + id + '_unlocked', 'true'); }
+
+/* ── 모바일 SHEET ── */
+function openSheet() {
+  sheetEl.classList.add('open');
+  sheetBackdrop.classList.add('on');
+  document.body.style.overflow = 'hidden';
+}
+function closeSheet() {
+  sheetEl.classList.remove('open');
+  sheetBackdrop.classList.remove('on');
+  document.body.style.overflow = '';
+  listEl.querySelectorAll('.proj-row').forEach(function(r) { r.classList.remove('on'); });
+  clearSlideshowTimer();
 }
 
-function unlockProject(projectId) {
-  localStorage.setItem('project_' + projectId + '_unlocked', 'true');
-}
+sheetClose.addEventListener('click', closeSheet);
+sheetBackdrop.addEventListener('click', closeSheet);
 
-function showPasswordModal(project) {
-  pendingProject = project;
+/* 드래그-to-close (touch) */
+(function() {
+  var startY = 0, startTranslate = 0, dragging = false, currentY = 0;
+
+  sheetHandleBar.addEventListener('touchstart', function(e) {
+    startY = e.touches[0].clientY;
+    startTranslate = 0;
+    dragging = true;
+    sheetEl.style.transition = 'none';
+  }, { passive: true });
+
+  document.addEventListener('touchmove', function(e) {
+    if (!dragging) return;
+    var dy = e.touches[0].clientY - startY;
+    if (dy < 0) dy = 0;
+    currentY = dy;
+    sheetEl.style.transform = 'translateY(' + dy + 'px)';
+  }, { passive: true });
+
+  document.addEventListener('touchend', function() {
+    if (!dragging) return;
+    dragging = false;
+    sheetEl.style.transition = '';
+    if (currentY > 120) {
+      closeSheet();
+      sheetEl.style.transform = '';
+    } else {
+      sheetEl.style.transform = '';
+    }
+    currentY = 0;
+  });
+})();
+
+/* ── 패스워드 모달 ── */
+function showPasswordModal(p) {
+  pendingProject = p;
   passwordInput.value = '';
   passwordError.classList.remove('on');
   passwordInput.classList.remove('error');
   passwordOverlay.classList.add('on');
   setTimeout(function() { passwordInput.focus(); }, 100);
 }
-
-function hidePasswordModal() {
-  passwordOverlay.classList.remove('on');
-  pendingProject = null;
-}
+function hidePasswordModal() { passwordOverlay.classList.remove('on'); pendingProject = null; }
 
 passwordCancel.addEventListener('click', hidePasswordModal);
-
-passwordOverlay.addEventListener('click', function(e) {
-  if (e.target === passwordOverlay) hidePasswordModal();
-});
-
+passwordOverlay.addEventListener('click', function(e) { if (e.target === passwordOverlay) hidePasswordModal(); });
 passwordSubmit.addEventListener('click', function() {
   if (!pendingProject) return;
-  const inputVal = passwordInput.value;
-  if (inputVal === pendingProject.password) {
+  if (passwordInput.value === pendingProject.password) {
     unlockProject(pendingProject.id);
     hidePasswordModal();
     openDetailDirectly(pendingProject);
@@ -327,80 +416,45 @@ passwordSubmit.addEventListener('click', function() {
     passwordInput.focus();
   }
 });
-
 passwordInput.addEventListener('keydown', function(e) {
   if (e.key === 'Enter') passwordSubmit.click();
   if (e.key === 'Escape') hidePasswordModal();
 });
 
+/* ── 렌더 헬퍼 ── */
 function renderThumb(p) {
   if (!p.thumbnail || !p.thumbnail.src) return '';
   if (p.thumbnail.type === 'video') return '<video autoplay loop muted playsinline preload="metadata"><source src="' + p.thumbnail.src + '" type="video/mp4"></video>';
   return '<img src="' + p.thumbnail.src + '" alt="' + (p.title || '') + '">';
 }
 
-function renderGrid(list) {
-  if (!list.length) { rGrid.innerHTML = '<div style="padding:20px;color:#ccc;">No projects</div>'; return; }
-  rGrid.innerHTML = '<div class="thumb-grid">' + list.map(function(p) {
-    const isExt = !!p.externalUrl;
-    const href = isExt ? p.externalUrl : '#';
-    const attrs = isExt ? 'target="_blank" rel="noopener noreferrer"' : 'data-id="' + p.id + '"';
-    const lockBadge = (p.password && !isProjectUnlocked(p.id)) ? '<div class="thumb-lock-badge">🔒</div>' : '';
-    return '<a class="thumb-card" href="' + href + '" ' + attrs + '>' + lockBadge + '<div class="thumb-media">' + renderThumb(p) + '</div><div class="thumb-info"><div class="thumb-title">' + (p.title||'') + '</div><div class="thumb-type">' + (p.type||'') + '</div></div></a>';
-  }).join('') + '</div>';
-  rGrid.querySelectorAll('.thumb-card[data-id]').forEach(function(card) {
-    card.addEventListener('click', function(e) {
-      e.preventDefault();
-      const proj = projects.find(function(p) { return p.id === card.dataset.id; });
-      if (proj) openDetail(proj);
-    });
-  });
+function renderMediaItem(m, title) {
+  if (m.type === 'video')   return '<video autoplay loop muted playsinline><source src="' + m.src + '" type="video/mp4"></video>';
+  if (m.type === 'vimeo')   return '<div class="vimeo-box"><iframe src="https://player.vimeo.com/video/' + m.id + '?autoplay=0&title=0&byline=0&portrait=0" allow="autoplay; fullscreen" allowfullscreen></iframe></div>';
+  if (m.type === 'youtube') return '<div class="vimeo-box"><iframe src="https://www.youtube.com/embed/' + m.id + '?rel=0" allow="autoplay; fullscreen" allowfullscreen></iframe></div>';
+  if (m.type === 'image')   return '<img src="' + m.src + '" alt="' + (title || '') + '">';
+  return '';
 }
 
-function renderList(list) {
-  if (!list.length) { listEl.innerHTML = '<div style="padding:20px;color:#ccc;">No projects</div>'; return; }
-  listEl.innerHTML = list.map(function(p) {
-    const lockBadge = (p.password && !isProjectUnlocked(p.id)) ? '<span class="lock-badge">🔒</span>' : '';
-    return '<a class="proj-row" data-id="' + p.id + '" href="#">' + lockBadge + '<div class="proj-title">' + (p.title||'') + '</div><div class="proj-type">' + (p.type||'') + '</div></a>';
-  }).join('');
-  listEl.querySelectorAll('.proj-row').forEach(function(row) {
-    row.addEventListener('click', function(e) {
-      e.preventDefault();
-      const proj = projects.find(function(p) { return p.id === row.dataset.id; });
-      if (!proj) return;
-      if (proj.externalUrl) { window.open(proj.externalUrl, '_blank', 'noopener,noreferrer'); return; }
-      listEl.querySelectorAll('.proj-row').forEach(function(r) { r.classList.remove('on'); });
-      row.classList.add('on');
-      openDetail(proj);
-    });
-  });
-}
-
-function showGrid(list, fromPop) {
-  hideAll(); renderGrid(list); rGrid.classList.add('on');
-  rightEl.scrollTo({ top: 0, behavior: 'smooth' });
-  listEl.querySelectorAll('.proj-row').forEach(function(r) { r.classList.remove('on'); });
-  if (!fromPop) history.pushState({ view: 'grid', cat: activeCat }, '');
-}
-
-function renderSlideshow(slides) {
+function renderSlideshow(slides, idSuffix) {
   if (!slides || !slides.length) return '';
-  const imgs = slides.map(function(s, i) {
+  var sid = idSuffix || 'main';
+  var imgs = slides.map(function(s, i) {
     return '<img src="' + s.src + '" alt="slide ' + (i+1) + '" class="' + (i === 0 ? 'active' : '') + '">';
   }).join('');
-  return '<div class="slideshow" id="slideshow">' +
-    '<button class="slide-btn prev" id="slide-prev">&#8592;</button>' +
-    '<div class="slideshow-track" id="slide-track">' + imgs + '</div>' +
-    '<button class="slide-btn next" id="slide-next">&#8594;</button>' +
+  return '<div class="slideshow" id="slideshow-' + sid + '">' +
+    '<button class="slide-btn prev" id="slide-prev-' + sid + '">&#8592;</button>' +
+    '<div class="slideshow-track" id="slide-track-' + sid + '">' + imgs + '</div>' +
+    '<button class="slide-btn next" id="slide-next-' + sid + '">&#8594;</button>' +
   '</div>';
 }
 
-function initSlideshow(total) {
+function initSlideshowById(sid, total) {
   if (!total) return;
-  let cur = 0;
-  const track = document.getElementById('slide-track');
+  var track = document.getElementById('slide-track-' + sid);
   if (!track) return;
-  const imgs = track.querySelectorAll('img');
+  var imgs = track.querySelectorAll('img');
+  var cur = 0;
   function goTo(n) {
     imgs[cur].classList.remove('active');
     cur = (n + total) % total;
@@ -410,119 +464,178 @@ function initSlideshow(total) {
     clearSlideshowTimer();
     slideshowTimer = setInterval(function() { goTo(cur + 1); }, 4000);
   }
-  document.getElementById('slide-prev').addEventListener('click', function() { clearSlideshowTimer(); goTo(cur - 1); startAuto(); });
-  document.getElementById('slide-next').addEventListener('click', function() { clearSlideshowTimer(); goTo(cur + 1); startAuto(); });
+  var prevBtn = document.getElementById('slide-prev-' + sid);
+  var nextBtn = document.getElementById('slide-next-' + sid);
+  if (prevBtn) prevBtn.addEventListener('click', function() { clearSlideshowTimer(); goTo(cur - 1); startAuto(); });
+  if (nextBtn) nextBtn.addEventListener('click', function() { clearSlideshowTimer(); goTo(cur + 1); startAuto(); });
   startAuto();
 }
 
-function renderMediaItem(m, title) {
-  if (m.type === 'video') return '<video autoplay loop muted playsinline><source src="' + m.src + '" type="video/mp4"></video>';
-  if (m.type === 'vimeo') return '<div class="vimeo-box"><iframe src="https://player.vimeo.com/video/' + m.id + '?autoplay=0&title=0&byline=0&portrait=0" allow="autoplay; fullscreen" allowfullscreen></iframe></div>';
-  if (m.type === 'youtube') return '<div class="vimeo-box"><iframe src="https://www.youtube.com/embed/' + m.id + '?rel=0" allow="autoplay; fullscreen" allowfullscreen></iframe></div>';
-  if (m.type === 'image') return '<img src="' + m.src + '" alt="' + (title||'') + '">';
-  return '';
-}
-
-function openDetail(p, fromPop) {
-  // Check password
-  if (p.password && !isProjectUnlocked(p.id)) {
-    showPasswordModal(p);
-    return;
-  }
-  openDetailDirectly(p, fromPop);
-}
-
-function openDetailDirectly(p, fromPop) {
-  hideAll(); rDetail.classList.add('on');
-  if (!fromPop) history.pushState({ view: 'detail', id: p.id, cat: activeCat }, '');
-  const desc = p.description && p.description.en ? p.description.en : '';
-  const metaParts = [p.type, p.date, p.client].filter(Boolean);
-  const embedHTML = p.embedUrl ? '<iframe class="embed-box" src="' + p.embedUrl + '" allow="fullscreen"></iframe>' : '';
-  const media = p.media || [];
-  const insertAt = (p.slides && p.slides.length && p.slideshowPosition != null) ? p.slideshowPosition : -1;
+/* ── 프로젝트 detail HTML 생성 (공통) ── */
+function buildDetailHTML(p) {
+  var desc = p.description && p.description.en ? p.description.en : '';
+  var metaParts = [p.type, p.date, p.client].filter(Boolean);
+  var embedHTML = p.embedUrl ? '<iframe class="embed-box" src="' + p.embedUrl + '" allow="fullscreen"></iframe>' : '';
+  var media = p.media || [];
+  var insertAt = (p.slides && p.slides.length && p.slideshowPosition != null) ? p.slideshowPosition : -1;
 
   var galleryHTML = '';
   if (insertAt >= 0) {
     var before = media.slice(0, insertAt).map(function(m) { return renderMediaItem(m, p.title); }).join('');
     var after  = media.slice(insertAt).map(function(m) { return renderMediaItem(m, p.title); }).join('');
-    galleryHTML = embedHTML + before + '</div>' + renderSlideshow(p.slides) + '<div class="gallery">' + after;
+    galleryHTML = embedHTML + before + '</div>' + renderSlideshow(p.slides, 'main') + '<div class="gallery">' + after;
   } else {
     galleryHTML = embedHTML + media.map(function(m) { return renderMediaItem(m, p.title); }).join('');
   }
 
-  rDetail.innerHTML =
-    '<div class="d-header">' +
-      '<div class="d-left">' +
-        '<div class="d-title">' + (p.title||'') + '</div>' +
-        '<div class="d-meta">' + metaParts.join(' · ') + '</div>' +
-        '<div class="d-collab">' + (p.collaboration||'') + '</div>' +
-      '</div>' +
-      (desc ? '<div class="d-desc">' + desc + '</div>' : '<div></div>') +
-    '</div>' +
-    '<div class="gallery">' + galleryHTML + '</div>' +
-    (p.sections && p.sections.length ? '<div class="d-sections">' + p.sections.map(function(s) {
+  var sectionsHTML = '';
+  if (p.sections && p.sections.length) {
+    sectionsHTML = '<div class="d-sections">' + p.sections.map(function(s, si) {
       var sMediaHTML = (s.media || []).map(function(m) { return renderMediaItem(m, s.title); }).join('');
       var sEmbedHTML = s.embedUrl ? '<iframe src="' + s.embedUrl + '" style="width:100%;height:100vh;border:none;display:block;margin-top:10px;" allow="fullscreen"></iframe>' : '';
-      var sSlidesHTML = (s.slides && s.slides.length) ? (function() {
-        var sid = 'slide-track-' + Math.random().toString(36).substr(2,5);
-        var imgs = s.slides.map(function(sl, i) { return '<img src="' + sl.src + '" alt="slide ' + (i+1) + '" class="' + (i===0?'active':'') + '">'; }).join('');
-        setTimeout(function() {
-          var el = document.getElementById(sid);
-          if (!el) return;
-          var imgs2 = el.querySelectorAll('img'); var cur = 0; var total = imgs2.length;
-          function goTo(n) { imgs2[cur].classList.remove('active'); cur=(n+total)%total; imgs2[cur].classList.add('active'); }
-          el.parentNode.querySelector('.s-prev').addEventListener('click', function(){ goTo(cur-1); });
-          el.parentNode.querySelector('.s-next').addEventListener('click', function(){ goTo(cur+1); });
-          setInterval(function(){ goTo(cur+1); }, 4000);
-        }, 100);
-        return '<div class="slideshow" style="margin-top:10px;"><button class="slide-btn prev s-prev">&#8592;</button><div class="slideshow-track" id="' + sid + '">' + imgs + '</div><button class="slide-btn next s-next">&#8594;</button></div>';
-      })() : '';
+      var sSid = 'sec-' + si;
+      var sSlidesHTML = (s.slides && s.slides.length) ? renderSlideshow(s.slides, sSid) : '';
+      // section slideshow init은 setTimeout으로 호출
+      if (s.slides && s.slides.length) {
+        setTimeout(function() { initSlideshowById(sSid, s.slides.length); }, 100);
+      }
       return '<div class="d-section-wrap">' +
         '<div class="d-section"><div class="d-section-title">' + (s.title||'') + '</div><div class="d-section-desc">' + (s.desc||'') + '</div></div>' +
-        (sEmbedHTML ? sEmbedHTML : '') +
-        sSlidesHTML +
+        (sEmbedHTML || '') + sSlidesHTML +
         (sMediaHTML ? '<div class="gallery">' + sMediaHTML + '</div>' : '') +
         '</div>';
-    }).join('') + '</div>' : '');
+    }).join('') + '</div>';
+  }
 
-  if (p.slides && p.slides.length) initSlideshow(p.slides.length);
-  rightEl.scrollTo({ top: 0, behavior: 'smooth' });
+  return '<div class="d-header">' +
+    '<div class="d-left">' +
+      '<div class="d-title">' + (p.title||'') + '</div>' +
+      '<div class="d-meta">' + metaParts.join(' · ') + '</div>' +
+      '<div class="d-collab">' + (p.collaboration||'') + '</div>' +
+    '</div>' +
+    (desc ? '<div class="d-desc">' + desc + '</div>' : '<div></div>') +
+  '</div>' +
+  '<div class="gallery">' + galleryHTML + '</div>' +
+  sectionsHTML;
 }
 
+/* ── 그리드 렌더 ── */
+function renderGrid(list) {
+  if (!list.length) { rGrid.innerHTML = '<div style="padding:20px;color:#ccc;">No projects</div>'; return; }
+  rGrid.innerHTML = '<div class="thumb-grid">' + list.map(function(p) {
+    var isExt = !!p.externalUrl;
+    var href = isExt ? p.externalUrl : '#';
+    var attrs = isExt ? 'target="_blank" rel="noopener noreferrer"' : 'data-id="' + p.id + '"';
+    var lockBadge = (p.password && !isProjectUnlocked(p.id)) ? '<div class="thumb-lock-badge">🔒</div>' : '';
+    return '<a class="thumb-card" href="' + href + '" ' + attrs + '>' + lockBadge + '<div class="thumb-media">' + renderThumb(p) + '</div><div class="thumb-info"><div class="thumb-title">' + (p.title||'') + '</div><div class="thumb-type">' + (p.type||'') + '</div></div></a>';
+  }).join('') + '</div>';
+  rGrid.querySelectorAll('.thumb-card[data-id]').forEach(function(card) {
+    card.addEventListener('click', function(e) {
+      e.preventDefault();
+      var proj = projects.find(function(p) { return p.id === card.dataset.id; });
+      if (proj) openDetail(proj);
+    });
+  });
+}
+
+/* ── 리스트 렌더 ── */
+function renderList(list) {
+  if (!list.length) { listEl.innerHTML = '<div style="padding:20px;color:#ccc;">No projects</div>'; return; }
+  listEl.innerHTML = list.map(function(p) {
+    var lockBadge = (p.password && !isProjectUnlocked(p.id)) ? '<span class="lock-badge">🔒</span>' : '';
+    return '<a class="proj-row" data-id="' + p.id + '" href="#">' + lockBadge + '<div class="proj-title">' + (p.title||'') + '</div><div class="proj-type">' + (p.type||'') + '</div></a>';
+  }).join('');
+  listEl.querySelectorAll('.proj-row').forEach(function(row) {
+    row.addEventListener('click', function(e) {
+      e.preventDefault();
+      var proj = projects.find(function(p) { return p.id === row.dataset.id; });
+      if (!proj) return;
+      if (proj.externalUrl) { window.open(proj.externalUrl, '_blank', 'noopener,noreferrer'); return; }
+      listEl.querySelectorAll('.proj-row').forEach(function(r) { r.classList.remove('on'); });
+      row.classList.add('on');
+      openDetail(proj);
+    });
+  });
+}
+
+/* ── GRID 뷰 ── */
+function showGrid(list, fromPop) {
+  hideAll(); renderGrid(list); rGrid.classList.add('on');
+  rightEl.scrollTo({ top: 0, behavior: 'smooth' });
+  listEl.querySelectorAll('.proj-row').forEach(function(r) { r.classList.remove('on'); });
+  if (!fromPop) history.pushState({ view: 'grid', cat: activeCat }, '');
+}
+
+/* ── DETAIL 열기 ── */
+function openDetail(p, fromPop) {
+  if (p.password && !isProjectUnlocked(p.id)) { showPasswordModal(p); return; }
+  openDetailDirectly(p, fromPop);
+}
+
+function openDetailDirectly(p, fromPop) {
+  if (!fromPop) history.pushState({ view: 'detail', id: p.id, cat: activeCat }, '');
+
+  if (isMobile()) {
+    /* 모바일: bottom sheet */
+    mbDetail.innerHTML = buildDetailHTML(p);
+    if (p.slides && p.slides.length) {
+      setTimeout(function() { initSlideshowById('main', p.slides.length); }, 100);
+    }
+    /* sheet body 맨 위로 */
+    sheetEl.querySelector('.sheet-body').scrollTop = 0;
+    openSheet();
+  } else {
+    /* 데스크탑: 기존 right panel */
+    hideAll(); rDetail.classList.add('on');
+    rDetail.innerHTML = buildDetailHTML(p);
+    if (p.slides && p.slides.length) {
+      setTimeout(function() { initSlideshowById('main', p.slides.length); }, 100);
+    }
+    rightEl.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+}
+
+/* ── 뒤로가기 ── */
 window.addEventListener('popstate', function(e) {
-  const state = e.state;
+  var state = e.state;
   if (!state || state.view === 'grid') {
-    const cat = state ? (state.cat || '') : '';
+    var cat = state ? (state.cat || '') : '';
     activeCat = cat;
-    const filtered = cat ? projects.filter(function(p) { return (p.category||'').toLowerCase() === cat; }) : projects;
+    var filtered = cat ? projects.filter(function(p) { return (p.category||'').toLowerCase() === cat; }) : projects;
     catNav.querySelectorAll('button').forEach(function(b) { b.classList.remove('on'); });
     catNav.querySelector('[data-cat="' + cat + '"]').classList.add('on');
     renderList(filtered); showGrid(filtered, true);
+    if (isMobile()) closeSheet();
   } else if (state.view === 'detail') {
-    const proj = projects.find(function(p) { return p.id === state.id; });
+    var proj = projects.find(function(p) { return p.id === state.id; });
     listEl.querySelectorAll('.proj-row').forEach(function(r) { r.classList.remove('on'); });
-    const activeRow = listEl.querySelector('.proj-row[data-id="' + state.id + '"]');
+    var activeRow = listEl.querySelector('.proj-row[data-id="' + state.id + '"]');
     if (activeRow) activeRow.classList.add('on');
     if (proj) openDetail(proj, true);
   }
 });
 
+/* ── 로고 ── */
 document.getElementById('logo-link').addEventListener('click', function(e) {
   e.preventDefault();
   catNav.querySelectorAll('button').forEach(function(b) { b.classList.remove('on'); });
   catNav.querySelector('[data-cat=""]').classList.add('on');
   activeCat = ''; renderList(projects); showGrid(projects);
+  if (isMobile()) closeSheet();
 });
 
+/* ── 카테고리 ── */
 catNav.querySelectorAll('button').forEach(function(btn) {
   btn.addEventListener('click', function() {
     catNav.querySelectorAll('button').forEach(function(b) { b.classList.remove('on'); });
     btn.classList.add('on'); activeCat = btn.dataset.cat;
-    const filtered = activeCat ? projects.filter(function(p) { return (p.category||'').toLowerCase() === activeCat; }) : projects;
+    var filtered = activeCat ? projects.filter(function(p) { return (p.category||'').toLowerCase() === activeCat; }) : projects;
     renderList(filtered); showGrid(filtered);
+    if (isMobile()) closeSheet();
   });
 });
 
+/* ── 데이터 로드 ── */
 fetch('./projects-data.json', { cache: 'no-store' })
   .then(function(r) { if (!r.ok) throw new Error(r.status); return r.json(); })
   .then(function(data) {
