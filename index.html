@@ -109,21 +109,11 @@
        MOBILE STYLES  (≤ 700px)
        ════════════════════════════════ */
     @media (max-width: 700px) {
-
-      /* 전체 레이아웃: 리스트 full width */
       .layout { grid-template-columns: 1fr; height: 100vh; }
-
-      /* 데스크탑 right 패널 숨김 */
       .right { display: none; }
-
-      /* 왼쪽 패널 높이 조정 (safe area 대응) */
       .left { height: 100dvh; }
-
-      /* 로고/헤더 영역 */
       .left-top { padding: 12px 16px 0; }
       .logo-wrap { margin-bottom: 12px; }
-
-      /* 카테고리 네비 가로 스크롤 */
       .cat-nav {
         flex-wrap: nowrap;
         overflow-x: auto;
@@ -134,8 +124,6 @@
       }
       .cat-nav::-webkit-scrollbar { display: none; }
       .cat-nav button { white-space: nowrap; font-size: 12px; padding: 4px 0; flex-shrink: 0; }
-
-      /* 프로젝트 리스트 */
       .project-list { margin-top: 20px; }
       .proj-row { padding: 14px 16px; }
       .proj-title { font-size: 15px; }
@@ -154,7 +142,6 @@
         background: rgba(0,0,0,0.4);
         pointer-events: auto;
       }
-
       .mobile-sheet {
         display: flex;
         flex-direction: column;
@@ -167,14 +154,9 @@
         transform: translateY(100%);
         transition: transform 0.4s cubic-bezier(0.32, 0.72, 0, 1);
         overflow: hidden;
-        /* touch drag */
         will-change: transform;
       }
-      .mobile-sheet.open {
-        transform: translateY(0);
-      }
-
-      /* 드래그 핸들 */
+      .mobile-sheet.open { transform: translateY(0); }
       .sheet-handle-bar {
         flex-shrink: 0;
         display: flex;
@@ -201,16 +183,12 @@
         cursor: pointer;
         margin-left: auto;
       }
-
-      /* sheet 내부 스크롤 영역 */
       .sheet-body {
         flex: 1;
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
       }
       .sheet-body::-webkit-scrollbar { width: 0; }
-
-      /* detail 안에서 쓰는 레이아웃 재정의 */
       .sheet-body #mb-detail { padding: 20px 16px 80px; }
       .sheet-body .d-header { grid-template-columns: 1fr; gap: 16px; margin-bottom: 24px; }
       .sheet-body .d-title { font-size: 18px; }
@@ -222,7 +200,6 @@
       .sheet-body .embed-box { height: 60vh; }
     }
 
-    /* 데스크탑에서는 sheet 관련 요소 숨김 */
     @media (min-width: 701px) {
       .mobile-sheet-backdrop,
       .mobile-sheet { display: none !important; }
@@ -306,22 +283,33 @@ document.addEventListener('mousemove', function(e) {
   setTimeout(function() { s.remove(); }, 1000);
 });
 
+/* ── 세션마다 잠금 초기화 ── */
+// sessionStorage를 사용해 탭/브라우저를 닫으면 자동으로 잠금이 리셋됨
+// localStorage의 기존 잠금 해제 상태도 제거
+(function clearOldLocks() {
+  Object.keys(localStorage).forEach(function(key) {
+    if (key.startsWith('project_') && key.endsWith('_unlocked')) {
+      localStorage.removeItem(key);
+    }
+  });
+})();
+
 /* ── 상태 ── */
 let projects = [], activeCat = '', slideshowTimer = null;
 let pendingProject = null;
 
-const listEl       = document.getElementById('project-list');
-const catNav       = document.getElementById('cat-nav');
-const rightEl      = document.getElementById('right');
-const rGrid        = document.getElementById('r-grid');
-const rDetail      = document.getElementById('r-detail');
+const listEl          = document.getElementById('project-list');
+const catNav          = document.getElementById('cat-nav');
+const rightEl         = document.getElementById('right');
+const rGrid           = document.getElementById('r-grid');
+const rDetail         = document.getElementById('r-detail');
 
 /* 모바일 시트 */
-const sheetEl      = document.getElementById('mobile-sheet');
-const sheetBackdrop= document.getElementById('sheet-backdrop');
-const sheetClose   = document.getElementById('sheet-close');
-const mbDetail     = document.getElementById('mb-detail');
-const sheetHandleBar = document.getElementById('sheet-handle-bar');
+const sheetEl         = document.getElementById('mobile-sheet');
+const sheetBackdrop   = document.getElementById('sheet-backdrop');
+const sheetClose      = document.getElementById('sheet-close');
+const mbDetail        = document.getElementById('mb-detail');
+const sheetHandleBar  = document.getElementById('sheet-handle-bar');
 
 /* 패스워드 */
 const passwordOverlay = document.getElementById('password-overlay');
@@ -332,13 +320,16 @@ const passwordCancel  = document.getElementById('password-cancel');
 
 /* ── 유틸 ── */
 function isMobile() { return window.innerWidth <= 700; }
-
 function clearSlideshowTimer() { if (slideshowTimer) { clearInterval(slideshowTimer); slideshowTimer = null; } }
-
 function hideAll() { rGrid.classList.remove('on'); rDetail.classList.remove('on'); clearSlideshowTimer(); }
 
-function isProjectUnlocked(id) { return localStorage.getItem('project_' + id + '_unlocked') === 'true'; }
-function unlockProject(id)     { localStorage.setItem('project_' + id + '_unlocked', 'true'); }
+/* sessionStorage 기반 잠금 관리 (탭 닫으면 리셋) */
+function isProjectUnlocked(id) {
+  return sessionStorage.getItem('project_' + id + '_unlocked') === 'true';
+}
+function unlockProject(id) {
+  sessionStorage.setItem('project_' + id + '_unlocked', 'true');
+}
 
 /* ── 모바일 SHEET ── */
 function openSheet() {
@@ -359,15 +350,12 @@ sheetBackdrop.addEventListener('click', closeSheet);
 
 /* 드래그-to-close (touch) */
 (function() {
-  var startY = 0, startTranslate = 0, dragging = false, currentY = 0;
-
+  var startY = 0, dragging = false, currentY = 0;
   sheetHandleBar.addEventListener('touchstart', function(e) {
     startY = e.touches[0].clientY;
-    startTranslate = 0;
     dragging = true;
     sheetEl.style.transition = 'none';
   }, { passive: true });
-
   document.addEventListener('touchmove', function(e) {
     if (!dragging) return;
     var dy = e.touches[0].clientY - startY;
@@ -375,7 +363,6 @@ sheetBackdrop.addEventListener('click', closeSheet);
     currentY = dy;
     sheetEl.style.transform = 'translateY(' + dy + 'px)';
   }, { passive: true });
-
   document.addEventListener('touchend', function() {
     if (!dragging) return;
     dragging = false;
@@ -399,7 +386,13 @@ function showPasswordModal(p) {
   passwordOverlay.classList.add('on');
   setTimeout(function() { passwordInput.focus(); }, 100);
 }
-function hidePasswordModal() { passwordOverlay.classList.remove('on'); pendingProject = null; }
+function hidePasswordModal() {
+  passwordOverlay.classList.remove('on');
+  pendingProject = null;
+  passwordInput.value = '';
+  passwordError.classList.remove('on');
+  passwordInput.classList.remove('error');
+}
 
 passwordCancel.addEventListener('click', hidePasswordModal);
 passwordOverlay.addEventListener('click', function(e) { if (e.target === passwordOverlay) hidePasswordModal(); });
@@ -432,7 +425,7 @@ function renderMediaItem(m, title) {
   if (m.type === 'video')   return '<video autoplay loop muted playsinline><source src="' + m.src + '" type="video/mp4"></video>';
   if (m.type === 'vimeo')   return '<div class="vimeo-box"><iframe src="https://player.vimeo.com/video/' + m.id + '?autoplay=0&title=0&byline=0&portrait=0" allow="autoplay; fullscreen" allowfullscreen></iframe></div>';
   if (m.type === 'youtube') return '<div class="vimeo-box"><iframe src="https://www.youtube.com/embed/' + m.id + '?rel=0" allow="autoplay; fullscreen" allowfullscreen></iframe></div>';
-  if (m.type === 'image')   return '<img src="' + m.src + '" alt="' + (title || '') + '">';
+  if (m.type === 'image')   return '<img src="' + (m.src || m.id || '') + '" alt="' + (title || '') + '">';
   return '';
 }
 
@@ -495,7 +488,6 @@ function buildDetailHTML(p) {
       var sEmbedHTML = s.embedUrl ? '<iframe src="' + s.embedUrl + '" style="width:100%;height:100vh;border:none;display:block;margin-top:10px;" allow="fullscreen"></iframe>' : '';
       var sSid = 'sec-' + si;
       var sSlidesHTML = (s.slides && s.slides.length) ? renderSlideshow(s.slides, sSid) : '';
-      // section slideshow init은 setTimeout으로 호출
       if (s.slides && s.slides.length) {
         setTimeout(function() { initSlideshowById(sSid, s.slides.length); }, 100);
       }
@@ -568,7 +560,10 @@ function showGrid(list, fromPop) {
 
 /* ── DETAIL 열기 ── */
 function openDetail(p, fromPop) {
-  if (p.password && !isProjectUnlocked(p.id)) { showPasswordModal(p); return; }
+  if (p.password && !isProjectUnlocked(p.id)) {
+    showPasswordModal(p);
+    return;
+  }
   openDetailDirectly(p, fromPop);
 }
 
@@ -576,16 +571,13 @@ function openDetailDirectly(p, fromPop) {
   if (!fromPop) history.pushState({ view: 'detail', id: p.id, cat: activeCat }, '');
 
   if (isMobile()) {
-    /* 모바일: bottom sheet */
     mbDetail.innerHTML = buildDetailHTML(p);
     if (p.slides && p.slides.length) {
       setTimeout(function() { initSlideshowById('main', p.slides.length); }, 100);
     }
-    /* sheet body 맨 위로 */
     sheetEl.querySelector('.sheet-body').scrollTop = 0;
     openSheet();
   } else {
-    /* 데스크탑: 기존 right panel */
     hideAll(); rDetail.classList.add('on');
     rDetail.innerHTML = buildDetailHTML(p);
     if (p.slides && p.slides.length) {
