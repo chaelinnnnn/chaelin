@@ -434,11 +434,11 @@
       "media": [
         {
           "type": "image",
-          "id": "pressto.jpg"
+          "src": "pressto.jpg"
         },
         {
           "type": "video",
-          "id": "pressto.mp4"
+          "src": "pressto.mp4"
         }
       ],
       "sections": [
