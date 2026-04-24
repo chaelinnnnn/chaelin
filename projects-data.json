@@ -414,6 +414,106 @@
       "media": []
     },
     {
+      "id": "Pressto",
+      "title": "Pressto",
+      "category": "artdirecting",
+      "meta": "Art directing, Brand identity",
+      "date": "April 2024",
+      "client": "Client: Pressto",
+      "type": "Art directing, Brand Identity",
+      "collaboration": "Team",
+      "password": "1234",
+      "description": {
+        "ko": "Junction ASIA 2024는 아시아 최대 규모의 해커톤으로, 대륙 전역의 개발자, 디자이너, 크리에이터가 모이는 행사입니다. 이벤트의 전반적인 아트 디렉션과 브랜드 아이덴티티를 담당했습니다.",
+        "en": "Junction ASIA 2024 is Asia's largest hackathon, bringing together developers, designers, and creators from across the continent. I worked on the overall art direction and brand identity for the event, crafting a visual language that captures the energy of innovation and collaboration."
+      },
+      "thumbnail": {
+        "type": "image",
+        "src": "pressto.jpg"
+      },
+      "media": [
+        {
+          "type": "video",
+          "id": "pressto.mp4"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Brand Concept",
+          "desc": "Junction ASIA 2024 is built around the idea of collision — where disciplines, cultures, and ideas collide to create something entirely new. The brand identity reflects this energy through bold geometry and dynamic tension between elements.",
+          "media": [
+            {
+              "type": "image",
+              "src": "junction_concept1.jpg"
+            },
+            {
+              "type": "image",
+              "src": "junction_concept2.jpg"
+            }
+          ]
+        },
+        {
+          "title": "Visual Identity",
+          "desc": "The visual system draws from the structure of a circuit — interconnected nodes forming a larger network. Typography and color are used to create a sense of momentum and scale across all touchpoints.",
+          "media": [
+            {
+              "type": "image",
+              "src": "junction_identity1.jpg"
+            },
+            {
+              "type": "image",
+              "src": "junction_identity2.jpg"
+            }
+          ]
+        },
+        {
+          "title": "Application",
+          "desc": "",
+          "media": [
+            {
+              "type": "image",
+              "src": "junction_mockup1.jpg"
+            },
+            {
+              "type": "image",
+              "src": "junction_mockup2.jpg"
+            },
+            {
+              "type": "image",
+              "src": "junction_mockup3.jpg"
+            },
+            {
+              "type": "image",
+              "src": "junction_mockup4.jpg"
+            }
+          ]
+        },
+        {
+          "title": "Motion",
+          "desc": "",
+          "media": [
+            {
+              "type": "video",
+              "src": "junction_motion.mp4"
+            }
+          ]
+        },
+        {
+          "title": "Design Guide",
+          "desc": "",
+          "slides": [
+            { "src": "junctionguide1.jpg" },
+            { "src": "junctionguide2.jpg" },
+            { "src": "junctionguide3.jpg" },
+            { "src": "junctionguide4.jpg" },
+            { "src": "junctionguide5.jpg" },
+            { "src": "junctionguide6.jpg" }
+          ],
+          "media": []
+        }
+      ]
+    },
+    {
       "id": "universe",
       "title": "Universe",
       "category": "Interaction",
