@@ -283,14 +283,13 @@ document.addEventListener('mousemove', function(e) {
   setTimeout(function() { s.remove(); }, 1000);
 });
 
-/* ── 세션마다 잠금 초기화 ── */
-// sessionStorage를 사용해 탭/브라우저를 닫으면 자동으로 잠금이 리셋됨
-// localStorage의 기존 잠금 해제 상태도 제거
-(function clearOldLocks() {
+/* ── 기존 잠금 해제 상태 전부 제거 ── */
+(function clearAllLocks() {
   Object.keys(localStorage).forEach(function(key) {
-    if (key.startsWith('project_') && key.endsWith('_unlocked')) {
-      localStorage.removeItem(key);
-    }
+    if (key.startsWith('project_') && key.endsWith('_unlocked')) localStorage.removeItem(key);
+  });
+  Object.keys(sessionStorage).forEach(function(key) {
+    if (key.startsWith('project_') && key.endsWith('_unlocked')) sessionStorage.removeItem(key);
   });
 })();
 
@@ -323,13 +322,9 @@ function isMobile() { return window.innerWidth <= 700; }
 function clearSlideshowTimer() { if (slideshowTimer) { clearInterval(slideshowTimer); slideshowTimer = null; } }
 function hideAll() { rGrid.classList.remove('on'); rDetail.classList.remove('on'); clearSlideshowTimer(); }
 
-/* sessionStorage 기반 잠금 관리 (탭 닫으면 리셋) */
-function isProjectUnlocked(id) {
-  return sessionStorage.getItem('project_' + id + '_unlocked') === 'true';
-}
-function unlockProject(id) {
-  sessionStorage.setItem('project_' + id + '_unlocked', 'true');
-}
+/* 항상 잠금 — 비밀번호 제거 전까지 무조건 잠김 */
+function isProjectUnlocked(id) { return false; }
+function unlockProject(id) {}
 
 /* ── 모바일 SHEET ── */
 function openSheet() {
