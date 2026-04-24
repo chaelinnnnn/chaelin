@@ -428,16 +428,16 @@
         "en": "Junction ASIA 2024 is Asia's largest hackathon, bringing together developers, designers, and creators from across the continent. I worked on the overall art direction and brand identity for the event, crafting a visual language that captures the energy of innovation and collaboration."
       },
       "thumbnail": {
-        "type": "image",
+        "type": "video",
         "src": "presstologo.mp4"
       },
       "media": [
         {
-          "type": "video",
+          "type": "image",
           "id": "pressto.jpg"
         },
         {
-          "type": "image",
+          "type": "video",
           "id": "pressto.mp4"
         }
       ],
