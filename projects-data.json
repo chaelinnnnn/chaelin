@@ -477,7 +477,7 @@
           "desc": "",
           "media": [
             {
-              "type": "image",
+              "type": "video",
               "src": "presstoapplication1.mp4"
             },
             {
@@ -485,7 +485,7 @@
               "src": "presstoapplication1.jpg"
             },
             {
-              "type": "image",
+              "type": "video",
               "src": "presstoapplication2.mp4"
             },
             {
