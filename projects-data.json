@@ -72,16 +72,16 @@
               "src": "presstoapplication2.mp4"
             },
             {
-              "type": "image",
-              "src": "presstoposter.jpg"
-            },
-            {
-              "type": "image",
-              "src": "presstoapplication1.jpg"
+              "type": "video",
+              "src": "presstoposter.mp4"
             },
             {
               "type": "image",
               "src": "presstoapplication2.jpg"
+            },
+            {
+              "type": "image",
+              "src": "presstoapplication1.jpg"
             },
             {
               "type": "image",
