@@ -1,4 +1,6 @@
 {
+  "projects": [
+    {
       "id": "Pressto",
       "title": "Pressto",
       "category": "artdirecting",
@@ -27,10 +29,10 @@
           "title": "Brand Concept",
           "desc": "Pressto is a web magazine built on speed and connection, with a name and logo rooted in press culture and the @ symbol.",
           "media": [
-             {
-          "type": "video",
-          "src": "pressto.mp4"
-              }
+            {
+              "type": "video",
+              "src": "pressto.mp4"
+            }
           ]
         },
         {
@@ -85,8 +87,6 @@
         }
       ]
     },
-{
-  "projects": [
     {
       "id": "sarr-display-design-graphic",
       "title": "Sarr Display Design & Graphic",
@@ -419,8 +419,7 @@
         "type": "video",
         "src": "ufo.mp4"
       },
-      "media": [
-      ],
+      "media": [],
       "sections": [
         {
           "title": "Type 1: Antenna",
