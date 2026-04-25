@@ -450,20 +450,20 @@
         },
         {
           "title": "Logo",
-          "desc": "The visual system draws from the structure of a circuit — interconnected nodes forming a larger network. Typography and color are used to create a sense of momentum and scale across all touchpoints.",
+          "desc": "",
           "media": [
             {
               "type": "video",
               "src": "presstologo3.mp4"
             },
             {
-              "type": "image",
+              "type": "video",
               "src": "presstologo2.mp4"
             }
           ]
         },
         {
-          "title": "color",
+          "title": "Color",
           "desc": "",
           "media": [
             {
