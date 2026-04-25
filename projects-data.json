@@ -440,7 +440,7 @@
       "sections": [
         {
           "title": "Brand Concept",
-          "desc": "Pressto is a web magazine whose name merges presto (meaning very fast) with press, a nod to print and publishing. The logo draws its form from the @ symbol, universally recognized in email addresses and reinterpreted as a visual motif. Embedded in this shape is Pressto's core value: the commitment to connect anything, and anyone, instantly.",
+          "desc": "Pressto is a web magazine built on speed and connection, with a name and logo rooted in press culture and the @ symbol.",
           "media": [
              {
           "type": "video",
@@ -497,19 +497,6 @@
               "src": "presstoapplication3.jpg"
             }
           ]
-        },
-        {
-          "title": "Design Guide",
-          "desc": "",
-          "slides": [
-            { "src": "junctionguide1.jpg" },
-            { "src": "junctionguide2.jpg" },
-            { "src": "junctionguide3.jpg" },
-            { "src": "junctionguide4.jpg" },
-            { "src": "junctionguide5.jpg" },
-            { "src": "junctionguide6.jpg" }
-          ],
-          "media": []
         }
       ]
     },
