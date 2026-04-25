@@ -1,4 +1,91 @@
 {
+      "id": "Pressto",
+      "title": "Pressto",
+      "category": "artdirecting",
+      "meta": "Art directing, Brand identity",
+      "date": "November 2024",
+      "client": "Client: Pressto",
+      "type": "Art directing, Brand Identity",
+      "collaboration": "Team",
+      "password": "1234",
+      "description": {
+        "ko": "",
+        "en": "Pressto is a London-based web magazine delivering Korean news and stories from around the world, fast. The name merges presto (meaning very fast) with press, a nod to print and publishing. The logo draws its form from the @ symbol, universally recognized in email addresses and reinterpreted as a visual motif. Embedded in this shape is Pressto's core value: the commitment to connect anything, and anyone, instantly."
+      },
+      "thumbnail": {
+        "type": "video",
+        "src": "presstologo.mp4"
+      },
+      "media": [
+        {
+          "type": "image",
+          "src": "pressto.jpg"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Brand Concept",
+          "desc": "Pressto is a web magazine built on speed and connection, with a name and logo rooted in press culture and the @ symbol.",
+          "media": [
+             {
+          "type": "video",
+          "src": "pressto.mp4"
+              }
+          ]
+        },
+        {
+          "title": "Logo",
+          "desc": "",
+          "media": [
+            {
+              "type": "video",
+              "src": "presstologo3.mp4"
+            },
+            {
+              "type": "video",
+              "src": "presstologo2.mp4"
+            }
+          ]
+        },
+        {
+          "title": "Color",
+          "desc": "",
+          "media": [
+            {
+              "type": "image",
+              "src": "presstocolor.jpg"
+            }
+          ]
+        },
+        {
+          "title": "Application",
+          "desc": "",
+          "media": [
+            {
+              "type": "video",
+              "src": "presstoapplication1.mp4"
+            },
+            {
+              "type": "image",
+              "src": "presstoapplication1.jpg"
+            },
+            {
+              "type": "video",
+              "src": "presstoapplication2.mp4"
+            },
+            {
+              "type": "image",
+              "src": "presstoapplication2.jpg"
+            },
+            {
+              "type": "image",
+              "src": "presstoapplication3.jpg"
+            }
+          ]
+        }
+      ]
+    },
+{
   "projects": [
     {
       "id": "sarr-display-design-graphic",
@@ -412,93 +499,6 @@
         "src": "map.jpg"
       },
       "media": []
-    },
-    {
-      "id": "Pressto",
-      "title": "Pressto",
-      "category": "artdirecting",
-      "meta": "Art directing, Brand identity",
-      "date": "November 2024",
-      "client": "Client: Pressto",
-      "type": "Art directing, Brand Identity",
-      "collaboration": "Team",
-      "password": "1234",
-      "description": {
-        "ko": "",
-        "en": "Pressto is a London-based web magazine delivering Korean news and stories from around the world, fast. The name merges presto (meaning very fast) with press, a nod to print and publishing. The logo draws its form from the @ symbol, universally recognized in email addresses and reinterpreted as a visual motif. Embedded in this shape is Pressto's core value: the commitment to connect anything, and anyone, instantly."
-      },
-      "thumbnail": {
-        "type": "video",
-        "src": "presstologo.mp4"
-      },
-      "media": [
-        {
-          "type": "image",
-          "src": "pressto.jpg"
-        }
-      ],
-      "sections": [
-        {
-          "title": "Brand Concept",
-          "desc": "Pressto is a web magazine built on speed and connection, with a name and logo rooted in press culture and the @ symbol.",
-          "media": [
-             {
-          "type": "video",
-          "src": "pressto.mp4"
-              }
-          ]
-        },
-        {
-          "title": "Logo",
-          "desc": "",
-          "media": [
-            {
-              "type": "video",
-              "src": "presstologo3.mp4"
-            },
-            {
-              "type": "video",
-              "src": "presstologo2.mp4"
-            }
-          ]
-        },
-        {
-          "title": "Color",
-          "desc": "",
-          "media": [
-            {
-              "type": "image",
-              "src": "presstocolor.jpg"
-            }
-          ]
-        },
-        {
-          "title": "Application",
-          "desc": "",
-          "media": [
-            {
-              "type": "video",
-              "src": "presstoapplication1.mp4"
-            },
-            {
-              "type": "image",
-              "src": "presstoapplication1.jpg"
-            },
-            {
-              "type": "video",
-              "src": "presstoapplication2.mp4"
-            },
-            {
-              "type": "image",
-              "src": "presstoapplication2.jpg"
-            },
-            {
-              "type": "image",
-              "src": "presstoapplication3.jpg"
-            }
-          ]
-        }
-      ]
     },
     {
       "id": "universe",
