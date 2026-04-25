@@ -72,7 +72,12 @@
     .gallery video { background: #000; }
     .vimeo-box { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; }
     .vimeo-box iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
-    .embed-box { width: 100%; height: 80vh; border: none; display: block; }
+
+    /* ── EMBED BOX (수정됨) ── */
+    .embed-box { width: 100%; height: 85vh; min-height: 640px; border: none; display: block; }
+
+    /* ── SECTION EMBED (수정됨) ── */
+    .section-embed { width: 100%; height: 85vh; min-height: 640px; border: none; display: block; margin-top: 10px; }
 
     /* ── SLIDESHOW ── */
     .slideshow { margin: 10px 0; position: relative; width: 100%; background: #000; display: flex; align-items: center; justify-content: center; padding: 40px 80px; }
@@ -197,7 +202,9 @@
       .sheet-body .slideshow { padding: 24px 52px; }
       .sheet-body .vimeo-box { margin: 0; }
       .sheet-body .thumb-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
-      .sheet-body .embed-box { height: 60vh; }
+      /* 모바일 embed 높이 (수정됨) */
+      .sheet-body .embed-box { height: 70vh; min-height: 500px; }
+      .sheet-body .section-embed { height: 70vh; min-height: 500px; }
     }
 
     @media (min-width: 701px) {
@@ -322,7 +329,7 @@ function isMobile() { return window.innerWidth <= 700; }
 function clearSlideshowTimer() { if (slideshowTimer) { clearInterval(slideshowTimer); slideshowTimer = null; } }
 function hideAll() { rGrid.classList.remove('on'); rDetail.classList.remove('on'); clearSlideshowTimer(); }
 
-/* 항상 잠금 — 비밀번호 제거 전까지 무조건 잠김 */
+/* 항상 잠금 */
 function isProjectUnlocked(id) { return false; }
 function unlockProject(id) {}
 
@@ -480,7 +487,8 @@ function buildDetailHTML(p) {
   if (p.sections && p.sections.length) {
     sectionsHTML = '<div class="d-sections">' + p.sections.map(function(s, si) {
       var sMediaHTML = (s.media || []).map(function(m) { return renderMediaItem(m, s.title); }).join('');
-      var sEmbedHTML = s.embedUrl ? '<iframe src="' + s.embedUrl + '" style="width:100%;height:100vh;border:none;display:block;margin-top:10px;" allow="fullscreen"></iframe>' : '';
+      /* ↓↓↓ 핵심 수정: section-embed 클래스 사용 ↓↓↓ */
+      var sEmbedHTML = s.embedUrl ? '<iframe class="section-embed" src="' + s.embedUrl + '" allow="fullscreen"></iframe>' : '';
       var sSid = 'sec-' + si;
       var sSlidesHTML = (s.slides && s.slides.length) ? renderSlideshow(s.slides, sSid) : '';
       if (s.slides && s.slides.length) {
