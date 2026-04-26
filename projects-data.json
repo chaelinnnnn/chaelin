@@ -318,8 +318,8 @@
           "desc": "Tymora Glasses analyze the user's voice in real time and use an integrated camera to perceive the surrounding environment, helping enhance and enrich the user's daily life.",
           "media": [
             {
-              "type": "image",
-              "src": "tymoraglass.jpg"
+              "type": "video",
+              "src": "tymoraglass2.mp4"
             }
           ]
         },
@@ -378,16 +378,6 @@
             {
               "type": "image",
               "src": "timetool4.jpg"
-            }
-          ]
-        },
-        {
-          "title": "Effortless Charging",
-          "desc": "Charging system simplifies and sanitizes eyeglass maintenance, allowing users to easily charge their glasses by placing them on a wireless charging pad or by storing them in a stand-type storage case.",
-          "media": [
-            {
-              "type": "image",
-              "src": "tymoracharging.jpg"
             }
           ]
         },
