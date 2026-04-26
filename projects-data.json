@@ -288,22 +288,12 @@
           ]
         },
         {
-          "title": "Visual motif",
+          "title": "Visual Identity & Motif",
           "desc": "Each individual moment resonates with others to create a flow, and that flow expands into a continuous orbit of time. Within this cycle, we exist as points, yet at the same time, we shape the flow and continuity of time itself.",
           "media": [
             {
-              "type": "image",
-              "src": "tymoramotif.jpg"
-            }
-          ]
-        },
-        {
-          "title": "Visual Identity",
-          "desc": "",
-          "media": [
-            {
               "type": "video",
-              "src": "tymoraidentity.mp4"
+              "src": "tymoramotif.mp4"
             }
           ]
         },
