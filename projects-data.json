@@ -90,8 +90,8 @@
         }
       ]
     },
-        {
-      "id": "junction-asia-2024",
+    {
+      "id": "Junction-asia-2024",
       "title": "Junction ASIA 2024",
       "category": "artdirecting",
       "meta": "Art directing, Brand identity",
@@ -121,26 +121,28 @@
           "media": [
             {
               "type": "image",
-              "src": "junction_concept1.jpg"
-            },
-            {
-              "type": "image",
-              "src": "junction_concept2.jpg"
+              "src": "junctionmotif.jpg"
             }
           ]
         },
         {
-          "title": "Visual Identity",
-          "desc": "The visual system draws from the structure of a circuit — interconnected nodes forming a larger network. Typography and color are used to create a sense of momentum and scale across all touchpoints.",
+          "title": "Color & Logo",
+          "desc": "To emphasize the synergy created through connections between participants in Gyeongju and the transformation into a new reality, variable fonts are applied to key words. Colors are extracted from Korea's five traditional colors (Obangsaek), with a modern sensibility added to the main palette. Green and blue, symbolizing harmony, are inspired by chroma key technology, colors that connect to a world beyond reality and a metaphor for the hackathon as a force that drives real change.",
           "media": [
             {
-              "type": "image",
-              "src": "junction_identity1.jpg"
+              "type": "video",
+              "src": "junctioncolor.mp4"
             },
+          ]
+        },
+        {
+          "title": "Visual Identity",
+          "desc": "",
+          "media": [
             {
-              "type": "image",
-              "src": "junction_identity2.jpg"
-            }
+              "type": "video",
+              "src": "junctionidentity.mp4"
+            },
           ]
         },
         {
@@ -149,44 +151,45 @@
           "media": [
             {
               "type": "image",
-              "src": "junction_mockup1.jpg"
+              "src": "junctionapplication1.jpg"
             },
-            {
-              "type": "image",
-              "src": "junction_mockup2.jpg"
-            },
-            {
-              "type": "image",
-              "src": "junction_mockup3.jpg"
-            },
-            {
-              "type": "image",
-              "src": "junction_mockup4.jpg"
-            }
-          ]
-        },
-        {
-          "title": "Motion",
-          "desc": "",
-          "media": [
             {
               "type": "video",
-              "src": "junction_motion.mp4"
-            }
+              "src": "junctionapplication1.mp4"
+            },
+            {
+              "type": "image",
+              "src": "junctionapplication2.jpg"
+            },
+            {
+              "type": "video",
+              "src": "junctionapplication2.mp4"
+            },
+            {
+              "type": "image",
+              "src": "junctionapplication3.jpg"
+            },
+            {
+              "type": "image",
+              "src": "junctionapplication4.jpg"
+            },
+             {
+              "type": "image",
+              "src": "junctionapplication5.jpg"
+            },
+            {
+              "type": "video",
+              "src": "junctionapplication3.mp4"
+            },
+            {
+              "type": "video",
+              "src": "junctionapplication4.mp4"
+            },
+            {
+              "type": "image",
+              "src": "junctionapplication6.jpg"
+            },
           ]
-        },
-        {
-          "title": "Design Guide",
-          "desc": "",
-          "slides": [
-            { "src": "junctionguide1.jpg" },
-            { "src": "junctionguide2.jpg" },
-            { "src": "junctionguide3.jpg" },
-            { "src": "junctionguide4.jpg" },
-            { "src": "junctionguide5.jpg" },
-            { "src": "junctionguide6.jpg" }
-          ],
-          "media": []
         }
       ]
     },
