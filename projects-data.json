@@ -132,7 +132,7 @@
             {
               "type": "video",
               "src": "junctioncolor.mp4"
-            },
+            }
           ]
         },
         {
@@ -142,7 +142,7 @@
             {
               "type": "video",
               "src": "junctionidentity.mp4"
-            },
+            }
           ]
         },
         {
@@ -173,7 +173,7 @@
               "type": "image",
               "src": "junctionapplication4.jpg"
             },
-             {
+            {
               "type": "image",
               "src": "junctionapplication5.jpg"
             },
@@ -188,7 +188,7 @@
             {
               "type": "image",
               "src": "junctionapplication6.jpg"
-            },
+            }
           ]
         }
       ]
@@ -327,25 +327,25 @@
           ]
         },
         {
-        "title": "Time tool kit",
-        "desc": "Time Toolkit is not just a tool for gaining more time. Time Toolkit is not just a tool for gaining more time. It's a toolkit designed to customize features around the purpose and meaning of each time unit you choose, helping you achieve your goals in everyday life and transform time into your most valuable experiences.",
-        "media": [
-          {
-        "type": "video",
-        "src": "tymoratimekit.mp4"
-          }
-        ]
+          "title": "Time tool kit",
+          "desc": "Time Toolkit is not just a tool for gaining more time. Time Toolkit is not just a tool for gaining more time. It's a toolkit designed to customize features around the purpose and meaning of each time unit you choose, helping you achieve your goals in everyday life and transform time into your most valuable experiences.",
+          "media": [
+            {
+              "type": "video",
+              "src": "tymoratimekit.mp4"
+            }
+          ]
         },
         {
-      "title": "How to use Tymora?",
-      "desc": "Using Tymora is simple. Start by wearing your glasses to assess your current situation and needs, then purchase the time that fits them. The time you secure goes beyond mere leisure, becoming a carefully crafted experience tailored to your purpose and circumstances.",
-      "media": [
-       {
-      "type": "image",
-      "src": "tymorahow.jpg"
-    }
-  ]
-},
+          "title": "How to use Tymora?",
+          "desc": "Using Tymora is simple. Start by wearing your glasses to assess your current situation and needs, then purchase the time that fits them. The time you secure goes beyond mere leisure, becoming a carefully crafted experience tailored to your purpose and circumstances.",
+          "media": [
+            {
+              "type": "image",
+              "src": "tymorahow.jpg"
+            }
+          ]
+        },
         {
           "title": "User Scenario",
           "desc": "Tymora's Timekit guides users through four stages — selecting, activating, experiencing, and reflecting on time — allowing them to intentionally expand and deepen their moments. By using the time kit, users can visually observe the impact of added time, gaining a new awareness of how they shape and live their time.",
