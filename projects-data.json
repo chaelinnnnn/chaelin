@@ -116,18 +116,18 @@
       ],
       "sections": [
         {
-          "title": "Brand Concept",
+          "title": "Visual motif",
           "desc": "Junction ASIA 2024 is built around the idea of collision — where disciplines, cultures, and ideas collide to create something entirely new. The brand identity reflects this energy through bold geometry and dynamic tension between elements.",
           "media": [
             {
-              "type": "image",
-              "src": "junctionmotif.jpg"
+              "type": "video",
+              "src": "junctionmotif.mp4"
             }
           ]
         },
         {
           "title": "Color & Logo",
-          "desc": "To emphasize the synergy created through connections between participants in Gyeongju and the transformation into a new reality, variable fonts are applied to key words. Colors are extracted from Korea's five traditional colors (Obangsaek), with a modern sensibility added to the main palette. Green and blue, symbolizing harmony, are inspired by chroma key technology, colors that connect to a world beyond reality and a metaphor for the hackathon as a force that drives real change.",
+          "desc": "Inspired by chroma key green screen and blue screen technology, these are colors used to create special effects beyond reality. Yellow, representing the center of Obangsaek, is added to express the energy and creative vitality of the hackathon. To emphasize the synergy created through connections between participants in Gyeongju and the transformation into a new reality, variable fonts are applied to key words.",
           "media": [
             {
               "type": "video",
