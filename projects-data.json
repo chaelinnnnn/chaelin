@@ -504,8 +504,8 @@
         "en": "This project visualizes UFO sighting data across 10 U.S. states as an interactive web artwork, alongside the branding work created to present it. Using mouse controls, you can freely explore each antenna or compare all states side by side, experiencing the UFO phenomenon through an artistic lens."
       },
       "thumbnail": {
-        "type": "video",
-        "src": "ufo.mp4"
+        "type": "image",
+        "src": "ufo.jpg"
       },
       "media": [],
       "sections": [
