@@ -184,6 +184,101 @@
         }
       ]
     },
+        {
+      "id": "Depromeet 14th",
+      "title": "Depromeet 14th",
+      "category": "artdirecting",
+      "meta": "Art directing, Brand identity",
+      "date": "October 2023",
+      "client": "Client: Depromeet",
+      "type": "Art directing, Brand Identity",
+      "password: "1234",    
+      "collaboration": "Team",
+      "description": {
+        "ko": "",
+        "en": ""
+      },
+      "thumbnail": {
+        "type": "image",
+        "src": "junction.jpg"
+      },
+      "media": [
+        {
+          "type": "image",
+          "id": "junction.jpg"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Visual motif",
+          "desc": "In Gyeongju's philosophy, the octagon symbolizes the human being who brings harmony between heaven and earth, representing individual growth and social harmony. The encounters in Gyeongju carry the meaning that the synergy of participants comes together to drive new change.",
+          "media": [
+            {
+              "type": "video",
+              "src": "junctionmotif.mp4"
+            }
+          ]
+        },
+        {
+          "title": "Color & Logo",
+          "desc": "Inspired by chroma key green screen and blue screen technology, these are colors used to create special effects beyond reality. Yellow, representing the center of Obangsaek, is added to express the energy and creative vitality of the hackathon. To emphasize the synergy created through connections between participants in Gyeongju and the transformation into a new reality, variable fonts are applied to key words.",
+          "media": [
+            {
+              "type": "video",
+              "src": "junctioncolor.mp4"
+            }
+          ]
+        },
+        {
+          "title": "Visual Identity",
+          "desc": "",
+          "media": [
+            {
+              "type": "video",
+              "src": "junctionidentity.mp4"
+            }
+          ]
+        },
+        {
+          "title": "Application",
+          "desc": "",
+          "media": [
+            {
+              "type": "image",
+              "src": "junctionapplication1.jpg"
+            },
+            {
+              "type": "image",
+              "src": "junctionapplication2.jpg"
+            },
+            {
+              "type": "video",
+              "src": "junctionapplication2.mp4"
+            },
+            {
+              "type": "image",
+              "src": "junctionapplication3.jpg"
+            },
+            {
+              "type": "image",
+              "src": "junctionapplication4.jpg"
+            },
+            {
+              "type": "image",
+              "src": "junctionapplication5.jpg"
+            },
+            {
+              "type": "video",
+              "src": "junctionapplication4.mp4"
+            },
+            {
+              "type": "image",
+              "src": "junctionapplication6.jpg"
+            }
+          ]
+        }
+      ]
+    },
     {
       "id": "sarr-display-design-graphic",
       "title": "Sarr Display Design & Graphic",
