@@ -124,10 +124,10 @@
     .exp-card { break-inside: avoid; margin-bottom: 10px; display: block; cursor: url("cursor-hand.png") 16 16, pointer !important; position: relative; overflow: hidden; }
     .exp-card * { cursor: inherit !important; }
     .exp-card img, .exp-card video { width: 100%; display: block; }
-    .exp-card-info { position: absolute; bottom: 0; left: 0; right: 0; padding: 12px 14px; background: linear-gradient(transparent, rgba(0,0,0,0.5)); opacity: 0; transition: opacity 0.2s; }
-    .exp-card:hover .exp-card-info { opacity: 1; }
-    .exp-card-title { font-size: 13px; font-weight: 600; color: #fff; }
-    .exp-card-type { font-size: 11px; color: rgba(255,255,255,0.7); }
+    .exp-card-info { padding: 8px 0 4px; }
+    .exp-card-title { font-size: 13px; font-weight: 600; color: #000; margin-bottom: 2px; transition: color 0.15s; }
+    .exp-card:hover .exp-card-title { color: var(--pink); }
+    .exp-card-type { font-size: 11px; color: var(--gray); }
     .exp-card.size-small .exp-thumb { aspect-ratio: 3/2; overflow: hidden; }
     .exp-card.size-medium .exp-thumb { aspect-ratio: 1/1; overflow: hidden; }
     .exp-card.size-large .exp-thumb { aspect-ratio: 2/3; overflow: hidden; }
