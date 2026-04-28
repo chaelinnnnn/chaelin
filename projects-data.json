@@ -13,13 +13,81 @@
         "ko": "",
         "en": "Pressto is a London-based web magazine delivering Korean news and stories from around the world, fast. The name merges presto (meaning very fast) with press, a nod to print and publishing. The logo draws its form from the @ symbol, universally recognized in email addresses and reinterpreted as a visual motif. Embedded in this shape is Pressto's core value: the commitment to connect anything, and anyone, instantly."
       },
-      "thumbnail": { "type": "video", "src": "pressto.mp4" },
-      "media": [{ "type": "image", "src": "pressto.jpg" }],
+      "thumbnail": {
+        "type": "video",
+        "src": "pressto.mp4"
+      },
+      "media": [
+        {
+          "type": "image",
+          "src": "pressto.jpg"
+        }
+      ],
       "sections": [
-        { "title": "Brand Concept", "desc": "Pressto is a web magazine built on speed and connection, with a name and logo rooted in press culture and the @ symbol.", "media": [{ "type": "video", "src": "pressto.mp4" }] },
-        { "title": "Logo", "desc": "", "media": [{ "type": "video", "src": "presstologo3.mp4" }, { "type": "video", "src": "presstologo2.mp4" }] },
-        { "title": "Color", "desc": "True Black and Clear White serve as the primary colors; all other colors may be applied to content in accordance with the guidelines.", "media": [{ "type": "image", "src": "presstocolor.jpg" }] },
-        { "title": "Application", "desc": "", "media": [{ "type": "video", "src": "presstoapplication1.mp4" }, { "type": "video", "src": "presstoapplication2.mp4" }, { "type": "video", "src": "presstoposter.mp4" }, { "type": "image", "src": "presstoapplication2.jpg" }, { "type": "image", "src": "presstoapplication1.jpg" }, { "type": "image", "src": "presstoapplication3.jpg" }] }
+        {
+          "title": "Brand Concept",
+          "desc": "Pressto is a web magazine built on speed and connection, with a name and logo rooted in press culture and the @ symbol.",
+          "media": [
+            {
+              "type": "video",
+              "src": "pressto.mp4"
+            }
+          ]
+        },
+        {
+          "title": "Logo",
+          "desc": "",
+          "media": [
+            {
+              "type": "video",
+              "src": "presstologo3.mp4"
+            },
+            {
+              "type": "video",
+              "src": "presstologo2.mp4"
+            }
+          ]
+        },
+        {
+          "title": "Color",
+          "desc": "True Black and Clear White serve as the primary colors; all other colors may be applied to content in accordance with the guidelines.",
+          "media": [
+            {
+              "type": "image",
+              "src": "presstocolor.jpg"
+            }
+          ]
+        },
+        {
+          "title": "Application",
+          "desc": "",
+          "media": [
+            {
+              "type": "video",
+              "src": "presstoapplication1.mp4"
+            },
+            {
+              "type": "video",
+              "src": "presstoapplication2.mp4"
+            },
+            {
+              "type": "video",
+              "src": "presstoposter.mp4"
+            },
+            {
+              "type": "image",
+              "src": "presstoapplication2.jpg"
+            },
+            {
+              "type": "image",
+              "src": "presstoapplication1.jpg"
+            },
+            {
+              "type": "image",
+              "src": "presstoapplication3.jpg"
+            }
+          ]
+        }
       ]
     },
     {
@@ -35,13 +103,85 @@
         "ko": "Junction ASIA 2024는 아시아 최대 규모의 해커톤으로, 대륙 전역의 개발자, 디자이너, 크리에이터가 모이는 행사입니다. 이벤트의 전반적인 아트 디렉션과 브랜드 아이덴티티를 담당했습니다.",
         "en": "Junction ASIA 2024 is Asia's largest hackathon, bringing together developers, designers, and creators from across the continent. I worked on the overall art direction and brand identity for the event, crafting a visual language that captures the energy of innovation and collaboration."
       },
-      "thumbnail": { "type": "image", "src": "junction.jpg" },
-      "media": [{ "type": "youtube", "id": "YyeM4ykfjoQ" }],
+      "thumbnail": {
+        "type": "image",
+        "src": "junction.jpg"
+      },
+      "media": [
+        {
+          "type": "youtube",
+          "id": "YyeM4ykfjoQ"
+        }
+      ],
       "sections": [
-        { "title": "Visual motif", "desc": "In Gyeongju's philosophy, the octagon symbolizes the human being who brings harmony between heaven and earth, representing individual growth and social harmony. The encounters in Gyeongju carry the meaning that the synergy of participants comes together to drive new change.", "media": [{ "type": "video", "src": "junctionmotif.mp4" }] },
-        { "title": "Color & Logo", "desc": "Inspired by chroma key green screen and blue screen technology, these are colors used to create special effects beyond reality. Yellow, representing the center of Obangsaek, is added to express the energy and creative vitality of the hackathon. To emphasize the synergy created through connections between participants in Gyeongju and the transformation into a new reality, variable fonts are applied to key words.", "media": [{ "type": "video", "src": "junctioncolor.mp4" }] },
-        { "title": "Visual Identity", "desc": "", "media": [{ "type": "video", "src": "junctionidentity.mp4" }] },
-        { "title": "Application", "desc": "", "media": [{ "type": "image", "src": "junctionapplication1.jpg" }, { "type": "image", "src": "junctionapplication2.jpg" }, { "type": "video", "src": "junctionapplication2.mp4" }, { "type": "image", "src": "junctionapplication3.jpg" }, { "type": "image", "src": "junctionapplication4.jpg" }, { "type": "image", "src": "junctionapplication5.jpg" }, { "type": "video", "src": "junctionapplication4.mp4" }, { "type": "image", "src": "junctionapplication6.jpg" }] }
+        {
+          "title": "Visual motif",
+          "desc": "In Gyeongju's philosophy, the octagon symbolizes the human being who brings harmony between heaven and earth, representing individual growth and social harmony. The encounters in Gyeongju carry the meaning that the synergy of participants comes together to drive new change.",
+          "media": [
+            {
+              "type": "video",
+              "src": "junctionmotif.mp4"
+            }
+          ]
+        },
+        {
+          "title": "Color & Logo",
+          "desc": "Inspired by chroma key green screen and blue screen technology, these are colors used to create special effects beyond reality. Yellow, representing the center of Obangsaek, is added to express the energy and creative vitality of the hackathon. To emphasize the synergy created through connections between participants in Gyeongju and the transformation into a new reality, variable fonts are applied to key words.",
+          "media": [
+            {
+              "type": "video",
+              "src": "junctioncolor.mp4"
+            }
+          ]
+        },
+        {
+          "title": "Visual Identity",
+          "desc": "",
+          "media": [
+            {
+              "type": "video",
+              "src": "junctionidentity.mp4"
+            }
+          ]
+        },
+        {
+          "title": "Application",
+          "desc": "",
+          "media": [
+            {
+              "type": "image",
+              "src": "junctionapplication1.jpg"
+            },
+            {
+              "type": "image",
+              "src": "junctionapplication2.jpg"
+            },
+            {
+              "type": "video",
+              "src": "junctionapplication2.mp4"
+            },
+            {
+              "type": "image",
+              "src": "junctionapplication3.jpg"
+            },
+            {
+              "type": "image",
+              "src": "junctionapplication4.jpg"
+            },
+            {
+              "type": "image",
+              "src": "junctionapplication5.jpg"
+            },
+            {
+              "type": "video",
+              "src": "junctionapplication4.mp4"
+            },
+            {
+              "type": "image",
+              "src": "junctionapplication6.jpg"
+            }
+          ]
+        }
       ]
     },
     {
@@ -57,14 +197,87 @@
         "ko": "",
         "en": ""
       },
-      "thumbnail": { "type": "image", "src": "junction.jpg" },
-      "media": [{ "type": "image", "src": "junction.jpg" }],
+      "thumbnail": {
+        "type": "image",
+        "src": "junction.jpg"
+      },
+      "media": [
+        {
+          "type": "image",
+          "src": "junction.jpg"
+        }
+      ],
       "sections": [
-        { "title": "Visual motif", "desc": "In Gyeongju's philosophy, the octagon symbolizes the human being who brings harmony between heaven and earth, representing individual growth and social harmony. The encounters in Gyeongju carry the meaning that the synergy of participants comes together to drive new change.", "media": [{ "type": "video", "src": "junctionmotif.mp4" }] },
-        { "title": "Color & Logo", "desc": "Inspired by chroma key green screen and blue screen technology, these are colors used to create special effects beyond reality. Yellow, representing the center of Obangsaek, is added to express the energy and creative vitality of the hackathon. To emphasize the synergy created through connections between participants in Gyeongju and the transformation into a new reality, variable fonts are applied to key words.", "media": [{ "type": "video", "src": "junctioncolor.mp4" }] },
-        { "title": "Visual Identity", "desc": "", "media": [{ "type": "video", "src": "junctionidentity.mp4" }] },
-        { "title": "Application", "desc": "", "media": [{ "type": "image", "src": "junctionapplication1.jpg" }, { "type": "image", "src": "junctionapplication2.jpg" }, { "type": "video", "src": "junctionapplication2.mp4" }, { "type": "image", "src": "junctionapplication3.jpg" }, { "type": "image", "src": "junctionapplication4.jpg" }, { "type": "image", "src": "junctionapplication5.jpg" }, { "type": "video", "src": "junctionapplication4.mp4" }, { "type": "image", "src": "junctionapplication6.jpg" }] }
-      ]
+        {
+          "title": "Visual motif",
+          "desc": "In Gyeongju's philosophy, the octagon symbolizes the human being who brings harmony between heaven and earth, representing individual growth and social harmony. The encounters in Gyeongju carry the meaning that the synergy of participants comes together to drive new change.",
+          "media": [
+            {
+              "type": "video",
+              "src": "junctionmotif.mp4"
+            }
+          ]
+        },
+        {
+          "title": "Color & Logo",
+          "desc": "Inspired by chroma key green screen and blue screen technology, these are colors used to create special effects beyond reality. Yellow, representing the center of Obangsaek, is added to express the energy and creative vitality of the hackathon. To emphasize the synergy created through connections between participants in Gyeongju and the transformation into a new reality, variable fonts are applied to key words.",
+          "media": [
+            {
+              "type": "video",
+              "src": "junctioncolor.mp4"
+            }
+          ]
+        },
+        {
+          "title": "Visual Identity",
+          "desc": "",
+          "media": [
+            {
+              "type": "video",
+              "src": "junctionidentity.mp4"
+            }
+          ]
+        },
+        {
+          "title": "Application",
+          "desc": "",
+          "media": [
+            {
+              "type": "image",
+              "src": "junctionapplication1.jpg"
+            },
+            {
+              "type": "image",
+              "src": "junctionapplication2.jpg"
+            },
+            {
+              "type": "video",
+              "src": "junctionapplication2.mp4"
+            },
+            {
+              "type": "image",
+              "src": "junctionapplication3.jpg"
+            },
+            {
+              "type": "image",
+              "src": "junctionapplication4.jpg"
+            },
+            {
+              "type": "image",
+              "src": "junctionapplication5.jpg"
+            },
+            {
+              "type": "video",
+              "src": "junctionapplication4.mp4"
+            },
+            {
+              "type": "image",
+              "src": "junctionapplication6.jpg"
+            }
+          ]
+        }
+      ],
+      "password": "1234"
     },
     {
       "id": "sarr-display-design-graphic",
@@ -79,8 +292,20 @@
         "ko": "Sarr의 계절 메뉴 포스터 디자인으로, 타이포그래피와 시각적 아이덴티티를 그래픽 디자인을 통해 탐구합니다.",
         "en": "Various types of posters were created in alignment with the Sarr brand identity concept. While maintaining the brand's soft and emotional tone, the focus was on harmonizing diverse messages and content into a cohesive and consistent visual language."
       },
-      "thumbnail": { "type": "video", "src": "sarrposter.mp4" },
-      "media": [{ "type": "video", "src": "sarrposter.mp4" }, { "type": "image", "src": "sarrposter1.jpg" }]
+      "thumbnail": {
+        "type": "video",
+        "src": "sarrposter.mp4"
+      },
+      "media": [
+        {
+          "type": "video",
+          "src": "sarrposter.mp4"
+        },
+        {
+          "type": "image",
+          "src": "sarrposter1.jpg"
+        }
+      ]
     },
     {
       "id": "tymora",
@@ -95,21 +320,141 @@
         "ko": "Tymora는 시간을 구매 가능한 경험으로 큐레이팅하는 컨셉 스토어입니다. 삶의 순간의 품질과 강도를 선택할 수 있는 새로운 시간 소비 방식을 제안합니다.",
         "en": "Tymora is a concept store that curates time as an experience you can purchase. We introduce a new way of consuming time, allowing you to choose the quality and intensity of the moments you live. Tymora treats time not as a product, but as a material for designing your life."
       },
-      "thumbnail": { "type": "image", "src": "tymora.jpg" },
-      "media": [{ "type": "image", "src": "tymoraglass.jpg" }],
+      "thumbnail": {
+        "type": "image",
+        "src": "tymora.jpg"
+      },
+      "media": [
+        {
+          "type": "image",
+          "src": "tymoraglass.jpg"
+        }
+      ],
       "sections": [
-        { "title": "The era of personalization", "desc": "In an age of personalization, we all have the same amount of time, yet create vastly different value from it. While technology optimizes our choices, time still requires intentional design. To buy time is not just convenience, but a way to focus on what truly matters, because true personalization is not about more choices, but about a richer use of time.", "media": [{ "type": "image", "src": "tymorabg.jpg" }] },
-        { "title": "Brand Core value & Feature", "desc": "Tymora structures time through three core values, guiding users from presence to experience, and ultimately to meaningful value. It transforms how time is lived, experienced, and remembered.", "media": [{ "type": "image", "src": "tymoravalue.jpg" }] },
-        { "title": "Visual Identity & Motif", "desc": "Each individual moment resonates with others to create a flow, and that flow expands into a continuous orbit of time. Within this cycle, we exist as points, yet at the same time, we shape the flow and continuity of time itself.", "media": [{ "type": "video", "src": "tymoramotif.mp4" }] },
-        { "title": "Typeface & Color system", "desc": "", "media": [{ "type": "image", "src": "tymorabrand.jpg" }] },
-        { "title": "Typeface Generator", "desc": "Try the Tymora typeface generator and create your own typographic expression.", "embedUrl": "https://chaelinnnnn.github.io/tymorafont/", "media": [] },
-        { "title": "Tymora Glasses", "desc": "Tymora Glasses analyze the user's voice in real time and use an integrated camera to perceive the surrounding environment, helping enhance and enrich the user's daily life.", "media": [{ "type": "video", "src": "tymoraglass2.mp4" }] },
-        { "title": "Time tool kit", "desc": "Time Toolkit is not just a tool for gaining more time. It's a toolkit designed to customize features around the purpose and meaning of each time unit you choose, helping you achieve your goals in everyday life and transform time into your most valuable experiences.", "media": [{ "type": "video", "src": "tymoratimekit.mp4" }] },
-        { "title": "How to use Tymora?", "desc": "Using Tymora is simple. Start by wearing your glasses to assess your current situation and needs, then purchase the time that fits them. The time you secure goes beyond mere leisure, becoming a carefully crafted experience tailored to your purpose and circumstances.", "media": [{ "type": "image", "src": "tymorahow.jpg" }] },
-        { "title": "User Scenario", "desc": "Tymora's Timekit guides users through four stages — selecting, activating, experiencing, and reflecting on time — allowing them to intentionally expand and deepen their moments.", "media": [{ "type": "image", "src": "tymorauser.jpg" }] },
-        { "title": "20-Min Time Toolkit", "desc": "It's a Monday morning, and he has overslept. He has an important meeting ahead, so every minute, every second, matters. Right now, what he needs to know most is whether the next bus is coming soon or if he should order a coffee from the nearest cafe before he heads out.", "media": [{ "type": "image", "src": "timetool1.jpg" }, { "type": "image", "src": "timetool2.jpg" }] },
-        { "title": "1-Day Time Toolkit", "desc": "The day before an exam, she can't help wishing for just one more day. There's too much to memorize and never enough time. What she needs now isn't anxiety, but a single day of focus to grasp what matters most.", "media": [{ "type": "image", "src": "timetool3.jpg" }, { "type": "image", "src": "timetool4.jpg" }] },
-        { "title": "Application", "desc": "", "media": [{ "type": "image", "src": "tymorafinal.jpg" }] }
+        {
+          "title": "The era of personalization",
+          "desc": "In an age of personalization, we all have the same amount of time, yet create vastly different value from it. While technology optimizes our choices, time still requires intentional design. To buy time is not just convenience, but a way to focus on what truly matters, because true personalization is not about more choices, but about a richer use of time.",
+          "media": [
+            {
+              "type": "image",
+              "src": "tymorabg.jpg"
+            }
+          ]
+        },
+        {
+          "title": "Brand Core value & Feature",
+          "desc": "Tymora structures time through three core values, guiding users from presence to experience, and ultimately to meaningful value. It transforms how time is lived, experienced, and remembered.",
+          "media": [
+            {
+              "type": "image",
+              "src": "tymoravalue.jpg"
+            }
+          ]
+        },
+        {
+          "title": "Visual Identity & Motif",
+          "desc": "Each individual moment resonates with others to create a flow, and that flow expands into a continuous orbit of time. Within this cycle, we exist as points, yet at the same time, we shape the flow and continuity of time itself.",
+          "media": [
+            {
+              "type": "video",
+              "src": "tymoramotif.mp4"
+            }
+          ]
+        },
+        {
+          "title": "Typeface & Color system",
+          "desc": "",
+          "media": [
+            {
+              "type": "image",
+              "src": "tymorabrand.jpg"
+            }
+          ]
+        },
+        {
+          "title": "Typeface Generator",
+          "desc": "Try the Tymora typeface generator and create your own typographic expression.",
+          "embedUrl": "https://chaelinnnnn.github.io/tymorafont/",
+          "media": []
+        },
+        {
+          "title": "Tymora Glasses",
+          "desc": "Tymora Glasses analyze the user's voice in real time and use an integrated camera to perceive the surrounding environment, helping enhance and enrich the user's daily life.",
+          "media": [
+            {
+              "type": "video",
+              "src": "tymoraglass2.mp4"
+            }
+          ]
+        },
+        {
+          "title": "Time tool kit",
+          "desc": "Time Toolkit is not just a tool for gaining more time. It's a toolkit designed to customize features around the purpose and meaning of each time unit you choose, helping you achieve your goals in everyday life and transform time into your most valuable experiences.",
+          "media": [
+            {
+              "type": "video",
+              "src": "tymoratimekit.mp4"
+            }
+          ]
+        },
+        {
+          "title": "How to use Tymora?",
+          "desc": "Using Tymora is simple. Start by wearing your glasses to assess your current situation and needs, then purchase the time that fits them. The time you secure goes beyond mere leisure, becoming a carefully crafted experience tailored to your purpose and circumstances.",
+          "media": [
+            {
+              "type": "image",
+              "src": "tymorahow.jpg"
+            }
+          ]
+        },
+        {
+          "title": "User Scenario",
+          "desc": "Tymora's Timekit guides users through four stages — selecting, activating, experiencing, and reflecting on time — allowing them to intentionally expand and deepen their moments.",
+          "media": [
+            {
+              "type": "image",
+              "src": "tymorauser.jpg"
+            }
+          ]
+        },
+        {
+          "title": "20-Min Time Toolkit",
+          "desc": "It's a Monday morning, and he has overslept. He has an important meeting ahead, so every minute, every second, matters. Right now, what he needs to know most is whether the next bus is coming soon or if he should order a coffee from the nearest cafe before he heads out.",
+          "media": [
+            {
+              "type": "image",
+              "src": "timetool1.jpg"
+            },
+            {
+              "type": "image",
+              "src": "timetool2.jpg"
+            }
+          ]
+        },
+        {
+          "title": "1-Day Time Toolkit",
+          "desc": "The day before an exam, she can't help wishing for just one more day. There's too much to memorize and never enough time. What she needs now isn't anxiety, but a single day of focus to grasp what matters most.",
+          "media": [
+            {
+              "type": "image",
+              "src": "timetool3.jpg"
+            },
+            {
+              "type": "image",
+              "src": "timetool4.jpg"
+            }
+          ]
+        },
+        {
+          "title": "Application",
+          "desc": "",
+          "media": [
+            {
+              "type": "image",
+              "src": "tymorafinal.jpg"
+            }
+          ]
+        }
       ]
     },
     {
@@ -125,8 +470,20 @@
         "ko": "Sarr의 계절 메뉴 포스터 디자인으로, 타이포그래피와 시각적 아이덴티티를 그래픽 디자인을 통해 탐구합니다.",
         "en": "I designed a poster centered on Sarr's signature menu item, the Avocato. The concept visually captures the freshness of the moment when coffee and avocado come together, reflecting the brand's identity and mood."
       },
-      "thumbnail": { "type": "image", "src": "avocato.jpg" },
-      "media": [{ "type": "image", "src": "avocato1.jpg" }, { "type": "image", "src": "avocato2.jpg" }]
+      "thumbnail": {
+        "type": "image",
+        "src": "avocato.jpg"
+      },
+      "media": [
+        {
+          "type": "image",
+          "src": "avocato1.jpg"
+        },
+        {
+          "type": "image",
+          "src": "avocato2.jpg"
+        }
+      ]
     },
     {
       "id": "sarr-brand-identity",
@@ -141,12 +498,83 @@
         "ko": "'따뜻함이 스며드는 순간'이라는 의미를 바탕으로 레스토랑 sarr를 브랜딩했습니다.",
         "en": "The restaurant brand name Sarr is derived from the Korean word, an expression describing something that gently and slowly melts away. The name embodies the brand's core essence, a quiet warmth that softly dissolves into everyday life."
       },
-      "thumbnail": { "type": "image", "src": "sarr.jpg" },
-      "media": [{ "type": "image", "src": "sarr1.jpg" }],
+      "thumbnail": {
+        "type": "image",
+        "src": "sarr.jpg"
+      },
+      "media": [
+        {
+          "type": "image",
+          "src": "sarr1.jpg"
+        }
+      ],
       "sections": [
-        { "title": "Motif", "desc": "Sarr draws inspiration from the moment butter slowly melts. When something solid softens in the warmth and gently gives way, we pause. Sarr creates those quiet, unhurried moments in the middle of a busy day, where everything slowly melts into warmth.", "media": [{ "type": "image", "src": "sarrmotif.jpg" }] },
-        { "title": "Application", "desc": "", "media": [{ "type": "image", "src": "sarr3.jpg" }, { "type": "image", "src": "sarr4.jpg" }, { "type": "image", "src": "sarr5.jpg" }, { "type": "image", "src": "sarr6.jpg" }] },
-        { "title": "Brandbook", "desc": "", "slides": [{ "src": "sarrguide1.jpg" }, { "src": "sarrguide2.jpg" }, { "src": "sarrguide3.jpg" }, { "src": "sarrguide4.jpg" }, { "src": "sarrguide5.jpg" }, { "src": "sarrguide6.jpg" }, { "src": "sarrguide7.jpg" }, { "src": "sarrguide8.jpg" }, { "src": "sarrguide9.jpg" }], "media": [] }
+        {
+          "title": "Motif",
+          "desc": "Sarr draws inspiration from the moment butter slowly melts. When something solid softens in the warmth and gently gives way, we pause. Sarr creates those quiet, unhurried moments in the middle of a busy day, where everything slowly melts into warmth.",
+          "media": [
+            {
+              "type": "image",
+              "src": "sarrmotif.jpg"
+            }
+          ]
+        },
+        {
+          "title": "Application",
+          "desc": "",
+          "media": [
+            {
+              "type": "image",
+              "src": "sarr3.jpg"
+            },
+            {
+              "type": "image",
+              "src": "sarr4.jpg"
+            },
+            {
+              "type": "image",
+              "src": "sarr5.jpg"
+            },
+            {
+              "type": "image",
+              "src": "sarr6.jpg"
+            }
+          ]
+        },
+        {
+          "title": "Brandbook",
+          "desc": "",
+          "slides": [
+            {
+              "src": "sarrguide1.jpg"
+            },
+            {
+              "src": "sarrguide2.jpg"
+            },
+            {
+              "src": "sarrguide3.jpg"
+            },
+            {
+              "src": "sarrguide4.jpg"
+            },
+            {
+              "src": "sarrguide5.jpg"
+            },
+            {
+              "src": "sarrguide6.jpg"
+            },
+            {
+              "src": "sarrguide7.jpg"
+            },
+            {
+              "src": "sarrguide8.jpg"
+            },
+            {
+              "src": "sarrguide9.jpg"
+            }
+          ],
+          "media": []
+        }
       ]
     },
     {
@@ -163,13 +591,68 @@
         "ko": "이 프로젝트는 미국 10개 주의 UFO 목격 데이터를 인터랙티브 웹 아트워크로 시각화하고, 이를 제시하기 위해 제작된 브랜딩 작업입니다.",
         "en": "This project visualizes UFO sighting data across 10 U.S. states as an interactive web artwork, alongside the branding work created to present it. Using mouse controls, you can freely explore each antenna or compare all states side by side, experiencing the UFO phenomenon through an artistic lens."
       },
-      "thumbnail": { "type": "video", "src": "ufo0.mp4" },
+      "thumbnail": {
+        "type": "video",
+        "src": "ufo0.mp4"
+      },
       "media": [],
       "sections": [
-        { "title": "Type 1: Antenna", "desc": "An antenna is a device that sends signals into space. The height and complexity of each antenna are designed to reflect the number of sightings and the most frequently reported UFO shape in each state.", "media": [{ "type": "image", "src": "antenna.jpg" }] },
-        { "title": "Type 2: Crop circle", "desc": "Crop circles are believed to be traces left by extraterrestrial beings on Earth. The base of each sculpture draws from their geometric patterns, designed to reflect the number of sightings and the most frequently reported UFO shape in each state.", "media": [{ "type": "image", "src": "cropcircle.jpg" }] },
-        { "title": "Wordmark & Logo", "desc": "The \"undefined\" wordmark uses a custom geometric typeface where letterforms are dissected and rebuilt with circular voids and intersecting arcs that directly echo the overlapping crop circle patterns. Florida, Texas, and Arizona lead in UFO sighting frequency while producing the most visually compelling formations, balancing data integrity with aesthetic impact.", "media": [{ "type": "video", "src": "ufo2.mp4" }, { "type": "image", "src": "ufologo.jpg" }] },
-        { "title": "Application", "desc": "", "media": [{ "type": "video", "src": "ufo1.mp4" }, { "type": "image", "src": "ufo2.jpg" }, { "type": "image", "src": "ufo3.jpg" }, { "type": "image", "src": "ufo4.jpg" }] }
+        {
+          "title": "Type 1: Antenna",
+          "desc": "An antenna is a device that sends signals into space. The height and complexity of each antenna are designed to reflect the number of sightings and the most frequently reported UFO shape in each state.",
+          "media": [
+            {
+              "type": "image",
+              "src": "antenna.jpg"
+            }
+          ]
+        },
+        {
+          "title": "Type 2: Crop circle",
+          "desc": "Crop circles are believed to be traces left by extraterrestrial beings on Earth. The base of each sculpture draws from their geometric patterns, designed to reflect the number of sightings and the most frequently reported UFO shape in each state.",
+          "media": [
+            {
+              "type": "image",
+              "src": "cropcircle.jpg"
+            }
+          ]
+        },
+        {
+          "title": "Wordmark & Logo",
+          "desc": "The \"undefined\" wordmark uses a custom geometric typeface where letterforms are dissected and rebuilt with circular voids and intersecting arcs that directly echo the overlapping crop circle patterns. Florida, Texas, and Arizona lead in UFO sighting frequency while producing the most visually compelling formations, balancing data integrity with aesthetic impact.",
+          "media": [
+            {
+              "type": "video",
+              "src": "ufo2.mp4"
+            },
+            {
+              "type": "image",
+              "src": "ufologo.jpg"
+            }
+          ]
+        },
+        {
+          "title": "Application",
+          "desc": "",
+          "media": [
+            {
+              "type": "video",
+              "src": "ufo1.mp4"
+            },
+            {
+              "type": "image",
+              "src": "ufo2.jpg"
+            },
+            {
+              "type": "image",
+              "src": "ufo3.jpg"
+            },
+            {
+              "type": "image",
+              "src": "ufo4.jpg"
+            }
+          ]
+        }
       ]
     },
     {
@@ -186,8 +669,16 @@
         "ko": "Plating 서비스의 일관된 디자인 경험을 위한 디자인 시스템을 구축했습니다.",
         "en": "Built a comprehensive design system for Plating service to ensure consistent design experience across all touchpoints."
       },
-      "thumbnail": { "type": "image", "src": "plating.jpg" },
-      "media": [{ "type": "image", "src": "in.png" }]
+      "thumbnail": {
+        "type": "image",
+        "src": "plating.jpg"
+      },
+      "media": [
+        {
+          "type": "image",
+          "src": "in.png"
+        }
+      ]
     },
     {
       "id": "every-singles-time",
@@ -202,8 +693,20 @@
         "ko": "Singles Magazine의 'EVERY SINGLES TIME' 타이틀 아이덴티티 디자인을 진행하였습니다.",
         "en": "I worked on the title identity design for 'EVERY SINGLES TIME,' a feature by Singles Magazine. ⓈSingles Magazine Co., Ltd. All RIGHTS RESERVED."
       },
-      "thumbnail": { "type": "image", "src": "singles.jpg" },
-      "media": [{ "type": "video", "src": "singles.mp4" }, { "type": "image", "src": "singles1.jpg" }]
+      "thumbnail": {
+        "type": "image",
+        "src": "singles.jpg"
+      },
+      "media": [
+        {
+          "type": "video",
+          "src": "singles.mp4"
+        },
+        {
+          "type": "image",
+          "src": "singles1.jpg"
+        }
+      ]
     },
     {
       "id": "singles-mz-intern-film",
@@ -218,8 +721,20 @@
         "ko": "싱글즈 매거진 MZ Intern 패션 필름의 그래픽 디자인에 참여하였습니다.",
         "en": "I worked on the graphic design for the Singles Magazine MZ Intern fashion film. ⓈSingles Magazine Co., Ltd. All RIGHTS RESERVED."
       },
-      "thumbnail": { "type": "video", "src": "MZintern.mp4" },
-      "media": [{ "type": "vimeo", "id": "1154320177" }, { "type": "image", "src": "MZintern2.jpg" }]
+      "thumbnail": {
+        "type": "video",
+        "src": "MZintern.mp4"
+      },
+      "media": [
+        {
+          "type": "vimeo",
+          "id": "1154320177"
+        },
+        {
+          "type": "image",
+          "src": "MZintern2.jpg"
+        }
+      ]
     },
     {
       "id": "depromeet-promotion-video",
@@ -234,8 +749,20 @@
         "ko": "DEPROMEET 14의 전반적인 필름 디렉팅, 그래픽 디자인, 사운드 디자인을 담당했습니다.",
         "en": "I worked on the overall film directing, graphic design, and sound design for DEPROMEET 14."
       },
-      "thumbnail": { "type": "image", "src": "depromeet.jpg" },
-      "media": [{ "type": "vimeo", "id": "1103721206" }, { "type": "image", "src": "depromeet1.jpg" }]
+      "thumbnail": {
+        "type": "image",
+        "src": "depromeet.jpg"
+      },
+      "media": [
+        {
+          "type": "vimeo",
+          "id": "1103721206"
+        },
+        {
+          "type": "image",
+          "src": "depromeet1.jpg"
+        }
+      ]
     },
     {
       "id": "ding-dong",
@@ -251,8 +778,16 @@
         "ko": "커뮤니티 온보딩을 위한 UX/UI 디자인 프로젝트입니다.",
         "en": "A UX/UI design project focused on community onboarding experience."
       },
-      "thumbnail": { "type": "image", "src": "dingdong.jpg" },
-      "media": [{ "type": "image", "src": "in.png" }]
+      "thumbnail": {
+        "type": "image",
+        "src": "dingdong.jpg"
+      },
+      "media": [
+        {
+          "type": "image",
+          "src": "in.png"
+        }
+      ]
     },
     {
       "id": "foretderm",
@@ -267,8 +802,28 @@
         "ko": "민감한 피부를 보호하기 위해 설계된 기본 세이프 라인에서 출발해, Clean Derma Beauty의 일관된 아이덴티티를 유지하면서 추가적인 효능을 갖춘 세컨더리 기능성 라인으로 콘셉트를 확장했습니다. 또한 VIP 기프트 페이퍼 백 디자인을 함께 진행했습니다.",
         "en": "Starting from a basic safe line designed to protect sensitive skin, the concept was expanded into a secondary functional line with added benefits while maintaining a consistent Clean Derma Beauty identity. In addition, a VIP gift paper bag was designed as part of the project. ⓈForetderm Co., Ltd. All RIGHTS RESERVED."
       },
-      "thumbnail": { "type": "image", "src": "foretderm.jpg" },
-      "media": [{ "type": "image", "src": "foretderm1.jpg" }, { "type": "image", "src": "foretderm2.jpg" }, { "type": "image", "src": "foretderm3.jpg" }, { "type": "image", "src": "foretderm4.jpg" }]
+      "thumbnail": {
+        "type": "image",
+        "src": "foretderm.jpg"
+      },
+      "media": [
+        {
+          "type": "image",
+          "src": "foretderm1.jpg"
+        },
+        {
+          "type": "image",
+          "src": "foretderm2.jpg"
+        },
+        {
+          "type": "image",
+          "src": "foretderm3.jpg"
+        },
+        {
+          "type": "image",
+          "src": "foretderm4.jpg"
+        }
+      ]
     }
   ]
 }
