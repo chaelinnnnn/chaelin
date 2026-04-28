@@ -198,8 +198,8 @@
         "en": ""
       },
       "thumbnail": {
-        "type": "image",
-        "src": "depromeet.jpg"
+        "type": "video",
+        "src": "depromeet.mp4"
       },
       "media": [
         {
