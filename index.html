@@ -120,8 +120,8 @@
     /* experiment 뷰 */
     #r-experiment { display: none; padding: 20px; }
     #r-experiment.on { display: block; }
-    .exp-grid { columns: 3; column-gap: 10px; }
-    .exp-card { break-inside: avoid; margin-bottom: 10px; display: block; cursor: url("cursor-hand.png") 16 16, pointer !important; position: relative; overflow: hidden; }
+    .exp-grid { columns: 3; column-gap: 20px; }
+    .exp-card { break-inside: avoid; margin-bottom: 20px; display: block; cursor: url("cursor-hand.png") 16 16, pointer !important; position: relative; overflow: hidden; }
     .exp-card * { cursor: inherit !important; }
     .exp-card img, .exp-card video { width: 100%; display: block; }
     .exp-card-info { padding: 8px 0 4px; }
@@ -338,6 +338,7 @@ function initSlideshow(total) {
 function renderMediaItem(m, title) {
   if (m.type === 'video') return '<video autoplay loop muted playsinline><source src="' + m.src + '" type="video/mp4"></video>';
   if (m.type === 'vimeo') return '<div class="vimeo-box"><iframe src="https://player.vimeo.com/video/' + m.id + '?autoplay=0&title=0&byline=0&portrait=0" allow="autoplay; fullscreen" allowfullscreen></iframe></div>';
+  if (m.type === 'youtube') return '<div class="vimeo-box"><iframe src="https://www.youtube.com/embed/' + m.id + '" allow="autoplay; fullscreen" allowfullscreen></iframe></div>';
   if (m.type === 'image') return '<img src="' + m.src + '" alt="' + (title||'') + '">';
   return '';
 }
