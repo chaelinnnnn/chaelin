@@ -229,14 +229,30 @@ function renderExperiment() {
   });
 }
 
+function renderExperimentList() {
+  if (!experimentProjects.length) { listEl.innerHTML = '<div style="padding:20px;color:#ccc;">No experiments</div>'; return; }
+  listEl.innerHTML = experimentProjects.map(function(p) {
+    return '<a class="proj-row" data-id="' + p.id + '" href="#"><div class="proj-title">' + (p.title||'') + '</div><div class="proj-type">' + (p.type||'') + '</div></a>';
+  }).join('');
+  listEl.querySelectorAll('.proj-row').forEach(function(row) {
+    row.addEventListener('click', function(e) {
+      e.preventDefault();
+      var proj = experimentProjects.find(function(p) { return p.id === row.dataset.id; });
+      if (!proj) return;
+      listEl.querySelectorAll('.proj-row').forEach(function(r) { r.classList.remove('on'); });
+      row.classList.add('on');
+      openDetail(proj);
+    });
+  });
+}
+
 function showExperiment() {
   hideAll();
   isExperimentMode = true;
   renderExperiment();
+  renderExperimentList();
   rExperiment.classList.add('on');
   rightEl.scrollTo({ top: 0, behavior: 'smooth' });
-  listEl.querySelectorAll('.proj-row').forEach(function(r) { r.classList.remove('on'); });
-  listEl.innerHTML = '<div style="padding:20px;color:#ccc;">Experiment</div>';
 }
 
 function renderThumb(p) {
