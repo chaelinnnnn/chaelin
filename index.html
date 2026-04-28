@@ -138,7 +138,55 @@
       from { transform: translateY(0) rotate(0deg) scale(1); opacity: 1; }
       to   { transform: translateY(100px) rotate(180deg) scale(0); opacity: 0; }
     }
-    @media (max-width: 700px) { .layout { grid-template-columns: 1fr; } .right { display: none; } }
+    /* 모바일 팝업 */
+    .mobile-popup {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      pointer-events: none;
+    }
+    .mobile-popup.on { display: block; pointer-events: all; }
+    .mobile-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.3);
+    }
+    .mobile-sheet {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 90vh;
+      background: #fff;
+      border-radius: 16px 16px 0 0;
+      overflow-y: auto;
+      transform: translateY(100%);
+      transition: transform 0.35s cubic-bezier(0.32, 0.72, 0, 1);
+    }
+    .mobile-sheet::-webkit-scrollbar { width: 0; }
+    .mobile-popup.on .mobile-sheet { transform: translateY(0); }
+    .mobile-close {
+      position: sticky;
+      top: 0;
+      display: flex;
+      justify-content: flex-end;
+      padding: 14px 20px 0;
+      background: #fff;
+      z-index: 2;
+    }
+    .mobile-close button {
+      background: none; border: none;
+      font-size: 20px; cursor: pointer;
+      color: #999; line-height: 1;
+    }
+    .mobile-content { padding: 0 20px 80px; }
+
+    @media (max-width: 700px) {
+      .layout { grid-template-columns: 1fr; }
+      .right { display: none; }
+      .d-header { grid-template-columns: 1fr; gap: 16px; }
+      .d-section { grid-template-columns: 1fr; gap: 10px; }
+      #r-detail { padding: 20px 0 40px; }
+    }
   </style>
 </head>
 <body>
@@ -174,6 +222,15 @@
     <div id="r-grid"></div>
     <div id="r-experiment"></div>
     <div id="r-detail"></div>
+  </div>
+</div>
+
+<!-- 모바일 팝업 -->
+<div class="mobile-popup" id="mobile-popup">
+  <div class="mobile-overlay" id="mobile-overlay"></div>
+  <div class="mobile-sheet" id="mobile-sheet">
+    <div class="mobile-close"><button id="mobile-close-btn">✕</button></div>
+    <div class="mobile-content" id="mobile-content"></div>
   </div>
 </div>
 
@@ -343,7 +400,60 @@ function renderMediaItem(m, title) {
   return '';
 }
 
+var isMobile = function() { return window.innerWidth <= 700; };
+
+var mobilePopup = document.getElementById('mobile-popup');
+var mobileContent = document.getElementById('mobile-content');
+document.getElementById('mobile-overlay').addEventListener('click', closeMobilePopup);
+document.getElementById('mobile-close-btn').addEventListener('click', closeMobilePopup);
+
+function closeMobilePopup() {
+  mobilePopup.classList.remove('on');
+  clearSlideshowTimer();
+}
+
+function openMobileDetail(p) {
+  var desc = p.description && p.description.en ? p.description.en : '';
+  var metaParts = [p.type, p.date, p.client].filter(Boolean);
+  var embedHTML = p.embedUrl ? '<iframe class="embed-box" src="' + p.embedUrl + '" allow="fullscreen"></iframe>' : '';
+  var media = p.media || [];
+  var mediaHTML = media.map(function(m) { return renderMediaItem(m, p.title); }).join('');
+  var sectionsHTML = '';
+  if (p.sections && p.sections.length) {
+    sectionsHTML = '<div class="d-sections">' + p.sections.map(function(s) {
+      var sMediaHTML = (s.media || []).map(function(m) { return renderMediaItem(m, s.title); }).join('');
+      var sEmbedHTML = s.embedUrl ? '<iframe src="' + s.embedUrl + '" style="width:100%;height:60vh;border:none;display:block;margin-top:10px;" allow="fullscreen"></iframe>' : '';
+      var sSlidesHTML = '';
+      if (s.slides && s.slides.length) {
+        var sid = 'ms-' + Math.random().toString(36).substr(2,5);
+        var imgs = s.slides.map(function(sl, i) { return '<img src="' + sl.src + '" class="' + (i===0?'active':'') + '">'; }).join('');
+        sSlidesHTML = '<div class="slideshow" style="margin-top:10px;"><button class="slide-btn prev s-prev">&#8592;</button><div class="slideshow-track" id="' + sid + '">' + imgs + '</div><button class="slide-btn next s-next">&#8594;</button></div>';
+        setTimeout(function() {
+          var el = document.getElementById(sid);
+          if (!el) return;
+          var imgs2 = el.querySelectorAll('img'); var cur = 0; var total = imgs2.length;
+          function goTo(n) { imgs2[cur].classList.remove('active'); cur=(n+total)%total; imgs2[cur].classList.add('active'); }
+          el.parentNode.querySelector('.s-prev').addEventListener('click', function(){ goTo(cur-1); });
+          el.parentNode.querySelector('.s-next').addEventListener('click', function(){ goTo(cur+1); });
+          setInterval(function(){ goTo(cur+1); }, 4000);
+        }, 100);
+      }
+      return '<div class="d-section-wrap"><div class="d-section"><div class="d-section-title">' + (s.title||'') + '</div><div class="d-section-desc">' + (s.desc||'') + '</div></div>' + sEmbedHTML + sSlidesHTML + (sMediaHTML ? '<div class="gallery">' + sMediaHTML + '</div>' : '') + '</div>';
+    }).join('') + '</div>';
+  }
+  mobileContent.innerHTML =
+    '<div class="d-title" style="font-size:18px;font-weight:600;margin-bottom:6px;">' + (p.title||'') + '</div>' +
+    '<div class="d-meta">' + metaParts.join(' · ') + '</div>' +
+    '<div class="d-collab">' + (p.collaboration||'') + '</div>' +
+    (desc ? '<div class="d-desc" style="margin-top:16px;margin-bottom:24px;">' + desc + '</div>' : '') +
+    '<div class="gallery">' + embedHTML + mediaHTML + '</div>' +
+    sectionsHTML;
+  mobilePopup.classList.add('on');
+  document.getElementById('mobile-sheet').scrollTo({ top: 0 });
+}
+
 function openDetail(p, fromPop) {
+  if (isMobile()) { openMobileDetail(p); return; }
   hideAll(); rDetail.classList.add('on');
   if (!fromPop) history.pushState({ view: 'detail', id: p.id, cat: activeCat }, '');
   const desc = p.description && p.description.en ? p.description.en : '';
