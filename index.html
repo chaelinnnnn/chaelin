@@ -133,6 +133,46 @@
     .exp-card.size-large .exp-thumb { aspect-ratio: 2/3; overflow: hidden; }
     .exp-card .exp-thumb img, .exp-card .exp-thumb video { width: 100%; height: 100%; object-fit: cover; display: block; }
 
+    /* 비밀번호 모달 */
+    .pw-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: rgba(0,0,0,0.35);
+      align-items: center;
+      justify-content: center;
+    }
+    .pw-modal.on { display: flex; }
+    .pw-box {
+      background: #fff;
+      padding: 32px 36px;
+      width: 300px;
+      border-radius: 4px;
+    }
+    .pw-box p { font-size: 13px; color: #000; margin-bottom: 16px; font-weight: 600; }
+    .pw-box input {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 2px;
+      padding: 8px 12px;
+      font-size: 13px;
+      font-family: inherit;
+      outline: none;
+      margin-bottom: 8px;
+    }
+    .pw-box input:focus { border-color: #000; }
+    .pw-error { font-size: 11px; color: #ff4444; min-height: 16px; margin-bottom: 12px; }
+    .pw-btns { display: flex; gap: 8px; justify-content: flex-end; }
+    .pw-btns button {
+      background: none; border: 1px solid var(--line);
+      padding: 6px 16px; font-size: 12px;
+      font-family: inherit; border-radius: 2px;
+      cursor: pointer; transition: background 0.1s;
+    }
+    .pw-btns button.confirm { background: #000; color: #fff; border-color: #000; }
+    .pw-btns button:hover { opacity: 0.8; }
+
     .star { position: fixed; pointer-events: none; z-index: 99999; animation: starfall 1s ease-in forwards; }
     @keyframes starfall {
       from { transform: translateY(0) rotate(0deg) scale(1); opacity: 1; }
@@ -222,6 +262,19 @@
     <div id="r-grid"></div>
     <div id="r-experiment"></div>
     <div id="r-detail"></div>
+  </div>
+</div>
+
+<!-- 비밀번호 모달 -->
+<div class="pw-modal" id="pw-modal">
+  <div class="pw-box">
+    <p>Password required</p>
+    <input type="password" id="pw-input" placeholder="Enter password">
+    <div class="pw-error" id="pw-error"></div>
+    <div class="pw-btns">
+      <button id="pw-cancel">Cancel</button>
+      <button class="confirm" id="pw-confirm">Enter</button>
+    </div>
   </div>
 </div>
 
@@ -402,6 +455,36 @@ function renderMediaItem(m, title) {
 
 var isMobile = function() { return window.innerWidth <= 700; };
 
+// 비밀번호 모달
+var pwModal = document.getElementById('pw-modal');
+var pwInput = document.getElementById('pw-input');
+var pwError = document.getElementById('pw-error');
+var pwPendingProject = null;
+
+document.getElementById('pw-cancel').addEventListener('click', function() {
+  pwModal.classList.remove('on');
+  pwInput.value = '';
+  pwError.textContent = '';
+  pwPendingProject = null;
+});
+document.getElementById('pw-confirm').addEventListener('click', function() {
+  if (pwInput.value === pwPendingProject.password) {
+    pwModal.classList.remove('on');
+    pwInput.value = '';
+    pwError.textContent = '';
+    var p = pwPendingProject;
+    pwPendingProject = null;
+    if (isMobile()) { openMobileDetail(p); } else { _openDetail(p); }
+  } else {
+    pwError.textContent = 'Incorrect password.';
+    pwInput.value = '';
+    pwInput.focus();
+  }
+});
+pwInput.addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') document.getElementById('pw-confirm').click();
+});
+
 var mobilePopup = document.getElementById('mobile-popup');
 var mobileContent = document.getElementById('mobile-content');
 document.getElementById('mobile-overlay').addEventListener('click', closeMobilePopup);
@@ -453,7 +536,17 @@ function openMobileDetail(p) {
 }
 
 function openDetail(p, fromPop) {
+  if (p.password && !fromPop) {
+    pwPendingProject = p;
+    pwModal.classList.add('on');
+    setTimeout(function() { pwInput.focus(); }, 100);
+    return;
+  }
   if (isMobile()) { openMobileDetail(p); return; }
+  _openDetail(p, fromPop);
+}
+
+function _openDetail(p, fromPop) {
   hideAll(); rDetail.classList.add('on');
   if (!fromPop) history.pushState({ view: 'detail', id: p.id, cat: activeCat }, '');
   const desc = p.description && p.description.en ? p.description.en : '';
