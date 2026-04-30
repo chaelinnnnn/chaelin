@@ -196,7 +196,7 @@
       "password": "1234",
       "description": {
         "ko": "",
-        "en": ""
+        "en": "Depromeet is a large-scale IT community where designers and developers come together to grow alongside one another.Depromeet is a large-scale IT community where designers and developers come together to grow alongside one another. The brand identity for the 14th cohort carries forward the organization's core values of connection, growth, accountability, and passion, while asking how a single season's journey could be made visible. Like a flight that begins on the runway and ends in a final landing, Depromeet's activities were framed as a trajectory with a clear point of departure and arrival."
       },
       "thumbnail": {
         "type": "video",
@@ -205,7 +205,7 @@
       "media": [
         {
           "type": "image",
-          "src": "junction.jpg"
+          "src": "dpm.jpg"
         }
       ],
       "sections": [
@@ -215,7 +215,7 @@
           "media": [
             {
               "type": "video",
-              "src": "junctioncolor.mp4"
+              "src": "junctionidentity.mp4"
             }
           ]
         },
@@ -225,7 +225,7 @@
           "media": [
             {
               "type": "video",
-              "src": "junctionidentity.mp4"
+              "src": "junctioncolor.mp4"
             }
           ]
         },
@@ -240,30 +240,32 @@
             {
               "type": "image",
               "src": "dpmsymbol2.jpg"
-            },
+            }
+          ]
+        },
+        {
+          "title": "Application",
+          "desc": "",
+          "media": [
             {
-              "type": "video",
-              "src": "junctionapplication2.mp4"
+              "type": "image",
+              "src": "dpmapplication1.jpg"
             },
             {
               "type": "image",
-              "src": "junctionapplication3.jpg"
+              "src": "dpmapplication2.jpg"
             },
             {
               "type": "image",
-              "src": "junctionapplication4.jpg"
+              "src": "dpmapplication3.jpg"
             },
             {
               "type": "image",
-              "src": "junctionapplication5.jpg"
-            },
-            {
-              "type": "video",
-              "src": "junctionapplication4.mp4"
+              "src": "dpmapplication5.jpg"
             },
             {
               "type": "image",
-              "src": "junctionapplication6.jpg"
+              "src": "dpmapplication6.jpg"
             }
           ]
         }
