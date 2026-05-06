@@ -591,30 +591,38 @@
       ]
     },
     {
-      "id": "sarr-season-menu-2025",
-      "title": "Sarr 2025 Season menu",
-      "category": "Editorial",
-      "meta": "Poster Design, Graphic Design",
-      "date": "August 2025",
-      "client": "Client: Sarr",
-      "type": "Poster Design",
-      "collaboration": "Individual",
+      "id": "foretderm",
+      "title": "Foretderm Derma Intense Vita Cream Package Design",
+      "category": "artdirecting",
+      "meta": "Art directing, Package Design",
+      "date": "September 2021",
+      "client": "Foretderm",
+      "type": "Package Design",
+      "collaboration": "Team",
       "description": {
-        "ko": "Sarr의 계절 메뉴 포스터 디자인으로, 타이포그래피와 시각적 아이덴티티를 그래픽 디자인을 통해 탐구합니다.",
-        "en": "I designed a poster centered on Sarr's signature menu item, the Avocato. The concept visually captures the freshness of the moment when coffee and avocado come together, reflecting the brand's identity and mood."
+        "ko": "민감한 피부를 보호하기 위해 설계된 기본 세이프 라인에서 출발해, Clean Derma Beauty의 일관된 아이덴티티를 유지하면서 추가적인 효능을 갖춘 세컨더리 기능성 라인으로 콘셉트를 확장했습니다. 또한 VIP 기프트 페이퍼 백 디자인을 함께 진행했습니다.",
+        "en": "Starting from a basic safe line designed to protect sensitive skin, the concept was expanded into a secondary functional line with added benefits while maintaining a consistent Clean Derma Beauty identity. In addition, a VIP gift paper bag was designed as part of the project. ⓈForetderm Co., Ltd. All RIGHTS RESERVED."
       },
       "thumbnail": {
         "type": "image",
-        "src": "avocato.jpg"
+        "src": "foretderm.jpg"
       },
       "media": [
         {
           "type": "image",
-          "src": "avocato1.jpg"
+          "src": "foretderm1.jpg"
         },
         {
           "type": "image",
-          "src": "avocato2.jpg"
+          "src": "foretderm2.jpg"
+        },
+        {
+          "type": "image",
+          "src": "foretderm3.jpg"
+        },
+        {
+          "type": "image",
+          "src": "foretderm4.jpg"
         }
       ]
     },
@@ -640,6 +648,34 @@
         {
           "type": "image",
           "src": "in.png"
+        }
+      ]
+    },
+    {
+      "id": "sarr-season-menu-2025",
+      "title": "Sarr 2025 Season menu",
+      "category": "Editorial",
+      "meta": "Poster Design, Graphic Design",
+      "date": "August 2025",
+      "client": "Client: Sarr",
+      "type": "Poster Design",
+      "collaboration": "Individual",
+      "description": {
+        "ko": "Sarr의 계절 메뉴 포스터 디자인으로, 타이포그래피와 시각적 아이덴티티를 그래픽 디자인을 통해 탐구합니다.",
+        "en": "I designed a poster centered on Sarr's signature menu item, the Avocato. The concept visually captures the freshness of the moment when coffee and avocado come together, reflecting the brand's identity and mood."
+      },
+      "thumbnail": {
+        "type": "image",
+        "src": "avocato.jpg"
+      },
+      "media": [
+        {
+          "type": "image",
+          "src": "avocato1.jpg"
+        },
+        {
+          "type": "image",
+          "src": "avocato2.jpg"
         }
       ]
     },
@@ -749,42 +785,6 @@
         {
           "type": "image",
           "src": "in.png"
-        }
-      ]
-    },
-    {
-      "id": "foretderm",
-      "title": "Foretderm Derma Intense Vita Cream Package Design",
-      "category": "artdirecting",
-      "meta": "Art directing, Package Design",
-      "date": "September 2021",
-      "client": "Foretderm",
-      "type": "Package Design",
-      "collaboration": "Team",
-      "description": {
-        "ko": "민감한 피부를 보호하기 위해 설계된 기본 세이프 라인에서 출발해, Clean Derma Beauty의 일관된 아이덴티티를 유지하면서 추가적인 효능을 갖춘 세컨더리 기능성 라인으로 콘셉트를 확장했습니다. 또한 VIP 기프트 페이퍼 백 디자인을 함께 진행했습니다.",
-        "en": "Starting from a basic safe line designed to protect sensitive skin, the concept was expanded into a secondary functional line with added benefits while maintaining a consistent Clean Derma Beauty identity. In addition, a VIP gift paper bag was designed as part of the project. ⓈForetderm Co., Ltd. All RIGHTS RESERVED."
-      },
-      "thumbnail": {
-        "type": "image",
-        "src": "foretderm.jpg"
-      },
-      "media": [
-        {
-          "type": "image",
-          "src": "foretderm1.jpg"
-        },
-        {
-          "type": "image",
-          "src": "foretderm2.jpg"
-        },
-        {
-          "type": "image",
-          "src": "foretderm3.jpg"
-        },
-        {
-          "type": "image",
-          "src": "foretderm4.jpg"
         }
       ]
     }
