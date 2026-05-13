@@ -263,24 +263,16 @@
               "src": "dpmapplication1.jpg"
             },
             {
+              "type": "video",
+              "src": "dpmapplication1.mp4"
+            },
+            {
               "type": "image",
               "src": "dpmapplication2.jpg"
             },
             {
               "type": "image",
               "src": "dpmapplication3.jpg"
-            },
-            {
-              "type": "image",
-              "src": "dpmapplication4.jpg"
-            },
-            {
-              "type": "image",
-              "src": "dpmapplication5.jpg"
-            },
-            {
-              "type": "image",
-              "src": "dpmapplication6.jpg"
             }
           ]
         }
