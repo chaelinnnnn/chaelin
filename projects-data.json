@@ -209,12 +209,12 @@
       ],
       "sections": [
         {
-          "title": "Color",
-          "desc": "",
+          "title": "Typeface & Color",
+          "desc": "The main colors are a sky-inspired blue and a grass-inspired bright green, representing the moment members take off with energy and land with a sense of accomplishment.",
           "media": [
             {
-              "type": "image",
-              "src": "dpmcolor.jpg"
+              "type": "video",
+              "src": "dpmcolor.mp4"
             }
           ]
         },
