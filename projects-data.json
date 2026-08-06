@@ -39,7 +39,7 @@
           "desc": "",
           "media": [
             {
-              "type": "video",
+              "type": "image",
               "src": "Enchantedlogo1.jpg"
             },
             {
@@ -72,11 +72,11 @@
             },
             {
               "type": "image",
-              "src": "Enchantedapplication3.jpg""
+              "src": "Enchantedapplication3.jpg"
             },
             {
               "type": "image",
-              "src": "Enchantedapplication4.jpg""
+              "src": "Enchantedapplication4.jpg"
             },
             {
               "type": "image",
