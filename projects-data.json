@@ -40,21 +40,21 @@
           "media": [
             {
               "type": "video",
-              "src": "presstologo3.mp4"
+              "src": "Enchantedlogo1.jpg"
             },
             {
-              "type": "video",
-              "src": "presstologo2.mp4"
+              "type": "image",
+              "src": "Enchantedlogo2.jpg"
             }
           ]
         },
         {
-          "title": "Color",
-          "desc": "True Black and Clear White serve as the primary colors; all other colors may be applied to content in accordance with the guidelines.",
+          "title": "Color & Typeface",
+          "desc": "",
           "media": [
             {
               "type": "image",
-              "src": "presstocolor.jpg"
+              "src": "Enchantedcolor.jpg"
             }
           ]
         },
@@ -63,28 +63,24 @@
           "desc": "",
           "media": [
             {
-              "type": "video",
-              "src": "presstoapplication1.mp4"
-            },
-            {
-              "type": "video",
-              "src": "presstoapplication2.mp4"
-            },
-            {
-              "type": "video",
-              "src": "presstoposter.mp4"
+              "type": "image",
+              "src": "Enchantedapplication1.jpg"
             },
             {
               "type": "image",
-              "src": "presstoapplication2.jpg"
+              "src": "Enchantedapplication2.jpg"
             },
             {
               "type": "image",
-              "src": "presstoapplication1.jpg"
+              "src": "Enchantedapplication3.jpg""
             },
             {
               "type": "image",
-              "src": "presstoapplication3.jpg"
+              "src": "Enchantedapplication4.jpg""
+            },
+            {
+              "type": "image",
+              "src": "Enchantedapplication5.jpg"
             }
           ]
         }
