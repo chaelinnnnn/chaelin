@@ -15,649 +15,406 @@
       -webkit-font-smoothing: antialiased;
       cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="%23FF6FD6" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>') 12 12, auto;
     }
-    a { text-decoration: none; color: inherit; cursor: inherit; }
-    .layout { display: grid; grid-template-columns: 290px 1fr; height: 100vh; }
-    .left { display: flex; flex-direction: column; height: 100vh; border-right: 1px solid var(--line); overflow: hidden; }
-    .left-top { flex-shrink: 0; padding: 8px 20px 0; }
-    .logo-wrap { width: 120px; height: 68px; overflow: hidden; margin-bottom: 16px; margin-top: 8px; }
-    .logo-wrap a { display: block; cursor: url("cursor-hand.png") 16 16, pointer !important; }
-    .logo-wrap a * { cursor: inherit !important; }
-    .logo-wrap video { width: 148px; margin-left: -14px; }
-    .info-btn { font-size: 13px; font-weight: 400; color: #000; cursor: url("cursor-hand.png") 16 16, pointer !important; transition: color 0.15s; }
-    .info-btn:hover { color: var(--pink); }
-    .cat-nav { display: flex; flex-wrap: wrap; gap: 1px 10px; padding-top: 8px; border-top: 1px solid var(--line); }
-    .cat-nav button { background: none; border: none; font-size: 13px; font-weight: 400; color: #000; cursor: url("cursor-hand.png") 16 16, pointer !important; padding: 2px 0; text-align: left; transition: color 0.15s; font-family: inherit; }
-    .cat-nav button:hover, .cat-nav button.on { color: var(--pink); }
-    .project-list { flex: 1; overflow-y: auto; overflow-x: hidden; margin-top: 36px; border-top: 1px solid var(--line); }
-    .project-list::-webkit-scrollbar { width: 0; }
-    .proj-row { display: block; padding: 12px 20px; border-bottom: 1px solid var(--line); cursor: url("cursor-hand.png") 16 16, pointer !important; transition: background 0.1s; }
-    .proj-row * { cursor: inherit !important; }
-    .proj-row:hover, .proj-row.on { background: #fafafa; }
-    .proj-row:hover .proj-title, .proj-row.on .proj-title { color: var(--pink); }
-    .proj-title { font-size: 17px; font-weight: 600; line-height: 1.4; transition: color 0.15s; margin-bottom: 2px; }
-    .proj-type { font-size: 11px; color: var(--gray); }
-    .right { height: 100vh; overflow-y: auto; background: #fff; }
-    .right::-webkit-scrollbar { width: 0; }
-    #r-grid { display: none; padding: 20px; }
-    #r-grid.on { display: block; }
-    .thumb-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
-    .thumb-card { display: block; cursor: url("cursor-hand.png") 16 16, pointer !important; }
-    .thumb-card * { cursor: inherit !important; }
-    .thumb-media { width: 100%; aspect-ratio: 3 / 2; overflow: hidden; background: #f7f7f7; }
-    .thumb-media img, .thumb-media video { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .thumb-info { margin-top: 8px; margin-bottom: 4px; }
-    .thumb-title { font-size: 13px; font-weight: 600; margin-bottom: 2px; transition: color 0.15s; }
-    .thumb-card:hover .thumb-title { color: var(--pink); }
-    .thumb-type { font-size: 11px; color: var(--gray); }
-    #r-detail { display: none; padding: 44px 48px 100px; }
-    #r-detail.on { display: block; }
-    .d-header {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-      margin-bottom: 40px;
-    }
-    .d-left {}
-    .d-title { font-size: 20px; font-weight: 600; line-height: 1.3; margin-bottom: 8px; }
-    .d-meta { font-size: 12px; color: var(--gray); margin-bottom: 3px; }
-    .d-collab { font-size: 12px; color: var(--gray); margin-top: 16px; }
-    .d-desc { font-size: 13px; line-height: 1.8; color: #333; }
-    .d-sections { display: flex; flex-direction: column; margin-top: 40px; margin-bottom: 40px; }
-    .d-section-wrap { border-top: 1px solid var(--line); padding-bottom: 32px; }
-    .d-section-wrap:last-child { border-bottom: none; }
-    .d-section { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; padding: 16px 0 16px; }
-    .d-section-title { font-size: 13px; font-weight: 400; color: #000; }
-    .d-section-desc { font-size: 13px; line-height: 1.8; color: #333; }
-    .gallery { display: flex; flex-direction: column; gap: 10px; }
-    .gallery img, .gallery video { width: 100%; display: block; }
-    .gallery video { background: #000; }
-    .vimeo-box { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; }
-    .vimeo-box iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
-    .embed-box { width: 100%; height: 80vh; border: none; display: block; }
+    a { text-decoration: none; color: inherit; }
 
-    /* 슬라이드쇼 */
-    .slideshow {
-      margin: 10px 0;
-      position: relative;
+    /* 3컬럼 레이아웃 */
+    .layout {
+      display: grid;
+      grid-template-columns: 220px 1fr 1fr;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    /* ===== LEFT: 로고 + 이름 + 이메일 ===== */
+    .col-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      padding: 32px 24px 32px;
+      border-right: 1px solid var(--line);
+      height: 100vh;
+      overflow: hidden;
+    }
+    .logo-wrap {
+      width: 110px;
+      height: 62px;
+      overflow: hidden;
+      margin-bottom: 20px;
+    }
+    .logo-wrap video {
+      width: 136px;
+      margin-left: -13px;
+    }
+    .name-text {
+      font-size: 15px;
+      font-weight: 600;
+      color: #000;
+      margin-bottom: 4px;
+      letter-spacing: -0.01em;
+    }
+    .email-text {
+      font-size: 12px;
+      color: var(--gray);
+    }
+    .left-links {
+      margin-top: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .left-link {
+      font-size: 12px;
+      color: var(--gray);
+      cursor: url("cursor-hand.png") 16 16, pointer !important;
+      transition: color 0.15s;
+    }
+    .left-link:hover { color: var(--pink); }
+
+    /* ===== MIDDLE: 프로젝트 목록 ===== */
+    .col-mid {
+      border-right: 1px solid var(--line);
+      height: 100vh;
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+    .col-mid::-webkit-scrollbar { width: 0; }
+
+    .mid-header {
+      padding: 20px 20px 0;
+      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      background: #fff;
+      z-index: 10;
+    }
+    .mid-header-title {
+      font-size: 11px;
+      color: var(--gray);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding-bottom: 12px;
+    }
+
+    .proj-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 20px;
+      border-bottom: 1px solid var(--line);
+      cursor: url("cursor-hand.png") 16 16, pointer !important;
+      transition: background 0.1s;
+      text-decoration: none;
+      color: inherit;
+    }
+    .proj-item * { cursor: inherit !important; }
+    .proj-item:hover { background: #fafafa; }
+    .proj-item:hover .proj-item-title { color: var(--pink); }
+    .proj-item.hovered .proj-item-title { color: var(--pink); }
+
+    .proj-item-thumb {
+      flex-shrink: 0;
+      width: 52px;
+      height: 36px;
+      overflow: hidden;
+      background: #f5f5f5;
+    }
+    .proj-item-thumb img,
+    .proj-item-thumb video {
       width: 100%;
-      background: #000;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .proj-item-info { min-width: 0; flex: 1; }
+    .proj-item-title {
+      font-size: 13px;
+      font-weight: 600;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      transition: color 0.15s;
+      margin-bottom: 1px;
+    }
+    .proj-item-type {
+      font-size: 11px;
+      color: var(--gray);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* ===== RIGHT: 호버 프리뷰 ===== */
+    .col-right {
+      height: 100vh;
+      position: relative;
+      overflow: hidden;
+      background: #f9f9f9;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 40px 80px;
     }
-    .slideshow-track {
-      width: 100%;
-      overflow: hidden;
+    .preview-empty {
+      text-align: center;
+      color: #ccc;
+      font-size: 12px;
+      user-select: none;
+      pointer-events: none;
+      transition: opacity 0.25s;
     }
-    .slideshow-track img {
-      width: 100%;
-      display: none;
-      object-fit: contain;
-      max-height: 75vh;
+    .preview-empty svg {
+      display: block;
+      margin: 0 auto 12px;
+      opacity: 0.3;
     }
-    .slideshow-track img.active { display: block; }
-    .slide-btn {
+    .preview-media {
       position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: none;
-      border: none;
-      font-size: 20px;
-      line-height: 1;
-      cursor: url("cursor-hand.png") 16 16, pointer !important;
-      color: #fff;
-      padding: 8px 16px;
-      z-index: 2;
-      opacity: 0.6;
-      transition: opacity 0.15s;
-      letter-spacing: 2px;
-    }
-    .slide-btn:hover { opacity: 1; }
-    .slide-btn.prev { left: 16px; }
-    .slide-btn.next { right: 16px; }
-
-    /* experiment 뷰 */
-    #r-experiment { display: none; padding: 20px; }
-    #r-experiment.on { display: block; }
-    .exp-grid { columns: 3; column-gap: 20px; }
-    .exp-card { break-inside: avoid; margin-bottom: 20px; display: block; cursor: url("cursor-hand.png") 16 16, pointer !important; position: relative; overflow: hidden; }
-    .exp-card * { cursor: inherit !important; }
-    .exp-card img, .exp-card video { width: 100%; display: block; }
-    .exp-card-info { padding: 8px 0 4px; }
-    .exp-card-title { font-size: 13px; font-weight: 600; color: #000; margin-bottom: 2px; transition: color 0.15s; }
-    .exp-card:hover .exp-card-title { color: var(--pink); }
-    .exp-card-type { font-size: 11px; color: var(--gray); }
-    .exp-card.size-small .exp-thumb { aspect-ratio: 3/2; overflow: hidden; }
-    .exp-card.size-medium .exp-thumb { aspect-ratio: 1/1; overflow: hidden; }
-    .exp-card.size-large .exp-thumb { aspect-ratio: 2/3; overflow: hidden; }
-    .exp-card .exp-thumb img, .exp-card .exp-thumb video { width: 100%; height: 100%; object-fit: cover; display: block; }
-
-    /* 비밀번호 모달 */
-    .pw-modal {
-      display: none;
-      position: fixed;
       inset: 0;
-      z-index: 9999;
-      background: rgba(0,0,0,0.35);
+      display: flex;
       align-items: center;
       justify-content: center;
+      opacity: 0;
+      transition: opacity 0.25s ease;
+      pointer-events: none;
     }
-    .pw-modal.on { display: flex; }
-    .pw-box {
-      background: #fff;
-      padding: 32px 36px;
-      width: 300px;
-      border-radius: 4px;
+    .preview-media.on {
+      opacity: 1;
     }
-    .pw-box p { font-size: 13px; color: #000; margin-bottom: 16px; font-weight: 600; }
-    .pw-box input {
+    .preview-media img,
+    .preview-media video {
       width: 100%;
-      border: 1px solid var(--line);
-      border-radius: 2px;
-      padding: 8px 12px;
-      font-size: 13px;
-      font-family: inherit;
-      outline: none;
-      margin-bottom: 8px;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
-    .pw-box input:focus { border-color: #000; }
-    .pw-error { font-size: 11px; color: #ff4444; min-height: 16px; margin-bottom: 12px; }
-    .pw-btns { display: flex; gap: 8px; justify-content: flex-end; }
-    .pw-btns button {
-      background: none; border: 1px solid var(--line);
-      padding: 6px 16px; font-size: 12px;
-      font-family: inherit; border-radius: 2px;
-      cursor: pointer; transition: background 0.1s;
+    .preview-info {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 24px;
+      background: linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 100%);
+      color: #fff;
+      opacity: 0;
+      transition: opacity 0.25s ease;
     }
-    .pw-btns button.confirm { background: #000; color: #fff; border-color: #000; }
-    .pw-btns button:hover { opacity: 0.8; }
+    .preview-info.on { opacity: 1; }
+    .preview-info-title {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .preview-info-type {
+      font-size: 12px;
+      opacity: 0.8;
+    }
 
+    /* 커스텀 커서 별 트레일 */
     .star { position: fixed; pointer-events: none; z-index: 99999; animation: starfall 1s ease-in forwards; }
     @keyframes starfall {
       from { transform: translateY(0) rotate(0deg) scale(1); opacity: 1; }
       to   { transform: translateY(100px) rotate(180deg) scale(0); opacity: 0; }
     }
-    /* 모바일 팝업 */
-    .mobile-popup {
-      display: none;
-      position: fixed;
-      inset: 0;
-      z-index: 1000;
-      pointer-events: none;
-    }
-    .mobile-popup.on { display: block; pointer-events: all; }
-    .mobile-overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0.3);
-    }
-    .mobile-sheet {
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      height: 90vh;
-      background: #fff;
-      border-radius: 16px 16px 0 0;
-      overflow-y: auto;
-      transform: translateY(100%);
-      transition: transform 0.35s cubic-bezier(0.32, 0.72, 0, 1);
-    }
-    .mobile-sheet::-webkit-scrollbar { width: 0; }
-    .mobile-popup.on .mobile-sheet { transform: translateY(0); }
-    .mobile-close {
-      position: sticky;
-      top: 0;
-      display: flex;
-      justify-content: flex-end;
-      padding: 14px 20px 0;
-      background: #fff;
-      z-index: 2;
-    }
-    .mobile-close button {
-      background: none; border: none;
-      font-size: 20px; cursor: pointer;
-      color: #999; line-height: 1;
-    }
-    .mobile-content { padding: 0 20px 80px; }
 
+    /* ===== 모바일 ===== */
     @media (max-width: 700px) {
-      .layout { grid-template-columns: 1fr; }
-      .right { display: none; }
-      .d-header { grid-template-columns: 1fr; gap: 16px; }
-      .d-section { grid-template-columns: 1fr; gap: 10px; }
-      #r-detail { padding: 20px 0 40px; }
+      html, body { overflow: auto; }
+      .layout {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr;
+        height: auto;
+        min-height: 100vh;
+      }
+      .col-left {
+        flex-direction: row;
+        align-items: center;
+        height: auto;
+        padding: 16px 20px;
+        border-right: none;
+        border-bottom: 1px solid var(--line);
+        gap: 16px;
+      }
+      .logo-wrap { margin-bottom: 0; width: 56px; height: 32px; flex-shrink: 0; }
+      .logo-wrap video { width: 70px; margin-left: -7px; }
+      .left-links { flex-direction: row; margin-top: 0; gap: 12px; }
+      .col-right { display: none; }
+      .col-mid {
+        border-right: none;
+        height: auto;
+        overflow-y: visible;
+      }
     }
   </style>
 </head>
 <body>
+
 <div class="layout">
-  <div class="left">
-    <div class="left-top">
-      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:16px;">
-        <div class="logo-wrap" style="margin-bottom:0;">
-          <a href="#" id="logo-link">
-            <video autoplay loop muted playsinline><source src="logo.mp4" type="video/mp4"></video>
-          </a>
-        </div>
-        <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px;">
-          <a class="info-btn" href="Resume_Chaelin_Kim.pdf" target="_blank" rel="noopener noreferrer">Information ↗</a>
-          <button class="info-btn" id="experiment-btn-top" style="background:none;border:none;font-family:inherit;padding:0;">Experiment ↗</button>
-        </div>
-      </div>
-      <nav class="cat-nav" id="cat-nav">
-        <button data-cat="" class="on">All</button>
-        <button data-cat="artdirecting">Art direction &amp; Brand identity</button>
-        <button data-cat="interaction">Interaction</button>
-        <button data-cat="uxui">UX/UI</button>
-        <button data-cat="editorial">Editorial</button>
-        <button data-cat="film">Film</button>
-        <button data-cat="exhibition">Exhibition</button>
-      </nav>
+  <!-- LEFT: 로고 + 이름 + 이메일 -->
+  <div class="col-left">
+    <div class="logo-wrap">
+      <video autoplay loop muted playsinline><source src="logo.mp4" type="video/mp4"></video>
     </div>
-    <div class="project-list" id="project-list">
+    <div style="flex:1;">
+      <div class="name-text">Chaelin Kim</div>
+      <div class="email-text">linworkingon@gmail.com</div>
+    </div>
+    <div class="left-links">
+      <a class="left-link" href="Resume_Chaelin_Kim.pdf" target="_blank" rel="noopener noreferrer">CV ↗</a>
+    </div>
+  </div>
+
+  <!-- MIDDLE: 프로젝트 목록 -->
+  <div class="col-mid" id="col-mid">
+    <div class="mid-header">
+      <div class="mid-header-title">Projects</div>
+    </div>
+    <div id="project-list">
       <div style="padding:20px;color:#ccc;">Loading&#8230;</div>
     </div>
   </div>
-  <div class="right" id="right">
-    <div id="r-grid"></div>
-    <div id="r-experiment"></div>
-    <div id="r-detail"></div>
-  </div>
-</div>
 
-<!-- 비밀번호 모달 -->
-<div class="pw-modal" id="pw-modal">
-  <div class="pw-box">
-    <p>Password required</p>
-    <input type="password" id="pw-input" placeholder="Enter password">
-    <div class="pw-error" id="pw-error"></div>
-    <div class="pw-btns">
-      <button id="pw-cancel">Cancel</button>
-      <button class="confirm" id="pw-confirm">Enter</button>
+  <!-- RIGHT: 호버 프리뷰 -->
+  <div class="col-right" id="col-right">
+    <div class="preview-empty" id="preview-empty">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <rect x="3" y="3" width="18" height="18" rx="2"/>
+        <circle cx="8.5" cy="8.5" r="1.5"/>
+        <polyline points="21 15 16 10 5 21"/>
+      </svg>
+      Hover to preview
     </div>
-  </div>
-</div>
-
-<!-- 모바일 팝업 -->
-<div class="mobile-popup" id="mobile-popup">
-  <div class="mobile-overlay" id="mobile-overlay"></div>
-  <div class="mobile-sheet" id="mobile-sheet">
-    <div class="mobile-close"><button id="mobile-close-btn">✕</button></div>
-    <div class="mobile-content" id="mobile-content"></div>
+    <div class="preview-media" id="preview-media">
+      <video id="preview-video" autoplay loop muted playsinline style="display:none;width:100%;height:100%;object-fit:cover;"></video>
+      <img id="preview-img" alt="" style="display:none;width:100%;height:100%;object-fit:cover;">
+    </div>
+    <div class="preview-info" id="preview-info">
+      <div class="preview-info-title" id="preview-title"></div>
+      <div class="preview-info-type" id="preview-type"></div>
+    </div>
   </div>
 </div>
 
 <script>
-let lastStar = 0;
+// 별 커서 트레일
+var lastStar = 0;
 document.addEventListener('mousemove', function(e) {
-  const now = Date.now();
+  var now = Date.now();
   if (now - lastStar < 50) return;
   lastStar = now;
-  const s = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-  s.setAttribute('class', 'star'); s.setAttribute('width', '12'); s.setAttribute('height', '12'); s.setAttribute('viewBox', '0 0 24 24');
-  s.style.left = e.clientX + 'px'; s.style.top = e.clientY + 'px';
-  const p = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+  var s = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+  s.setAttribute('class', 'star');
+  s.setAttribute('width', '12');
+  s.setAttribute('height', '12');
+  s.setAttribute('viewBox', '0 0 24 24');
+  s.style.left = e.clientX + 'px';
+  s.style.top = e.clientY + 'px';
+  var p = document.createElementNS('http://www.w3.org/2000/svg', 'path');
   p.setAttribute('fill', '#FF6FD6');
   p.setAttribute('d', 'M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z');
-  s.appendChild(p); document.body.appendChild(s);
+  s.appendChild(p);
+  document.body.appendChild(s);
   setTimeout(function() { s.remove(); }, 1000);
 });
 
-let projects = [], experimentProjects = [], activeCat = '', slideshowTimer = null, isExperimentMode = false;
-const listEl = document.getElementById('project-list');
-const catNav = document.getElementById('cat-nav');
-const rightEl = document.getElementById('right');
-const rGrid = document.getElementById('r-grid');
-const rExperiment = document.getElementById('r-experiment');
-const rDetail = document.getElementById('r-detail');
+var listEl = document.getElementById('project-list');
+var previewMedia = document.getElementById('preview-media');
+var previewInfo = document.getElementById('preview-info');
+var previewEmpty = document.getElementById('preview-empty');
+var previewVideo = document.getElementById('preview-video');
+var previewImg = document.getElementById('preview-img');
+var previewTitle = document.getElementById('preview-title');
+var previewType = document.getElementById('preview-type');
+var previewTimeout = null;
 
-function clearSlideshowTimer() { if (slideshowTimer) { clearInterval(slideshowTimer); slideshowTimer = null; } }
-function hideAll() { rGrid.classList.remove('on'); rDetail.classList.remove('on'); rExperiment.classList.remove('on'); clearSlideshowTimer(); }
+function showPreview(project) {
+  if (previewTimeout) { clearTimeout(previewTimeout); previewTimeout = null; }
+  var thumb = project.thumbnail;
+  if (!thumb || !thumb.src) return;
 
-function renderExperiment() {
-  if (!experimentProjects.length) { rExperiment.innerHTML = '<div style="padding:20px;color:#ccc;">No experiments</div>'; return; }
-  rExperiment.innerHTML = '<div class="exp-grid">' + experimentProjects.map(function(p) {
-    var size = p.size || 'medium';
-    var thumb = '';
-    if (p.thumbnail && p.thumbnail.src) {
-      if (p.thumbnail.type === 'video') {
-        thumb = '<video autoplay loop muted playsinline><source src="' + p.thumbnail.src + '" type="video/mp4"></video>';
-      } else {
-        thumb = '<img src="' + p.thumbnail.src + '" alt="' + (p.title||'') + '">';
-      }
+  if (thumb.type === 'video') {
+    if (previewVideo.src !== window.location.origin + '/' + thumb.src && previewVideo.src !== thumb.src) {
+      previewVideo.src = thumb.src;
     }
-    return '<div class="exp-card size-' + size + '" data-id="' + p.id + '">' +
-      '<div class="exp-thumb">' + thumb + '</div>' +
-      '<div class="exp-card-info"><div class="exp-card-title">' + (p.title||'') + '</div><div class="exp-card-type">' + (p.type||'') + '</div></div>' +
-    '</div>';
-  }).join('') + '</div>';
-  rExperiment.querySelectorAll('.exp-card').forEach(function(card) {
-    card.addEventListener('click', function() {
-      var proj = experimentProjects.find(function(p) { return p.id === card.dataset.id; });
-      if (proj) openDetail(proj);
-    });
-  });
+    previewVideo.style.display = 'block';
+    previewImg.style.display = 'none';
+  } else {
+    previewImg.src = thumb.src;
+    previewImg.style.display = 'block';
+    previewVideo.style.display = 'none';
+    if (previewVideo.src) { previewVideo.src = ''; }
+  }
+
+  previewTitle.textContent = project.title || '';
+  previewType.textContent = project.type || '';
+  previewMedia.classList.add('on');
+  previewInfo.classList.add('on');
+  previewEmpty.style.opacity = '0';
 }
 
-function renderExperimentList() {
-  if (!experimentProjects.length) { listEl.innerHTML = '<div style="padding:20px;color:#ccc;">No experiments</div>'; return; }
-  listEl.innerHTML = experimentProjects.map(function(p) {
-    return '<a class="proj-row" data-id="' + p.id + '" href="#"><div class="proj-title">' + (p.title||'') + '</div><div class="proj-type">' + (p.type||'') + '</div></a>';
-  }).join('');
-  listEl.querySelectorAll('.proj-row').forEach(function(row) {
-    row.addEventListener('click', function(e) {
-      e.preventDefault();
-      var proj = experimentProjects.find(function(p) { return p.id === row.dataset.id; });
-      if (!proj) return;
-      listEl.querySelectorAll('.proj-row').forEach(function(r) { r.classList.remove('on'); });
-      row.classList.add('on');
-      openDetail(proj);
-    });
-  });
-}
-
-function showExperiment() {
-  hideAll();
-  isExperimentMode = true;
-  renderExperiment();
-  renderExperimentList();
-  rExperiment.classList.add('on');
-  rightEl.scrollTo({ top: 0, behavior: 'smooth' });
+function hidePreview() {
+  previewTimeout = setTimeout(function() {
+    previewMedia.classList.remove('on');
+    previewInfo.classList.remove('on');
+    previewEmpty.style.opacity = '1';
+    setTimeout(function() {
+      if (!previewMedia.classList.contains('on')) {
+        previewVideo.src = '';
+        previewImg.src = '';
+      }
+    }, 300);
+  }, 80);
 }
 
 function renderThumb(p) {
   if (!p.thumbnail || !p.thumbnail.src) return '';
-  if (p.thumbnail.type === 'video') return '<video autoplay loop muted playsinline preload="metadata"><source src="' + p.thumbnail.src + '" type="video/mp4"></video>';
-  return '<img src="' + p.thumbnail.src + '" alt="' + (p.title || '') + '">';
-}
-
-function renderGrid(list) {
-  if (!list.length) { rGrid.innerHTML = '<div style="padding:20px;color:#ccc;">No projects</div>'; return; }
-  rGrid.innerHTML = '<div class="thumb-grid">' + list.map(function(p) {
-    const isExt = !!p.externalUrl;
-    const href = isExt ? p.externalUrl : '#';
-    const attrs = isExt ? 'target="_blank" rel="noopener noreferrer"' : 'data-id="' + p.id + '"';
-    return '<a class="thumb-card" href="' + href + '" ' + attrs + '><div class="thumb-media">' + renderThumb(p) + '</div><div class="thumb-info"><div class="thumb-title">' + (p.title||'') + '</div><div class="thumb-type">' + (p.type||'') + '</div></div></a>';
-  }).join('') + '</div>';
-  rGrid.querySelectorAll('.thumb-card[data-id]').forEach(function(card) {
-    card.addEventListener('click', function(e) {
-      e.preventDefault();
-      const proj = projects.find(function(p) { return p.id === card.dataset.id; });
-      if (proj) openDetail(proj);
-    });
-  });
-}
-
-function renderList(list) {
-  if (!list.length) { listEl.innerHTML = '<div style="padding:20px;color:#ccc;">No projects</div>'; return; }
-  listEl.innerHTML = list.map(function(p) {
-    return '<a class="proj-row" data-id="' + p.id + '" href="#"><div class="proj-title">' + (p.title||'') + '</div><div class="proj-type">' + (p.type||'') + '</div></a>';
-  }).join('');
-  listEl.querySelectorAll('.proj-row').forEach(function(row) {
-    row.addEventListener('click', function(e) {
-      e.preventDefault();
-      const proj = projects.find(function(p) { return p.id === row.dataset.id; });
-      if (!proj) return;
-      if (proj.externalUrl) { window.open(proj.externalUrl, '_blank', 'noopener,noreferrer'); return; }
-      listEl.querySelectorAll('.proj-row').forEach(function(r) { r.classList.remove('on'); });
-      row.classList.add('on');
-      openDetail(proj);
-    });
-  });
-}
-
-function showGrid(list, fromPop) {
-  hideAll(); renderGrid(list); rGrid.classList.add('on');
-  rightEl.scrollTo({ top: 0, behavior: 'smooth' });
-  listEl.querySelectorAll('.proj-row').forEach(function(r) { r.classList.remove('on'); });
-  if (!fromPop) history.pushState({ view: 'grid', cat: activeCat }, '');
-}
-
-function renderSlideshow(slides) {
-  if (!slides || !slides.length) return '';
-  const imgs = slides.map(function(s, i) {
-    return '<img src="' + s.src + '" alt="slide ' + (i+1) + '" class="' + (i === 0 ? 'active' : '') + '">';
-  }).join('');
-  return '<div class="slideshow" id="slideshow">' +
-    '<button class="slide-btn prev" id="slide-prev">&#8592;</button>' +
-    '<div class="slideshow-track" id="slide-track">' + imgs + '</div>' +
-    '<button class="slide-btn next" id="slide-next">&#8594;</button>' +
-  '</div>';
-}
-
-function initSlideshow(total) {
-  if (!total) return;
-  let cur = 0;
-  const track = document.getElementById('slide-track');
-  if (!track) return;
-  const imgs = track.querySelectorAll('img');
-  function goTo(n) {
-    imgs[cur].classList.remove('active');
-    cur = (n + total) % total;
-    imgs[cur].classList.add('active');
+  if (p.thumbnail.type === 'video') {
+    return '<video autoplay loop muted playsinline preload="metadata" style="width:100%;height:100%;object-fit:cover;display:block;"><source src="' + p.thumbnail.src + '" type="video/mp4"></video>';
   }
-  function startAuto() {
-    clearSlideshowTimer();
-    slideshowTimer = setInterval(function() { goTo(cur + 1); }, 4000);
-  }
-  document.getElementById('slide-prev').addEventListener('click', function() { clearSlideshowTimer(); goTo(cur - 1); startAuto(); });
-  document.getElementById('slide-next').addEventListener('click', function() { clearSlideshowTimer(); goTo(cur + 1); startAuto(); });
-  startAuto();
+  return '<img src="' + p.thumbnail.src + '" alt="' + (p.title || '') + '" style="width:100%;height:100%;object-fit:cover;display:block;">';
 }
 
-function renderMediaItem(m, title) {
-  if (m.type === 'video') return '<video autoplay loop muted playsinline><source src="' + m.src + '" type="video/mp4"></video>';
-  if (m.type === 'vimeo') return '<div class="vimeo-box"><iframe src="https://player.vimeo.com/video/' + m.id + '?autoplay=0&title=0&byline=0&portrait=0" allow="autoplay; fullscreen" allowfullscreen></iframe></div>';
-  if (m.type === 'youtube') return '<div class="vimeo-box"><iframe src="https://www.youtube.com/embed/' + m.id + '" allow="autoplay; fullscreen" allowfullscreen></iframe></div>';
-  if (m.type === 'image') return '<img src="' + m.src + '" alt="' + (title||'') + '">';
-  return '';
-}
-
-var isMobile = function() { return window.innerWidth <= 700; };
-
-// 비밀번호 모달
-var pwModal = document.getElementById('pw-modal');
-var pwInput = document.getElementById('pw-input');
-var pwError = document.getElementById('pw-error');
-var pwPendingProject = null;
-
-document.getElementById('pw-cancel').addEventListener('click', function() {
-  pwModal.classList.remove('on');
-  pwInput.value = '';
-  pwError.textContent = '';
-  pwPendingProject = null;
-});
-document.getElementById('pw-confirm').addEventListener('click', function() {
-  if (pwInput.value === pwPendingProject.password) {
-    pwModal.classList.remove('on');
-    pwInput.value = '';
-    pwError.textContent = '';
-    var p = pwPendingProject;
-    pwPendingProject = null;
-    if (isMobile()) { openMobileDetail(p); } else { _openDetail(p); }
-  } else {
-    pwError.textContent = 'Incorrect password.';
-    pwInput.value = '';
-    pwInput.focus();
-  }
-});
-pwInput.addEventListener('keydown', function(e) {
-  if (e.key === 'Enter') document.getElementById('pw-confirm').click();
-});
-
-var mobilePopup = document.getElementById('mobile-popup');
-var mobileContent = document.getElementById('mobile-content');
-document.getElementById('mobile-overlay').addEventListener('click', closeMobilePopup);
-document.getElementById('mobile-close-btn').addEventListener('click', closeMobilePopup);
-
-function closeMobilePopup() {
-  mobilePopup.classList.remove('on');
-  clearSlideshowTimer();
-}
-
-function openMobileDetail(p) {
-  var desc = p.description && p.description.en ? p.description.en : '';
-  var metaParts = [p.type, p.date, p.client].filter(Boolean);
-  var embedHTML = p.embedUrl ? '<iframe class="embed-box" src="' + p.embedUrl + '" allow="fullscreen"></iframe>' : '';
-  var media = p.media || [];
-  var mediaHTML = media.map(function(m) { return renderMediaItem(m, p.title); }).join('');
-  var sectionsHTML = '';
-  if (p.sections && p.sections.length) {
-    sectionsHTML = '<div class="d-sections">' + p.sections.map(function(s) {
-      var sMediaHTML = (s.media || []).map(function(m) { return renderMediaItem(m, s.title); }).join('');
-      var sEmbedHTML = s.embedUrl ? '<iframe src="' + s.embedUrl + '" style="width:100%;height:60vh;border:none;display:block;margin-top:10px;" allow="fullscreen"></iframe>' : '';
-      var sSlidesHTML = '';
-      if (s.slides && s.slides.length) {
-        var sid = 'ms-' + Math.random().toString(36).substr(2,5);
-        var imgs = s.slides.map(function(sl, i) { return '<img src="' + sl.src + '" class="' + (i===0?'active':'') + '">'; }).join('');
-        sSlidesHTML = '<div class="slideshow" style="margin-top:10px;"><button class="slide-btn prev s-prev">&#8592;</button><div class="slideshow-track" id="' + sid + '">' + imgs + '</div><button class="slide-btn next s-next">&#8594;</button></div>';
-        setTimeout(function() {
-          var el = document.getElementById(sid);
-          if (!el) return;
-          var imgs2 = el.querySelectorAll('img'); var cur = 0; var total = imgs2.length;
-          function goTo(n) { imgs2[cur].classList.remove('active'); cur=(n+total)%total; imgs2[cur].classList.add('active'); }
-          el.parentNode.querySelector('.s-prev').addEventListener('click', function(){ goTo(cur-1); });
-          el.parentNode.querySelector('.s-next').addEventListener('click', function(){ goTo(cur+1); });
-          setInterval(function(){ goTo(cur+1); }, 4000);
-        }, 100);
-      }
-      return '<div class="d-section-wrap"><div class="d-section"><div class="d-section-title">' + (s.title||'') + '</div><div class="d-section-desc">' + (s.desc||'') + '</div></div>' + sEmbedHTML + sSlidesHTML + (sMediaHTML ? '<div class="gallery">' + sMediaHTML + '</div>' : '') + '</div>';
-    }).join('') + '</div>';
-  }
-  mobileContent.innerHTML =
-    '<div class="d-title" style="font-size:18px;font-weight:600;margin-bottom:6px;">' + (p.title||'') + '</div>' +
-    '<div class="d-meta">' + metaParts.join(' · ') + '</div>' +
-    '<div class="d-collab">' + (p.collaboration||'') + '</div>' +
-    (desc ? '<div class="d-desc" style="margin-top:16px;margin-bottom:24px;">' + desc + '</div>' : '') +
-    '<div class="gallery">' + embedHTML + mediaHTML + '</div>' +
-    sectionsHTML;
-  mobilePopup.classList.add('on');
-  document.getElementById('mobile-sheet').scrollTo({ top: 0 });
-}
-
-function openDetail(p, fromPop) {
-  if (p.password && !fromPop) {
-    pwPendingProject = p;
-    pwModal.classList.add('on');
-    setTimeout(function() { pwInput.focus(); }, 100);
+function renderList(projects) {
+  if (!projects.length) {
+    listEl.innerHTML = '<div style="padding:20px;color:#ccc;">No projects</div>';
     return;
   }
-  if (isMobile()) { openMobileDetail(p); return; }
-  _openDetail(p, fromPop);
-}
 
-function _openDetail(p, fromPop) {
-  hideAll(); rDetail.classList.add('on');
-  if (!fromPop) history.pushState({ view: 'detail', id: p.id, cat: activeCat }, '');
-  const desc = p.description && p.description.en ? p.description.en : '';
-  const metaParts = [p.type, p.date, p.client].filter(Boolean);
-  const embedHTML = p.embedUrl ? '<iframe class="embed-box" src="' + p.embedUrl + '" allow="fullscreen"></iframe>' : '';
-  const media = p.media || [];
-  const insertAt = (p.slides && p.slides.length && p.slideshowPosition != null) ? p.slideshowPosition : -1;
-
-  var galleryHTML = '';
-  if (insertAt >= 0) {
-    var before = media.slice(0, insertAt).map(function(m) { return renderMediaItem(m, p.title); }).join('');
-    var after  = media.slice(insertAt).map(function(m) { return renderMediaItem(m, p.title); }).join('');
-    galleryHTML = embedHTML + before + '</div>' + renderSlideshow(p.slides) + '<div class="gallery">' + after;
-  } else {
-    galleryHTML = embedHTML + media.map(function(m) { return renderMediaItem(m, p.title); }).join('');
-  }
-
-  rDetail.innerHTML =
-    '<div class="d-header">' +
-      '<div class="d-left">' +
-        '<div class="d-title">' + (p.title||'') + '</div>' +
-        '<div class="d-meta">' + metaParts.join(' · ') + '</div>' +
-        '<div class="d-collab">' + (p.collaboration||'') + '</div>' +
+  listEl.innerHTML = projects.map(function(p) {
+    var isExt = !!p.externalUrl;
+    var href = isExt ? p.externalUrl : 'portfolio.html?id=' + encodeURIComponent(p.id);
+    var target = isExt ? ' target="_blank" rel="noopener noreferrer"' : '';
+    return '<a class="proj-item" href="' + href + '"' + target + ' data-id="' + p.id + '">' +
+      '<div class="proj-item-thumb">' + renderThumb(p) + '</div>' +
+      '<div class="proj-item-info">' +
+        '<div class="proj-item-title">' + (p.title || '') + '</div>' +
+        '<div class="proj-item-type">' + (p.type || '') + '</div>' +
       '</div>' +
-      (desc ? '<div class="d-desc">' + desc + '</div>' : '<div></div>') +
-    '</div>' +
-    '<div class="gallery">' + galleryHTML + '</div>' +
-    (p.sections && p.sections.length ? '<div class="d-sections">' + p.sections.map(function(s) {
-      var sMediaHTML = (s.media || []).map(function(m) { return renderMediaItem(m, s.title); }).join('');
-      var sEmbedHTML = s.embedUrl ? '<iframe src="' + s.embedUrl + '" style="width:100%;height:100vh;border:none;display:block;margin-top:10px;" allow="fullscreen"></iframe>' : '';
-      var sSlidesHTML = (s.slides && s.slides.length) ? (function() {
-        var sid = 'slide-track-' + Math.random().toString(36).substr(2,5);
-        var imgs = s.slides.map(function(sl, i) { return '<img src="' + sl.src + '" alt="slide ' + (i+1) + '" class="' + (i===0?'active':'') + '">'; }).join('');
-        setTimeout(function() {
-          var el = document.getElementById(sid);
-          if (!el) return;
-          var imgs2 = el.querySelectorAll('img'); var cur = 0; var total = imgs2.length;
-          function goTo(n) { imgs2[cur].classList.remove('active'); cur=(n+total)%total; imgs2[cur].classList.add('active'); }
-          el.parentNode.querySelector('.s-prev').addEventListener('click', function(){ goTo(cur-1); });
-          el.parentNode.querySelector('.s-next').addEventListener('click', function(){ goTo(cur+1); });
-          setInterval(function(){ goTo(cur+1); }, 4000);
-        }, 100);
-        return '<div class="slideshow" style="margin-top:10px;"><button class="slide-btn prev s-prev">&#8592;</button><div class="slideshow-track" id="' + sid + '">' + imgs + '</div><button class="slide-btn next s-next">&#8594;</button></div>';
-      })() : '';
-      return '<div class="d-section-wrap">' +
-        '<div class="d-section"><div class="d-section-title">' + (s.title||'') + '</div><div class="d-section-desc">' + (s.desc||'') + '</div></div>' +
-        (sEmbedHTML ? sEmbedHTML : '') +
-        sSlidesHTML +
-        (sMediaHTML ? '<div class="gallery">' + sMediaHTML + '</div>' : '') +
-        '</div>';
-    }).join('') + '</div>' : '');
+    '</a>';
+  }).join('');
 
-  if (p.slides && p.slides.length) initSlideshow(p.slides.length);
-  rightEl.scrollTo({ top: 0, behavior: 'smooth' });
-}
+  listEl.querySelectorAll('.proj-item').forEach(function(item) {
+    var id = item.dataset.id;
+    var proj = projects.find(function(p) { return p.id === id; });
+    if (!proj) return;
 
-window.addEventListener('popstate', function(e) {
-  const state = e.state;
-  if (!state || state.view === 'grid') {
-    const cat = state ? (state.cat || '') : '';
-    activeCat = cat;
-    const filtered = cat ? projects.filter(function(p) { return (p.category||'').toLowerCase() === cat; }) : projects;
-    catNav.querySelectorAll('button').forEach(function(b) { b.classList.remove('on'); });
-    catNav.querySelector('[data-cat="' + cat + '"]').classList.add('on');
-    renderList(filtered); showGrid(filtered, true);
-  } else if (state.view === 'detail') {
-    const proj = projects.find(function(p) { return p.id === state.id; });
-    listEl.querySelectorAll('.proj-row').forEach(function(r) { r.classList.remove('on'); });
-    const activeRow = listEl.querySelector('.proj-row[data-id="' + state.id + '"]');
-    if (activeRow) activeRow.classList.add('on');
-    if (proj) openDetail(proj, true);
-  }
-});
-
-document.getElementById('logo-link').addEventListener('click', function(e) {
-  e.preventDefault();
-  catNav.querySelectorAll('button').forEach(function(b) { b.classList.remove('on'); });
-  catNav.querySelector('[data-cat=""]').classList.add('on');
-  activeCat = ''; renderList(projects); showGrid(projects);
-});
-
-catNav.querySelectorAll('button').forEach(function(btn) {
-  btn.addEventListener('click', function() {
-    catNav.querySelectorAll('button').forEach(function(b) { b.classList.remove('on'); });
-    btn.classList.add('on'); activeCat = btn.dataset.cat;
-    const filtered = activeCat ? projects.filter(function(p) { return (p.category||'').toLowerCase() === activeCat; }) : projects;
-    renderList(filtered); showGrid(filtered);
+    item.addEventListener('mouseenter', function() {
+      listEl.querySelectorAll('.proj-item').forEach(function(r) { r.classList.remove('hovered'); });
+      item.classList.add('hovered');
+      showPreview(proj);
+    });
+    item.addEventListener('mouseleave', function() {
+      item.classList.remove('hovered');
+      hidePreview();
+    });
   });
-});
-
-fetch('./experiment-data.json', { cache: 'no-store' })
-  .then(function(r) { return r.ok ? r.json() : { projects: [] }; })
-  .then(function(data) { experimentProjects = data.projects || []; })
-  .catch(function() { experimentProjects = []; });
-
-document.getElementById('experiment-btn-top').addEventListener('click', function() {
-  catNav.querySelectorAll('button').forEach(function(b) { b.classList.remove('on'); });
-  showExperiment();
-});
+}
 
 fetch('./projects-data.json', { cache: 'no-store' })
   .then(function(r) { if (!r.ok) throw new Error(r.status); return r.json(); })
   .then(function(data) {
-    projects = data.projects || [];
+    var projects = data.projects || [];
     renderList(projects);
-    history.replaceState({ view: 'grid', cat: '' }, '');
-    showGrid(projects, true);
   })
   .catch(function(err) {
     console.error(err);
-    listEl.innerHTML = '<div style="padding:20px;color:red;">Failed to load: ' + err.message + '</div>';
+    listEl.innerHTML = '<div style="padding:20px;color:red;">Failed to load projects: ' + err.message + '</div>';
   });
 </script>
 </body>
