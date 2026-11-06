@@ -25,16 +25,18 @@
       overflow: hidden;
     }
 
-    /* ===== LEFT: 로고 + 이름 + 이메일 ===== */
+    /* ===== LEFT ===== */
     .col-left {
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
-      padding: 32px 24px 32px;
+      padding: 32px 28px;
       border-right: 1px solid var(--line);
       height: 100vh;
-      overflow: hidden;
+      overflow-y: auto;
+      overflow-x: hidden;
     }
+    .col-left::-webkit-scrollbar { width: 0; }
     .logo-wrap {
       width: 110px;
       height: 62px;
@@ -45,76 +47,79 @@
       width: 136px;
       margin-left: -13px;
     }
-    .name-text {
-      font-size: 15px;
-      font-weight: 600;
+    .left-name {
+      font-size: 14px;
+      font-weight: 700;
       color: #000;
-      margin-bottom: 4px;
-      letter-spacing: -0.01em;
+      margin-bottom: 10px;
     }
-    .email-text {
+    .left-desc {
       font-size: 12px;
       color: var(--gray);
+      line-height: 1.6;
+      margin-bottom: 24px;
     }
-    .left-links {
-      margin-top: auto;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
+    .left-section {
+      margin-bottom: 20px;
+    }
+    .left-section-label {
+      font-size: 12px;
+      font-weight: 700;
+      color: #000;
+      margin-bottom: 6px;
     }
     .left-link {
+      display: block;
+      font-size: 12px;
+      font-weight: 700;
+      color: #000;
+      cursor: url("cursor-hand.png") 16 16, pointer !important;
+      transition: color 0.15s;
+      line-height: 1.8;
+    }
+    .left-link:hover { color: var(--pink); }
+    .left-link-plain {
+      display: block;
+      font-size: 12px;
+      color: var(--gray);
+      line-height: 1.8;
+    }
+    .left-work-item {
+      display: block;
       font-size: 12px;
       color: var(--gray);
       cursor: url("cursor-hand.png") 16 16, pointer !important;
       transition: color 0.15s;
+      line-height: 1.8;
+      text-decoration: none;
     }
-    .left-link:hover { color: var(--pink); }
+    .left-work-item:hover { color: var(--pink); }
+    .left-work-item.active { color: #000; font-weight: 600; }
 
     /* ===== MIDDLE: 프로젝트 목록 ===== */
     .col-mid {
-      border-right: 1px solid var(--line);
       height: 100vh;
       overflow-y: auto;
       overflow-x: hidden;
+      padding: 20px 20px;
     }
     .col-mid::-webkit-scrollbar { width: 0; }
 
-    .mid-header {
-      padding: 20px 20px 0;
-      border-bottom: 1px solid var(--line);
-      position: sticky;
-      top: 0;
-      background: #fff;
-      z-index: 10;
-    }
-    .mid-header-title {
-      font-size: 11px;
-      color: var(--gray);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      padding-bottom: 12px;
-    }
-
     .proj-item {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 10px 20px;
-      border-bottom: 1px solid var(--line);
+      display: block;
+      padding: 6px 20px;
       cursor: url("cursor-hand.png") 16 16, pointer !important;
-      transition: background 0.1s;
+      transition: opacity 0.1s;
       text-decoration: none;
       color: inherit;
     }
     .proj-item * { cursor: inherit !important; }
-    .proj-item:hover { background: #fafafa; }
-    .proj-item:hover .proj-item-title { color: var(--pink); }
-    .proj-item.hovered .proj-item-title { color: var(--pink); }
+    .proj-item:hover { opacity: 0.7; }
+    .proj-item.hovered { opacity: 0.7; }
 
     .proj-item-thumb {
-      flex-shrink: 0;
-      width: 52px;
-      height: 36px;
+      width: 100%;
+      aspect-ratio: 3 / 2;
       overflow: hidden;
       background: #f5f5f5;
     }
@@ -125,23 +130,7 @@
       object-fit: cover;
       display: block;
     }
-    .proj-item-info { min-width: 0; flex: 1; }
-    .proj-item-title {
-      font-size: 13px;
-      font-weight: 600;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      transition: color 0.15s;
-      margin-bottom: 1px;
-    }
-    .proj-item-type {
-      font-size: 11px;
-      color: var(--gray);
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
+    .proj-item-info { display: none; }
 
     /* ===== RIGHT: 호버 프리뷰 ===== */
     .col-right {
@@ -166,13 +155,13 @@
       inset: 0;
       display: flex;
       flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 16px;
+      align-items: flex-start;
+      justify-content: flex-start;
+      gap: 12px;
       opacity: 0;
       transition: opacity 0.25s ease;
       pointer-events: none;
-      padding: 40px;
+      padding: 32px;
     }
     .preview-wrap.on { opacity: 1; }
     .preview-media {
@@ -187,7 +176,7 @@
       object-fit: contain;
     }
     .preview-info {
-      text-align: center;
+      text-align: left;
     }
     .preview-info-title {
       font-size: 13px;
@@ -240,25 +229,28 @@
 <body>
 
 <div class="layout">
-  <!-- LEFT: 로고 + 이름 + 이메일 -->
+  <!-- LEFT -->
   <div class="col-left">
     <div class="logo-wrap">
       <video autoplay loop muted playsinline><source src="logo.mp4" type="video/mp4"></video>
     </div>
-    <div style="flex:1;">
-      <div class="name-text">Chaelin Kim</div>
-      <div class="email-text">linworkingon@gmail.com</div>
-    </div>
-    <div class="left-links">
+
+    <div class="left-name">Chaelin Kim</div>
+    <div class="left-desc">Communication Designer<br>Brand identity, interaction, editorial & graphic design.</div>
+
+    <div class="left-section">
+      <a class="left-link" href="mailto:linworkingon@gmail.com">Email ↗</a>
       <a class="left-link" href="Resume_Chaelin_Kim.pdf" target="_blank" rel="noopener noreferrer">CV ↗</a>
+      <a class="left-link" href="https://www.linkedin.com/in/chaelin-kim" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+    </div>
+
+    <div class="left-section" style="margin-top:4px;">
+      <button id="experiment-btn" class="left-link" style="background:none;border:none;font-family:inherit;padding:0;font-size:12px;font-weight:700;text-align:left;">Experiment ↗</button>
     </div>
   </div>
 
   <!-- MIDDLE: 프로젝트 목록 -->
   <div class="col-mid" id="col-mid">
-    <div class="mid-header">
-      <div class="mid-header-title">Projects</div>
-    </div>
     <div id="project-list">
       <div style="padding:20px;color:#ccc;">Loading&#8230;</div>
     </div>
@@ -360,12 +352,15 @@ function renderThumb(p) {
   return '<img src="' + p.thumbnail.src + '" alt="' + (p.title || '') + '" style="width:100%;height:100%;object-fit:cover;display:block;">';
 }
 
+var activeId = null;
+
 function renderList(projects) {
   if (!projects.length) {
     listEl.innerHTML = '<div style="padding:20px;color:#ccc;">No projects</div>';
     return;
   }
 
+  // 가운데: 썸네일 목록
   listEl.innerHTML = projects.map(function(p) {
     var isExt = !!p.externalUrl;
     var href = isExt ? p.externalUrl : 'portfolio.html?id=' + encodeURIComponent(p.id);
@@ -379,6 +374,7 @@ function renderList(projects) {
     '</a>';
   }).join('');
 
+  // 가운데 hover → 오른쪽 프리뷰
   listEl.querySelectorAll('.proj-item').forEach(function(item) {
     var id = item.dataset.id;
     var proj = projects.find(function(p) { return p.id === id; });
@@ -387,14 +383,25 @@ function renderList(projects) {
     item.addEventListener('mouseenter', function() {
       listEl.querySelectorAll('.proj-item').forEach(function(r) { r.classList.remove('hovered'); });
       item.classList.add('hovered');
+      setActive(id);
       showPreview(proj);
     });
     item.addEventListener('mouseleave', function() {
       item.classList.remove('hovered');
+      setActive(null);
       hidePreview();
     });
   });
+
 }
+
+function setActive(id) {
+  activeId = id;
+}
+
+document.getElementById('experiment-btn').addEventListener('click', function() {
+  window.location.href = 'portfolio.html#experiment';
+});
 
 fetch('./projects-data.json', { cache: 'no-store' })
   .then(function(r) { if (!r.ok) throw new Error(r.status); return r.json(); })
