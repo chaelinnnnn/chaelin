@@ -342,8 +342,10 @@
       border-right: 1px solid var(--line);
       height: 100vh;
       overflow-y: auto;
+      overflow-x: hidden;
     }
     .exp-col-left::-webkit-scrollbar { width: 0; }
+    .exp-back { cursor: url("cursor-hand.png") 16 16, pointer !important; }
 
     .exp-col-mid {
       height: 100vh;
@@ -445,17 +447,17 @@
   <div class="col-left">
     <div class="left-name">Chaelin Kim</div>
     <div class="left-desc">Communication Designer<br>Brand identity, interaction, editorial &amp; graphic design.</div>
-    <div class="left-spacer"></div>
-    <div class="logo-wrap">
-      <video autoplay loop muted playsinline><source src="logo.mp4" type="video/mp4"></video>
-    </div>
-    <div class="left-section">
+    <div class="left-section" style="margin-top:20px;">
       <a class="left-link" href="mailto:linworkingon@gmail.com">Email ↗</a>
       <a class="left-link" href="Resume_Chaelin_Kim.pdf" target="_blank" rel="noopener noreferrer">CV ↗</a>
       <a class="left-link" href="https://www.linkedin.com/in/chaelin-kim" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
     </div>
     <div class="left-section" style="margin-top:4px;">
       <button id="experiment-btn" class="left-link" style="background:none;border:none;font-family:inherit;padding:0;font-size:12px;font-weight:700;text-align:left;">Experiment ↗</button>
+    </div>
+    <div class="left-spacer"></div>
+    <div class="logo-wrap" style="margin-bottom:0;">
+      <video autoplay loop muted playsinline><source src="logo.mp4" type="video/mp4"></video>
     </div>
   </div>
 
@@ -486,13 +488,19 @@
 <div class="layout-experiment" id="layout-experiment">
   <!-- LEFT -->
   <div class="exp-col-left">
-    <button class="exp-back" id="exp-back">← Back</button>
     <div class="left-name">Chaelin Kim</div>
     <div class="left-desc">Communication Designer<br>Brand identity, interaction, editorial &amp; graphic design.</div>
-    <div class="left-section">
+    <div class="left-section" style="margin-top:20px;">
       <a class="left-link" href="mailto:linworkingon@gmail.com">Email ↗</a>
       <a class="left-link" href="Resume_Chaelin_Kim.pdf" target="_blank" rel="noopener noreferrer">CV ↗</a>
       <a class="left-link" href="https://www.linkedin.com/in/chaelin-kim" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+    </div>
+    <div class="left-section" style="margin-top:4px;">
+      <button class="exp-back left-link" id="exp-back" style="background:none;border:none;font-family:inherit;padding:0;font-size:12px;font-weight:700;text-align:left;border-radius:0;color:#000;">← Work ↗</button>
+    </div>
+    <div class="left-spacer"></div>
+    <div class="logo-wrap" style="margin-bottom:0;">
+      <video autoplay loop muted playsinline><source src="logo.mp4" type="video/mp4"></video>
     </div>
   </div>
   <!-- MID: experiment 그리드 -->
