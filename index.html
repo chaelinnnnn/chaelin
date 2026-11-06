@@ -28,7 +28,7 @@
     /* ─── DETAIL: 2-column ─── */
     .layout-detail {
       display: none;
-      grid-template-columns: 220px 1fr;
+      grid-template-columns: 280px 1fr;
       height: 100vh;
       overflow: hidden;
     }
@@ -46,24 +46,25 @@
       overflow-x: hidden;
     }
     .col-left::-webkit-scrollbar { width: 0; }
+    .left-spacer { flex: 1; }
     .logo-wrap {
       width: 110px;
       height: 62px;
       overflow: hidden;
-      margin-bottom: 8px;
+      margin-bottom: 12px;
     }
     .logo-wrap video { width: 136px; margin-left: -13px; }
     .left-name {
       font-size: 14px;
       font-weight: 700;
       color: #000;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
     .left-desc {
       font-size: 12px;
       color: var(--gray);
       line-height: 1.6;
-      margin-bottom: 24px;
+      margin-bottom: 0;
     }
     .left-section { margin-bottom: 20px; }
     .left-link {
@@ -86,19 +87,23 @@
     .detail-left-panel.on { display: flex; }
 
     .dlp-back {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
       font-size: 11px;
-      color: var(--gray);
+      color: #666;
       cursor: url("cursor-hand.png") 16 16, pointer !important;
-      transition: color 0.15s;
+      transition: background 0.15s, color 0.15s;
       margin-bottom: 20px;
-      background: none;
+      background: #f0f0f0;
       border: none;
       font-family: inherit;
-      padding: 0;
+      padding: 6px 14px;
+      border-radius: 999px;
       text-align: left;
+      width: fit-content;
     }
-    .dlp-back:hover { color: #000; }
+    .dlp-back:hover { background: #e4e4e4; color: #000; }
 
     .dlp-title {
       font-size: 13px;
@@ -163,7 +168,8 @@
       height: 100vh;
       overflow-y: auto;
       overflow-x: hidden;
-      padding: 20px 20px;
+      padding: 20px;
+      border-right: none;
     }
     .col-mid::-webkit-scrollbar { width: 0; }
 
@@ -320,10 +326,10 @@
       to   { transform: translateY(100px) rotate(180deg) scale(0); opacity: 0; }
     }
 
-    /* ===== Experiment 뷰 (전체화면) ===== */
+    /* ===== Experiment 뷰 (3컬럼) ===== */
     .layout-experiment {
       display: none;
-      grid-template-columns: 220px 1fr;
+      grid-template-columns: 220px 1fr 1fr;
       height: 100vh;
       overflow: hidden;
     }
@@ -339,27 +345,47 @@
     }
     .exp-col-left::-webkit-scrollbar { width: 0; }
 
-    .exp-col-right {
+    .exp-col-mid {
       height: 100vh;
       overflow-y: auto;
-      padding: 32px;
+      overflow-x: hidden;
+      padding: 20px;
     }
-    .exp-col-right::-webkit-scrollbar { width: 0; }
+    .exp-col-mid::-webkit-scrollbar { width: 0; }
+
+    .exp-col-right {
+      height: 100vh;
+      position: relative;
+      overflow: hidden;
+      background: #fff;
+    }
+    #exp-preview-empty {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      color: #ddd; font-size: 12px;
+      user-select: none; pointer-events: none;
+      transition: opacity 0.25s;
+    }
 
     .exp-back {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
       font-size: 11px;
-      color: var(--gray);
+      color: #666;
       cursor: url("cursor-hand.png") 16 16, pointer !important;
-      transition: color 0.15s;
+      transition: background 0.15s, color 0.15s;
       margin-bottom: 20px;
-      background: none;
+      background: #f0f0f0;
       border: none;
       font-family: inherit;
-      padding: 0;
+      padding: 6px 14px;
+      border-radius: 999px;
       text-align: left;
+      width: fit-content;
     }
-    .exp-back:hover { color: #000; }
+    .exp-back:hover { background: #e4e4e4; color: #000; }
     .exp-label {
       font-size: 14px;
       font-weight: 700;
@@ -417,11 +443,12 @@
 <div class="layout-landing" id="layout-landing">
   <!-- LEFT -->
   <div class="col-left">
+    <div class="left-name">Chaelin Kim</div>
+    <div class="left-desc">Communication Designer<br>Brand identity, interaction, editorial &amp; graphic design.</div>
+    <div class="left-spacer"></div>
     <div class="logo-wrap">
       <video autoplay loop muted playsinline><source src="logo.mp4" type="video/mp4"></video>
     </div>
-    <div class="left-name">Chaelin Kim</div>
-    <div class="left-desc">Communication Designer<br>Brand identity, interaction, editorial &amp; graphic design.</div>
     <div class="left-section">
       <a class="left-link" href="mailto:linworkingon@gmail.com">Email ↗</a>
       <a class="left-link" href="Resume_Chaelin_Kim.pdf" target="_blank" rel="noopener noreferrer">CV ↗</a>
@@ -455,17 +482,36 @@
   </div>
 </div>
 
-<!-- ══════════════ EXPERIMENT (전체화면) ══════════════ -->
+<!-- ══════════════ EXPERIMENT (3-column) ══════════════ -->
 <div class="layout-experiment" id="layout-experiment">
+  <!-- LEFT -->
   <div class="exp-col-left">
-    <div class="logo-wrap" style="cursor:pointer;" id="exp-logo">
-      <video autoplay loop muted playsinline><source src="logo.mp4" type="video/mp4"></video>
-    </div>
     <button class="exp-back" id="exp-back">← Back</button>
-    <div class="exp-label">Experiment</div>
+    <div class="left-name">Chaelin Kim</div>
+    <div class="left-desc">Communication Designer<br>Brand identity, interaction, editorial &amp; graphic design.</div>
+    <div class="left-section">
+      <a class="left-link" href="mailto:linworkingon@gmail.com">Email ↗</a>
+      <a class="left-link" href="Resume_Chaelin_Kim.pdf" target="_blank" rel="noopener noreferrer">CV ↗</a>
+      <a class="left-link" href="https://www.linkedin.com/in/chaelin-kim" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+    </div>
   </div>
-  <div class="exp-col-right">
+  <!-- MID: experiment 그리드 -->
+  <div class="exp-col-mid">
     <div class="exp-grid" id="exp-grid"></div>
+  </div>
+  <!-- RIGHT: hover 프리뷰 (랜딩과 공유) -->
+  <div class="exp-col-right" id="exp-col-right">
+    <div class="preview-empty" id="exp-preview-empty">—</div>
+    <div class="preview-wrap" id="exp-preview-wrap">
+      <div class="preview-media">
+        <video id="exp-preview-video" autoplay loop muted playsinline style="display:none;"></video>
+        <img id="exp-preview-img" alt="" style="display:none;">
+      </div>
+      <div class="preview-info">
+        <div class="preview-info-title" id="exp-preview-title"></div>
+        <div class="preview-info-type" id="exp-preview-type"></div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -734,10 +780,36 @@ function buildExperiment() {
     '</div>';
   }).join('');
 
+  var epWrap  = document.getElementById('exp-preview-wrap');
+  var epEmpty = document.getElementById('exp-preview-empty');
+  var epVideo = document.getElementById('exp-preview-video');
+  var epImg   = document.getElementById('exp-preview-img');
+  var epTitle = document.getElementById('exp-preview-title');
+  var epType  = document.getElementById('exp-preview-type');
+
   grid.querySelectorAll('.exp-card').forEach(function(card) {
+    var proj = experimentProjects.find(function(p) { return p.id === card.dataset.id; });
+    if (!proj) return;
+
+    card.addEventListener('mouseenter', function() {
+      var thumb = proj.thumbnail;
+      if (!thumb || !thumb.src) return;
+      if (thumb.type === 'video') {
+        epVideo.src = thumb.src; epVideo.style.display = 'block'; epImg.style.display = 'none';
+      } else {
+        epImg.src = thumb.src; epImg.style.display = 'block'; epVideo.style.display = 'none';
+      }
+      epTitle.textContent = proj.title || '';
+      epType.textContent  = proj.type  || '';
+      epWrap.classList.add('on');
+      epEmpty.style.opacity = '0';
+    });
+    card.addEventListener('mouseleave', function() {
+      epWrap.classList.remove('on');
+      epEmpty.style.opacity = '1';
+    });
     card.addEventListener('click', function() {
-      var proj = experimentProjects.find(function(p) { return p.id === card.dataset.id; });
-      if (proj) openProject(proj);
+      openProject(proj);
     });
   });
   expGridBuilt = true;
@@ -777,7 +849,6 @@ pwInput.addEventListener('keydown', function(e) { if (e.key === 'Enter') documen
 document.getElementById('dlp-back').addEventListener('click', function() { showLanding(); });
 document.getElementById('detail-logo').addEventListener('click', function() { showLanding(); });
 document.getElementById('exp-back').addEventListener('click', function() { showLanding(); });
-document.getElementById('exp-logo').addEventListener('click', function() { showLanding(); });
 
 // ── Experiment 버튼
 document.getElementById('experiment-btn').addEventListener('click', function() {
