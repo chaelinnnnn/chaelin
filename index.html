@@ -535,7 +535,7 @@
 <div class="layout-detail" id="layout-detail">
   <!-- LEFT: 텍스트 패널 -->
   <div class="col-left" id="detail-col-left">
-    <div class="logo-wrap" style="cursor:pointer;" id="detail-logo">
+    <div class="logo-wrap" style="cursor:pointer;display:none;" id="detail-logo">
       <video autoplay loop muted playsinline><source src="logo.mp4" type="video/mp4"></video>
     </div>
 
@@ -714,7 +714,8 @@ function buildDetail(p) {
   dlpMeta.textContent = metaParts.join(' · ');
 
   var desc = p.description && p.description.en ? p.description.en : (p.description || '');
-  dlpDesc.style.display = 'none'; /* desc는 오른쪽에 표시 */
+  dlpDesc.textContent = desc;
+  dlpDesc.style.display = desc ? '' : 'none';
 
   // 섹션들
   dlpSections.innerHTML = '';
@@ -754,12 +755,8 @@ function buildDetail(p) {
     dlpThumbs.appendChild(div);
   });
 
-  // 오른쪽 대형 미디어 그리드 (description을 오른쪽 상단에)
+  // 오른쪽 대형 미디어 그리드
   var html = '';
-  var desc2 = p.description && p.description.en ? p.description.en : (p.description || '');
-  if (desc2) {
-    html += '<div class="detail-desc-top">' + desc2.replace(/\n/g, '<br>') + '</div>';
-  }
   if (p.embedUrl) {
     html += '<div class="vimeo-box"><iframe src="' + p.embedUrl + '" allow="fullscreen"></iframe></div>';
   }
