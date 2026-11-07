@@ -418,6 +418,11 @@
     .work-cat-item:hover { color: var(--pink); background: none; }
     .work-cat-item.active { color: var(--pink); font-weight: 700; }
 
+    #work-dropdown {
+      -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+      mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+    }
+
     .exp-col-mid {
       height: 100vh;
       overflow-y: auto;
@@ -527,14 +532,13 @@
       <div style="position:relative;display:inline-block;" id="work-wrap">
         <button id="work-btn" class="left-link" style="background:none;border:none;font-family:inherit;padding:0;font-size:12px;font-weight:700;text-align:left;">Work ↗</button>
         <div id="work-dropdown" style="display:none;position:absolute;left:0;top:calc(100% + 6px);z-index:100;min-width:140px;">
-          <div style="position:relative;overflow:hidden;border-radius:4px;background:rgba(255,255,255,0.72);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);padding:4px 0 28px;">
+          <div style="position:relative;border-radius:4px;background:transparent;padding:4px 0;">
             <button class="work-cat-item" data-cat="all">All</button>
             <button class="work-cat-item" data-cat="artdirecting">Art Directing</button>
             <button class="work-cat-item" data-cat="uxui">UX/UI</button>
             <button class="work-cat-item" data-cat="Editorial">Editorial</button>
             <button class="work-cat-item" data-cat="Film">Film</button>
             <button class="work-cat-item" data-cat="Interaction">Interaction</button>
-            <div style="position:absolute;bottom:0;left:0;right:0;height:36px;background:linear-gradient(to bottom,rgba(255,255,255,0),rgba(255,255,255,0.9));pointer-events:none;"></div>
           </div>
         </div>
       </div>
