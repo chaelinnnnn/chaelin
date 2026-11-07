@@ -688,7 +688,7 @@ var dlpThumbs   = document.getElementById('dlp-thumbs');
 var detailGrid  = document.getElementById('detail-media-grid');
 var colDetailRight = document.getElementById('col-detail-right');
 
-var projects = [], experimentProjects = [];
+var projects = [], experimentProjects = [], allProjects = [];
 var previewTimeout = null;
 var pwPendingProject = null;
 var pwModal   = document.getElementById('pw-modal');
@@ -1006,16 +1006,17 @@ document.getElementById('experiment-btn').addEventListener('click', function() {
   setExpTab('experiment');
 });
 
-// ── Work 버튼 (호버 드롭다운 + 클릭 전체)
-var workWrap = document.getElementById('work-wrap');
+// ── Work 버튼 (클릭으로 드롭다운 토글)
 var workDropdown = document.getElementById('work-dropdown');
-workWrap.addEventListener('mouseenter', function() { workDropdown.style.display = 'block'; });
-workWrap.addEventListener('mouseleave', function() { workDropdown.style.display = 'none'; });
-document.getElementById('work-btn').addEventListener('click', function() {
-  showExperimentView();
-  setExpTab('work');
-  buildWorkGrid('all');
+document.getElementById('work-btn').addEventListener('click', function(e) {
+  e.stopPropagation();
+  var isOpen = workDropdown.style.display === 'block';
+  workDropdown.style.display = isOpen ? 'none' : 'block';
 });
+// 외부 클릭시 닫기
+document.addEventListener('click', function() { workDropdown.style.display = 'none'; });
+workDropdown.addEventListener('click', function(e) { e.stopPropagation(); });
+
 document.getElementById('work-dropdown').addEventListener('click', function(e) {
   var btn = e.target.closest('.work-cat-item');
   if (!btn) return;
@@ -1069,6 +1070,7 @@ fetch('./projects-data.json', { cache: 'no-store' })
   .then(function(r) { if (!r.ok) throw new Error(r.status); return r.json(); })
   .then(function(data) {
     projects = data.projects || [];
+    allProjects = projects;
     renderList(projects);
   })
   .catch(function(err) {
