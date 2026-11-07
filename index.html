@@ -943,15 +943,7 @@ function showExperimentOnlyView() {
   document.getElementById('exp-back-experiment').style.display = '';
 }
 
-// 카테고리 드롭다운 클릭
-document.getElementById('cat-dropdown').addEventListener('click', function(e) {
-  var btn = e.target.closest('.exp-cat-item');
-  if (!btn) return;
-  buildWorkGrid(btn.dataset.cat);
-  setExpTab('work');
-});
-
-// (탭 버튼 제거됨)
+// (탭/카테고리 드롭다운 제거됨)
 
 // ── 프로젝트 열기
 function openProject(p) {
