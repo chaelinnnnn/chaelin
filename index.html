@@ -418,10 +418,6 @@
     .work-cat-item:hover { color: var(--pink); background: none; }
     .work-cat-item.active { color: var(--pink); font-weight: 700; }
 
-    #work-dropdown {
-      -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
-      mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
-    }
 
     .exp-col-mid {
       height: 100vh;
@@ -531,15 +527,13 @@
     <div class="left-section" style="margin-top:4px;">
       <div style="position:relative;display:inline-block;" id="work-wrap">
         <button id="work-btn" class="left-link" style="background:none;border:none;font-family:inherit;padding:0;font-size:12px;font-weight:700;text-align:left;">Work ↗</button>
-        <div id="work-dropdown" style="display:none;position:absolute;left:0;top:calc(100% + 6px);z-index:100;min-width:140px;">
-          <div style="position:relative;border-radius:4px;background:transparent;padding:4px 0;">
-            <button class="work-cat-item" data-cat="all">All</button>
-            <button class="work-cat-item" data-cat="artdirecting">Art Directing</button>
-            <button class="work-cat-item" data-cat="uxui">UX/UI</button>
-            <button class="work-cat-item" data-cat="Editorial">Editorial</button>
-            <button class="work-cat-item" data-cat="Film">Film</button>
-            <button class="work-cat-item" data-cat="Interaction">Interaction</button>
-          </div>
+        <div id="work-dropdown" style="display:none;position:absolute;left:0;top:calc(100% + 8px);background:#fff;border:1px solid #e8e8e8;border-radius:8px;padding:6px 0;z-index:100;min-width:160px;box-shadow:0 4px 16px rgba(0,0,0,0.08);">
+          <button class="work-cat-item" data-cat="all">All</button>
+          <button class="work-cat-item" data-cat="artdirecting">Art Directing</button>
+          <button class="work-cat-item" data-cat="uxui">UX/UI</button>
+          <button class="work-cat-item" data-cat="Editorial">Editorial</button>
+          <button class="work-cat-item" data-cat="Film">Film</button>
+          <button class="work-cat-item" data-cat="Interaction">Interaction</button>
         </div>
       </div>
       <button id="experiment-btn" class="left-link" style="background:none;border:none;font-family:inherit;padding:0;font-size:12px;font-weight:700;text-align:left;">Experiment ↗</button>
