@@ -354,7 +354,6 @@
       display: flex;
       flex-direction: column;
       padding: 32px 28px;
-      border-right: 1px solid var(--line);
       height: 100vh;
       overflow-y: auto;
       overflow-x: hidden;
@@ -575,26 +574,9 @@
       <video autoplay loop muted playsinline><source src="logo.mp4" type="video/mp4"></video>
     </div>
   </div>
-  <!-- MID: work + experiment 탭 -->
+  <!-- MID: work / experiment 그리드 -->
   <div class="exp-col-mid">
-    <!-- 탭 네비 -->
-    <div class="exp-tab-nav">
-      <div class="exp-tab-wrap" id="tab-work-wrap">
-        <button class="exp-tab active" id="tab-work">Work</button>
-        <div class="exp-cat-dropdown" id="cat-dropdown">
-          <button class="exp-cat-item" data-cat="all">All</button>
-          <button class="exp-cat-item" data-cat="artdirecting">Art Directing</button>
-          <button class="exp-cat-item" data-cat="uxui">UX/UI</button>
-          <button class="exp-cat-item" data-cat="Editorial">Editorial</button>
-          <button class="exp-cat-item" data-cat="Film">Film</button>
-          <button class="exp-cat-item" data-cat="Interaction">Interaction</button>
-        </div>
-      </div>
-      <button class="exp-tab" id="tab-experiment">Experiment</button>
-    </div>
-    <!-- Work 그리드 -->
     <div class="exp-grid" id="work-grid"></div>
-    <!-- Experiment 그리드 -->
     <div class="exp-grid" id="exp-grid" style="display:none;"></div>
   </div>
   <!-- RIGHT: hover 프리뷰 (숨김) -->
@@ -924,28 +906,36 @@ function buildExperimentGrid() {
   expViewBuilt = true;
 }
 
-// ── 탭 전환
+// ── 그리드 전환
 function setExpTab(tab) {
   var workGrid = document.getElementById('work-grid');
   var expGrid  = document.getElementById('exp-grid');
-  var tabWork  = document.getElementById('tab-work');
-  var tabExp   = document.getElementById('tab-experiment');
   if (tab === 'work') {
     workGrid.style.display = ''; expGrid.style.display = 'none';
-    tabWork.classList.add('active'); tabExp.classList.remove('active');
   } else {
     workGrid.style.display = 'none'; expGrid.style.display = '';
-    tabExp.classList.add('active'); tabWork.classList.remove('active');
     buildExperimentGrid();
   }
 }
 
-// ── Experiment 뷰 초기화
+// ── Work 뷰 초기화
 function buildExperiment() {
-  if (!expViewBuilt || document.getElementById('work-grid').innerHTML === '') {
-    buildWorkGrid('all');
-  }
+  buildWorkGrid('all');
   setExpTab('work');
+}
+
+// ── Experiment 전용 뷰
+function showWorkView(cat) {
+  hideAll();
+  layoutExperiment.classList.add('on');
+  buildWorkGrid(cat || 'all');
+  setExpTab('work');
+}
+
+function showExperimentOnlyView() {
+  hideAll();
+  layoutExperiment.classList.add('on');
+  setExpTab('experiment');
 }
 
 // 카테고리 드롭다운 클릭
@@ -956,14 +946,7 @@ document.getElementById('cat-dropdown').addEventListener('click', function(e) {
   setExpTab('work');
 });
 
-// 탭 클릭
-document.getElementById('tab-work').addEventListener('click', function() {
-  buildWorkGrid(currentCat);
-  setExpTab('work');
-});
-document.getElementById('tab-experiment').addEventListener('click', function() {
-  setExpTab('experiment');
-});
+// (탭 버튼 제거됨)
 
 // ── 프로젝트 열기
 function openProject(p) {
@@ -1002,8 +985,7 @@ document.getElementById('exp-back').addEventListener('click', function() { showL
 
 // ── Experiment 버튼
 document.getElementById('experiment-btn').addEventListener('click', function() {
-  showExperimentView();
-  setExpTab('experiment');
+  showExperimentOnlyView();
 });
 
 // ── Work 버튼 (클릭으로 드롭다운 토글)
@@ -1011,19 +993,23 @@ var workDropdown = document.getElementById('work-dropdown');
 document.getElementById('work-btn').addEventListener('click', function(e) {
   e.stopPropagation();
   var isOpen = workDropdown.style.display === 'block';
-  workDropdown.style.display = isOpen ? 'none' : 'block';
+  if (isOpen) {
+    workDropdown.style.display = 'none';
+    showWorkView('all');
+  } else {
+    workDropdown.style.display = 'block';
+  }
 });
 // 외부 클릭시 닫기
 document.addEventListener('click', function() { workDropdown.style.display = 'none'; });
-workDropdown.addEventListener('click', function(e) { e.stopPropagation(); });
 
-document.getElementById('work-dropdown').addEventListener('click', function(e) {
+// 드롭다운 내부 클릭
+workDropdown.addEventListener('click', function(e) {
+  e.stopPropagation();
   var btn = e.target.closest('.work-cat-item');
   if (!btn) return;
   workDropdown.style.display = 'none';
-  showExperimentView();
-  setExpTab('work');
-  buildWorkGrid(btn.dataset.cat);
+  showWorkView(btn.dataset.cat);
 });
 
 // ── 랜딩: 목록 렌더
