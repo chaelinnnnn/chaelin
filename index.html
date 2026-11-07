@@ -127,7 +127,17 @@
     /* 디테일 오른쪽 섹션 블록 */
     .detail-section-block {
       margin-bottom: 8px;
-      margin-top: 8px;
+      margin-top: 24px;
+    }
+    .detail-section-block .dlp-section-label {
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      margin-bottom: 6px;
+    }
+    .detail-section-block .dlp-section-text {
+      font-size: 13px;
+      color: #555;
+      line-height: 1.65;
     }
 
     /* 디테일 왼쪽 섹션들 */
@@ -352,6 +362,52 @@
     .exp-col-left::-webkit-scrollbar { width: 0; }
     .exp-back { cursor: url("cursor-hand.png") 16 16, pointer !important; }
 
+    /* 탭 네비 */
+    .exp-tab-nav {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      margin-bottom: 16px;
+      position: relative;
+    }
+    .exp-tab-wrap {
+      position: relative;
+    }
+    .exp-tab {
+      background: none; border: none; font-family: inherit;
+      font-size: 13px; font-weight: 700; color: #bbb;
+      padding: 0; cursor: url("cursor-hand.png") 16 16, pointer !important;
+      transition: color 0.15s;
+    }
+    .exp-tab.active { color: #000; }
+    .exp-tab:hover { color: #000; }
+
+    /* 카테고리 드롭다운 */
+    .exp-cat-dropdown {
+      display: none;
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 0;
+      background: #fff;
+      border: 1px solid #e8e8e8;
+      border-radius: 8px;
+      padding: 6px 0;
+      z-index: 100;
+      min-width: 160px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    }
+    .exp-tab-wrap:hover .exp-cat-dropdown { display: block; }
+    .exp-cat-item {
+      display: block; width: 100%;
+      background: none; border: none; font-family: inherit;
+      font-size: 12px; color: #555; text-align: left;
+      padding: 7px 16px;
+      cursor: url("cursor-hand.png") 16 16, pointer !important;
+      transition: background 0.1s, color 0.1s;
+    }
+    .exp-cat-item:hover { background: #f5f5f5; color: #000; }
+    .exp-cat-item.active { font-weight: 700; color: #000; }
+
     .exp-col-mid {
       height: 100vh;
       overflow-y: auto;
@@ -400,12 +456,12 @@
     }
 
     .exp-grid {
-      columns: 2;
-      column-gap: 10px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
     }
     .exp-card {
       break-inside: avoid;
-      margin-bottom: 10px;
       cursor: url("cursor-hand.png") 16 16, pointer !important;
     }
     .exp-card:hover { opacity: 0.8; }
@@ -508,9 +564,27 @@
       <video autoplay loop muted playsinline><source src="logo.mp4" type="video/mp4"></video>
     </div>
   </div>
-  <!-- MID: experiment 그리드 -->
+  <!-- MID: work + experiment 탭 -->
   <div class="exp-col-mid">
-    <div class="exp-grid" id="exp-grid"></div>
+    <!-- 탭 네비 -->
+    <div class="exp-tab-nav">
+      <div class="exp-tab-wrap" id="tab-work-wrap">
+        <button class="exp-tab active" id="tab-work">Work</button>
+        <div class="exp-cat-dropdown" id="cat-dropdown">
+          <button class="exp-cat-item" data-cat="all">All</button>
+          <button class="exp-cat-item" data-cat="artdirecting">Art Directing</button>
+          <button class="exp-cat-item" data-cat="uxui">UX/UI</button>
+          <button class="exp-cat-item" data-cat="Editorial">Editorial</button>
+          <button class="exp-cat-item" data-cat="Film">Film</button>
+          <button class="exp-cat-item" data-cat="Interaction">Interaction</button>
+        </div>
+      </div>
+      <button class="exp-tab" id="tab-experiment">Experiment</button>
+    </div>
+    <!-- Work 그리드 -->
+    <div class="exp-grid" id="work-grid"></div>
+    <!-- Experiment 그리드 -->
+    <div class="exp-grid" id="exp-grid" style="display:none;"></div>
   </div>
   <!-- RIGHT: hover 프리뷰 (랜딩과 공유) -->
   <div class="exp-col-right" id="exp-col-right">
@@ -761,31 +835,24 @@ function buildDetail(p) {
   detailGrid.innerHTML = html;
 }
 
-var expGridBuilt = false;
-// ── Experiment 뷰 빌드
-function buildExperiment() {
-  var grid = document.getElementById('exp-grid');
-  if (expGridBuilt) return; // 한 번만 빌드
-  if (!experimentProjects.length) {
-    grid.innerHTML = '<div style="color:#ccc;padding:20px;">No experiments yet</div>';
-    return;
-  }
-  grid.innerHTML = experimentProjects.map(function(p) {
-    var size = p.size || 'medium';
-    var thumb = '';
-    if (p.thumbnail && p.thumbnail.src) {
-      if (p.thumbnail.type === 'video') {
-        thumb = '<video autoplay loop muted playsinline><source src="' + p.thumbnail.src + '" type="video/mp4"></video>';
-      } else {
-        thumb = '<img src="' + p.thumbnail.src + '" alt="' + (p.title||'') + '">';
-      }
-    }
-    return '<div class="exp-card size-' + size + '" data-id="' + p.id + '">' +
-      '<div class="exp-thumb">' + thumb + '</div>' +
-      '<div class="exp-card-info"><div class="exp-card-title">' + (p.title||'') + '</div><div class="exp-card-type">' + (p.type||'') + '</div></div>' +
-    '</div>';
-  }).join('');
+var expViewBuilt = false;
 
+function makeThumb(p) {
+  if (!p.thumbnail || !p.thumbnail.src) return '';
+  if (p.thumbnail.type === 'video') {
+    return '<video autoplay loop muted playsinline><source src="' + p.thumbnail.src + '" type="video/mp4"></video>';
+  }
+  return '<img src="' + p.thumbnail.src + '" alt="' + (p.title||'') + '">';
+}
+
+function makeCard(p, dataAttr) {
+  return '<div class="exp-card" data-id="' + p.id + '" ' + (dataAttr||'') + '>' +
+    '<div class="exp-thumb">' + makeThumb(p) + '</div>' +
+    '<div class="exp-card-info"><div class="exp-card-title">' + (p.title||'') + '</div><div class="exp-card-type">' + (p.type||'') + '</div></div>' +
+  '</div>';
+}
+
+function attachCardEvents(grid, projects, usePreview) {
   var epWrap  = document.getElementById('exp-preview-wrap');
   var epEmpty = document.getElementById('exp-preview-empty');
   var epVideo = document.getElementById('exp-preview-video');
@@ -794,32 +861,98 @@ function buildExperiment() {
   var epType  = document.getElementById('exp-preview-type');
 
   grid.querySelectorAll('.exp-card').forEach(function(card) {
-    var proj = experimentProjects.find(function(p) { return p.id === card.dataset.id; });
+    var proj = projects.find(function(p) { return p.id === card.dataset.id; });
     if (!proj) return;
-
-    card.addEventListener('mouseenter', function() {
-      var thumb = proj.thumbnail;
-      if (!thumb || !thumb.src) return;
-      if (thumb.type === 'video') {
-        epVideo.src = thumb.src; epVideo.style.display = 'block'; epImg.style.display = 'none';
-      } else {
-        epImg.src = thumb.src; epImg.style.display = 'block'; epVideo.style.display = 'none';
-      }
-      epTitle.textContent = proj.title || '';
-      epType.textContent  = proj.type  || '';
-      epWrap.classList.add('on');
-      epEmpty.style.opacity = '0';
-    });
-    card.addEventListener('mouseleave', function() {
-      epWrap.classList.remove('on');
-      epEmpty.style.opacity = '1';
-    });
-    card.addEventListener('click', function() {
-      openProject(proj);
-    });
+    if (usePreview) {
+      card.addEventListener('mouseenter', function() {
+        var thumb = proj.thumbnail;
+        if (!thumb || !thumb.src) return;
+        if (thumb.type === 'video') {
+          epVideo.src = thumb.src; epVideo.style.display = 'block'; epImg.style.display = 'none';
+        } else {
+          epImg.src = thumb.src; epImg.style.display = 'block'; epVideo.style.display = 'none';
+        }
+        epTitle.textContent = proj.title || '';
+        epType.textContent  = proj.type  || '';
+        epWrap.classList.add('on');
+        epEmpty.style.opacity = '0';
+      });
+      card.addEventListener('mouseleave', function() {
+        epWrap.classList.remove('on');
+        epEmpty.style.opacity = '1';
+      });
+    }
+    card.addEventListener('click', function() { openProject(proj); });
   });
-  expGridBuilt = true;
 }
+
+// ── Work 그리드 필터
+var currentCat = 'all';
+function buildWorkGrid(cat) {
+  var grid = document.getElementById('work-grid');
+  var filtered = cat === 'all' ? allProjects : allProjects.filter(function(p) { return p.category === cat; });
+  grid.innerHTML = filtered.map(function(p) { return makeCard(p); }).join('');
+  attachCardEvents(grid, allProjects, true);
+  // 카테고리 버튼 active 표시
+  document.querySelectorAll('.exp-cat-item').forEach(function(btn) {
+    btn.classList.toggle('active', btn.dataset.cat === cat);
+  });
+  currentCat = cat;
+}
+
+// ── Experiment 그리드
+function buildExperimentGrid() {
+  var grid = document.getElementById('exp-grid');
+  if (expViewBuilt) return;
+  if (!experimentProjects.length) {
+    grid.innerHTML = '<div style="color:#ccc;padding:20px;">No experiments yet</div>';
+    expViewBuilt = true; return;
+  }
+  grid.innerHTML = experimentProjects.map(function(p) { return makeCard(p); }).join('');
+  attachCardEvents(grid, experimentProjects, true);
+  expViewBuilt = true;
+}
+
+// ── 탭 전환
+function setExpTab(tab) {
+  var workGrid = document.getElementById('work-grid');
+  var expGrid  = document.getElementById('exp-grid');
+  var tabWork  = document.getElementById('tab-work');
+  var tabExp   = document.getElementById('tab-experiment');
+  if (tab === 'work') {
+    workGrid.style.display = ''; expGrid.style.display = 'none';
+    tabWork.classList.add('active'); tabExp.classList.remove('active');
+  } else {
+    workGrid.style.display = 'none'; expGrid.style.display = '';
+    tabExp.classList.add('active'); tabWork.classList.remove('active');
+    buildExperimentGrid();
+  }
+}
+
+// ── Experiment 뷰 초기화
+function buildExperiment() {
+  if (!expViewBuilt || document.getElementById('work-grid').innerHTML === '') {
+    buildWorkGrid('all');
+  }
+  setExpTab('work');
+}
+
+// 카테고리 드롭다운 클릭
+document.getElementById('cat-dropdown').addEventListener('click', function(e) {
+  var btn = e.target.closest('.exp-cat-item');
+  if (!btn) return;
+  buildWorkGrid(btn.dataset.cat);
+  setExpTab('work');
+});
+
+// 탭 클릭
+document.getElementById('tab-work').addEventListener('click', function() {
+  buildWorkGrid(currentCat);
+  setExpTab('work');
+});
+document.getElementById('tab-experiment').addEventListener('click', function() {
+  setExpTab('experiment');
+});
 
 // ── 프로젝트 열기
 function openProject(p) {
