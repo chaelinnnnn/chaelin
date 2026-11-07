@@ -124,13 +124,10 @@
       margin-bottom: 20px;
     }
 
-    /* 디테일 오른쪽 상단 description */
-    .detail-desc-top {
-      font-size: 12px;
-      color: #555;
-      line-height: 1.65;
-      margin-bottom: 24px;
-      max-width: 640px;
+    /* 디테일 오른쪽 섹션 블록 */
+    .detail-section-block {
+      margin-bottom: 8px;
+      margin-top: 8px;
     }
 
     /* 디테일 왼쪽 섹션들 */
@@ -717,23 +714,8 @@ function buildDetail(p) {
   dlpDesc.textContent = desc;
   dlpDesc.style.display = desc ? '' : 'none';
 
-  // 섹션들
+  // 섹션 텍스트는 오른쪽에 표시 (왼쪽 패널 비움)
   dlpSections.innerHTML = '';
-  if (p.sections && p.sections.length) {
-    p.sections.forEach(function(s) {
-      if (!s.title && !s.desc) return;
-      var div = document.createElement('div');
-      var labelEl = document.createElement('div');
-      labelEl.className = 'dlp-section-label';
-      labelEl.textContent = s.title || '';
-      var textEl = document.createElement('div');
-      textEl.className = 'dlp-section-text';
-      textEl.textContent = s.desc || '';
-      div.appendChild(labelEl);
-      if (s.desc) div.appendChild(textEl);
-      dlpSections.appendChild(div);
-    });
-  }
 
   // 소형 썸네일 그리드 (전체 미디어 overview)
   var allMedia = [];
@@ -755,7 +737,7 @@ function buildDetail(p) {
     dlpThumbs.appendChild(div);
   });
 
-  // 오른쪽 대형 미디어 그리드
+  // 오른쪽 대형 미디어 + 섹션 텍스트
   var html = '';
   if (p.embedUrl) {
     html += '<div class="vimeo-box"><iframe src="' + p.embedUrl + '" allow="fullscreen"></iframe></div>';
@@ -764,6 +746,14 @@ function buildDetail(p) {
   media.forEach(function(m) { html += renderMediaItem(m, p.title); });
   if (p.sections) {
     p.sections.forEach(function(s) {
+      // 섹션 텍스트 (label + desc)
+      if (s.title || s.desc) {
+        html += '<div class="detail-section-block">';
+        if (s.title) html += '<div class="dlp-section-label">' + s.title + '</div>';
+        if (s.desc) html += '<div class="dlp-section-text">' + s.desc + '</div>';
+        html += '</div>';
+      }
+      // 섹션 미디어
       if (s.media) s.media.forEach(function(m) { html += renderMediaItem(m, s.title || p.title); });
       if (s.embedUrl) html += '<div class="vimeo-box"><iframe src="' + s.embedUrl + '" allow="fullscreen"></iframe></div>';
     });
