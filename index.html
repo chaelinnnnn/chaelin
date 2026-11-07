@@ -464,9 +464,9 @@
       cursor: url("cursor-hand.png") 16 16, pointer !important;
     }
     .exp-card:hover { opacity: 0.8; }
-    .exp-thumb { overflow: hidden; background: #f5f5f5; }
+    .exp-thumb { overflow: hidden; background: #f5f5f5; aspect-ratio: 4/3; }
     .exp-thumb img,
-    .exp-thumb video { width: 100%; height: auto; display: block; object-fit: cover; }
+    .exp-thumb video { width: 100%; height: 100%; display: block; object-fit: cover; }
     .exp-card-info { padding: 6px 0 2px; }
     .exp-card-title { font-size: 12px; font-weight: 600; }
     .exp-card-type { font-size: 11px; color: var(--gray); }
@@ -567,7 +567,8 @@
       <a class="left-link" href="https://www.linkedin.com/in/chaelinkim201" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
     </div>
     <div class="left-section" style="margin-top:4px;">
-      <button class="exp-back left-link" id="exp-back" style="background:none;border:none;font-family:inherit;padding:0;font-size:12px;font-weight:700;text-align:left;border-radius:0;color:#000;">← Work ↗</button>
+      <button class="exp-back left-link" id="exp-back-work" style="display:none;background:none;border:none;font-family:inherit;padding:0;font-size:12px;font-weight:700;text-align:left;border-radius:0;color:#000;">← Work ↗</button>
+      <button class="exp-back left-link" id="exp-back-experiment" style="display:none;background:none;border:none;font-family:inherit;padding:0;font-size:12px;font-weight:700;text-align:left;border-radius:0;color:#000;">← Experiment ↗</button>
     </div>
     <div class="left-spacer"></div>
     <div class="logo-wrap" style="margin-bottom:0;">
@@ -930,12 +931,16 @@ function showWorkView(cat) {
   layoutExperiment.classList.add('on');
   buildWorkGrid(cat || 'all');
   setExpTab('work');
+  document.getElementById('exp-back-work').style.display = '';
+  document.getElementById('exp-back-experiment').style.display = 'none';
 }
 
 function showExperimentOnlyView() {
   hideAll();
   layoutExperiment.classList.add('on');
   setExpTab('experiment');
+  document.getElementById('exp-back-work').style.display = 'none';
+  document.getElementById('exp-back-experiment').style.display = '';
 }
 
 // 카테고리 드롭다운 클릭
@@ -981,7 +986,8 @@ pwInput.addEventListener('keydown', function(e) { if (e.key === 'Enter') documen
 // ── 뒤로가기
 document.getElementById('dlp-back').addEventListener('click', function() { showLanding(); });
 document.getElementById('detail-logo').addEventListener('click', function() { showLanding(); });
-document.getElementById('exp-back').addEventListener('click', function() { showLanding(); });
+document.getElementById('exp-back-work').addEventListener('click', function() { showLanding(); });
+document.getElementById('exp-back-experiment').addEventListener('click', function() { showLanding(); });
 
 // ── Experiment 버튼
 document.getElementById('experiment-btn').addEventListener('click', function() {
