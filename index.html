@@ -341,10 +341,10 @@
       to   { transform: translateY(100px) rotate(180deg) scale(0); opacity: 0; }
     }
 
-    /* ===== Experiment 뷰 (3컬럼) ===== */
+    /* ===== Experiment 뷰 (2컬럼) ===== */
     .layout-experiment {
       display: none;
-      grid-template-columns: 220px 1fr 1fr;
+      grid-template-columns: 220px 1fr;
       height: 100vh;
       overflow: hidden;
     }
@@ -514,6 +514,17 @@
       <a class="left-link" href="https://www.linkedin.com/in/chaelinkim201" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
     </div>
     <div class="left-section" style="margin-top:4px;">
+      <div style="position:relative;display:inline-block;" id="work-wrap">
+        <button id="work-btn" class="left-link" style="background:none;border:none;font-family:inherit;padding:0;font-size:12px;font-weight:700;text-align:left;">Work ↗</button>
+        <div id="work-dropdown" style="display:none;position:absolute;left:0;top:calc(100% + 8px);background:#fff;border:1px solid #e8e8e8;border-radius:8px;padding:6px 0;z-index:100;min-width:160px;box-shadow:0 4px 16px rgba(0,0,0,0.08);">
+          <button class="work-cat-item" data-cat="all" style="display:block;width:100%;background:none;border:none;font-family:inherit;font-size:12px;color:#555;text-align:left;padding:7px 16px;cursor:pointer;">All</button>
+          <button class="work-cat-item" data-cat="artdirecting" style="display:block;width:100%;background:none;border:none;font-family:inherit;font-size:12px;color:#555;text-align:left;padding:7px 16px;cursor:pointer;">Art Directing</button>
+          <button class="work-cat-item" data-cat="uxui" style="display:block;width:100%;background:none;border:none;font-family:inherit;font-size:12px;color:#555;text-align:left;padding:7px 16px;cursor:pointer;">UX/UI</button>
+          <button class="work-cat-item" data-cat="Editorial" style="display:block;width:100%;background:none;border:none;font-family:inherit;font-size:12px;color:#555;text-align:left;padding:7px 16px;cursor:pointer;">Editorial</button>
+          <button class="work-cat-item" data-cat="Film" style="display:block;width:100%;background:none;border:none;font-family:inherit;font-size:12px;color:#555;text-align:left;padding:7px 16px;cursor:pointer;">Film</button>
+          <button class="work-cat-item" data-cat="Interaction" style="display:block;width:100%;background:none;border:none;font-family:inherit;font-size:12px;color:#555;text-align:left;padding:7px 16px;cursor:pointer;">Interaction</button>
+        </div>
+      </div>
       <button id="experiment-btn" class="left-link" style="background:none;border:none;font-family:inherit;padding:0;font-size:12px;font-weight:700;text-align:left;">Experiment ↗</button>
     </div>
     <div class="left-spacer"></div>
@@ -586,8 +597,8 @@
     <!-- Experiment 그리드 -->
     <div class="exp-grid" id="exp-grid" style="display:none;"></div>
   </div>
-  <!-- RIGHT: hover 프리뷰 (랜딩과 공유) -->
-  <div class="exp-col-right" id="exp-col-right">
+  <!-- RIGHT: hover 프리뷰 (숨김) -->
+  <div class="exp-col-right" id="exp-col-right" style="display:none;">
     <div class="preview-empty" id="exp-preview-empty">—</div>
     <div class="preview-wrap" id="exp-preview-wrap">
       <div class="preview-media">
@@ -892,7 +903,7 @@ function buildWorkGrid(cat) {
   var grid = document.getElementById('work-grid');
   var filtered = cat === 'all' ? allProjects : allProjects.filter(function(p) { return p.category === cat; });
   grid.innerHTML = filtered.map(function(p) { return makeCard(p); }).join('');
-  attachCardEvents(grid, allProjects, true);
+  attachCardEvents(grid, allProjects, false);
   // 카테고리 버튼 active 표시
   document.querySelectorAll('.exp-cat-item').forEach(function(btn) {
     btn.classList.toggle('active', btn.dataset.cat === cat);
@@ -909,7 +920,7 @@ function buildExperimentGrid() {
     expViewBuilt = true; return;
   }
   grid.innerHTML = experimentProjects.map(function(p) { return makeCard(p); }).join('');
-  attachCardEvents(grid, experimentProjects, true);
+  attachCardEvents(grid, experimentProjects, false);
   expViewBuilt = true;
 }
 
@@ -992,6 +1003,26 @@ document.getElementById('exp-back').addEventListener('click', function() { showL
 // ── Experiment 버튼
 document.getElementById('experiment-btn').addEventListener('click', function() {
   showExperimentView();
+  setExpTab('experiment');
+});
+
+// ── Work 버튼 (호버 드롭다운 + 클릭 전체)
+var workWrap = document.getElementById('work-wrap');
+var workDropdown = document.getElementById('work-dropdown');
+workWrap.addEventListener('mouseenter', function() { workDropdown.style.display = 'block'; });
+workWrap.addEventListener('mouseleave', function() { workDropdown.style.display = 'none'; });
+document.getElementById('work-btn').addEventListener('click', function() {
+  showExperimentView();
+  setExpTab('work');
+  buildWorkGrid('all');
+});
+document.getElementById('work-dropdown').addEventListener('click', function(e) {
+  var btn = e.target.closest('.work-cat-item');
+  if (!btn) return;
+  workDropdown.style.display = 'none';
+  showExperimentView();
+  setExpTab('work');
+  buildWorkGrid(btn.dataset.cat);
 });
 
 // ── 랜딩: 목록 렌더
